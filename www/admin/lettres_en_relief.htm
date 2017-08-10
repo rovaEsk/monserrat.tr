@@ -1,6 +1,5 @@
-<!-- BEGIN Plaques_professionnellesIndex -->
+<!-- BEGIN Lettres_en_reliefIndex -->
 	$TemplateCommunHeader   
-    
 		<!-- DEBUT PAGE HEADER-->
 			<div class="row">
     			<div class="col-md-12">
@@ -18,7 +17,7 @@
 						    </li>
 						    <li>
 						    	<a href="$lienpagebase">                        
-						        	$multilangue[plaques_professionnelles]
+						        	$multilangue[lettres_en_relief]
 						        </a>						        
 						    </li>						    
 						</ul>
@@ -26,8 +25,8 @@
     			</div>
 			</div>
 		<!-- FIN PAGE HEADER-->
-                
-		<!-- BEGIN Plaques_professionnellesModuleBit -->
+                 
+		<!-- BEGIN Lettres_en_reliefModuleBit -->
         <div class="row">
 			<div class="col-md-12">		
 				<form method="post" action=""  name="formmodule$titre_module" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
@@ -91,49 +90,43 @@
 									</div>
                                     <!-- DEBUT FORM PRIX -->
                                     
-                                    <!-- BEGIN Plaques_professionnellesModulePrixBit -->
+                                    <!-- BEGIN Lettres_en_reliefModulePrixBit -->
                             		<div class="form-group">
-										<label class="control-label col-md-4">
-											<select style="display:none;" class="form-control input-inline" name="categorieDimesion_$idPlaqueProID" id="categorie_regle_prix" style="width:40%">
-                                                <option value="0">Aucun</option>
-                                                <!-- BEGIN Plaques_professionnellesModuleCategorieDimensionListBit -->
-                                                <option value="$categorieDimensionProduitId" $selectedOption>$categorieDimensionprix</option>
-                                                <!-- END Plaques_professionnellesModuleCategorieDimensionListBit --> 
-                                            </select>
-											$dimensionLongHaut
-                                        </label>
-										<div class="col-md-8 form-inline">
-                                            <input type="hidden" name="prixmodule$idPlaqueProID" value="$idPlaqueProID"/> 
-                                            <input type="text" class="form-control input-inline input prixmodulettc prixmodulettc_$idPlaqueProID" name="prixmodulettc_$idPlaqueProID" placeholder="0.00" id="prixmodulettc_$idPlaqueProID" data-site="$site[siteid]" value="$prixmoduleTTC" style="width:15%"/>
-											$sitesDevise $multilangue[ttc] $multilangue[soit] 
-											<input type="text" class="form-control input-inline input prixmodulehtc prixmodulehtc_$idPlaqueProID" name="prixmodulehtc_$idPlaqueProID" placeholder="0.00" id="prixmodulehtc_$idPlaqueProID" data-site="$site[siteid]" value="$prixmoduleHTC" style="width:15%"/>
-											$sitesDevise $multilangue[ht]
-                                            <select style="display:none;" class="form-control input-inline" name="categorieregleprix_$idPlaqueProID" id="categorie_regle_prix" style="width:40%">
-                                                <option value="0">Aucun</option>
-                                                <!-- BEGIN Plaques_professionnellesModuleCategoriePrixListBit -->
-                                                <option value="$categorieRegleProduitId" $selectedOption>$categorieregleprix</option>
-                                                <!-- END Plaques_professionnellesModuleCategoriePrixListBit --> 
-                                            </select>
-											$categorieregleprixnom
+										<label class="control-label col-md-3"></label>
+										
+										<div class="col-md-9 form-inline">
+											<select class="form-control input-inline" name="categorieregleprix_$moduleprixid" id="categorie_regle_prix_$moduleprixid" style="width:30%">
+	                                            <!-- BEGIN Lettres_en_reliefModulePrixCategorieBit -->
+	                                            <option value="$lettreMatiereId" $selectedOption>$lettreMatiereNom</option>
+	                                            <!-- END Lettres_en_reliefModulePrixCategorieBit --> 
+	                                        </select>
+                                            <input type="hidden" name="prixmodule$moduleprixid" value="$moduleprixid"/> 
+                                            <input type="hidden" name="couleur_$moduleprixid" value="$couleur"/> 
+											
+											<input type="number" step=0.01 class="form-control input-inline input epaisseur epaisseur_$moduleprixid" name="epaisseur_$moduleprixid" placeholder="0.00" id="epaisseur_$moduleprixid" data-site="$site[siteid]" style="width:80px" value="$epaisseur"/>
+											 mm
+											<input type="text" class="form-control input-inline input prixmodulehtc prixmodulehtc_$moduleprixid" name="prixmodulehtc_$moduleprixid" placeholder="0.00" id="prixmodulehtc_$moduleprixid" data-site="$site[siteid]" style="width:100px" value="$prixmoduleHTC"/>
+											$sitesDevise $multilangue[ht] $multilangue[soit] 
+											<input type="text" class="form-control input-inline input prixmodulettc prixmodulettc_$moduleprixid" name="prixmodulettc_$moduleprixid" placeholder="0.00" id="prixmodulettc_$moduleprixid" data-site="$site[siteid]" style="width:100px" value="$prixmoduleTTC"/>
+											$sitesDevise $multilangue[ttc]
 										</div>
 									</div>
-                                    <!-- END Plaques_professionnellesModulePrixBit -->
+                                    <!-- END Lettres_en_reliefModulePrixBit -->
                                     <script type="text/javascript">
                                         /** ----- add regle_prix ------ **/
                                         function addReglePrix(){
                                             console.log("load");
-                                            var url = "plaques_professionnelles_ajax.php";
+                                            var url = "lettres_en_relief_ajax.php";
                                             var action = "add_regle_prix";
-                                            var new_regle_prix = $( "input[name*='new_regle_prix']" ).val();
+                                            var categorie_matiere = $("#categorie_matiere").val();
+                                            var new_epaisseur = $( "input[name*='new_epaisseur']" ).val();
                                             var new_prixmodulehtc = $( "input[name*='new_prixmodulehtc']" ).val();
-                                            var categorie_regle_prix = $("#categorie_regle_prix").val();
-                                            var categorie_dimension_prix = $("#categorie_dimension_prix").val();
                                 			var data = 'action='+action+'&';
-                                		    		data += 'new_regle_prix='+new_regle_prix+'&';
+                                		    		data += 'categorie_matiere='+categorie_matiere+'&';
+                                                    data += 'new_epaisseur='+new_epaisseur+'&';
                                                     data += 'new_prixmodulehtc='+new_prixmodulehtc+'&';
-                                                    data += 'categorie_regle_prix='+categorie_regle_prix+'&';
-                                                    data += 'categorie_dimension_prix='+categorie_dimension_prix+'&';
-                                                    data += 'id_module=7&';
+                                                    data += 'id_module=4&';
+                                                    //alert(data);
                                 		    		$.ajax({
                                 						url : url,
                                 						type : 'POST',
@@ -148,28 +141,25 @@
                                         }
                                         /** ----- add regle_prix ------ **/
                                     </script>
-                                    <div class="form-group add_price_rule" style="display:none">
+                                    <div class="form-group">
                                         <label class="control-label col-md-3">Ajouter une regle de prix</label>
 										<div class="col-md-9 form-inline">
-                                        	<select class="form-control input-inline" id="categorie_dimension_prix" style="width:20%">
-                                                <option value="0">Aucun</option>
-                                                <!-- BEGIN Plaques_professionnellesModuleCategorieDimensionBit -->
-                                                <option value="$categorieDimensionProduitId">$categorieDimensionPrix</option>
-                                                <!-- END Plaques_professionnellesModuleCategorieDimensionBit --> 
+                                        	<!--<input type="text" class="form-control" placeholder="regle de prix" name="new_regle_prix" value=""/>--> 
+                                        	<select class="form-control input-inline" id="categorie_matiere" style="width:30%">
+                                                <!-- BEGIN Lettres_en_reliefModulePrixCategorieAjoutBit -->
+                                                <option value="$categorieMatiereId">$categorieMatiereNom</option>
+                                                <!-- END Lettres_en_reliefModulePrixCategorieAjoutBit --> 
                                             </select>
-											<input type="text" class="form-control input-inline input prixmodulettc" name="new_prixmodulettc" placeholder="0.00" id="prixmodulettc" data-site="$site[siteid]" value=""/>
-											$sitesDevise $multilangue[ttc] $multilangue[soit] 
-											<input type="text" class="form-control input-inline input prixmodulehtc" name="new_prixmodulehtc" placeholder="0.00" id="prixmodulehtc" data-site="$site[siteid]" value=""/>
-											$sitesDevise $multilangue[ht]   
-                                            <select class="form-control input-inline" id="categorie_regle_prix" style="width:25%">
-                                                <option value="0">Aucun</option>
-                                                <!-- BEGIN Plaques_professionnellesModuleCategoriePrixBit -->
-                                                <option value="$categorieRegleProduitId">$categorieregleprix</option>
-                                                <!-- END Plaques_professionnellesModuleCategoriePrixBit --> 
-                                            </select>
-                                            <a href="javascript:void(0)" onclick="addReglePrix()" class="btn green"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
-                                        </div>
+                                            <input type="number" step=0.01 class="form-control input-inline input epaisseur" name="new_epaisseur" placeholder="0.00" id="new_epaisseur" data-site="$site[siteid]" style="width:80px" value="3.00"/>
+											 mm
+											<input type="text" class="form-control input-inline input prixmodulehtc" name="new_prixmodulehtc" placeholder="0.00" id="prixmodulehtc" data-site="$site[siteid]" style="width:100px" value=""/>
+											$sitesDevise $multilangue[ht] $multilangue[soit]
+											<input type="text" class="form-control input-inline input prixmodulettc" name="new_prixmodulettc" placeholder="0.00" id="prixmodulettc" data-site="$site[siteid]" style="width:100px" value=""/>
+											$sitesDevise $multilangue[ttc] 
+                                            <a href="javascript:void(0)" onclick="addReglePrix()" class="btn green"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+										</div>
     								</div>
+              
                                     <!--  FIN FORM PRIX  -->	
 								</div>												
 						  </div>
@@ -181,19 +171,18 @@
 				<!-- FIN FORM-->			
 	           </div>
         </div>
-		<!-- END Plaques_professionnellesModuleBit -->
+		<!-- END Lettres_en_reliefModuleBit -->
 	
     $TemplateCommunFooter
 <script>
 	jQuery(document).ready(function() {
 		App.init();	// initlayout and core plugins
-        
         /** ----- set PRIX TTC ----- **/
       $('input.prixmodulehtc').each(function(){
             $(this).on('input keyup', function(){
                 if($(this).val() != ""){
                     var prixHTC      = parseFloat($(this).val().replace(',','.')).toFixed(2) ;
-                    var inputPrixTTC = $(this).prev();
+                    var inputPrixTTC = $(this).next();
                     var tauxTVA = parseFloat( $('input.tauxtva').val().replace(',','.') ).toFixed(2);
                     var prixPourcentageTTC = parseFloat(( prixHTC * tauxTVA ) / 100).toFixed(2);
                     var newPrixTTC = parseFloat((+prixHTC) + (+prixPourcentageTTC)).toFixed(2);
@@ -211,7 +200,7 @@
             $(this).on('input keyup', function(){
                 if($(this).val() != ""){
                     var prixTTC      = parseFloat($(this).val().replace(',','.')).toFixed(2) ;
-                    var inputPrixHTC =  $(this).next();
+                    var inputPrixHTC =  $(this).prev();
                     var tauxTVA = parseFloat( $('input.tauxtva').val().replace(',','.') ).toFixed(2)  ;
                     var prixPourcentageHTC = parseFloat(( prixTTC * tauxTVA ) / 100).toFixed(2);
                     var newPrixHTC   =  parseFloat( prixTTC-prixPourcentageHTC).toFixed(2);
@@ -226,5 +215,5 @@
 	});
 </script>
 
-<!-- END Plaques_professionnellesIndex -->
+<!-- END Lettres_en_reliefIndex -->
 
