@@ -1,0 +1,503 @@
+<!-- BEGIN Carrousel_administrableIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[carrousel_administrable]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="carrousel_administrable.php">						
+								$multilangue[carrousel_administrable]
+							</a>
+						</li>
+						<!-- BEGIN Carrousel_administrableNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Carrousel_administrableNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Carrousel_administrableSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Carrousel_administrableSuccess -->
+			
+			<!-- BEGIN Carrousel_administrableErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Carrousel_administrableErreur -->
+			
+			<!-- BEGIN Carrousel_administrableInfo -->
+				<div class="alert alert-info alert-dismissable">
+					$texteInfo
+				</div>
+			<!-- END Carrousel_administrableInfo -->
+			
+			<!-- BEGIN Carrousel_administrableListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">											
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box $classcolor_site_principal">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[carrousel_administrable] <i>$libelle_site_principal</i>											
+											</div>																															
+										</div>
+										<div class="portlet-body">
+											<div class="table-responsive">
+												<table id="tabdiapositive" class="table table-striped table-bordered table-diapositive table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[diapositive]
+															</th>
+															<th class="ta-center">
+																$multilangue[contenu]
+															</th>
+															<th class="ta-center">
+																$multilangue[nom]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN Carrousel_administrableListeBit -->
+															<tr id="$diapositive[diapositiveid]">
+																<td class="highlight ta-center">
+																		$i
+																</td>
+																<td class="ta-center">
+																	<!-- BEGIN Carrousel_administrableListeBitImage -->
+																		<div style="width: $width; height: $height; margin: auto;" data-trigger="fileinput" class="fileinput-preview thumbnail">
+																			<img src="$img" alt=""></img>
+																		</div>
+																	<!-- END Carrousel_administrableListeBitImage -->
+																	<!-- BEGIN Carrousel_administrableListeBitArticles -->
+																		$multilangue[article_s]
+																	<!-- END Carrousel_administrableListeBitArticles -->
+																	<!-- BEGIN Carrousel_administrableListeBitDescription -->
+																		HTML
+																	<!-- END Carrousel_administrableListeBitDescription -->
+																</td>
+																<td class="ta-center">
+																	$diapositive[nomdiapo]
+																</td>
+																<td class="ta-center">
+																	<a href="carrousel_administrable.php?action=modifier&diapositiveid=$diapositive[diapositiveid]&diapositivesiteid=1" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-edit fs-18 font-blue"></i>
+																	</a>
+																	<a href="#myModal$diapositive[diapositiveid]" id="btn_suppr$diapositive[diapositiveid]&diapositivesiteid=1" data-original-title="$multilangue[remise_a_zero]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																		<i class="fa fa-trash-o fs-18 font-red"></i>
+																	</a>
+																	<div aria-hidden="true" aria-labelledby="myModalLabe$diapositive[diapositiveid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$diapositive[diapositiveid]" style="display: none;">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																					<h4 class="modal-title">$multilangue[remettre_diapositive] "$diapositive[nomdiapo]" $multilangue[a_zero] ?</h4>
+																				</div>
+																				<div class="modal-body">																					
+																					$multilangue[remettre_diapo_zero]
+																				</div>
+																				<div class="modal-footer">
+																					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																					<a href="carrousel_administrable.php?action=vider&diapositiveid=$diapositive[diapositiveid]&diapositivesiteid=1" class="btn blue">$multilangue[oui], $multilangue[remettre_a_zero]</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														<!-- END Carrousel_administrableListeBit -->												
+													</tbody>
+												</table>												
+											</div>																			
+										</div>
+									</div>
+									<!-- BEGIN Carrousel_administrableListeSite -->
+									<div class="portlet box $site[classcolor]">
+					                	<div class="portlet-title">
+					                    	<div class="caption">					                    		
+												$multilangue[carrousel_administrable] <i>$site[libelle]</i>
+					                        </div>
+					                        <div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>
+					                	</div>
+					                    <div class="portlet-body" style="display:none;">
+											<div class="table-responsive">
+												<table id="tabdiapositive" class="table table-striped table-bordered table-diapositive table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[diapositive]
+															</th>
+															<th class="ta-center">
+																$multilangue[contenu]
+															</th>
+															<th class="ta-center">
+																$multilangue[description]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN Carrousel_administrableListeSiteBit -->
+															<tr id="$diapositive[diapositiveid]">
+																<td class="highlight ta-center">
+																		$i
+																</td>
+																<td class="ta-center">
+																	<!-- BEGIN Carrousel_administrableListeSiteBitImage -->
+																		<div style="width: $width; height: $height; margin: auto;" data-trigger="fileinput" class="fileinput-preview thumbnail">
+																			<img src="$img" alt=""></img>
+																		</div>
+																	<!-- END Carrousel_administrableListeSiteBitImage -->
+																	<!-- BEGIN Carrousel_administrableListeSiteBitArticles -->
+																		$multilangue[article_s]
+																	<!-- END Carrousel_administrableListeSiteBitArticles -->
+																	<!-- BEGIN Carrousel_administrableListeSiteBitHtml -->
+																		HTML
+																	<!-- END Carrousel_administrableListeSiteBitHtml -->
+																</td>
+																<td class="ta-center">
+																	$diapositive[nomdiapo]
+																</td>
+																<td class="ta-center">
+																	<a href="carrousel_administrable.php?action=modifier&diapositiveid=$diapositive[diapositiveid]&diapositivesiteid=$site[siteid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-edit fs-18 font-blue"></i>
+																	</a>
+																	<a href="#myModal$diapositive[diapositiveid]" id="btn_suppr$diapositive[diapositiveid]&diapositivesiteid=$site[siteid]" data-original-title="$multilangue[remise_a_zero]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																		<i class="fa fa-trash-o fs-18 font-red"></i>
+																	</a>
+																	<div aria-hidden="true" aria-labelledby="myModalLabe$diapositive[diapositiveid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$diapositive[diapositiveid]" style="display: none;">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																					<h4 class="modal-title">$multilangue[remettre_diapositive] "$diapositive[nomdiapo]" $multilangue[a_zero] ?</h4>
+																				</div>
+																				<div class="modal-body">																					
+																					$multilangue[remettre_diapo_zero]
+																				</div>
+																				<div class="modal-footer">
+																					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																					<a href="carrousel_administrable.php?action=vider&diapositiveid=$diapositive[diapositiveid]&diapositivesiteid=$site[siteid]" class="btn blue">$multilangue[oui], $multilangue[remettre_a_zero]</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														<!-- END Carrousel_administrableListeSiteBit -->												
+													</tbody>
+												</table>												
+											</div>												
+					                	</div>
+					                </div>
+					            	<!-- END Carrousel_administrableListeSite -->															
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END Carrousel_administrableListe -->
+			
+			<!-- BEGIN Carrousel_administrableModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box $site_modif[classcolor]">
+										<div class="portlet-title">
+											<div class="caption">
+												$texte_entete
+											</div>																				
+										</div>
+										<div class="portlet-body form">
+											<!-- DEBUT FORM-->														
+											<form action="$_SERVER[PHP_SELF]" name="formModifDiapostive" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+												<input type="hidden" name="action" value="modifier2">
+												<input type="hidden" name="diapositiveid" value="$diapositive[diapositiveid]">
+												<input type="hidden" name="diapositivesiteid" value="$diapositivesiteid">										
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-body">	
+													<!-- BEGIN Carrousel_administrableModificationDefautBit -->												
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[nom]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="nomdiapo" value="$diapositive[nomdiapo]" required/>
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[background]</label>
+														<div class="col-md-10">	
+															<div data-provides="fileinput" class="fileinput fileinput-new">
+																<div style="width: $widthbg; height: $heightbg;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$imgbg" alt=""></div>
+																<div>
+																	<span class="btn default btn-file">
+																		<span class="fileinput-new">$multilangue[selectionner]</span>
+																		<span class="fileinput-exists">$multilangue[modification]</span>
+																		<input type="file" name="imagebg">
+																	</span>
+																	<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+																</div>
+															</div>																													
+														</div>
+														<label class="control-label col-md-2">Utiliser le background par défaut de la boutique</label>
+														<div class="col-md-10">
+															<input type="checkbox" data-off-label="&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[non]&nbsp;&nbsp;&nbsp;&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checked_background_defaut class="make-switch" name="background_defaut" value="1">
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[type]</label>
+														<div class="clearfix col-md-10">
+															<div class="btn-group" data-toggle="buttons">
+															<label class="btn blue $typeactiveArticle">
+																	<input type="radio" class="toggle checkbox_type" value="0" name="type_diapo" $typecheckedArticle> $multilangue[articles] 
+																</label>
+																<label class="btn blue $typeactiveImage">
+																	<input type="radio" class="toggle checkbox_type" value="1" name="type_diapo" $typecheckedImage> $multilangue[image]
+																</label>
+																<label class="btn blue $typeactiveHtml">
+																	<input type="radio" class="toggle checkbox_type" value="2" name="type_diapo" $typecheckedHtml> HTML 
+																</label>
+															</div>
+														</div>
+													</div>
+													<div id="carrouselHtml" style="display: $displayHtml;">
+														<div class="form-group">
+															<label class="control-label col-md-2">HTML</label>
+															<div class="col-md-10">
+																<textarea name="texte_html" class="form-control" $disabled>$diapositive[description]</textarea>
+															</div>
+														</div>
+													</div>
+													<div id="carrouselImage" style="display: $displayImage;">
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[image]</label>
+															<div class="col-md-10">
+																<div data-provides="fileinput" class="fileinput fileinput-new">
+																	<div style="width: $width; height: $height;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img" alt=""></div>
+																	<div>
+																		<span class="btn default btn-file">
+																			<span class="fileinput-new">$multilangue[selectionner]</span>
+																			<span class="fileinput-exists">$multilangue[modification]</span>
+																			<input type="file" name="image">
+																		</span>
+																		<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[lien]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control info" name="lien" value="$lien" data-trigger="focus" data-placement="top" data-content="$multilangue[texte_info_saisie_urls]"/>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[ouvrir_lien_dans]</label>
+															<div class="col-md-10">
+																<input type="checkbox" data-off-label="&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[meme_page]&nbsp;&nbsp;&nbsp;&nbsp;" data-on-label="&nbsp;$multilangue[nouvelle_page]&nbsp;" $checked class="make-switch" name="blank" value="1">
+															</div>
+														</div>
+													</div>
+													<div id="carrouselArticles" style="display: $displayArticles;">
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[selection_articles] ($multilangue[maximum_diminutif] $params[nombre_article_diapositive])</label>
+															<div class="col-md-10">																														
+																<input id="searchArticle" name="searchArticle" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+																<div id="choixarticle">$choixarticle</div>
+															</div>
+														</div>
+														<!-- BEGIN Carrousel_administrableModificationDefautBitPositionArticles -->
+														<div class="form-group">
+															<div class="table-responsive">
+																<table id="tabarticle" class="table table-striped table-bordered table-article table-hover">
+																	<thead>
+																		<tr>
+																			<th class="ta-center">
+																				$multilangue[libelle]
+																			</th>
+																			<th class="ta-center">
+																				$multilangue[reference]
+																			</th>
+																			<th class="ta-center">
+																				$multilangue[position]
+																			</th>
+																			<th class="ta-center">
+																				$multilangue[actions]
+																			</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																	<!-- BEGIN Carrousel_administrableModificationDefautBitPositionArticlesBit -->
+																		<tr id="$article[artid]">
+																			<td class="ta-center">
+																				$article[libelle]
+																			</td>
+																			<td class="ta-center">
+																				$article[artcode]
+																			</td>
+																			<td class="ta-center">
+																				$article[position]
+																			</td>
+																			<td class="ta-center">
+																				<a href="carrousel_administrable.php?action=supprimerarticle&artid=$article[artid]&diapositiveid=$diapositiveid&diapositivesiteid=$diapositivesiteid">
+																					<i class="fa fa-trash-o fs-18 font-red"></i>
+																				</a>
+																			</td>
+																		</tr>
+																	<!-- END Carrousel_administrableModificationDefautBitPositionArticlesBit -->
+																	</tbody>
+																</table>
+															</div>
+														</div>
+														<!-- END Carrousel_administrableModificationDefautBitPositionArticles -->
+													</div>
+												</div>					                    
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-- FIN FORM-->
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END Carrousel_administrableModification -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('searchArticle', 'choixarticle', 'articleTab', 'search_result_autocomplete.php?type=article', 'multiple');
+	$(document).ready(function() {	
+		var ordreDepart;
+		$('.table-diapositive > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=carrousel_administrable_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+		$('.table-article > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=carrousel_administrable_positionsarticles&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+		$('.checkbox_type').on('change', function () {
+			switch($(this).attr("value")){
+				case '2':
+					$('#carrouselHtml').show();
+					$('#carrouselImage').hide();
+					$('#carrouselArticles').hide();
+					break;
+				case '1':
+					$('#carrouselHtml').hide();
+					$('#carrouselImage').show();
+					$('#carrouselArticles').hide();
+					break;
+				case '0':
+					$('#carrouselHtml').hide();
+					$('#carrouselImage').hide();
+					$('#carrouselArticles').show();
+					break;
+			}
+			
+			$('form').validate();
+		});
+		$('.info').popover({html: true, container: "body"});
+	});
+</script>
+
+<!-- END Carrousel_administrableIndex -->

@@ -1,0 +1,355 @@
+<!-- BEGIN InventaireIndex -->
+	$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[inventaire]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							$multilangue[inventaire]
+						</li>
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+		<!-- DEBUT PAGE CONTENT -->
+			<!-- BEGIN InventaireListe -->
+				<div class="alert alert-info alert-dismissable ta-center">
+						$multilangue[produits_stock_illimite_pas_affiches]
+				</div>
+				<div class="alert alert-info alert-dismissable ta-center">
+					$multilangue[infos_modif_stock]
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+							<div class="portlet box purple">
+				            	<div class="portlet-title">
+				                	<div class="caption" >
+				                    	<i class="fa fa-cubes"></i>$multilangue[afficher_prix_site]
+				                    </div>
+				                </div>                        
+					            <div class="portlet-body">  
+				                	<select class="form-control select-site">
+					               		<!-- BEGIN InventaireListeSiteBit -->
+					                		<option value="$site[siteid]">$site[libelle]</option>														
+					                	<!-- END InventaireListeSiteBit -->
+									</select>
+									<input type="hidden" class="siteid" value="1">
+								</div>
+							</div>							
+					</div>
+					<div class="col-md-5">
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa fa-cubes"></i>$multilangue[filtrer_par_categories]
+			                    </div>
+			                    <div class="tools">
+			                    	<a href="javascript:;" class="expand"></a>                                
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body" style="display:none;">  
+								<div class="col-md-6">									
+									<div class="col-md-12 jstreecateg"></div>									
+									<input type="hidden" class="catids_coches" value="">									
+								</div>
+								<div class="clear"></div>
+							</div>							
+						</div>
+					</div>	
+					<div class="col-md-3">
+					<!-- BEGIN InventaireFournisseur -->     
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa fa-truck"></i>$multilangue[filtrer_par_fournisseurs]
+			                    </div>
+			                    <div class="tools">
+			                    	<a href="javascript:;" class="expand"></a>                                
+			                    </div>
+			                </div>
+			                                   
+				            <div class="portlet-body" style="display:none;">  
+								<div class="checkbox-list liste_fournisseur">
+									<!-- BEGIN InventaireListeFournisseur -->
+										<label class="">
+											<input class="chk_fournisseur" type="checkbox" value="$fournisseur[fournisseurid]" name="fournisseur[$fournisseur[fournisseurid]]">$fournisseur[libelle]
+										</label>
+									<!-- END InventaireListeFournisseur -->								
+									<input type="hidden" class="fournisseurid_coches" value="">
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					<!-- END InventaireFournisseur -->	
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="checkbox-list affichage_stock ta-center">
+							<label class="checkbox-inline font-red">
+								<input class="chk_en_stock" type="checkbox" value="0" name="article_epuise">$multilangue[article_epuise]
+							</label>
+							<label class="checkbox-inline font-yellow">
+								<input class="chk_en_stock" type="checkbox" value="1" name="depasse">$multilangue[seuil_alerte_depasse]
+							</label>
+							<label class="checkbox-inline font-green">
+								<input class="chk_en_stock" type="checkbox" value="2" name="en_stock">$multilangue[article_en_stock]
+							</label>
+							<input type="hidden" class="stock_coches" value="">
+						</div>
+					</div>
+				</div>
+				<div class="btn-group left mb-20">
+					<div class="col-md-4">
+	                         <a class="btn default" data-toggle="dropdown">
+	                              $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+	                         </a>
+	                         <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+	                              <label><input type="checkbox" checked data-column="0">$multilangue[libelle]</label>
+	                              <label><input type="checkbox" checked data-column="1">$multilangue[reference]</label>
+	                              <label><input type="checkbox" checked data-column="2">$multilangue[code_ean]</label>
+	                              <label><input type="checkbox" checked data-column="3">$multilangue[prix_vente]</label>
+	                              <!-- BEGIN InventaireModulePrixPro -->
+	                              <label id="moduleprixpro"><input type="checkbox" checked data-column="4">$multilangue[prix_pro]</label>
+	                              <!-- END InventaireModulePrixPro -->
+	                              <label><input type="checkbox" checked data-column="5">$multilangue[stock]</label>
+	                              <label><input type="checkbox" checked data-column="6">$multilangue[seuil_alerte]</label>
+	                              <label><input type="checkbox" checked data-column="7">$multilangue[delai_appro]</label>
+	                              <label><input type="checkbox" checked data-column="8">$multilangue[delai_livraison]</label>
+	                              <label><input type="checkbox" checked data-column="9">$multilangue[prix_achat]</label>
+	                              <label><input type="checkbox" checked data-column="10">$multilangue[prix_achat_moyen]</label>
+								  <label><input type="checkbox" checked data-column="11">$multilangue[modif_prix]</label>
+								  <!-- BEGIN InventaireModuleModifPrixPro -->
+								  <label id="moduleprixpromodif"><input type="checkbox" checked data-column="12">$multilangue[modif_prix_pro]</label>
+	                              <!-- END InventaireModuleModifPrixPro -->
+	                              <label><input type="checkbox" checked data-column="13">$multilangue[zone_stockage]</label>
+	                        </div>
+	                      </div> <br>
+                </div>
+                
+				<br>
+				<div class="clear"></div>
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered table-inventaire table-hover">
+						<thead>
+							<tr>
+								<th class="ta-center">
+									$multilangue[libelle]<br>
+									(<i>$multilangue[caracteristiques]</i>)
+								</th>
+								<th class="ta-center">
+									$multilangue[reference]
+								</th>
+								<th class="ta-center">
+									$multilangue[code_ean]
+								</th>
+								<th class="ta-center">
+									$multilangue[prix_vente_br]<br> TTC
+								</th>
+								<th class="ta-center">
+									$multilangue[prix_pro_br] HT
+								</th>
+								<th class="ta-center">
+									$multilangue[stock]
+								</th>
+								<th class="ta-center">
+									$multilangue[seuil_alerte_br]
+								</th>
+								<th class="ta-center">
+									$multilangue[delai_appro_br]
+								</th>
+								<th class="ta-center">
+									$multilangue[delai_livraison_br]
+								</th>
+								<th class="ta-center">
+									$multilangue[prix_achat_br] HT
+								</th>
+								<th class="ta-center">
+									$multilangue[prix_achat_moyen_br] HT
+								</th>
+								<th class="ta-center">
+									$multilangue[modif_prix_br] TTC
+								</th>
+								<th class="ta-center">
+									$multilangue[modif_prix_pro_br] HT
+								</th>
+								<th class="ta-center">
+									$multilangue[zone_stockage_br]
+								</th>
+							</tr>
+						</thead>
+						<tbody>				
+						</tbody>
+					</table>					
+				</div>
+			<!-- END InventaireListe -->
+		<!-- FIN PAGE CONTENT -->
+	<!-- FIN CONTENT -->
+	$TemplateCommunFooter
+	
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+	
+<script type="text/javascript">
+	App.init();
+	$(document).ready(function() {
+				
+		$('.jstreecateg').on('changed.jstree', function (e, data) {
+		    var i, j, r = [];
+		    for(i = 0, j = data.selected.length; i < j; i++) {
+		      r.push(data.instance.get_node(data.selected[i]).id);
+		    }		    
+		    $('.catids_coches').val(r.join(','));		    
+		    var table = $('.table-inventaire').DataTable();		    
+		    table.ajax.reload();
+		  }).jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'core':{
+				'data': {
+					'url': 'inventaire_ajax.php?action=jstreecateg'
+	         	}
+			}
+		});
+		
+		$('.liste_fournisseur').on('change', function () {
+			var checkedValues = $('.chk_fournisseur:checked').map(function() {
+			    return this.value;
+			}).get();
+			$('.fournisseurid_coches').val(checkedValues);
+		   	var table = $('.table-inventaire').DataTable();		    
+		    table.ajax.reload();
+		});
+		
+		$('.affichage_stock').on('change', function () {
+			var checkedValues = $('.chk_en_stock:checked').map(function() {
+			    return this.value;
+			}).get();
+			$('.stock_coches').val(checkedValues);
+		   	var table = $('.table-inventaire').DataTable();		    
+		    table.ajax.reload();
+		});
+		
+		$('.select-site').on('change', function () {
+			$('.siteid').val($(this).val());
+		   	var table = $('.table-inventaire').DataTable();		    
+		    table.ajax.reload();
+		});
+
+		$(document).on('blur', '.input', function() {
+			var produit = $(this).attr('name').split('-');
+			var data = 'action=maj&';
+			data += 'id='+produit[2]+'&';
+			data += 'tablestock='+produit[0]+'&';
+			data += 'champ='+produit[1]+'&';
+			data += 'valeur='+$(this).val()+'&';
+			data += 'site_id='+$('.siteid').val();
+			
+			$.ajax({
+				url : 'inventaire_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if(code_html!=""){
+						var champ = code_html.split('_')[0];
+						var valeur = code_html.split('_')[1];
+						$('.'+champ).text(valeur);
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+
+		$('.table-inventaire').dataTable({
+			"aoColumns": [
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "libelle", "iDataSort": 0, "data": "libelle", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "reference", "iDataSort": 1, "data": "reference", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "code_EAN", "iDataSort": 2, "data": "code_EAN", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "prix_vente", "iDataSort": 3, "data": "prix_vente", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "prix_pro", "iDataSort": 4, "data": "prix_pro", "bVisible": false},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "stock", "iDataSort": 5, "data": "stock", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "seuil", "iDataSort": 6, "data": "seuil", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "delai_reappro", "iDataSort": 7, "data": "delai_reappro", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "delai_livraison", "iDataSort": 8, "data": "delai_livraison", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "prix_achat", "iDataSort": 9, "data": "prix_achat", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "prix_achat_moyen", "iDataSort": 10, "data": "prix_achat_moyen", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "modif_prix", "iDataSort": 11, "data": "modif_prix", "bVisible": true},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "modif_prix_pro", "iDataSort": 12, "data": "modif_prix_pro", "bVisible": false},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "zone", "iDataSort": 13, "data": "zone", "bVisible": true},
+	        ],
+	        "iDisplayStart": 0,
+            "iDisplayLength": 10,
+            "fnDrawCallback": function() {
+                App.initAjax();                 
+            },
+			"processing": true,
+	        "serverSide": true,
+	        "ajax": {
+	            "url": "inventaire_ajax.php",
+	            "type": "POST",
+	            "data": function ( d ) {
+	                d.catids_select =  $('.catids_coches').val();
+	                d.fournisseursid_select = $('.fournisseurid_coches').val();
+	                d.stock_select = $('.stock_coches').val();
+	                d.siteid_select = $('.siteid').val();
+	           	}
+	         },        
+	        
+	        "order": [[ 0, "desc" ]],
+			"aLengthMenu": [[10, 20, 50, 100, 200, 500], [10, 20, 50, 100, 200, 500]],
+			"language": {
+				"search": "Recherche : ",
+				"paginate": {
+					"first": "Première page",
+					"last": "Dernière page",
+					"next": "Page suivante",
+					"previous": "Page précédente"
+				},
+				"emptyTable": "Aucune donnée disponible dans la table",
+				"info": "Affichage des résultats de _START_ à  _END_ sur _TOTAL_ résultats",
+				"infoEmpty": "Aucun résultat",
+				"infoFiltered": "sur _MAX_",
+				"lengthMenu": "Afficher _MENU_ résultats",
+				"sLoadingRecords": "Chargement ...",
+	            "sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;Chargement ...</span>',
+				"sZeroRecords": "Aucun résultat trouvé"
+			}
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		$('.dropdown-menu input[type="checkbox"]').change(function(){
+            var iCol = parseInt($(this).attr("data-column"));
+            var bVis = $('.table-inventaire').dataTable().fnSettings().aoColumns[iCol].bVisible;
+            $('.table-inventaire').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+        });	
+		
+		if(document.getElementById("moduleprixpro")){
+			var bVis = $('.table-inventaire').dataTable().fnSettings().aoColumns[4].bVisible;
+	        $('.table-inventaire').dataTable().fnSetColumnVis(4, (bVis ? false : true));
+	        var bVis = $('.table-inventaire').dataTable().fnSettings().aoColumns[12].bVisible;
+	        $('.table-inventaire').dataTable().fnSetColumnVis(12, (bVis ? false : true));
+		}
+		
+	});
+	
+</script>
+<!-- END InventaireIndex -->

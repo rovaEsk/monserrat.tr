@@ -1,0 +1,1056 @@
+<!-- BEGIN Emails_autoIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					E-mails automatiques<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="instit.php">						
+								$multilangue[emails_autos]	
+							</a>					
+						</li>
+						<!-- BEGIN Emails_autoNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Emails_autoNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER -->
+<!-- DEBUT PAGE CONTENT -->
+
+
+			<!-- BEGIN Emails_autoSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Emails_autoSuccess -->
+			
+			<!-- BEGIN Emails_autoErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Emails_autoErreur -->
+
+<!-- BEGIN Emails_autoEmailstype -->
+<div class="row" >
+	<div class="col-md-12 ">
+		<div class="tabbable tabbable-custom boxless tabbable-reversed">
+			<div class="tab-content">
+				<div class="tab-pane active">
+					<div class="portlet-body">				
+						<div class="table-responsive">
+							<table id="tabpages$afficheMenu[menu]" class="table table-striped table-hover table-bordered">
+								<thead>
+									<tr>
+										<th>
+											$multilangue[module]
+										</th>
+										<th>
+											$multilangue[moment_envoi_email]
+										</th>
+										<th class="ta-center">
+											$multilangue[faire_un_test] 
+										</th>
+										<th class="ta-center">
+											$multilangue[modifier]
+										</th>
+									</tr>
+								</thead>
+								<tbody>					
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_expedition_commande]</td>
+										<td align="center">
+											<a href="#myModal1" id=""  data-toggle="modal" role="button" class="btn tooltips">											
+											$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe1" role="dialog" tabindex="-1" class="modal fade" id="myModal1" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="1">
+															<input type="hidden" name="etat" value="5">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div>
+																<br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=1" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>																																									
+									</tr>
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_reexpedition_commande]</td>
+											<td align="center">
+											<a href="#myModal20" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe20" role="dialog" tabindex="-1" class="modal fade" id="myModal20" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="20">
+															<input type="hidden" name="etat" value="reexpedition">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=20" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>						
+									</tr>
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_refus_commande]</td>
+										<td align="center">
+											<a href="#myModal2" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal2" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="2">
+															<input type="hidden" name="etat" value="2">
+														<div class="modal-header">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+															<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+														</div>
+														<div class="modal-body">																																			
+															<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+															<div class="col-md-8">
+																<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+															</div><br/>
+														</div>
+														<div class="modal-footer">
+															<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+															<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+														</div>
+														</form>
+													</div>
+												</div>
+											</div>	
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=2" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>																															
+									</tr>
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_remboursement_commande]</td>
+										<td align="center">
+											<a href="#myModal19" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal19" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="19">
+															<input type="hidden" name="etat" value="6">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=19" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_refus_banque]</td>
+										<td align="center">
+											<a href="#myModal16" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal16" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="16">
+															<input type="hidden" name="etat" value="2">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>	
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=16" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>																																										
+									</tr>	
+									<tr class ="">
+										<td>$multilangue[inscription]</td>
+										<td>$multilangue[lorsque_inscription_internaute]</td>
+										<td align="center"><a href="#myModal6" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a></td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=6" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+										<td>
+											<form name="envoimail" method="POST" action="emails_auto.php">
+												<input type="hidden" name="action" value="envoyertest2">
+												<input type="hidden" name="emailid" value="6">
+												<input type="hidden" name="etat" value="inscription">
+												<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal6" style="display: none;">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</td>
+									</tr>
+									<tr class ="">
+										<td>$multilangue[inscription]</td>
+										<td>$multilangue[lorsque_creation_compte_admin]</td>
+										<td align="center">
+											<a href="#myModa21" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModa21" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="21">
+															<input type="hidden" name="etat" value="inscription">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=21" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>									
+									<tr class ="">
+										<td>$multilangue[inscription]</td>
+										<td>$multilangue[lorsque_inscription_newsletter]</td>
+										<td align="center">
+											<a href="#myModal7" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal7" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="7">
+															<input type="hidden" name="etat" value="inscription">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=7" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- BEGIN Emails_autoModule122 -->						
+									<tr class ="">
+										<td>$multilangue[inscription_pro]</td>
+										<td>$multilangue[lorsque_inscription_pro_internaute]</td>
+										<td align="center">
+											<a href="#myModal12" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal12" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="12">
+															<input type="hidden" name="etat" value="demandepro">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=12" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>	
+									</tr>
+									<tr class ="">
+										<td>$multilangue[inscription_pro]</td>
+										<td>$multilangue[lorsque_validation_pro]</td>
+										<td align="center">
+											<a href="#myModal13" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal13" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="13">
+															<input type="hidden" name="etat" value="demandepro">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=13" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+									<tr class ="">
+										<td>$multilangue[inscription]</td>
+										<td>$multilangue[lorsque_creation_compte_pro_admin]</td>
+										<td align="center">
+											<a href="#myModa22" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModa22" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="22">
+															<input type="hidden" name="etat" value="inscription">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=22" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoModule122 -->
+								<!-- BEGIN Emails_autoModule5818 -->						
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[lorsque_expedition_commande_magasin]</td>
+										<td align="center">
+											<a href="#myModal8" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal8" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="8">
+															<input type="hidden" name="etat" value="2">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=8" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>			
+									</tr>
+								<!-- END Emails_autoModule5818 -->	
+								<!-- BEGIN Emails_autoModule5930 -->						
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[relance_auto_expedition]</td>
+										<td align="center">
+											<a href="#myModal14" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal14" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="14">
+															<input type="hidden" name="etat" value="relanceexp">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=14" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>		
+									</tr>
+								<!-- END Emails_autoModule5930 -->
+								<!-- BEGIN Emails_autoModule5958 -->						
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[relance_auto_paniers_abandonnes]</td>
+										<td align="center">
+											<a href="#myModal18" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal18" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="18">
+															<input type="hidden" name="etat" value="relancepaniersab">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=18" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoModule5958 -->
+								<!-- BEGIN Emails_autoModule5946 -->						
+									<tr class ="">
+										<td>$multilangue[commandes_factures]</td>
+										<td>$multilangue[envoi_code_reduction_auto]</td>
+										<td align="center">
+											<a href="#myModal17" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal17" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="17">
+															<input type="hidden" name="etat" value="bonreducauto">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=17" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoModule46 -->
+								<!-- BEGIN Emails_autoModule104 -->						
+									<tr class ="">
+										<td>$multilangue[support]</td>
+										<td>$multilangue[lorsque_post_question]</td>
+										<td align="center">
+											<a href="#myModal3" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal3" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="3">
+															<input type="hidden" name="etat" value="relanceexp">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">Oui, envoyer</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=3" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoModule104 -->
+								<!-- BEGIN Emails_autoModule5888 -->						
+									<tr class ="">
+										<td>Module $multilangue[vente_produits_immateriels]</td>
+										<td>$multilangue[lorsque_commande_immaterielle]</td>
+										<td align="center">
+											<a href="#myModal9" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal9" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="9">
+															<input type="hidden" name="etat" value="envoyertest">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=9" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>									
+								<!-- END Emails_autoModule5888 -->								
+								<!-- BEGIN Emails_autoModule5931 -->						
+									<tr class ="">
+										<td>$multilangue[anniversaire]</td>
+										<td>$multilangue[lorsque_envoi_mail_anniversaire]</td>
+										<td align="center">
+											<a href="#myModal15" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal15" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="15">
+															<input type="hidden" name="etat" value="inscriptionpro">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=15" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoModule5931 -->
+								<!-- BEGIN Emails_autoEmailspaiement -->
+									<tr class ="">
+										<td>$multilangue[paiement]</td>
+										<td>$passage[libelle]</td>
+										<td align="center">
+											<a href="#myModal$valid" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal$valid" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="$valid">
+															<input type="hidden" name="etat" value="1">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=$passage[emailid]" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>	
+									</tr>
+									<tr class ="">
+										<td>$multilangue[paiement]</td>
+										<td>$validation[libelle]</td>
+										<td align="center">
+											<a href="#myModal$valid" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal$valid" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="$valid">
+															<input type="hidden" name="etat" value="1">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=$validation[emailid]" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>	
+									</tr>
+								<!-- END Emails_autoEmailspaiement -->
+								<!-- BEGIN Emails_autoOthermail -->
+									<tr class ="">
+										<td>$multilangue[autres]</td>
+										<td>$otherMail[libelle]</td>
+										<td align="center">
+											<a href="#myModal$otherMail[emailid]" id=""  data-toggle="modal" role="button" class="btn tooltips">$multilangue[faire_un_test]</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabe2" role="dialog" tabindex="-1" class="modal fade" id="myModal$otherMail[emailid]" style="display: none;">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<form name="envoimail" method="POST" action="emails_auto.php">
+															<input type="hidden" name="action" value="envoyertest2">
+															<input type="hidden" name="emailid" value="$otherMail[emailid]">
+															<input type="hidden" name="etat" value="">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">$multilangue[adresse_envoi_mail_test]</h4>
+															</div>
+															<div class="modal-body">																																			
+																<label for="monmail" class="control-label col-md-4">$multilangue[email_destination]</label>		
+																<div class="col-md-8">
+																	<input type="text" name="monmail" id="monmail" value="" class="form-control" style="text-align : left;">
+																</div><br/>
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non_modal]</button>
+																<button type="submit" class="btn blue">$multilangue[oui_envoyer]</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td align="center"><a href="emails_auto.php?action=modif&mailid=$otherMail[emailid]"data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></td>
+									</tr>
+								<!-- END Emails_autoOthermail -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END Emails_autoEmailstype -->
+
+
+
+
+
+
+<!-- BEGIN Emails_autoEdit -->
+ <form action="emails_auto.php" method="POST" name="editmail" class="form-horizontal form-bordered form-row-stripped">
+ 	<input type = "hidden" name="action" value = "doediter">
+ 	<input type = "hidden" name="mailid" value = "$mailid">
+ 	<input type = "hidden" name="siteid" value = "$site[siteid]">
+ 	<div class="boutons_liste">
+		<a href="emails_auto.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>$multilangue[retour]</a>
+		<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+	</div>
+	<div class="row" >
+		<div class="col-md-12" >			
+			<div class="col-md-8" >
+			<!-- BEGIN Emails_autoEditBit -->
+				<div class="tabbable tabbable-custom boxless tabbable-reversed">					
+					<div class="portlet box $site[classcolor]" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[donnees] <i>$site[libelle]</i>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="$collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body" $style>
+							<div class="table-scrollable">	
+								<div class="form-group">
+									<label for="titre_$site[siteid]" class="control-label col-md-2" style="text-align : left;">$multilangue[sujet]</label>
+									<div class="col-md-10">
+										<input type="text" name="sujet_$site[siteid]" id="titre_$site[siteid]" class="form-control" value="$contentfck[sujet]" >
+									</div>
+								</div>	
+								<div class="form-group">
+									<label for="contenu_$site[siteid]" class="control-label col-md-2" style="text-align : left;">$multilangue[contenu]</label>
+									<div class="col-md-10">
+										<textarea name="contenu_$site[siteid]" id="contenu_$site[siteid]" class="form-control editeur">$contenumail[contenu]</textarea>
+									</div>
+								</div>																			
+							</div>								
+						</div>
+					</div>
+				</div>
+			<!-- END Emails_autoEditBit -->
+				<div class="boutons_liste">
+					<a href="emails_auto.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>$multilangue[retour]</a>
+					<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="tabbable tabbable-custom boxless tabbable-reversed">					
+					<div class="portlet box blue-chambray" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bars fs-18"></i> $multilangue[instructions_sur_variables]
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body" >
+							
+							<font class="cost">$multilangue[infos_balises_meta]</font><br><br><br>
+							<strong>$multilangue[variable_du_sujet] :</strong><br><br>
+							<div style="margin-left:35px;">
+								<strong>&bull; $multilangue[liste_mail_inscription_mdp] :</strong><br><br>
+								$multilangue[la_variable] <strong>[infosclientsmall]</strong> $multilangue[remplacement_infosclientsmall].<br>
+								ex : <span class="aide">Monsieur Roger PIVOT</span><br><br>
+								$multilangue[la_variable] <strong>[boutique]</strong> $multilangue[remplacement_boutique].<br>
+								ex : <span class="aide">Fashion Streetwear</span><br><br>
+								<br><strong>&bull; $multilangue[liste_mails_commande] :</strong><br><br>
+								$multilangue[la_variable] <strong>[numfacture]</strong> $multilangue[remplacement_numfacture].<br>
+								ex : <span class="aide"><b>EDEAL8</b></span><br><br>
+								$multilangue[la_variable] <strong>[numcommande]</strong> $multilangue[remplacement_numcommande].<br>
+								ex : <span class="aide"><b>128</b></span><br><br>
+								$multilangue[la_variable] <strong>[infosclientsmall]</strong> $multilangue[remplacement_infosclientsmall].<br>
+								ex : <span class="aide">Monsieur Roger PIVOT</span><br><br>
+								$multilangue[la_variable] <strong>[boutique]</strong> $multilangue[remplacement_boutique].<br>
+								ex : <span class="aide">Fashion Streetwear</span><br><br>
+								$multilangue[la_variable] <strong>[livraison]</strong> $multilangue[remplacement_livraison].<br>
+								ex : <span class="aide">Chronopost</span><br><br>
+								$multilangue[la_variable] <strong>[totalttc]</strong> $multilangue[remplacement_totalttc].<br>
+								ex : <span class="aide"><b>500 &euro;</b></span><br><br>
+								$multilangue[la_variable] <strong>[totalht]</strong> $multilangue[remplacement_totalht].<br>
+								ex : <span class="aide"><b>425,45 &euro;</b></span>
+								<br><br>
+							</div>
+							<br><br>
+							<strong>$multilangue[variable_du_contenu] :</strong><br><br>
+							<div style="margin-left:35px;">
+								<strong>&bull; $multilangue[liste_mail_inscription_mdp] :</strong><br><br>
+								$multilangue[la_variable] <strong>[loginpass]</strong> $multilangue[remplacement_loginpass].<br>
+								<span class="aide">$multilangue[login] : <b>emaildetest@monfai.com</b></span><br>
+								<span class="aide">$multilangue[mot_de_passe] : <b>abcd55</b></span><br><br>
+								$multilangue[la_variable] <strong>[infosclientsmall]</strong> $multilangue[remplacement_infosclientsmall].<br>
+								ex : <span class="aide">Monsieur Roger PIVOT</span><br><br>
+								$multilangue[la_variable] <strong>[boutique]</strong> $multilangue[remplacement_boutique].<br>
+								ex : <span class="aide">Fashion Streetwear</span><br><br>
+								<br><strong>&bull; $multilangue[liste_mails_commande] :</strong><br><br>
+								$multilangue[la_variable] <strong>[numfacture]</strong> $multilangue[remplacement_numfacture].<br>
+								ex : <span class="aide"><b>EDEAL8</b></span><br><br>
+								$multilangue[la_variable] <strong>[facturepdf]</strong> $multilangue[remplacement_facturepdf].<br>
+								ex : <span class="aide"><b><a target="blank" href="" title="$multilangue[lien_vers_facture]">$multilangue[facture]</a></b></span><br><br>
+								$multilangue[la_variable] <strong>[numcommande]</strong> $multilangue[remplacement_numcommande].<br>
+								ex : <span class=\aide"><b>128</b></span><br><br>
+								$multilangue[la_variable] <strong>[infosclientsmall]</strong> $multilangue[remplacement_infosclientsmall].<br>
+								ex : <span class="aide">Monsieur Roger PIVOT</span><br><br>
+								$multilangue[la_variable] <strong>[infosclient]</strong> $multilangue[remplacement_infosclient].<br>
+								<span class="aide">
+								Monsieur Roger PIVOT<br>
+								Vignerons.com<br>
+								32 av du raisin (Bat B)<br>
+								75000 PARIS<br>
+								FRANCE Métropolitaine<br>
+								0144559977<br>
+								0655668811<br>
+								r.pivot@vigneron.com</span><br><br>
+					
+								$multilangue[la_variable] <strong>[infosclientlivraison]</strong> $multilangue[remplacement_infosclientlivraison].<br>
+								<span class="aide">
+								Monsieur Roger PIVOT<br>
+								Vignerons.com<br>
+								32 av du raisin (Bat B)<br>
+								75000 PARIS<br>
+								FRANCE Métropolitaine<br>
+								0144559977<br>
+								0655668811<br>
+								r.pivot@vigneron.com</span><br><br>
+					
+								$multilangue[la_variable] <strong>[boutique]</strong> $multilangue[remplacement_boutique].<br>
+								ex : <span class="aide">Fashion Streetwear</span><br><br>
+					
+								$multilangue[la_variable] <strong>[livraison]</strong> $multilangue[remplacement_livraison].<br>
+								ex : <span class="aide">Chronopost</span><br><br>
+								$multilangue[la_variable] <strong>[panier]</strong> $multilangue[remplacement_panier].<br>
+	
+								<table  class="table table-striped" style="background-color:#000">
+									<tr style="background-color:#999">
+										<td width="50%" align="left" bgcolor="#CCC">$multilangue[article]</td>
+										<td width="15%" align="center" bgcolor="#CCC">$multilangue[pu_ttc]</td>
+										<td width="15%" align="center" bgcolor="#CCC">$multilangue[qte]</td>
+										<td width="20%" align="center" bgcolor="#CCC">$multilangue[total_ttc]</td>
+									</tr>
+									<tr style="background-color:#FFF">
+										<td align="left" bgcolor="#FFF">Table Inox</td>
+										<td align="center" bgcolor="#FFF">200 &euro;</td>
+										<td align="center" bgcolor="#FFF">1</td>
+										<td align="center" bgcolor="#FFF">200 &euro;</td>
+									</tr>
+									<tr style="background-color:#FFF">
+										<td align="left" bgcolor="#FFF">Chaise Inox</td>
+										<td align="center" bgcolor="#FFF">50 &euro;</td>
+										<td align="center" bgcolor="#FFF">4</td>
+										<td align="center" bgcolor="#FFF">200 &euro;</td>
+									</tr>
+								</table>
+								
+								<br><br>
+								$multilangue[la_variable] <strong>[infosboutique]</strong> $multilangue[remplacement_infosboutique].<br>
+								<span class="aide">$multilangue[raison_sociale]<br> $multilangue[adresse]<br>$multilangue[code_postal] $multilangue[ville]</span>
+								<br><br>
+					
+								$multilangue[la_variable] <strong>[suivilivraison]</strong> $multilangue[remplacement_suivilivraison].<br>
+								<span class="aide">$multilangue[infos_remplacement_suivilivraison]</span>
+								<br><br>
+					
+								$multilangue[la_variable] <strong>[totalttc]</strong> $multilangue[remplacement_totalttc].<br>
+								ex : <span class="aide"><b>500 &euro;</b></span><br><br>
+						
+								$multilangue[la_variable] <strong>[totalht]</strong> $multilangue[remplacement_totalht].<br>
+								ex : <span class="aide"><b>425,45 &euro;</b></span>
+								<br><br>
+								<strong>&bull; $multilangue[liste_mails_internaute_conseil] :</strong><br><br>
+								$multilangue[les_variables] <b>[nom_ami], [mail_ami], [message_ami], </b>$multilangue[remplacement_nom_ami].<br><br> 
+								<br>
+								<strong>&bull; $multilangue[liste_mails_telechargement] :</strong><br><br>
+								$multilangue[la_variable] <b>[telechargement]</b> $multilangue[remplacement_telechargement].
+								<br><br>
+								<strong>&bull; $multilangue[liste_mails_anniversaire] :</strong><br><br>
+								$multilangue[la_variable] <b>[codereduction]</b> $multilangue[remplacement_codereduction].
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>	
+<!-- END Emails_autoEdit -->
+
+<!-- BEGIN Emails_autoTest -->
+<!--  
+<br/><br/><br/><br/>
+<div class="row">
+		<div class="col-md-12">
+				<div class="portlet box grey-cascade">
+					<div class="portlet-title">
+						<div class="caption">
+							Envoyer un E-mail de test
+						</div>	
+					</div>				
+					<div class="portlet-body">
+						<br/><br/>
+						<form name="formtest" action="emails_auto.php" method="POST">
+							<input type="hidden" name="action" value="envoyertest2">
+							<input type="hidden" name="etat" value="$etat">
+							<input type="hidden" name="emailid" value="$emailid">			
+								<label for="monmail" class="control-label col-md-3" style="text-align : right;">E-mail de destination</label>			
+								<div class="col-md-9">
+									<input type="text" name="monmail" id="monmail" value="" class="form-control">
+								</div>
+							<br/><br/>
+							<div class="boutons_liste">
+								<a href="emails_auto.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>Retour</a>
+								<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>Envoyer</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>-->
+<!-- END Emails_autoTest -->
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+</script>
+<script type="text/javascript">
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+</script>
+
+
+<!-- END Emails_autoIndex -->

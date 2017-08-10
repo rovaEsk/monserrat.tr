@@ -1,0 +1,356 @@
+<!-- BEGIN FaqIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[faq]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="faq.php">						
+								$multilangue[faq]	
+							</a>					
+						</li>
+						<!-- BEGIN FaqNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END FaqNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+	<!-- BEGIN FaqSuccess -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess
+		</div>
+	<!-- END FaqSuccess -->
+	
+	<!-- BEGIN FaqErreur -->
+		<div class="alert alert-danger alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur
+		</div>
+	<!-- END FaqErreur -->
+
+	<!-- BEGIN FaqMenuListe -->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<div class="portlet box blue-hoki" style="">
+					<div class="portlet-title">	
+						<div class="caption"><i class="fa fa-list"></i>Liste des menus</div>												
+					</div>					
+					<div class="portlet-body">
+						<!-- BEGIN FaqMenuListeTableau -->
+							<table id="tabmenus" data-menu="" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>	
+										<!-- BEGIN FaqMenuListeSiteBit -->					
+										<th>
+											$multilangue[libelle] ($site[libelle])								
+										</th>	
+										<!-- END FaqMenuListeSiteBit -->													
+										<th width="120">
+											$multilangue[actions]								
+										</th>			
+									</tr>
+								</thead>
+							<tbody>
+							<!-- BEGIN FaqMenuListeBit -->
+							<tr id="$afficheMenu[menuid]">
+								<!-- BEGIN FaqMenuListeBitSite -->
+								<td>
+									$menu_site[libelle]
+								</td>	
+								<!-- END FaqMenuListeBitSite -->			
+								<td style="text-align : center;">								
+									<a href="faq.php?action=editMenu&menuid=$afficheMenu[menuid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+										<i class="fa fa-pencil-square-o fs-18"></i>
+									</a>
+									<a href="#myModal$afficheMenu[menuid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+									    <i style="color : red;" class="fa fa-trash-o fs-18" ></i>
+							        </a>	
+							        <div aria-hidden="true" aria-labelledby="myModalLabe$afficheMenu[menuid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$afficheMenu[menuid]" style="display: none;">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+													<h4 class="modal-title">$multilangue[suppression_menu_faq] : "$lib_menu_site1" ?</h4>
+												</div>
+												<div class="modal-body">																																
+													$multilangue[suppression_menu_faq_infos]
+												</div>
+												<div class="modal-footer">
+													<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+													<a href="faq.php?action=supprimerMenu&menuid=$afficheMenu[menuid]" class="btn blue">$multilangue[oui_supprimer]</a>
+												</div>
+											</div>
+										</div>
+									</div>				
+								</td>	
+							</tr>
+							<!-- END FaqMenuListeBit -->
+							</tbody>
+							</table>
+						<!-- END FaqMenuListeTableau -->
+						<a href="faq.php?action=editMenu"  class="btn green btn-align-right"><i class="fa fa-plus"></i>&nbsp$multilangue[ajt_menu]</a>
+					</div>
+				</div>
+				<!-- FIN SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<br/><br/>
+		<script type="text/javascript">	
+			$(document).ready(function() {	
+				$('#tabmenus > tbody').tableDnD({			
+					onDragStart: function(table, row) {
+						ordreDepart = $.tableDnD.serialize();		    	
+				    },
+				    onDrop: function(table, row) {
+				    	var ordreArrivee = $.tableDnD.serialize();	
+				    	if (ordreDepart != ordreArrivee){
+				    		var data = 'action=menus_faq_positions&';
+				    		data += 'ordre=' + ordreArrivee + '&';
+				    		$.ajax({
+								url : 'commun_ajax.php',
+								type : 'POST',
+								data : data,
+								dataType : 'html',
+								success : function(code_html, statut){
+								},
+								error : function(resultat, statut, erreur){
+									alert(erreur);
+								}
+							});
+				    	}
+				    }
+				});
+			});		
+		</script>
+	<!-- END FaqMenuListe -->
+
+	<!-- BEGIN FaqMenuBit -->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<div class="portlet box blue-hoki" style="">
+					<div class="portlet-title">	
+						<div class="caption"><i class="fa fa-question"></i>$afficheMenu[libelle]</div>										
+					</div>					
+					<div class="portlet-body">
+						
+							<table id="tabfaqs$afficheMenu[menuid]" data-menu="$afficheMenu[menuid]" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>												
+										<th>
+											$multilangue[question]								
+										</th>												
+										<th>
+											$multilangue[reponse]								
+										</th>												
+										<th width="120" class="ta-center">
+											$multilangue[actions]								
+										</th>
+									</tr>
+								</thead>
+							<tbody>
+							<!-- BEGIN FaqMenuBitFaqBit -->
+							<tr id="$afficheFaq[faqid]">							
+								<td>
+									$afficheFaq[question]
+								</td>	
+								<td>
+									$afficheFaq[reponse]
+								</td>										
+								<td style="text-align : center;">								
+									<a href="faq.php?action=editFaq&faqid=$afficheFaq[faqid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+										<i class="fa fa-pencil-square-o fs-18"></i>
+									</a>
+									<a href="#myModal$afficheFaq[faqid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+							        	<i style="color : red;" class="fa fa-trash-o fs-18" ></i>
+							        </a>	
+							        <div aria-hidden="true" aria-labelledby="myModalLabe$afficheFaq[faqid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$afficheFaq[faqid]" style="display: none;">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+													<h4 class="modal-title">$multilangue[suppression_faq]</h4>
+												</div>
+												<div class="modal-body">																																
+													$multilangue[suppression_faq_confirmation] : "$afficheFaq[question]"
+												</div>
+												<div class="modal-footer">
+													<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+													<a href="faq.php?action=supprimerFaq&faqid=$afficheFaq[faqid]" class="btn blue">$multilangue[oui_supprimer]</a>
+												</div>
+											</div>
+										</div>
+									</div>				
+								</td>	
+							</tr>
+							<!-- END FaqMenuBitFaqBit -->
+							</tbody>
+							</table>
+						
+						<a href="faq.php?action=editFaq&menuid=$afficheMenu[menuid]"  class="btn green btn-align-right"><i class="fa fa-plus"></i>&nbsp$multilangue[ajt_question_reponse]</a>
+					</div>
+				</div>
+				<!-- FIN SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<br/><br/>
+		<script type="text/javascript">	
+			$(document).ready(function() {	
+				$('#tabfaqs$afficheMenu[menuid] > tbody').tableDnD({			
+					onDragStart: function(table, row) {
+						ordreDepart = $.tableDnD.serialize();   	
+				    },
+				    onDrop: function(table, row) {
+				    	var ordreArrivee = $.tableDnD.serialize();	
+				    	if (ordreDepart != ordreArrivee){
+				    		var data = 'action=faq_positions&';
+				    		data += 'menu=' + "$afficheMenu[menuid]" + '&';
+				    		data += 'ordre=' + ordreArrivee + '&';
+				    		$.ajax({
+								url : 'commun_ajax.php',
+								type : 'POST',
+								data : data,
+								dataType : 'html',
+								success : function(code_html, statut){
+								},
+								error : function(resultat, statut, erreur){
+									alert(erreur);
+								}
+							});
+				    	}
+				    }
+				});
+			});
+		
+		</script>
+	<!-- END FaqMenuBit -->
+
+	<!-- BEGIN FaqEditMenu -->
+		<form name="editmenu" action="faq.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+			<input type ="hidden" name="action" value="doeditMenu">
+			<input type ="hidden" name="menuid" value="$menuid">
+			<div class="boutons_liste">
+	      		<a style=" margin-left : 1%; display : inline-block;" href="faq.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+	      		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	  		</div>	
+			<!-- BEGIN FaqEditMenuSiteBit -->
+				<div class="row" >
+					<div class="col-md-12" >
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+							<!-- DEBUT SAMPLE TABLE PORTLET-->
+								<input type ="hidden" name="menuid" value="$menuid">
+								
+								<div class="portlet box $site[classcolor]" style="">
+									<div class="portlet-title">
+										<div class="caption">
+											$multilangue[donnees] <i>$site[libelle]</i>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" class="$class_portlet">
+											</a>
+										</div>
+									</div>
+									<div class="portlet-body" $style_portlet>
+										<div class="table-scrollable">											
+											<div class="form-group">
+												<label class="control-label col-md-4 " style="text-align : left;">$multilangue[libelle] ($site[libelle])</label>
+												<div class="col-md-8">																														
+													<input type="text" name="libelle_$site[siteid]" class="form-control" value="$menu_site[libelle]" size="50">
+												</div>
+											</div>																				
+										</div>
+									</div>				
+								</div>
+							<!-- FIN SAMPLE TABLE PORTLET -->
+						</div>
+					</div>
+				</div>	
+			<!-- END FaqEditMenuSiteBit -->
+			<div class="boutons_liste">
+	      		<a style=" margin-left : 1%; display : inline-block;" href="faq.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+	      		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	  		</div>
+		</form>
+	<!-- END FaqEditMenu -->
+
+	<!-- BEGIN FaqEditQuestion -->
+		<form name="editfile1" action="faq.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+			<input type ="hidden" name="action" value="doeditFaq">
+			<input type ="hidden" name="faqid" value="$faqid">
+			<input type ="hidden" name="menuid" value="$menuid">
+			<div class="boutons_liste">
+	      		<a style=" margin-left : 1%; display : inline-block;" href="faq.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+	      		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	  		</div>
+			<!-- BEGIN FaqEditQuestionSiteBit -->
+				<div class="row" >
+					<div class="col-md-12" >
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+							<!-- DEBUT SAMPLE TABLE PORTLET-->												
+								<div class="portlet box $site[classcolor]" style="">
+									<div class="portlet-title">
+										<div class="caption">
+											$multilangue[donnees] <i>$site[libelle]</i>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" class="$class_portlet">
+											</a>
+										</div>
+									</div>
+									<div class="portlet-body" $style_portlet>																				
+										<div class="form-group">
+											<label class="control-label col-md-4 " style="text-align : left;">$multilangue[question]</label>
+											<div class="col-md-8">																														
+												<input type="text" name="question_$site[siteid]" class="form-control" value="$faq_site[question]" size="50">
+											</div>
+										</div>	
+										
+										<div class="form-group">
+											<label style="text-align : left;" class="control-label col-md-4">$multilangue[reponse]</label>
+											<div class="col-md-8">																														
+												<textarea name="reponse_$site[siteid]" class="form-control editeur"  rows="5" cols="100">$faq_site[reponse]</textarea>
+											</div>
+										</div>												
+									</div>				
+								</div>
+							<!-- FIN SAMPLE TABLE PORTLET -->
+						</div>
+					</div>
+				</div>	
+			<!-- END FaqEditQuestionSiteBit -->
+			<div class="boutons_liste">
+	      		<a style=" margin-left : 1%; display : inline-block;" href="faq.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+	      		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	  		</div>
+		</form>
+	<!-- END FaqEditQuestion -->
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins	
+</script>
+<!-- END FaqIndex -->

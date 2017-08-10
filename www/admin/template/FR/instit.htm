@@ -1,0 +1,641 @@
+<!-- BEGIN InstitIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[pages_instit]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="instit.php">						
+								$multilangue[pages_instit]	
+							</a>					
+						</li>
+						<!-- BEGIN InstitNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END InstitNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+			<!-- BEGIN InstitSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END InstitSuccess -->
+			
+			<!-- BEGIN InstitErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END InstitErreur -->
+
+
+
+<!-- BEGIN InstitMenuPP -->
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box blue-hoki" style="">
+			<div class="portlet-title">	
+			
+				<!--       BEGIN InstitFormPPBit -->
+				<!-- <div class="caption" style="width:90%;">					
+					<div id="titre_menu_$afficheMenu[menu]" style="width:100%;">
+						<a name="Menu$afficheMenu[menu]"></a>
+						<div class="btn-align-left" style="display : inline;" >$titreMenu</div>
+						<button $displayBouton class="btn btn-sm blue-hoki" onclick="Javascript:editMenu($afficheMenu[menu]);"><i class="fa fa-pencil-square-o fs-18"></i></button>
+					</div>
+					<div id="edit_menu_$afficheMenu[menu]" style="display:none;">
+						<form class="onclickForm" method="post" action="instit.php">
+							<input name="action" type="hidden" value="editmenu">	
+							<input name="menuid" type="hidden" value="$afficheMenu[menu]">	
+							<input class="inputagarder" name="libellemenu_$afficheMenu[menu]" type="text" value="$titreMenu">					
+							<button type="submit" class="btn btn-sm blue-hoki">
+								<i class="fa fa-check-square-o fs-18"></i>
+							</button>						
+						</form>
+					</div>
+					
+				</div>	 -->	
+				<!--       END InstitFormPPBit -->
+				
+				
+				
+				<!-- BEGIN InstitFormPPBit -->
+					<div class="btn-align-left" style="display : inline;" ><font size=4> $titreMenu</font></div>
+					<a href="#mymodal$afficheMenu[menu]" $displayBouton data-original-title="$multilangue[editer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+						<i style="color : white;" class="fa fa-pencil-square-o fs-18"></i>
+					</a> 
+				<!-- END InstitFormPPBit -->
+					
+				
+			</div>
+			<!-- BEGIN InstitFormEditTitre -->
+				<div aria-hidden="true" aria-labelledby="mymodallabel$afficheMenu[menu]" role="dialog" tabindex="-1" class="modal fade" id="mymodal$afficheMenu[menu]" style="display: none;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+								<h4 class="modal-title ta-center">Edition du titre du menu</h4>
+							</div>
+							<div class="modal-body">
+								<form id="formModifTitre$afficheMenu[menu]" method="post" action="instit.php">
+									<input name="action" type="hidden" value="editmenu">	
+									<input name="menuid" type="hidden" value="$afficheMenu[menu]">	
+									<!-- BEGIN InstitFormEditTitreSiteBit -->
+										<div class="form-group">
+											<label class="control-label col-md-3 ta-right">$site[libelle] :</label>
+											<div class="col-md-9">
+												<input name="libellemenu$site[siteid]" class="form-control mb-10" type="text" value="$libelleMenuSite[libelle]">
+											</div>
+										</div>
+										<div class="clear"></div>
+									<!-- END InstitFormEditTitreSiteBit -->
+								</form>	
+							</div>							
+							<div class="clear"></div>
+								 <div class="modal-footer">							
+									<button type="submit" class="btn btn-sm green" onclick="$('#formModifTitre$afficheMenu[menu]').submit();">
+										<i class="fa fa-check fs-18"></i> $multilangue[enregistrerf]
+									</button>										
+								</div>
+							
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			<!-- END InstitFormEditTitre -->	
+			<div class="portlet-body">
+				<div class="table-scrollable">
+					<table id="tabpages$afficheMenu[menu]" data-menu="$afficheMenu[menu]" class="table table-striped table-bordered table-hover">
+					<thead>
+					<tr>						
+						<th>
+							$multilangue[nom]
+						</th>						
+						<th class="ta-center" >
+							$multilangue[visible]
+						</th>
+						<th class="ta-center">
+							$multilangue[rel_follow]
+						</th>
+						<th class="ta-center">
+							$multilangue[actions]
+						</th>
+						
+					</tr>
+					</thead>
+					<tbody>
+					<!-- BEGIN InstitMenuPPBit -->
+					<tr id="$infosPage[institutionnelid]">
+						<td>
+							$infosPage[libelle]
+						</td>						
+						<td class="ta-center">
+							<a href="instit.php?action=visible_article&pastille=$color_aff&institutionnelid=$infosPage[institutionnelid]#Menu$afficheMenu[menu]"data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+								<i class="fa $ico_aff"></i>
+							</a>
+						</td>
+						<td class="ta-center">
+							<a href="instit.php?action=ref&pastille=$color_follow&institutionnelid=$infosPage[institutionnelid]#Menu$afficheMenu[menu]" data-original-title="$tooltip_reference" data-placement="top" class="btn default btn-sm $color2_follow tooltips">
+								<i class="fa $ico_follow"></i>
+							</a>
+						</td>
+						<td style="text-align : center;">
+							<a href="$urlPage" target="_blank" data-original-title="Afficher" data-placement="top" class="btn tooltips">
+								<i style="color : black;" class="fa fa-search fs-18"></i>
+							</a>
+							<a href="instit.php?action=editpage&institutionnelid=$affichePage[institutionnelid]&siteid2=$siteid2" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+							
+								<i class="fa fa-pencil-square-o fs-18"></i>
+							</a>
+							<a href="#myModal$affichePage[institutionnelid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+							
+							
+							
+							<!-- a href="instit.php?action=supprimer&institutionnelid=$infosPage[institutionnelid]" 
+							data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips"> -->
+							
+					        	<i style="color : red;" class="fa fa-trash-o fs-18" ></i>
+					        </a>	
+					        <div aria-hidden="true" aria-labelledby="myModalLabe$affichePage[institutionnelid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$affichePage[institutionnelid]" style="display: none;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+											<h4 class="modal-title">$multilangue[suppression_page_instit] : "$infosPage[libelle]" ?</h4>
+										</div>
+										<div class="modal-body">																																
+											$multilangue[suppression_page_instit_confirmation] : "$infosPage[libelle]"
+										</div>
+										<div class="modal-footer">
+											<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+											<a href="instit.php?action=supprimer&institutionnelid=$infosPage[institutionnelid]" class="btn blue">$multilangue[oui_supprimer]</a>
+										</div>
+									</div>
+								</div>
+							</div>				
+						</td>	
+					</tr>
+					<!-- END InstitMenuPPBit -->
+					</tbody>
+					</table>
+				</div>
+				<a href="instit.php?action=ajoutPage&menuid=$afficheMenu[menu]"  class="btn green btn-align-right"><i class="fa fa-plus"></i>&nbsp$multilangue[ajt_page_menu]</a>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<br/><br/>
+<script type="text/javascript">	
+	$(document).ready(function() {	
+		$('#tabpages$afficheMenu[menu] > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=instit_positions&';
+		    		data += 'menu=' + "$afficheMenu[menu]" + '&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+	});
+
+</script>
+<!-- END InstitMenuPP -->
+
+
+<!-- BEGIN InstitEditpage -->
+	<form name="editfile1" action="instit.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+		<input type ="hidden" name="action" value="doeditpage">
+		<input type ="hidden" name="institutionnelid" value="$institutionnelid">
+		<input type ="hidden" name="siteid" value="$siteid[siteid]">
+		<input type ="hidden" name="siteid2" value="$siteid2">
+	<!-- BEGIN InstitEditpage1 -->
+	
+	<div class="boutons_liste">
+   		<a style=" margin-left : 1%; display : inline-block;" href="/admin/instit.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+   		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	</div>
+	
+	<div class="row" >
+		<div class="col-md-12" >
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				
+					<div class="portlet box $siteRef[classcolor]" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[donnees] <i>$siteRef[libelle]</i>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-scrollable">										
+								<div class="form-group">
+									<label class="control-label col-md-4 " style="text-align : left;">$multilangue[nom_en] $multilangue[francais]</label>
+									<div class="col-md-8">																														
+										<input type="text" name="nomform_1" class="form-control" value="$infosPageEdit[libelle]" size="50">
+									</div>
+								</div>	
+								
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[contenu_en] $multilangue[francais]</label>
+									<div class="col-md-8">																														
+										<textarea name="contenuform_1" class="form-control editeur"  rows="5" cols="100">$infosPageEdit[contenu]</textarea>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[page] $multilangue[visible] ?</label>
+									<div class="col-md-8">																														
+										<label>$multilangue[oui]<input type = "radio" name = "visibilite_1" value="oui" checked></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[non]<input type = "radio" name = "visibilite_1" value="non" ></label>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[formulaire_associe]</label>
+									<div class="col-md-8">																														
+										<select name="formulaireid" class="form-control">
+											<option value="">$multilangue[aucun]</option>
+											<!-- BEGIN InstitSelectBit -->
+												<option value="$selectForm[formulaireid]" $selected_formulaire>$selectForm[nom]</option>
+											<!-- END InstitSelectBit -->
+										</select>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[position_formulaire_texte] </label>
+									<div class="col-md-8">																														
+										<label>$multilangue[avant]<input type = "radio" name = "positionform" value="$multilangue[avant]" ></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[apres]<input type = "radio" name = "positionform" value="$multilangue[apres]" checked></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[balises_meta] $multilangue[francaises] <br/>
+									<br/><br/><br/>
+									
+									<a style="text-decoration : none;" class="btn btn-warning" onclick="Javascript:affiche_meta_defaut(0);">
+									Metas par défaut</a></label>
+									
+									
+									<div class="col-md-8">		
+										$multilangue[balise] < TITLE > <br/>
+										$multilangue[longueur_conseillee] : 80 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>																										
+										<textarea name="modiftitle_1" id="modiftitle" class="$class_wysiwyg form-control"  rows="5" 
+										cols="100">$infosPageEdit[pagetitle]</textarea><br/><br/><br/>
+										<!--<div id="tlt" class="aide">".affiche_meta($instit[$curenttitle])."</div> -->
+										
+										$multilangue[balise] < META name = $multilangue[description] > <br/>
+										$multilangue[longueur_conseillee] : 250 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifdescription_1" id="modifdescription" class="$class_wysiwyg form-control" rows="5" 
+										cols="100">$infosPageEdit[metadescription]</textarea><br/><br/><br/>
+										<!--<div id="desc" class="aide">".affiche_meta($instit[$curentdescription])."</div>-->
+										
+										$multilangue[balise] < META name = keywords > <br/>
+										$multilangue[longueur_conseillee] : 1000 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifkeywords_1" id="modifkeywords" class="$class_wysiwyg form-control" rows="5" 
+										cols="100">$infosPageEdit[metakeywords]</textarea><br/><br/>
+										<!--<div id="word" class="aide">".affiche_meta($instit[$curentkeywords])."</div>-->
+									</div>
+									<script language="javascript" type="text/javascript">
+										function affiche_meta_defaut ();
+									</script>
+								</div>								
+							</div>
+						</div>				
+					</div>		
+		        <!-- </form> -->
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+		</div>
+	</div>
+	
+	<!-- END InstitEditpage1 -->
+	
+	<!-- BEGIN InstitEditpageBit -->
+	<div class="row" >
+		<div class="col-md-12" >
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<!--  <form name="editfile2" action="instit.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">-->				
+					<input type ="hidden" name="institutionnelid" value="$institutionnelid">
+					
+					<div class="portlet box $site[classcolor]" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[donnees] <i>$site[libelle]</i>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="expand">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body" style="display : none;">
+							<div class="table-scrollable">											
+								<div class="form-group">
+									<label class="control-label col-md-4 " style="text-align : left;">$multilangue[nom_en] $langueEditPage[libelle]</label>
+									<div class="col-md-8">																														
+										<input type="text" name="nom_$site[siteid]" class="form-control" value="$infosSiteBit[libelle]" size="50">
+									</div>
+								</div>	
+								
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[contenu_en] $langueEditPage[libelle]</label>
+									<div class="col-md-8">																														
+										<textarea name="contenuform_$site[siteid]" class="form-control editeur"  rows="5" cols="100">$infosSiteBit[contenu]</textarea>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[page] $multilangue[visible] ?</label>
+									<div class="col-md-8">																														
+										<label>$multilangue[oui]<input type = "radio" name = "visibilite_$site[siteid]" value="oui"  checked></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[non]<input type = "radio" name = "visibilite_$site[siteid]" value="non" ></label>
+									</div>
+								</div>															
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[balises_meta] $multilangue[francaises]  
+									<br/><br/><br/><br/><a style="text-decoration : none;" 
+									class="btn btn-warning" onclick="Javascript:affiche_meta_defaut($site[siteid]);">
+									Metas par défaut</a></label>
+									
+									<div class="col-md-8">		
+										$multilangue[balise] < TITLE > <br/>
+										$multilangue[longueur_conseillee] : 80 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>																										
+									  	<textarea name="modiftitle_$site[siteid]" id="modiftitle_$site[siteid]" class="$class_wysiwyg form-control" rows="5" 
+									  	cols="100">$infosSiteBit[pagetitle]</textarea><br/><br/><br/> 
+										
+										$multilangue[balise] < META name = $multilangue[description] > <br/>
+										$multilangue[longueur_conseillee] : 250 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifdescription_$site[siteid]" id="modifdescription_$site[siteid]" class="$class_wysiwyg form-control" 
+										rows="5" cols="100">$infosSiteBit[metadescription]</textarea><br/><br/><br/>
+										
+										$multilangue[balise] < META name = keywords > <br/>
+										$multilangue[longueur_conseillee] : 1000 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifkeywords_$site[siteid]" id="modifkeywords_$site[siteid]" class="$class_wysiwyg form-control" rows="5" 
+										cols="100">$infosSiteBit[metakeywords]</textarea><br/><br/>
+									</div>
+								</div>								
+							</div>
+						</div>				
+					</div>
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+		</div>
+	</div>	
+	<!-- END InstitEditpageBit -->
+		<div class="boutons_liste">
+      		<a style=" margin-left : 1%; display : inline-block;" href="/admin/instit.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+      		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+  		</div>
+	</form>
+<!-- END InstitEditpage -->
+
+
+
+<!-- BEGIN InstitAjoutPage -->
+	<form name="ajoutpage" action="instit.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+		<input type ="hidden" name="action" value="doajoutpage">
+		<input type ="hidden" name="menuid" value="$menuid">
+		<input type ="hidden" name="institutionnelid" value="$institutionnelid">
+		<input type ="hidden" name="siteid" value="$site[siteid]">
+					
+	<div class="boutons_liste">
+     	<a style=" margin-left : 1%; display : inline-block;" href="/admin/instit.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+     	<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+ 	</div>				
+	
+	<!-- BEGIN InstitAjoutPage1 -->
+	<div class="row" >
+		<div class="col-md-12" >
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+					<input type ="hidden" name="action" value="doajoutpage">
+					<input type ="hidden" name="menuid" value="$menuid">
+					<div class="portlet box $siteRef[classcolor]" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[donnees] <i>$siteRef[libelle]</i>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-scrollable">																					
+								<div class="form-group">
+									<label class="control-label col-md-4 " style="text-align : left;">$multilangue[nom_en] $multilangue[francais]</label>
+									<div class="col-md-8">																														
+										<input type="text" name="nomform_1" class="form-control"  size="50">
+									</div>
+								</div>	
+								
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[contenu_en] $multilangue[francais]</label>
+									<div class="col-md-8">																														
+										<textarea name="contenuform_1" class="form-control editeur"  rows="5" cols="100"></textarea>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[page] $multilangue[visible] ?</label>
+									<div class="col-md-8">																														
+										<label>$multilangue[oui]<input type = "radio" name = "visible_1" value="oui"  checked></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[non]<input type = "radio" name = "visible_1" value="non" ></label>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[formulaire_associe]</label>
+									<div class="col-md-8">																														
+										<select name="formulaireid_1" class="form-control">
+											<!-- BEGIN InstitSelectBit -->											
+												<option value="$selectForm[formulaireid]">$selectForm[nom]</option>
+											<!-- END InstitSelectBit -->
+										</select>
+									</div>
+								</div>								
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[position_formulaire_texte] </label>
+									<div class="col-md-8">																														
+										<label>$multilangue[avant]<input type = "radio" name = "positionform_1" value="avant" ></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[apres]<input type = "radio" name = "positionform_1" value="apres " checked ></label>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[balises_meta] $multilangue[francaises]  <br/><br/><br/><br/><a style="text-decoration : none;" 
+									class="btn btn-warning" onclick="Javascript:affiche_meta_defaut(0);">
+									Metas par défaut</a></label>
+									
+									<div class="col-md-8">		
+										$multilangue[balise] < TITLE > <br/>
+										$multilangue[longueur_conseillee] : 80 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>																										
+									  	<textarea name="modiftitle_1" id="modiftitle" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[pagetitle]</textarea><br/><br/><br/> 
+										
+										$multilangue[balise] < META name = $multilangue[description] > <br/>
+										$multilangue[longueur_conseillee] : 250 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifdescription_1" id="modifdescription" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[metadescription]</textarea><br/><br/><br/>
+										
+										$multilangue[balise] < META name = keywords > <br/>
+										$multilangue[longueur_conseillee] : 1000 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifkeywords_1" id="modifkeywords" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[metakeywords]</textarea><br/><br/>
+									</div>
+									
+								</div>														
+							</div>
+						</div>				
+					</div>			
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+		</div>
+	</div>
+	<!-- END InstitAjoutPage1 -->
+	
+	<!-- BEGIN InstitAjoutPageBit -->
+	<div class="row" >
+		<div class="col-md-12" >
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+				<!-- DEBUT SAMPLE TABLE PORTLET-->						
+					<div class="portlet box $site[classcolor]" style="">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[donnees] <i>$site[libelle]</i>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="expand">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body" style="display:none;">
+							<div class="table-scrollable">																					
+								<div class="form-group">
+									<label class="control-label col-md-4 " style="text-align : left;">$multilangue[nom_en] $langueEditPage[libelle]</label>
+									<div class="col-md-8">																														
+										<input type="text" name="nom_$site[siteid]" class="form-control"  size="50">
+									</div>
+								</div>	
+								
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[contenu_en] $langueEditPage[libelle]</label>
+									<div class="col-md-8">																														
+										<textarea name="contenuform_$site[siteid]" class="form-control editeur"  rows="5" cols="100"></textarea>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[page] $multilangue[visible] ?</label>
+									<div class="col-md-8">																														
+										<label>$multilangue[oui]<input type = "radio" name = "visible_$site[siteid]" value="oui"  checked></label> &nbsp&nbsp&nbsp
+										<label>$multilangue[non]<input type = "radio" name = "visible_$site[siteid]" value="non" ></label>
+									</div>
+								</div>	
+								<div class="form-group">
+									<label style="text-align : left;" class="control-label col-md-4">$multilangue[balises_meta] $multilangue[francaises]  <br/><br/><br/><br/><a style="text-decoration : none;" 
+									class="btn btn-warning" onclick="Javascript:affiche_meta_defaut($site[siteid]);">
+									Metas par défaut</a></label>
+									<div class="col-md-8">		
+										$multilangue[balise] < TITLE > <br/>
+										$multilangue[longueur_conseillee] : 80 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>																										
+									  	<textarea name="modiftitle_$site[siteid]" id="modiftitle_$site[siteid]" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[pagetitle]</textarea><br/><br/><br/> 
+										
+										$multilangue[balise] < META name = $multilangue[description] > <br/>
+										$multilangue[longueur_conseillee] : 250 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifdescription_$site[siteid]" id="modifdescription_$site[siteid]" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[metadescription]</textarea><br/><br/><br/>
+										
+										$multilangue[balise] < META name = keywords > <br/>
+										$multilangue[longueur_conseillee] : 1000 $multilangue[caracteres]<br/>
+										$multilangue[longueur_actuelle] :	<br/>	
+										<textarea name="modifkeywords_$site[siteid]" id="modifkeywords_$site[siteid]" class="$class_wysiwyg form-control" rows="5" cols="100">$infosPage[metakeywords]</textarea><br/><br/>
+									</div>	
+									<script language="javascript" type="text/javascript">
+										function affiche_meta_defaut ();
+									</script>								
+								</div>																								
+							</div>
+						</div>				
+					</div>
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+		</div>
+	</div>
+	<!-- END InstitAjoutPageBit -->
+	<div class="boutons_liste">
+   		<a style=" margin-left : 1%; display : inline-block;" href="/admin/instit.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+   		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	</div>
+	</form>
+<!-- END InstitAjoutPage -->
+
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+</script>
+<script type="text/javascript">
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+</script>
+
+
+<!-- END InstitIndex -->

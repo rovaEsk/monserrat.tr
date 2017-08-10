@@ -1,0 +1,1302 @@
+<!-- BEGIN ReferentsIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[referents]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[referencement]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[referents]
+						</li>
+						<!-- BEGIN ReferentsNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END ReferentsNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN ReferentsSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END ReferentsSuccess -->
+			
+			<!-- BEGIN ReferentsErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END ReferentsErreur -->
+			
+			<!-- BEGIN ReferentsInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END ReferentsInfo -->
+			
+			<!-- BEGIN ReferentsListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a href="referents.php?action=exportcsv&datedebut=$datedebut&datefin=$datefin" data-original-title="$multilangue[export_donnees_csv]" class="btn green right">
+									$multilangue[exporter] &nbsp; 
+									<i class="fa fa-table"></i>
+								</a>
+								<form action="$_SERVER[PHP_SELF]" class="form-inline ta-center">
+									<div class="form-group">
+										<label class="control-label">$multilangue[afficherhistoentre]</label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datedebut" value="$inputdatedebut">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  $multilangue[et] $multilangue[le]  </label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datefin" value="$inputdatefin">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  </label>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i></button>
+									</div>
+								</form>
+								<br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<!-- BEGIN ReferentsListeMotsCles -->
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[mots_cles]												
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmotcles" class="table table-striped table-bordered table-motcles table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[mots_cles]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>															
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsListeMotsClesBit -->
+															<tr id="$motcle[referentid]">
+																<td class="ta-center">
+																	<a href="referents.php?action=infomotcle&motcle=$motcle[motcle]&datedebut=$inputdatedebut&datefin=$inputdatefin">
+																		$motcle[motcle]
+																	</a>
+																</td>
+																<td class="ta-center">
+																	$motcle[totalclics]
+																</td>
+																<td class="ta-center">
+																	$motcle[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$motcle[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>																																
+															</tr>
+														<!-- END ReferentsListeMotsClesBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>																			
+										</div>
+									</div>
+									<!-- END ReferentsListeMotsCles -->
+									<!-- BEGIN ReferentsListeLiensEntrants -->
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[liens_entrants]											
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="form-actions fluid">
+												<div class="col-md-12 ta-center">
+													<a href="referents.php?action=gestiongroupes" class="btn green">
+														<i class="fa fa-edit"></i> &nbsp; $multilangue[gestion_groupes]
+													</a>													
+												</div>
+											</div>
+											<div class="table-responsive">
+												<table id="tabliensentrants" class="table table-striped table-bordered table-liensentrants table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[liens_entrants]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>
+															<th class="ta-center">
+																$multilangue[cout_au_clic] $multilangue[ht]
+															</th>
+															<th class="ta-center">
+																$multilangue[montant] $multilangue[clic_s] $multilangue[ht]
+															</th>
+															<th class="ta-center">
+																$multilangue[marge_nette]
+															</th>
+															<th class="ta-center">
+																$multilangue[action]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsListeLiensEntrantsBit -->
+															<tr id="$liensentrant[referentid]">
+																<td class="ta-center">
+																	<a href="referents.php?action=infolienentrant&lienentrant=$liensentrant[libelle]&datedebut=$inputdatedebut&datefin=$inputdatefin">
+																		$liensentrant[libelle]
+																	</a>
+																</td>
+																<td class="ta-center">
+																	$liensentrant[totalclics]
+																</td>
+																<td class="ta-center">
+																	$liensentrant[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$liensentrant[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>
+																<td class="ta-center">
+																	$liensentrant[prixclic] &euro;
+																</td>
+																<td class="ta-center">
+																	$liensentrant[totalprixclic] &euro;
+																</td>
+																<td class="ta-center">
+																	$liensentrant[marge] &euro;
+																</td>
+																<td class="ta-center">
+																	<a href="referents.php?action=modifier&lienentrant=$liensentrant[libelle]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-edit fs-18 font-blue"></i>
+																	</a>
+																</td>
+															</tr>
+														<!-- END ReferentsListeLiensEntrantsBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>												
+					                	</div>
+					                </div>
+					            	<!-- END ReferentsListeLiensEntrants -->
+					            	<!-- BEGIN ReferentsListeMoteursRecherche -->
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[moteurs_recherche]												
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmoteursrecherche" class="table table-striped table-bordered table-moteursrecherche table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[moteurs_recherche]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsListeMoteursRechercheBit -->
+															<tr id="$moteurrecherche[referentid]">
+																<td class="ta-center">
+																	<a href="referents.php?action=infomoteurrecherche&moteurrecherche=$moteurrecherche[referent]&datedebut=$inputdatedebut&datefin=$inputdatefin">
+																		$moteurrecherche[referent]
+																	</a>
+																</td>
+																<td class="ta-center">
+																	$moteurrecherche[totalclics]
+																</td>
+																<td class="ta-center">
+																	$moteurrecherche[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$moteurrecherche[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>
+															</tr>
+														<!-- END ReferentsListeMoteursRechercheBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>																			
+										</div>
+									</div>
+									<!-- END ReferentsListeMoteursRecherche -->															
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END ReferentsListe -->
+			
+			<!-- BEGIN ReferentsListeGroupe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver left"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>	
+								<a href="referents.php?action=modifiergroupe" data-original-title="$multilangue[ajouter]" class="btn green right">
+									$multilangue[ajouter] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabgroupe" class="table table-striped table-bordered table-groupe table-hover dataTable">
+											<thead>
+												<tr>
+													<th></th>
+													<th>
+														$multilangue[libelle]
+													</th>
+													<th class="ta-center">
+														$multilangue[nombre_referents]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+											<!-- BEGIN ReferentsListeGroupeBit -->
+												<tr id="$groupe[groupe_referentid]">
+													<td>
+														<span class="row-details row-details-close" id="btn_details$groupe[groupe_referentid]" onclick="openDetails('btn_details$groupe[groupe_referentid]','details$groupe[groupe_referentid]');"></span>
+													</td>
+													<td>				
+														$groupe[libelle]
+													</td>
+													<td class="ta-center">				
+														$groupe[count]
+													</td>
+													<td width="20%" class="ta-center">
+														<a href="referents.php?action=modifiergroupe&groupe_referentid=$groupe[groupe_referentid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-edit fs-18 font-blue"></i>
+														</a>
+														<a href="#myModal$groupe[groupe_referentid]" id="btn_suppr$groupe[groupe_referentid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+															<i class="fa fa-trash-o fs-18 font-red"></i>
+														</a>
+														<div aria-hidden="true" aria-labelledby="myModalLabe$groupe[groupe_referentid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$groupe[groupe_referentid]" style="display: none;">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																		<h4 class="modal-title">$multilangue[suppression_groupe_referent] : "$groupe[libelle]" ?</h4>
+																	</div>
+																	<div class="modal-body">																					
+																		$multilangue[suppression_groupe_referent_infos]
+																	</div>
+																	<div class="modal-footer">
+																		<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																		<a href="referents.php?action=supprimergroupe&groupe_referentid=$groupe[groupe_referentid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr style="display:none;">
+				                         			<td colspan="4">				                          			
+				                             			&nbsp;								                	
+				                          			</td>				                          
+			                     				</tr>
+				                      			<tr class="details" id="details$groupe[groupe_referentid]" style="display: none;">
+							                        <td colspan="4" style="padding: 20px;">				                          			
+							                           	<table class="table table-bordered" style="margin: 0px;">
+											               	<thead>
+											                 	<tr>
+												                  	<th class="bg-white ta-center col-md-4">$multilangue[referent]</th>								                   			                                 
+																	<th class="bg-white ta-center col-md-4">$multilangue[cout_au_clic]</th>
+																	<th class="bg-white ta-center col-md-4">$multilangue[action]</th>
+																</tr>
+															</thead>
+															<tbody>
+																<!-- BEGIN ReferentsListeGroupeDetail -->
+																<tr style="border-top: 1px solid #EEEEEE;">
+																	<td class="bg-white ta-center col-md-4">$groupedetail[referent]</td>
+																	<td class="bg-white ta-center col-md-4">$groupedetail[prix_clic] &euro;</td>
+																	<td class="bg-white ta-center col-md-4">
+																		<a href="referents.php?action=supprimerreferentgroupe&referent=$groupedetail[referent]" data-original-title="$multilangue[supprimer]" data-placement="top"class="btn tooltips">
+																			<i class="fa fa-trash-o fs-18 font-red"></i>
+																		</a>
+																	</td>
+																</tr>
+											                     <!-- END ReferentsListeGroupeDetail -->
+															</tbody>
+														</table>
+													</td>
+												</tr>
+												<!-- END ReferentsListeGroupeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																		
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END ReferentsListeGroupe -->
+			
+			<!-- BEGIN ReferentsModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifLien" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifier2">
+										<input type="hidden" name="lienentrant" value="$lienentrant[referent]">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[modification] $multilangue[liens_entrants] : $lienentrant[referent]
+												</div>																	
+											</div>
+											<div class="portlet-body form">
+												<!-- DEBUT FORM-->
+													<div class="form-body">
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[libelle]</label>
+															<div class="col-md-10">																														
+																<input type="text" id="groupe_referentid" class="form-control" name="libelle">
+															</div>
+														</div>												
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[cout_au_clic]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control input-inline" name="prix_clic" value="$lienentrant[prix_clic]"/> &euro;
+															</div>
+														</div>																		
+													</div>				
+												<!-- FIN FORM-->
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END ReferentsModification -->
+			
+			<!-- BEGIN ReferentsModificationGroupe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifGroupe" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifiergroupe2">
+										<input type="hidden" name="groupe_referentid" value="$groupe_referentid">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$texte_entete
+												</div>																	
+											</div>
+											<div class="portlet-body form">
+												<!-- DEBUT FORM-->
+													<div class="form-body">
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[libelle]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control" name="libelle" value="$groupe[libelle]"/>
+															</div>
+														</div>							
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[cout_au_clic]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control input-inline" name="prix_clic" value="$groupe[prix_clic]"/> &euro;
+															</div>
+														</div>																			
+													</div>												
+												<!-- FIN FORM-->
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END ReferentsModificationGroupe -->
+			
+			<!-- BEGIN ReferentsInfoMotCle -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a href="$_SERVER[PHP_SELF]?datedebut=$datedebut&datefin=$datefin" class="btn grey-silver left"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<form action="$_SERVER[PHP_SELF]" class="form-inline ta-center">
+									<input type="hidden" name="action" value="infomotcle">
+									<input type="hidden" name="motcle" value="$motcle">
+									<div class="form-group">
+										<label class="control-label">$multilangue[afficherhistoentre]</label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datedebut" value="$inputdatedebut">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  $multilangue[et] $multilangue[le]  </label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datefin" value="$inputdatefin">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  </label>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i></button>
+									</div>
+								</form>
+								<br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_recherches_mot_cle] "$motcle"
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="clics" style="display: none;">
+												<!-- BEGIN ReferentsInfoMotCleClics -->
+												[$date, $motcleinfo[totalclics]],
+												<!-- END ReferentsInfoMotCleClics -->
+											</div>
+											<div class="commandes" style="display: none;">
+												<!-- BEGIN ReferentsInfoMotCleCommandes -->
+												[$date, $motcleinfo[totalcommandes]],
+												<!-- END ReferentsInfoMotCleCommandes -->
+											</div>
+											<div class="chart"></div>
+										</div>
+									</div>
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_recherches_mot_cle] "$motcle"											
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmotcles" class="table table-striped table-bordered table-motcles table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[date]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsInfoMotCleBit -->
+															<tr id="$motcleinfo[referentid]">
+																<td class="ta-center">
+																	$motcleinfo[dateline]
+																</td>
+																<td class="ta-center">
+																	$motcleinfo[totalclics]
+																</td>
+																<td class="ta-center">
+																	$motcleinfo[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$motcleinfo[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>
+															</tr>
+														<!-- END ReferentsInfoMotCleBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>																			
+										</div>
+									</div>													
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END ReferentsInfoMotCle -->
+			
+			<!-- BEGIN ReferentsInfoLienEntrant -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a href="$_SERVER[PHP_SELF]?datedebut=$datedebut&datefin=$datefin" class="btn grey-silver left"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<form action="$_SERVER[PHP_SELF]" class="form-inline ta-center">
+									<input type="hidden" name="action" value="infolienentrant">
+									<input type="hidden" name="lienentrant" value="$lienentrant">
+									<div class="form-group">
+										<label class="control-label">$multilangue[afficherhistoentre]</label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datedebut" value="$inputdatedebut">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  $multilangue[et] $multilangue[le]  </label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datefin" value="$inputdatefin">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  </label>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i></button>
+									</div>
+								</form>
+								<br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_clics_liens_entrants] "$lienentrant"
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="clics" style="display: none;">
+												<!-- BEGIN ReferentsInfoLienEntrantClics -->
+												[$date, $lienentrantinfo[totalclics]],
+												<!-- END ReferentsInfoLienEntrantClics -->
+											</div>
+											<div class="commandes" style="display: none;">
+												<!-- BEGIN ReferentsInfoLienEntrantCommandes -->
+												[$date, $lienentrantinfo[totalcommandes]],
+												<!-- END ReferentsInfoLienEntrantCommandes -->
+											</div>
+											<div class="chart"></div>
+										</div>
+									</div>
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_clics_liens_entrants] "$lienentrant"											
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmotcles" class="table table-striped table-bordered table-motcles table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[date]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsInfoLienEntrantBit -->
+															<tr id="$lienentrantinfo[referentid]">
+																<td class="ta-center">
+																	$lienentrantinfo[dateline]
+																</td>
+																<td class="ta-center">
+																	$lienentrantinfo[totalclics]
+																</td>
+																<td class="ta-center">
+																	$lienentrantinfo[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$lienentrantinfo[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>
+															</tr>
+														<!-- END ReferentsInfoLienEntrantBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>																			
+										</div>
+									</div>													
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END ReferentsInfoLienEntrant -->
+			
+			<!-- BEGIN ReferentsInfoMoteurRecherche -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a href="$_SERVER[PHP_SELF]?datedebut=$datedebut&datefin=$datefin" class="btn grey-silver left"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<a href="referents.php?action=exportcsv&referent=$moteurrecherche&datedebut=$datedebut&datefin=$datefin" data-original-title="$multilangue[export_donnees_csv]" class="btn green right">
+									$multilangue[exporter] &nbsp; 
+									<i class="fa fa-table"></i>
+								</a>
+								<form action="$_SERVER[PHP_SELF]" class="form-inline ta-center">
+									<input type="hidden" name="action" value="infolienentrant">
+									<input type="hidden" name="moteurrecherche" value="$moteurrecherche">
+									<div class="form-group">
+										<label class="control-label">$multilangue[afficherhistoentre]</label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datedebut" value="$inputdatedebut">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  $multilangue[et] $multilangue[le]  </label>
+										<input type="text" class="form-control datepicker input-small ta-center" name="datefin" value="$inputdatefin">
+									</div>
+									<div class="form-group">
+										<label class="control-label">  </label>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i></button>
+									</div>
+								</form>
+								<br><br>										
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_clics_moteur_recherche] $moteurrecherche
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="clics" style="display: none;">
+												<!-- BEGIN ReferentsInfoMoteurRechercheClics -->
+												[$date, $moteurrechercheinfo[totalclics]],
+												<!-- END ReferentsInfoMoteurRechercheClics -->
+											</div>
+											<div class="commandes" style="display: none;">
+												<!-- BEGIN ReferentsInfoMoteurRechercheCommandes -->
+												[$date, $moteurrechercheinfo[totalcommandes]],
+												<!-- END ReferentsInfoMoteurRechercheCommandes -->
+											</div>
+											<div class="chart"></div>
+										</div>
+									</div>
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[historique_clics_moteur_recherche] $moteurrecherche											
+											</div>
+											<div class="tools">
+					                        	<a class="expand" href="javascript:;">
+					                            </a>					                                
+					                       	</div>																													
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmotcles" class="table table-striped table-bordered table-motcles table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[recherche_de]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_clics]
+															</th>
+															<th class="ta-center">
+																$multilangue[nb_cdes]
+															</th>
+															<th class="ta-center">
+																$multilangue[total] $multilangue[ttc]
+															</th>
+															<th class="ta-center">
+																$multilangue[taux_conversion_global]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN ReferentsInfoMoteurRechercheBit -->
+															<tr id="$moteurrechercheinfo[referentid]">
+																<td class="ta-center">
+																	$moteurrechercheinfo[motcle]
+																</td>
+																<td class="ta-center">
+																	$moteurrechercheinfo[totalclics]
+																</td>
+																<td class="ta-center">
+																	$moteurrechercheinfo[totalcommandes]
+																</td>
+																<td class="ta-center">
+																	$moteurrechercheinfo[totalmontantcommandes] &euro;
+																</td>
+																<td class="ta-center">
+																	$tauxconversionglobal %
+																</td>
+															</tr>
+														<!-- END ReferentsInfoMoteurRechercheBit -->												
+													</tbody>
+													<tfoot>
+            											<tr>
+               												<th class="ta-center">
+               													$multilangue[total]
+               												</th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+                											<th class="ta-center"></th>
+           												</tr>
+        											</tfoot>
+												</table>												
+											</div>																			
+										</div>
+									</div>													
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END ReferentsInfoMoteurRecherche -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script src="assets/scripts/custom/charts.js"></script>
+<script src="assets/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.time.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.numeric.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('groupe_referentid', 'groupe_referentid', '', 'search_result_autocomplete.php?type=referent', 'simpleSetValue');
+	$(document).ready(function() {
+		$('#tabmotcles').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			},
+			"footerCallback": function (row, data, start, end, display) {
+	            var api = this.api(), data;
+	            var intVal = function ( i ) {
+	                return typeof i === 'string' ?
+	                   	i.replace(/[\€% ]/g, '')*1 :
+	                    typeof i === 'number' ?
+	                        i : parseFloat(i);
+	            };
+	            data = api.column( 1 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 1, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(1).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 2 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 2, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(2).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 3 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 3, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+
+	            $( api.column(3).footer() ).html(
+	             	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' &euro;' : pageTotal) + ' ( ' + (typeof(total) === "number" ? total.toFixed(2) + ' &euro;' : total) + ' )'
+	            );
+	            data = api.column( 4 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 4, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(4).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' %' : pageTotal) + ' ( ' + (typeof(total) === "number" ? total.toFixed(2) + ' %' : total) + ' )'
+	            );
+	        }
+	    });
+		$('#tabliensentrants').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			},
+			"footerCallback": function (row, data, start, end, display) {
+	            var api = this.api(), data;
+	            var intVal = function ( i ) {
+	                return typeof i === 'string' ?
+	                    i.replace(/[\€% ]/g, '')*1 :
+	                    typeof i === 'number' ?
+	                        i : 0;
+	            };
+	            data = api.column( 1 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 1, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(1).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 2 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 2, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(2).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 3 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 3, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(3).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' &euro;' : pageTotal) + ' ( ' + (typeof(total) === "number" ? total.toFixed(2) + ' &euro;' : total) + ' )'
+	            );
+	            data = api.column( 4 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 4, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(4).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' %' : pageTotal) + ' ( '+ (typeof(total) === "number" ? total.toFixed(2) + ' %' : total) + ' )'
+	            );
+	            data = api.column( 7 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 7, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(7).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' &euro;' : pageTotal) + ' ( '+ (typeof(total) === "number" ? total.toFixed(2) + ' &euro;' : total) + ' )'
+	            );
+	        }
+	    });
+		$('#tabmoteursrecherche').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			},
+			"footerCallback": function (row, data, start, end, display) {
+				var api = this.api(), data;
+	            var intVal = function ( i ) {
+	                return typeof i === 'string' ?
+	                	i.replace(/[\€% ]/g, '')*1 :
+	                    typeof i === 'number' ?
+	                        i : 0;
+	            };
+	            data = api.column( 1 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 1, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(1).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 2 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 2, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(2).footer() ).html(
+	            	pageTotal + ' ( '+ total + ' )'
+	            );
+	            data = api.column( 3 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 3, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(3).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' &euro;' : pageTotal) + ' ( '+ (typeof(total) === "number" ? total.toFixed(2) + ' &euro;' : total) + ' )'
+	            );
+	            data = api.column( 4 ).data();
+	            total = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            data = api.column( 4, { page: 'current'} ).data();
+	            pageTotal = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intVal(a) + intVal(b);
+	                } ) :
+	                0;
+	            $( api.column(4).footer() ).html(
+	            	(typeof(pageTotal) === "number" ? pageTotal.toFixed(2) + ' %' : pageTotal) + ' ( '+ (typeof(total) === "number" ? total.toFixed(2) + ' %' : total) + ' )'
+	            );
+	        }
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		$('.dataTables_length').css('margin', '10px');
+		$('.dataTables_filter').css('margin', '10px');
+		$('.dataTables_info').css('margin', '10px');
+		$('.dataTables_paginate').css('margin', '10px');
+		$('.datepicker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+		$('input[name="prix_clic"]').numeric({negative : false});
+		var clics = eval('[' + $('.clics').html() + ']');
+		var commandes = eval('[' + $('.commandes').html() + ']');
+		var plot = $.plot($(".chart"), [{
+						data: clics,
+						label: "Clics",
+						lines: { lineWidth: 1, },
+						shadowSize: 0
+					}, {
+					data: commandes,
+					label: "Commandes",
+					lines: { lineWidth: 1, },
+					shadowSize: 0
+            	}
+			], {
+			series: {
+				lines: {
+					show: true,
+					lineWidth: 2,
+					fill: true,
+					fillColor: { colors: [{ opacity: 0.05 }, { opacity: 0.01 }] }
+				},
+				points: {
+					show: true,
+					radius: 3,
+					lineWidth: 1
+				},
+				shadowSize: 2
+			},
+			grid: {
+				hoverable: true,
+				clickable: true,
+				tickColor: "#eee",
+				borderColor: "#eee",
+				borderWidth: 1
+			},
+			colors: ["#37b7f3", "#d12610", "#52e136"],
+			xaxis: {
+				tickDecimals: 0,
+				mode: "time",
+				timeformat: "%d/%m/%Y",
+				tickColor: "#eee",
+			},
+			yaxis: {
+				ticks: 11,
+				tickDecimals: 0,
+				tickColor: "#eee",
+			}
+		});
+		function showTooltip(x, y, contents) {
+			$('<div id="tooltip">' + contents + '</div>').css({
+				position: 'absolute',
+				display: 'none',
+				top: y + 5,
+				left: x + 15,
+				border: '1px solid #333',
+				padding: '4px',
+				color: '#fff',
+				'border-radius': '3px',
+				'background-color': '#333',
+				opacity: 0.80
+			}).appendTo("body").fadeIn(200);
+		}
+		function formatDate(value) {
+			d = new Date(value);
+			return (d.getDate() < 10 ? '0' + d.getDate() : d.getDate()) + '/' + ((d.getMonth() + 1) < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1))  + '/' + d.getFullYear();
+		}
+		var previousPoint = null;
+		$(".chart").bind("plothover", function (event, pos, item) {
+			$("#x").text(pos.x);
+			$("#y").text(pos.y);
+			if (item) {
+				if (previousPoint != item.dataIndex) {
+					previousPoint = item.dataIndex;
+					$("#tooltip").remove();
+					showTooltip(item.pageX, item.pageY, "<b>" + formatDate(item.datapoint[0]) + "</b><br>" + item.series.label + " : <b>" + item.datapoint[1] + "</b>");
+            	}
+            }else{
+                $("#tooltip").remove();
+       			previousPoint = null;
+        	}
+    	});
+	});
+</script>
+<!-- END ReferentsIndex -->

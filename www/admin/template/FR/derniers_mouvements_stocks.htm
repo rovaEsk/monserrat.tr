@@ -1,0 +1,172 @@
+<!-- BEGIN Derniers_mouvements_stocksIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[derniers_mouvements_stocks]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="derniers_mouvements_stocks.php">							
+								$multilangue[derniers_mouvements_stocks]
+							</a>						
+						</li>
+						<!-- BEGIN Derniers_mouvements_stocksNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Derniers_mouvements_stocksNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN Derniers_mouvements_stocksSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Derniers_mouvements_stocksSuccess -->
+			
+			<!-- BEGIN Derniers_mouvements_stocksErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Derniers_mouvements_stocksErreur -->
+			
+			<!-- BEGIN Derniers_mouvements_stocksInfo -->
+				<div class="alert alert-info alert-dismissable">
+					$texteInfo
+				</div>
+			<!-- END Derniers_mouvements_stocksInfo -->
+			
+			<!-- BEGIN Derniers_mouvements_stocksListe -->				
+				<div class="row">
+					<div class="col-md-12">							
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">										
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet-body form">
+									<div class="table-responsive">
+										<table id="tabhistoriques" class="table table-striped table-bordered table-historiques table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[date]
+													</th>
+													<th class="ta-center">
+														$multilangue[reference]
+													</th>
+													<th class="ta-center">
+														$multilangue[designation]
+													</th>
+													<th class="ta-center">
+														$multilangue[image]
+													</th>
+													<th class="ta-center">
+														$multilangue[num_commande]
+													</th>
+													<th class="ta-center">
+														$multilangue[delta]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN Derniers_mouvements_stocksListeBit -->
+												<tr id="$historique[artid]">
+													<td class="ta-center">
+														$date
+													</td>
+													<td class="ta-center">
+														$historique[artcode]
+													</td>
+													<td class="ta-center">
+														$designation[libelle]
+													</td>
+													<td class="ta-center">
+														<div style="width: 200px; height: 150px; margin:auto;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img" alt=""></div>
+													</td>
+													<td class="ta-center">
+														<a href="facture.php?action=editer&factureid=$facture[factureid]">
+															$facture[factureid]
+														</a>																	
+													</td>
+													<td class="ta-center $color">
+														$historique[delta]
+													</td>
+													<td class="ta-center">
+														<a href="produits.php?action=modifier&form=stocks&artid=$historique[artid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-edit fs-18 font-blue"></i>
+														</a>
+													</td>
+												</tr>
+												<!-- END Derniers_mouvements_stocksListeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			<!-- END Derniers_mouvements_stocksListe -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script src="assets/scripts/custom/table-advanced.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	$(document).ready(function() {
+		$('#tabhistoriques').dataTable( {
+	        "order": [[ 0, "desc" ]],
+			"aLengthMenu": [[5, 15, 20, -1], [5, 15, 20, "Tout les"]],
+			"language": {
+				"search": "Recherche : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		$(".alert-success").fadeOut(3000);		
+		$(".alert-success").mouseover(function() {
+			$(".alert-success").stop();
+			$(".alert-success").show();
+			$(".alert-success").fadeTo("fast",1);		
+		});		
+	});
+</script>
+
+<!-- END Derniers_mouvements_stocksIndex -->

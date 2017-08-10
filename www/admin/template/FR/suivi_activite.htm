@@ -1,0 +1,323 @@
+<!-- BEGIN Suivi_activiteIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[suivi_activite]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[utilisationavancee]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="suivi_activite.php">						
+							$multilangue[suivi_activite]
+							</a>
+						</li>
+						<!-- BEGIN Suivi_activiteNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Suivi_activiteNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Suivi_activiteSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Suivi_activiteSuccess -->
+			
+			<!-- BEGIN Suivi_activiteErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Suivi_activiteErreur -->
+			
+			<!-- BEGIN Suivi_activiteInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Suivi_activiteInfo -->
+			
+			<!-- BEGIN Suivi_activiteListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-session table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[numero_session]
+										</th>
+										<th class="ta-center">
+											$multilangue[ip]
+										</th>
+										<th class="ta-center">
+											$multilangue[date_derniere_action]
+										</th>
+										<th class="ta-center">
+											$multilangue[pays]
+										</th>
+										<th class="ta-center">
+											$multilangue[panier]
+										</th>
+										<th class="ta-center">
+											$multilangue[nom]
+										</th>
+										<th class="ta-center">
+											$multilangue[prenom]
+										</th>
+										<th class="ta-center">
+											$multilangue[nb_pages_vues]
+										</th>
+									</tr>
+								</thead>
+								<tbody>										
+								</tbody>
+							</table>												
+						</div>							
+					</div>
+				</div>
+			<!-- END Suivi_activiteListe -->
+			
+			<!-- BEGIN Suivi_activiteDetails -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 ta-center mb-20">
+							<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-details">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[pages_vues]
+										</th>
+										<th class="ta-center">
+											$multilangue[ip]
+										</th>
+										<!-- BEGIN Suivi_activiteDetailsTitre -->
+										<th class="ta-center">
+											Userid
+										</th>
+										<th class="ta-center">
+											$multilangue[nom]
+										</th>
+										<th class="ta-center">
+											$multilangue[prenom]
+										</th>
+										<!-- END Suivi_activiteDetailsTitre -->
+										<th class="ta-center">
+											$multilangue[pays]
+										</th>
+										<!-- BEGIN Suivi_activiteDetailsActionTitre -->
+										<th class="ta-center">
+											$multilangue[action]
+										</th>
+										<!-- END Suivi_activiteDetailsActionTitre -->
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="ta-center">
+											$count
+										</td>
+										<td class="ta-center">
+											$ip
+										</td>
+										<!-- BEGIN Suivi_activiteDetailsValue -->
+										<td class="ta-center">
+											$user[userid]
+										</td>
+										<td class="ta-center">
+											$user[nom]
+										</td>
+										<td class="ta-center">
+											$user[prenom]
+										</td>
+										<!-- END Suivi_activiteDetailsValue -->
+										<td class="ta-center">
+											$pays[libelle]
+										</td>
+										<!-- BEGIN Suivi_activiteDetailsAction -->
+										<td class="ta-center">
+											<a href="clients.php?action=editer&user=$user[userid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+												<i class="fa fa-edit fs-18 font-blue"></i>
+											</a>
+											<a href="http://stickers.arobases.fr/V2/client.htm?action=logging&cryptage=no&mail_logging=$user[mail]&pass_logging=$user[password]" target="_blank" data-original-title="$multilangue[connexion_compte]" data-placement="top" class="btn tooltips">
+												<i style="color : #D1B110;" class="fa fa-key"></i>
+											</a>
+										</td>
+										<!-- END Suivi_activiteDetailsAction -->
+									</tr>								
+								</tbody>
+							</table>												
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-details table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[date_heure_action]
+										</th>
+										<th class="ta-center">
+											$multilangue[page_vue]
+										</th>
+										<th class="ta-center">
+											$multilangue[description]
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Suivi_activiteDetailsBit -->
+									<tr>
+										<td class="ta-center">
+											$page_vue[date_action]
+										</td>
+										<td class="ta-center">
+											$page_vue[page_affichee]
+										</td>
+										<td class="ta-center">
+											$texte_action
+										</td>
+									</tr>
+									<!-- END Suivi_activiteDetailsBit -->								
+								</tbody>
+							</table>												
+						</div>
+					</div>
+					<!-- BEGIN Suivi_activiteDetailsPanier -->
+					<div class="col-md-6">
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-details table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[libelle]
+										</th>
+										<th class="ta-center">
+											$multilangue[quantite]
+										</th>
+										<th class="ta-center">
+											$multilangue[prix]
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Suivi_activiteDetailsPanierBit -->
+									<tr>
+										<td class="ta-center">
+											$ligne[libelle]
+										</td>
+										<td class="ta-center">
+											$ligne[qte]
+										</td>
+										<td class="ta-center">
+											$ligne[lp_prix] &euro;
+										</td>
+									</tr>
+									<!-- END Suivi_activiteDetailsPanierBit -->
+									<tr>
+										<td class="ta-center bold" colspan="2">
+											$multilangue[frais_port]
+										</td>
+										<td class="ta-center">
+											$panier[montantport] &euro;
+										</td>
+									</tr>
+									<tr>
+										<td class="ta-center bold" colspan="2">
+											$multilangue[montant_total]
+										</td>
+										<td class="ta-center">
+											$total &euro;
+										</td>
+									</tr>						
+								</tbody>
+							</table>												
+						</div>	
+					</div>
+					<!-- END Suivi_activiteDetailsPanier -->
+				</div>
+			<!-- END Suivi_activiteDetails -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('.table-session').dataTable( {
+			"aoColumns": [
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "sessionid", "iDataSort": 0, "data": "sessionid"},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "ipsession", "iDataSort": 1, "data": "ipsession"},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "date_derniere_action", "iDataSort": 2, "data": "date_derniere_action"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "pays", "iDataSort": 3, "data": "pays"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "panier", "iDataSort": 4, "data": "panier"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "nom", "iDataSort": 5, "data": "nom"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "prenom", "iDataSort": 6, "data": "prenom"},
+	                      {"sClass": "ta-center", "bSortable": true, "mData": "pages_vues", "iDataSort": 7, "data": "pages_vues"}
+	        ],
+	        "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+	        	 $(nRow).click(function() {
+	        	        document.location.href = 'suivi_activite.php?action=details&sessionid=' + $(this).find("td:eq(0)").html();
+	        	    });
+	        	 $(nRow).hover(function () {
+	        		$(this).css('cursor', 'pointer'); 
+	        	 });
+	        },
+	        "iDisplayStart": 0,
+            "iDisplayLength": 100,
+			"processing": true,
+	        "serverSide": true,
+	        "ajax": "suivi_activite_ajax.php",
+	        "order": [[ 0, "desc" ]],
+			"aLengthMenu": [[100, 200, 400, 600, -1], [100, 200, 400, 600, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement] ...",
+	            "sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+	            "sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+	});
+</script>
+<!-- END Suivi_activiteIndex -->

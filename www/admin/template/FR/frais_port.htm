@@ -1,0 +1,618 @@
+<!-- BEGIN Frais_portIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[configuration_frais_port]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="frais_port.php">							
+								$multilangue[frais_port]
+							</a>						
+						</li>
+						<!-- BEGIN Frais_portNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Frais_portNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN Frais_portSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Frais_portSuccess -->
+			
+			<!-- BEGIN Frais_portErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Frais_portErreur -->
+			
+			<!-- BEGIN Frais_portInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Frais_portInfo -->
+			
+			<!-- BEGIN Frais_portInfoFixe -->
+				<div class="alert alert-info ta-center">
+					$texteInfo
+				</div>
+			<!-- END Frais_portInfoFixe -->
+			
+			<!-- BEGIN Frais_portListe -->
+				<div class="col-md-12 ta-center mb-20">
+					<a class="btn green" href="frais_port.php?action=zone"><i class="fa fa-edit"></i> $multilangue[configurer_frais_port_zone]</a>
+				</div>
+				<!-- BEGIN Frais_portListeBit -->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								<img src="$src"></img>&nbsp;&nbsp;$pays[libelle]
+							</div>	
+							<div class="tools">
+								<a class="collapse" href="javascript:;">
+								</a>
+							</div>																			
+						</div>
+						<!-- BEGIN Frais_portListeMode -->
+						<div class="portlet-body form">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapse_$pays[paysid]_$mode[modelivraisonid]" data-toggle="collapse" class="accordion-toggle collapsed">
+											$mode[nom]
+										</a>
+										<a href="#myModal$pays[paysid]_$mode[modelivraisonid]" id="btn_suppr$pays[paysid]_$mode[modelivraisonid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+											&nbsp;&nbsp;<i class="fa fa-trash-o fs-18 font-red"></i>
+										</a>
+									</h4>
+								</div>
+								<div aria-hidden="true" aria-labelledby="myModalLabel$pays[paysid]_$mode[modelivraisonid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$pays[paysid]_$mode[modelivraisonid]" style="display: none;">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+												<h4 class="modal-title ta-center">$multilangue[suppression_mode_livraison] : "$mode[nom]" ?</h4>
+											</div>
+											<div class="modal-body">																					
+												$multilangue[suppression_valeurs_livraison]
+											</div>
+											<div class="modal-footer">
+												<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+												<button aria-hidden="true" data-dismiss="modal" class="btn blue supprimermode" value="$pays[paysid]_$mode[modelivraisonid]">$multilangue[oui]</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel-collapse collapse" id="collapse_$pays[paysid]_$mode[modelivraisonid]">
+									<div class="panel-body form">
+										<table class="table table-striped table-bordered table-hover">
+											<tbody>
+												<!-- BEGIN Frais_portListeFraisPortDefaut -->
+												<tr>
+													<td>
+														$multilangue[montant_par_defaut]
+													</td>
+													<td class="ta-center">
+														<input type="text" class="form-control input-inline input" name="defaut_$pays[paysid]_$mode[modelivraisonid]" value="$fraisport[prix]">
+														&nbsp;&nbsp;$devise_actuelle TTC &nbsp;&nbsp;
+													</td>
+													<td class="ta-center">
+														<button class="btn green changedefaut" value="$pays[paysid]_$mode[modelivraisonid]"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>
+													</td>
+												</tr>
+												<!-- END Frais_portListeFraisPortDefaut -->
+												<!-- BEGIN Frais_portListeInfoFraisPort -->
+												<tr>
+													<td colspan="3">
+														<div class="text-danger">
+															$multilangue[aucun_frais_port_mode_livraison]
+														</div>
+													</td>
+												</tr>
+												<!-- END Frais_portListeInfoFraisPort -->
+												<!-- BEGIN Frais_portListeFraisPort -->
+												<tr>
+													<td>
+														$multilangue[de] $fraisport[debut] $multilangue[a] $fraisport[fin] $unite
+													</td>
+													<td class="ta-center">
+														<input type="text" class="form-control input-inline input" name="prix_$pays[paysid]_$mode[modelivraisonid]_$fraisport[fraisportid]" value="$fraisport[prix]">
+														&nbsp;&nbsp;$devise_actuelle TTC &nbsp;&nbsp;
+													</td>
+													<td class="ta-center">
+														<button class="btn green modifier" value="$pays[paysid]_$mode[modelivraisonid]_$fraisport[fraisportid]"><i class="fa fa-edit"></i> $multilangue[modifier]</button>
+														<button class="btn red supprimer" value="$pays[paysid]_$mode[modelivraisonid]_$fraisport[fraisportid]"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</button>
+													</td>
+												</tr>
+												<!-- END Frais_portListeFraisPort -->
+												<tr>
+													<td colspan="2">
+														$multilangue[de]
+														<input type="text" class="form-control input-inline input" name="debut_$pays[paysid]_$mode[modelivraisonid]">
+														$unite $multilangue[a]
+														<input type="text" class="form-control input-inline input" name="fin_$pays[paysid]_$mode[modelivraisonid]">
+														$unite : 
+														<input type="text" class="form-control input-inline input" name="prix_$pays[paysid]_$mode[modelivraisonid]">
+														&nbsp;&nbsp;$devise_actuelle TTC &nbsp;&nbsp;
+													</td>
+													<td class="ta-center">
+														<button class="btn green ajouter" value="$pays[paysid]_$mode[modelivraisonid]"><i class="fa fa-plus"></i> $multilangue[ajouter]</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END Frais_portListeMode -->	
+					</div>
+				<!-- END Frais_portListeBit -->
+			<!-- END Frais_portListe -->
+			
+			<!-- BEGIN Frais_portListeZone -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<a class="btn grey-silver" href="frais_port.php"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<a href="frais_port.php?action=modifierzone" data-original-title="$multilangue[ajt_zone]" class="btn green right">
+									$multilangue[ajt_zone] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th>
+														$multilangue[libelle]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+											</thead>
+											<tbody>
+												<!-- BEGIN Frais_portListeZoneBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="highlight col-md-8">																
+															<a class="lh-30" href="frais_port.php?action=modifierzone&zoneid=$zone[zoneid]">
+																$zone[libelle]
+															</a>
+														</td>
+														<td class="ta-center">
+															<a href="frais_port.php?action=modifierzone&zoneid=$zone[zoneid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-edit fs-18 font-blue"></i>
+															</a>
+															<a href="frais_port.php?action=modifiermodeszone&zoneid=$zone[zoneid]" data-original-title="$multilangue[configurer_frais_port_zone]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-plane fs-18 font-green"></i>
+															</a>
+															<a href="#myModal$zone[zoneid]" id="btn_suppr$zone[zoneid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																<i class="fa fa-trash-o fs-18 font-red"></i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabel$zone[zoneid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$zone[zoneid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">$multilangue[suppression_zone_livraison] : "$zone[libelle]" ?</h4>
+																		</div>
+																		<div class="modal-body">																											
+																			$multilangue[suppression_valeurs_zone]
+																		</div>
+																		<div class="modal-footer">
+																			<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																			<a href="frais_port.php?action=supprimerzone&zoneid=$zone[zoneid]" class="btn blue">$multilangue[oui], $multilangue[supprimer]</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+												<!-- END Frais_portListeZoneBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END Frais_portListeZone -->
+			
+			<!-- BEGIN Frais_portModificationZone -->	
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifChamp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifierzone2">
+										<input type="hidden" name="zoneid" value="$zoneid">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="frais_port.php?action=zone" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$texte_entete
+												</div>																		
+											</div>
+											<div class="portlet-body form">
+												<div class="form-body">
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[libelle]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="libelle" value="$zone[libelle]"/>
+														</div>
+													</div>
+													<!-- BEGIN Frais_portModificationZoneFlag -->																		
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[pays]</label>
+														<div class="col-md-10">
+															<!-- BEGIN Frais_portModificationZoneFlagBit -->																												
+															<div class="col-md-4 $textsuccess">
+                                   								<label>
+                                   									<input type="checkbox" name="pays[$flag[paysid]]" value="$flag[paysid]" $checked>
+                                   									<img src="$img">&nbsp;$flag[libelle]
+                                   								</label> 
+                                   							</div>
+                                   							<!-- END Frais_portModificationZoneFlagBit -->
+														</div>
+													</div>
+													<!-- END Frais_portModificationZoneFlag -->																		
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="frais_port.php?action=zone" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END Frais_portModificationZone -->
+			
+			<!-- BEGIN Frais_portListeModificationZone -->
+				<!-- BEGIN Frais_portListeModificationZoneBit -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a href="#collapse_$zone[zoneid]_$mode[modelivraisonid]" data-toggle="collapse" class="accordion-toggle collapsed">
+									$mode[nom]
+								</a>
+								<a href="#myModal$zone[zoneid]_$mode[modelivraisonid]" id="btn_suppr$zone[zoneid]_$mode[modelivraisonid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+									&nbsp;&nbsp;<i class="fa fa-trash-o fs-18 font-red"></i>
+								</a>
+							</h4>
+						</div>
+						<div aria-hidden="true" aria-labelledby="myModalLabel$zone[zoneid]_$mode[modelivraisonid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$zone[zoneid]_$mode[modelivraisonid]" style="display: none;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+										<h4 class="modal-title ta-center">$multilangue[suppression_mode_livraison] : "$mode[nom]" ?</h4>
+									</div>
+									<div class="modal-body">																					
+										$multilangue[suppression_valeurs_livraison]
+									</div>
+									<div class="modal-footer">
+										<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+										<button aria-hidden="true" data-dismiss="modal" class="btn blue supprimermode" value="$zone[zoneid]_$mode[modelivraisonid]">$multilangue[oui]</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-collapse collapse" id="collapse_$zone[zoneid]_$mode[modelivraisonid]">
+							<div class="panel-body form">
+								<table class="table table-striped table-bordered table-hover">
+									<tbody>
+										<!-- BEGIN Frais_portListeModificationZoneFraisPortDefaut -->
+										<tr>
+											<td>
+												$multilangue[montant_par_defaut]
+											</td>
+											<td class="ta-center">
+												<input type="text" class="form-control input-inline input" name="defaut_$zone[zoneid]_$mode[modelivraisonid]" value="$fraisportdefaut[prix]">
+												&nbsp;&nbsp;&euro; TTC &nbsp;&nbsp;
+											</td>
+											<td class="ta-center">
+												<button class="btn green changedefautzone" value="$zone[zoneid]_$mode[modelivraisonid]"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>
+											</td>
+										</tr>
+										<!-- END Frais_portListeModificationZoneFraisPortDefaut -->
+										<!-- BEGIN Frais_portListeModificationZoneInfoFraisPort -->
+										<tr>
+											<td colspan="3">
+												<div class="text-danger">
+													$multilangue[aucun_frais_port_mode_livraison]
+												</div>
+											</td>
+										</tr>
+										<!-- END Frais_portListeModificationZoneInfoFraisPort -->
+										<!-- BEGIN Frais_portListeModificationZoneFraisPort -->
+										<tr>
+											<td>
+												$multilangue[de] $fraisport[debut] $multilangue[a] $fraisport[fin] $unite
+											</td>
+											<td class="ta-center">
+												<input type="text" class="form-control input-inline input" name="prix_$zone[zoneid]_$mode[modelivraisonid]_$fraisport[fraisportid]" value="$fraisport[prix]">
+												&nbsp;&nbsp;&euro; TTC &nbsp;&nbsp;
+											</td>
+											<td class="ta-center">
+												<button class="btn green modifierzone" value="$zone[zoneid]_$mode[modelivraisonid]_$fraisport[fraisportid]_$fraisport[debut]_$fraisport[fin]"><i class="fa fa-edit"></i> $multilangue[modifier]</button>
+												<button class="btn red supprimerzone" value="$zone[zoneid]_$mode[modelivraisonid]_$fraisport[fraisportid]_$fraisport[debut]_$fraisport[fin]"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</button>
+											</td>
+										</tr>
+										<!-- END Frais_portListeModificationZoneFraisPort -->
+										<tr>
+											<td colspan="2">
+												$multilangue[de]
+												<input type="text" class="form-control input-inline input" name="debut_$zone[zoneid]_$mode[modelivraisonid]">
+												$unite $multilangue[a]
+												<input type="text" class="form-control input-inline input" name="fin_$zone[zoneid]_$mode[modelivraisonid]">
+												$unite : 
+												<input type="text" class="form-control input-inline input" name="prix_$zone[zoneid]_$mode[modelivraisonid]">
+												&nbsp;&nbsp;&euro; TTC &nbsp;&nbsp;
+											</td>
+											<td class="ta-center">
+												<button class="btn green ajouterzone" value="$zone[zoneid]_$mode[modelivraisonid]"><i class="fa fa-plus"></i> $multilangue[ajouter]</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				<!-- END Frais_portListeModificationZoneBit -->
+			<!-- END Frais_portListeModificationZone -->
+		<!-- FIN PAGE CONTENT -->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/jquery.numeric.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {									    
+		$('.panel-title a').css("text-decoration", "none");
+		$('.portlet > .portlet-title').find("a").click();
+		$(".alert-success").fadeOut(3000);	
+		$(".alert-success").mouseover(function() {
+			$(".alert-success").stop();
+			$(".alert-success").show();
+			$(".alert-success").fadeTo("fast", 1);		
+		});
+		$('.input').numeric({negative : false});
+		$('.changedefaut, .changedefautzone').live('click', function() {
+			var action = $(this).attr("class").split(" ")[2];
+			var paysid = $(this).val().split('_')[0];
+			var modelivraisonid = $(this).val().split('_')[1];
+			var prix = $('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').val();
+			var data = 'action=' + action + '&';
+			data += 'paysid=' + paysid + '&';
+			data += 'modelivraisonid=' + modelivraisonid + '&';
+			data += 'prix=' + prix + '&';
+			$.ajax({
+				url : 'fraisport_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if (code_html == "") {
+						$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#35aa47",repeat: false});
+						if ($('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").length == 0) {
+							$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().append('<div class="text-success">Montant enregistré.</div>');
+							$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").fadeOut(2000).queue(function() { $(this).remove(); });
+						}
+					}else{
+						$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#d84a38",repeat: false});
+						if ($('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").length == 0) {
+							$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().append('<div class="text-danger">' + code_html + '</div>');
+							$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").fadeOut(2000).queue(function() { $(this).remove(); });
+						}
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+			$(this).blur();
+		});
+		$('.modifier, .modifierzone').live('click', function() {
+			var action = $(this).attr("class").split(" ")[2];
+			var paysid = $(this).val().split('_')[0];
+			var modelivraisonid = $(this).val().split('_')[1];
+			var fraisportid = $(this).val().split('_')[2];
+			var debut = $(this).val().split('_')[3];
+			var fin = $(this).val().split('_')[4];
+			var prix = $('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').val();
+			var data = 'action=' + action + '&';
+			data += 'paysid=' + paysid + '&';
+			data += 'modelivraisonid=' + modelivraisonid + '&';
+			data += 'fraisportid=' + fraisportid + '&';
+			data += 'debut=' + debut + '&';
+			data += 'fin=' + fin + '&';
+			data += 'prix=' + prix + '&';
+			$.ajax({
+				url : 'fraisport_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if (code_html == "") {
+						$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').pulsate({color: "#35aa47",repeat: false});
+						if ($('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().find("div").length == 0) {
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().append('<div class="text-success">Montant enregistré.</div>');
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().find("div").fadeOut(2000).queue(function() { $(this).remove(); });
+						}
+					}else{
+						$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').pulsate({color: "#d84a38",repeat: false});
+						if ($('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().find("div").length == 0) {
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().append('<div class="text-danger">' + code_html + '</div>');
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').parent().find("div").fadeOut(2000).queue(function() { $(this).remove(); });
+						}
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+			$(this).blur();
+		});
+		$('.supprimer, .supprimerzone').live('click', function() {
+			var action = $(this).attr("class").split(" ")[2];
+			var paysid = $(this).val().split('_')[0];
+			var modelivraisonid = $(this).val().split('_')[1];
+			var fraisportid = $(this).val().split('_')[2];
+			var debut = $(this).val().split('_')[3];
+			var fin = $(this).val().split('_')[4];
+			var data = 'action=' + action + '&';
+			data += 'paysid=' + paysid + '&';
+			data += 'modelivraisonid=' + modelivraisonid + '&';
+			data += 'fraisportid=' + fraisportid + '&';
+			data += 'debut=' + debut + '&';
+			data += 'fin=' + fin + '&';
+			$.ajax({
+				url : 'fraisport_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if (code_html == "") {
+						if (action == "supprimer"){
+							if ($('.supprimer' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').closest("tbody").children("tr").length < 4)
+								$('.supprimer' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').closest("tbody").find("tr:eq(1)").after('<tr><td colspan="3"><div class="text-danger">Aucun frais de port n&apos;a été défini pour ce mode de livraison.</div></td></tr>');
+							$('.supprimer' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"]').closest("tr").remove();
+						}else{
+							if ($('.supprimerzone' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '_' + debut + '_' + fin + '"]').closest("tbody").children("tr").length < 4)
+								$('.supprimerzone' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '_' + debut + '_' + fin + '"]').closest("tbody").find("tr:eq(1)").after('<tr><td colspan="3"><div class="text-danger">Aucun frais de port n&apos;a été défini pour ce mode de livraison.</div></td></tr>');
+							$('.supprimerzone' + '[value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '_' + debut + '_' + fin + '"]').closest("tr").remove();
+						}
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+			$(this).blur();
+		});
+		$('.supprimermode').live('click', function() {
+			var paysid = $(this).val().split('_')[0];
+			var modelivraisonid = $(this).val().split('_')[1];
+			var data = "action=supprimermode&";
+			data += 'paysid=' + paysid + '&';
+			data += 'modelivraisonid=' + modelivraisonid + '&';
+			$.ajax({
+				url : 'fraisport_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('input[name="defaut_' + paysid + '_' + modelivraisonid + '"]').val("0");
+					$('.modifier' + '[value*="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").find("tr:eq(1)").after('<tr><td colspan="3"><div class="text-danger">Aucun frais de port n&apos;a été défini pour ce mode de livraison.</div></td></tr>');
+					$('.modifier' + '[value*="' + paysid + '_' + modelivraisonid + '"]').closest("tr").remove();
+					$('.modifierzone' + '[value*="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").find("tr:eq(1)").after('<tr><td colspan="3"><div class="text-danger">Aucun frais de port n&apos;a été défini pour ce mode de livraison.</div></td></tr>');
+					$('.modifierzone' + '[value*="' + paysid + '_' + modelivraisonid + '"]').closest("tr").remove();
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+			$(this).blur();
+		});
+		$('.ajouter, .ajouterzone').live('click', function() {
+			var action = $(this).attr("class").split(" ")[2];
+			var paysid = $(this).val().split('_')[0];
+			var modelivraisonid = $(this).val().split('_')[1];
+			var debut = $('input[name="debut_' + paysid + '_' + modelivraisonid + '"]').val();
+			var fin = $('input[name="fin_' + paysid + '_' + modelivraisonid + '"]').val();
+			var prix = $('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').val();
+			var data = 'action=' + action + '&';
+			data += 'paysid=' + paysid + '&';
+			data += 'modelivraisonid=' + modelivraisonid + '&';
+			data += 'debut=' + debut + '&';
+			data += 'fin=' + fin + '&';
+			data += 'prix=' + prix + '&';
+			$.ajax({
+				url : 'fraisport_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if (code_html == "" || code_html.split("_").length == 4){
+						$('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#35aa47",repeat: false});
+						$('input[name="debut_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#35aa47",repeat: false});
+						$('input[name="fin_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#35aa47",repeat: false});
+						fraisportid = code_html.split("_")[0];
+						debut = code_html.split("_")[1];
+						fin = code_html.split("_")[2];
+						prix = code_html.split("_")[3];
+						var input = '<input type="text" class="form-control input-inline" name="prix_' + paysid + '_' + modelivraisonid + '_' + fraisportid + '" value="' + prix + '">&nbsp;&nbsp;&euro; TTC &nbsp;&nbsp;'
+						var buttonmodifier = '<button class="btn green modifier" value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"><i class="fa fa-edit"></i> $multilangue[modifier]</button>';
+						var buttonsupprimer = '<button class="btn red supprimer" value="' + paysid + '_' + modelivraisonid + '_' + fraisportid + '"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</button>';
+						if (action == "ajouter"){
+							$('.ajouter' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tr").before('<tr><td>$multilangue[de] ' + debut + ' $multilangue[a] ' + fin + ' $unite</td><td class="ta-center">' + input + '</td><td class="ta-center">' + buttonmodifier + buttonsupprimer +'</td></tr>');
+							if ($('.ajouter' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").children("tr:eq(1)").has('div[class="text-danger"]').length)
+								$('.ajouter' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").children("tr:eq(1)").remove();
+						}else{
+							$('.ajouterzone' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tr").before('<tr><td>$multilangue[de] ' + debut + ' $multilangue[a] ' + fin + ' $unite</td><td class="ta-center">' + input + '</td><td class="ta-center">' + buttonmodifier + buttonsupprimer +'</td></tr>');
+							if ($('.ajouterzone' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").children("tr:eq(1)").has('div[class="text-danger"]').length)
+								$('.ajouterzone' + '[value="' + paysid + '_' + modelivraisonid + '"]').closest("tbody").children("tr:eq(1)").remove();
+						}
+						$('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').val("");
+						$('input[name="debut_' + paysid + '_' + modelivraisonid + '"]').val("");
+						$('input[name="fin_' + paysid + '_' + modelivraisonid + '"]').val("");
+					}else{
+						$('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#d84a38",repeat: false});
+						$('input[name="debut_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#d84a38",repeat: false});
+						$('input[name="fin_' + paysid + '_' + modelivraisonid + '"]').pulsate({color: "#d84a38",repeat: false});
+						if ($('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").length == 0) {
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').parent().append('<div class="text-danger">' + code_html + '</div>');
+							$('input[name="prix_' + paysid + '_' + modelivraisonid + '"]').parent().find("div").fadeOut(2000).queue(function() { $(this).remove(); });
+						}
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+			$(this).blur();
+		});
+	});
+</script>
+
+<!-- END Frais_portIndex -->

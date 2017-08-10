@@ -1,0 +1,240 @@
+<!-- BEGIN Couleurs_supportIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[couleurs_support]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							$multilangue[couleurs_support]
+						</li>
+						<!-- BEGIN Couleurs_supportNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Couleurs_supportNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+				<!-- BEGIN Couleurs_supportTableCouleurs -->
+					<form action="couleurs_support.php?action=ajout" method="post" id="form_ajout_couleur_support" name="form_ajout_couleur_support" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+						<div class="btn-group left mb-20">
+	                        <a class="btn default" data-toggle="dropdown">
+	                             $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+	                        </a>
+	                        <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+	                        	<!-- BEGIN Couleurs_supportAffichageColonneSiteBit -->
+	                             <label><input type="checkbox" $checked data-column="$colonne">$site[libelle]</label>
+	                           <!-- END Couleurs_supportAffichageColonneSiteBit -->
+	                       </div>
+	                	</div>
+						<a href="couleurs_support.php?action=modifier" data-original-title="" class="btn green right mb-20">
+							$multilangue[ajt_couleur] &nbsp;
+							<i class="fa fa-plus"></i>
+						</a>
+						<div class="clear"></div>
+					
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table_couleurs table-hover">
+								<thead>
+									<tr>
+										<!-- BEGIN Couleurs_supportColonneBit -->
+											<th class="ta-center">
+												$multilangue[nom] <br>(<i>$site[libelle]</i>)
+											</th>
+										<!-- END Couleurs_supportColonneBit -->
+										<th class="ta-center">
+											$multilangue[code]
+										</th>
+										<th class="ta-center">
+											$multilangue[action]
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Couleurs_supportCouleurBit -->
+										<tr id="$couleur_support[couleur_supportid]">
+											<!-- BEGIN Couleurs_supportNomCouleurBit -->
+												<td class="ta-center">
+													<label>$nom_couleur[libelle]</label>
+												</td>
+											<!-- END Couleurs_supportNomCouleurBit -->
+											<td class="ta-center">
+												<label>$couleur_support[code]</label>
+											</td>
+											<td class="ta-center">
+												<a href="couleurs_support.php?action=modifier&couleur_supportid=$couleur_support[couleur_supportid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+		                               				<i class="fa fa-pencil-square-o fs-18"></i>
+		                                    	</a>
+												<a href="#myModal$couleur_support[couleur_supportid]" id="btn_suppr$couleur_support[couleur_supportid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+												</a>
+												<div aria-hidden="true" aria-labelledby="myModalLabe$couleur_support[couleur_supportid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$couleur_support[couleur_supportid]" style="display: none;">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">Voulez-vous vraiment supprimer la couleur $couleur_support[libelle] ?</h4>
+															</div>
+															<div class="modal-body">																					
+																Cela supprimera cette couleur.
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																<a href="couleurs_support.php?action=supprimer&couleur_supportid=$couleur_support[couleur_supportid]" class="btn blue">Oui, supprimer</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									<!-- END Couleurs_supportCouleurBit -->
+								</tbody>
+							</table>
+						</div>	
+					</form>
+				<!-- END Couleurs_supportTableCouleurs -->
+				
+				<!-- BEGIN Couleurs_supportModification -->
+					<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" method="post" class="form-horizontal form-bordered" id="form_articles_offerts">
+							<input type="hidden" name="action" value="modifier2">
+							<input type="hidden" name="couleur_supportid" value="$couleur_supportid">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+							<div class="portlet box light-grey">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[ajt_couleur]
+									</div>																		
+								</div>
+								<div class="portlet-body form">
+									<div class="form-body">	
+										<!-- BEGIN Couleurs_supportModificationNomSiteBit -->
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[nom] (<i>$site[libelle]</i>)</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="nom_couleur$site[siteid]" value="$couleur_support[libelle]">
+												</div>
+											</div>	
+										<!-- END Couleurs_supportModificationNomSiteBit -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[code_couleur]</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" value="$couleur_support[code]" name="code">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>					
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<!-- END Couleurs_supportModification -->
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+App.init(); // initlayout and core plugins
+$(document).ready(function() {
+	$('.table_couleurs').dataTable( {
+        "order": [[ 0, "desc" ]],
+		"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+		"language": {
+			"search": "$multilangue[recherche]",
+			"paginate": {
+				"first": "$multilangue[premiere_page]",
+				"last": "$multilangue[derniere_page]",
+				"next": "$multilangue[page_suivante]",
+				"previous": "$multilangue[page_precedente]"
+			},
+			"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+			"info": "$multilangue[affichage_resultats_de_a]",
+			"infoEmpty": "$multilangue[aucun_resultat]",
+			"infoFiltered": "$multilangue[sur_max_]",
+			"lengthMenu": "$multilangue[afficher_menu_resultats]",
+			"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+		},
+		"bSort": false,
+		 "fnDrawCallback": function() {
+             App.initAjax();
+             $('.table_couleurs > tbody').tableDnD({			
+     			onDragStart: function(table, row) {
+     				ordreDepart = $.tableDnD.serialize();	
+     		    },
+     		    onDrop: function(table, row) {
+     		    	var ordreArrivee = $.tableDnD.serialize();	
+     		    	if (ordreDepart != ordreArrivee){
+     		    		var premier = ordreDepart.split(";");
+     		    		premier = premier[0];
+     		    		var data = 'action=couleurs_support_position&';
+     		    		data += 'ordre=' + ordreArrivee + '&';
+     		    		data += 'premier='+premier;
+     		    		$.ajax({
+     						url : 'commun_ajax.php',
+     						type : 'POST',
+     						data : data,
+     						dataType : 'html',
+     						success : function(code_html, statut){
+     						},
+     						error : function(resultat, statut, erreur){
+     							alert(erreur);
+     						}
+     					});
+     		    	}
+     		    }
+     		});
+         },
+    });
+	
+	$('.dataTables_filter input').addClass("form-control input-small input-inline");
+	$('.dataTables_length select').addClass("form-control input-small");
+	$('.dropdown-menu input[type="checkbox"]').change(function(){
+        var iCol = parseInt($(this).attr("data-column"));
+        var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+        $('.table_couleurs').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+    });	
+	$('.dropdown-menu input[type="checkbox"]').each(function(){
+		if($(this).is(':checked')){
+		 var iCol = parseInt($(this).attr("data-column"));
+		 var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+		 $('.table_couleurs').dataTable().fnSetColumnVis(iCol, true);
+		}else{
+		 var iCol = parseInt($(this).attr("data-column"));
+		 var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+		 $('.table_couleurs').dataTable().fnSetColumnVis(iCol, false);
+		}
+	});
+	
+});
+</script>
+
+<!-- END Couleurs_supportIndex -->

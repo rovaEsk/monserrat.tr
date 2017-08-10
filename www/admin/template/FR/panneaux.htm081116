@@ -1,0 +1,204 @@
+<!-- BEGIN PanneauxIndex -->
+	$TemplateCommunHeader   
+    
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+    			<div class="col-md-12">
+        			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$titrepage
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">
+						    <li>
+						        <i class="fa fa-home"></i>
+						        <a href="index.html">
+						            $multilangue[accueil]
+						        </a>
+						        <i class="fa fa-angle-right"></i>
+						    </li>
+						    <li>
+						    	<a href="$lienpagebase">                        
+						        	$multilangue[Panneaux]
+						        </a>						        
+						    </li>						    
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+    			</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+                
+		<!-- BEGIN PanneauxModuleBit -->
+        <div class="row">
+			<div class="col-md-12">		
+				<form method="post" action=""  name="formmodule$titre_module" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+					<input type="hidden" name="action" value="modifmodule"/>	
+                    <input type="hidden" name="moduleid" value="$articleModuleId"/>	
+                    <input type="hidden" name="tauxtva" class="tauxtva" value="$tvatauxnormale"/> 			
+					<div class="col-md-12 ta-center mb-20">
+						<button type="submit" class="btn green"><i class="fa fa-check"></i> Enregistrer</button>															
+					</div>
+						
+					<div class="portlet box blue">
+						<div class="portlet-title" style="cursor: pointer;">
+							<div class="caption">
+								Module $titre_module</i>
+							</div>	
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+							</div>																			
+						</div>
+                        <div class="portlet-body form">
+								<!-- DEBUT FORM-->										
+								<div class="form-body">
+									<div class="form-group">
+										<label class="control-label col-md-3">Titre module</label>
+										<div class="col-md-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="fa fa-pencil"></i>
+												</span>
+												<input type="text" name="titremodule" value="$titre_module" class="form-control" aria-required="true">
+												<span class="help-block help-block-error" for="email"></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">Texte module</label>
+										<div class="col-md-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="fa fa fa-sort-amount-desc"></i>
+												</span>
+												<textarea class="$class_wysiwyg form-control" rows="5" cols="100" name="textemodule">$texte_module</textarea>
+                                            </div>
+										</div>
+									</div>
+                        			<div class="form-group">
+										<label class="control-label col-md-3">Image module</label>
+										<div class="col-md-9">
+											<div data-provides="fileinput" class="fileinput fileinput-new">
+												<div style="width: $widthbg; height: $heightbg;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$image_module" alt="$titre_module"/></div>
+												<div>
+													<span class="btn default btn-file">
+														<span class="fileinput-new">$multilangue[selectionner]</span>
+														<span class="fileinput-exists">$multilangue[modification]</span>
+														<input type="file" name="imageModule"/>
+													</span>
+													<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+												</div>
+											</div>																														
+										</div>
+									</div>
+                                    <!-- DEBUT FORM PRIX -->
+                                    
+                                    <!-- BEGIN PanneauxModulePrixBit -->
+                            		<div class="form-group">
+										<label class="control-label col-md-4">$prixReglesTaxe[regleprix]</label>
+										<div class="col-md-8 form-inline">
+                                            <input type="hidden" name="prixmodule$moduleprixid" value="$moduleprixid"/> 
+											<input type="text" class="form-control input-inline input prixmodulettc prixmodulettc_$moduleprixid" name="prixmodulettc_$moduleprixid" placeholder="0.00" id="prixmodulettc_$moduleprixid" data-site="$site[siteid]" value="$prixmoduleTTC"/>
+											$sitesDevise $multilangue[ttc] $multilangue[soit] 
+											<input type="text" class="form-control input-inline input prixmodulehtc prixmodulehtc_$moduleprixid" name="prixmodulehtc_$moduleprixid" placeholder="0.00" id="prixmodulehtc_$moduleprixid" data-site="$site[siteid]" value="$prixmoduleHTC"/>
+											$sitesDevise $multilangue[ht]
+                                            <!-- S min : $largeur m² --><!--input type="text" class="form-control input-inline input" placeholder="S min" name="largeur_$moduleprixid" value="$largeur" style="width: 100px;"/-->
+                                            <!-- S max : $hauteur m² --><!--input type="text" class="form-control input-inline input" placeholder="S max" name="hauteur_$moduleprixid" value="$hauteur" style="width: 100px;"/-->
+										</div>
+									</div>
+                                    <!-- END PanneauxModulePrixBit -->
+                                    <!-- script type="text/javascript">
+                                        /** ----- add regle_prix ------ **/
+                                        function addReglePrix(){
+                                            console.log("load");
+                                            var url = "panneaux_ajax.php";
+                                            var action = "add_regle_prix";
+                                            var new_regle_prix = $( "input[name*='new_regle_prix']" ).val();
+                                            var new_prixmodulehtc = $( "input[name*='new_prixmodulehtc']" ).val();
+                                			var data = 'action='+action+'&';
+                                		    		data += 'new_regle_prix='+new_regle_prix+'&';
+                                                    data += 'new_prixmodulehtc='+new_prixmodulehtc+'&';
+                                                    data += 'id_module=6&';
+                                		    		$.ajax({
+                                						url : url,
+                                						type : 'POST',
+                                						data : data,
+                                						dataType : 'html',
+                                						success : function(code_html, statut){
+                                						},
+                                						error : function(resultat, statut, erreur){
+                                							alert(erreur);
+                                						}
+                                					});
+                                        }
+                                        /** ----- add regle_prix ------ **/
+                                    </script -->
+                                    <!--div class="form-group" style="display:none">
+                                        <label class="control-label col-md-4">Ajouter une regle de prix</label>
+										<div class="col-md-8 form-inline">
+                                        	<input type="text" class="form-control" placeholder="regle de prix" name="new_regle_prix" value=""/> 
+											<input type="text" class="form-control input-inline input prixmodulettc" name="new_prixmodulettc" placeholder="0.00" id="prixmodulettc" data-site="$site[siteid]" value="" style="width: 100px;"/>
+											$sitesDevise $multilangue[ttc] $multilangue[soit] 
+											<input type="text" class="form-control input-inline input prixmodulehtc" name="new_prixmodulehtc" placeholder="0.00" id="prixmodulehtc" data-site="$site[siteid]" value="" style="width: 100px;"/>
+											$sitesDevise $multilangue[ht]
+                                            S min <input type="text" class="form-control input-inline input" placeholder="S min" name="largeur" value="" style="width: 70px;"/>
+                                            S max  <input type="text" class="form-control input-inline input" placeholder="S max" name="hauteur" value="" style="width: 70px;"/>
+                                            <a href="javascript:void(0)" onclick="addReglePrix()" class="btn green"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+										</div>
+    								</div --- >
+                                    <!--  FIN FORM PRIX  -->	
+								</div>												
+						  </div>
+					</div>		
+				<div class="col-md-12 ta-center">
+					<button type="submit" class="btn green"><i class="fa fa-check"></i> Enregistrer</button>															
+				</div>	
+				</form>
+				<!-- FIN FORM-->			
+	           </div>
+        </div>
+		<!-- END PanneauxModuleBit -->
+	
+    $TemplateCommunFooter
+<script>
+	jQuery(document).ready(function() {
+		App.init();	// initlayout and core plugins
+        
+        /** ----- set PRIX TTC ----- **/
+      $('input.prixmodulehtc').each(function(){
+            $(this).on('input keyup', function(){
+                if($(this).val() != ""){
+                    var prixHTC      = parseFloat($(this).val().replace(',','.')).toFixed(2) ;
+                    var inputPrixTTC = $(this).prev();
+                    var tauxTVA = parseFloat( $('input.tauxtva').val().replace(',','.') ).toFixed(2);
+                    var prixPourcentageTTC = parseFloat(( prixHTC * tauxTVA ) / 100).toFixed(2);
+                    var newPrixTTC = parseFloat((+prixHTC) + (+prixPourcentageTTC)).toFixed(2);
+                    inputPrixTTC.val(newPrixTTC);
+                }else{
+                    var inputPrixTTC =  $(this).prev();
+                    inputPrixTTC.val('0.00');
+                }
+            });
+        });
+        
+        /** ----- set PRIX TTC ----- **/
+        /** ----- set PRIX HTC ----- **/
+        $('input.prixmodulettc').each(function(){
+            $(this).on('input keyup', function(){
+                if($(this).val() != ""){
+                    var prixTTC      = parseFloat($(this).val().replace(',','.')).toFixed(2) ;
+                    var inputPrixHTC =  $(this).next();
+                    var tauxTVA = parseFloat( $('input.tauxtva').val().replace(',','.') ).toFixed(2)  ;
+                    var prixPourcentageHTC = parseFloat(( prixTTC * tauxTVA ) / 100).toFixed(2);
+                    var newPrixHTC   =  parseFloat( prixTTC-prixPourcentageHTC).toFixed(2);
+                    inputPrixHTC.val(newPrixHTC);
+                }else{
+                    var inputPrixHTC =  $(this).next();
+                    inputPrixHTC.val('0.00');
+                }
+            });
+        });
+        /** ----- set PRIX HTC ----- **/
+	});
+</script>
+
+<!-- END PanneauxIndex -->
+

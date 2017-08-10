@@ -1,0 +1,128 @@
+<!-- BEGIN Purges_donneesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[purge_donnees]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[utilisationavancee]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="carrousel_administrable.php">						
+								$multilangue[purge_donnees]
+							</a>
+						</li>
+						<!-- BEGIN Purges_donneesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Purges_donneesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Purges_donneesSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Purges_donneesSuccess -->
+			
+			<!-- BEGIN Purges_donneesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Purges_donneesErreur -->
+			
+			<!-- BEGIN Purges_donneesSuccessFixe -->
+				<div class="alert alert-success ta-center">
+					$texteSuccess
+				</div>
+			<!-- END Purges_donneesSuccessFixe -->
+			
+			<!-- BEGIN Purges_donneesErreurFixe -->
+				<div class="alert alert-danger ta-center">
+					$texteErreur
+				</div>
+			<!-- END Purges_donneesErreurFixe -->
+			
+			<!-- BEGINPurges_donneesListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="purger">
+							<div class="portlet box red">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[purge_donnees]										
+									</div>																															
+								</div>
+								<div class="portlet-body form">
+									<div class="form-body">											
+										<div class="form-group">
+											<label class="control-label col-md-6">$multilangue[purger_logs]</label>
+											<div class="col-md-6">																														
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" data-off="primary" data-on="danger" class="make-switch" name="admin_historique" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-6">$multilangue[purger_newsletter]</label>
+											<div class="col-md-6">																														
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" data-off=primary data-on="danger" class="make-switch" name="newsletter" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-6">$multilangue[purger_stats]</label>
+											<div class="col-md-6">																														
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" data-off="primary" data-on="danger" class="make-switch" name="traffic" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-6">$multilangue[purger_erreurs404]</label>
+											<div class="col-md-6">																														
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" data-off="primary" data-on="danger" class="make-switch" name="erreur404" value="1">
+											</div>
+										</div>
+									</div>												
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="col-md-12 ta-center">
+									<button type="submit" class="btn red"><i class="fa fa-trash-o"></i> $multilangue[purger]</button>															
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			<!-- END Purges_donneesListe -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {	
+	});
+</script>
+<!-- END Purges_donneesIndex -->

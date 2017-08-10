@@ -1,0 +1,150 @@
+<!-- BEGIN Import_imagesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[importer_images]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[imports_images]
+						</li>
+						<!-- BEGIN Import_imagesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Import_imagesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Import_imagesSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Import_imagesSuccess -->
+			
+			<!-- BEGIN Import_imagesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Import_imagesErreur -->
+			
+			<!-- BEGIN Import_imagesInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Import_imagesInfo -->
+			
+			<!-- BEGIN Import_imagesInfoFixe -->
+				<div class="alert alert-info">
+					$texteInfo
+				</div>
+			<!-- END Import_imagesInfoFixe -->
+			
+			<!-- BEGIN Import_imagesListe -->
+			<div id="accordion" class="panel-group accordion scrollable">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse_2_1" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+								$multilangue[import_images_articles]
+							</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="collapse_2_1">
+						<div class="panel-body">
+							<form action="import_images.php" method="post">
+								<input type="hidden" name="action" value="importer">
+								<input type="hidden" name="type" value="article">
+								<div class="alert alert-info">
+									$multilangue[infos_import_images_articles]
+								</div>
+								<div class="col-md-12 ta-center alert alert-success">
+									$multilangue[il_y_a_actuellement] $count $multilangue[image_s_a_importer].
+								</div>
+								<!-- BEGIN Import_imagesListeImportArticle -->
+								<div class="form-group col-md-12">
+									<div class="radio-list ta-center">
+										<label class="radio-inline">
+										<input type="radio" name="identifiant" value="artid"> $multilangue[par_identifiant_article] </label>
+										<label class="radio-inline">
+										<input type="radio" checked name="identifiant" value="artcode"> $multilangue[par_reference] $multilangue[article] </label>
+										<label class="radio-inline">
+										<input type="radio" name="identifiant" value="reference_fabricant"> $multilangue[par_reference] $multilangue[fournisseur] </label>
+									</div>
+								</div>
+								<div class="col-md-12 ta-center">
+									<button class="btn green" type="submit">$multilangue[importer] <i class="fa fa-arrow-right"></i></button>
+								</div>
+								<!-- END Import_imagesListeImportArticle -->
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse_2_2" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+								$multilangue[import_images_categories]
+							</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="collapse_2_2">
+						<div class="panel-body">
+							<form action="import_images.php" method="post">
+								<input type="hidden" name="action" value="importer">
+								<input type="hidden" name="type" value="categorie">
+								<div class="alert alert-info">
+									$multilangue[infos_import_images_categories]
+								</div>
+								<div class="col-md-12 ta-center alert alert-success">
+									$multilangue[il_y_a_actuellement] $count $multilangue[image_s_a_importer].
+								</div>
+								<!-- BEGIN Import_imagesListeImportCategorie -->
+								<div class="col-md-12 ta-center">
+									<button class="btn green" type="submit">$multilangue[importer] <i class="fa fa-arrow-right"></i></button>
+								</div>
+								<!-- END Import_imagesListeImportCategorie -->
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END Import_imagesListe -->
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+
+	$(document).ready(function() {
+		$('#accordion a').css("text-decoration", "none").first().click();
+	});
+</script>
+
+<!-- END Import_imagesIndex -->

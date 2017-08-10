@@ -1,0 +1,185 @@
+<!-- BEGIN Articles_menuIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$multilangue[articles_menu]<small></small>
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">						
+							<li>
+								<i class="fa fa-home"></i>
+								<a href="index.php">
+									$multilangue[accueil]
+								</a>
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>							
+								$multilangue[catalogue]							
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>	
+								<a href="gestion_onglets.php">						
+									$multilangue[selection_onglets]
+								</a>						
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>		
+								$multilangue[articles_menu]
+							</li>
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+		<!-- DEBUT PAGE CONTENT -->	
+			<div class="alert alert-info alert-dismissable ta-center">
+				$multilangue[infos_articles_menu]
+			</div>
+			<input type="hidden" name="ordre" value="$ordre" id="ordre">
+			<a href="gestion_onglets.php" class="btn grey-silver mb-20"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			<div class="form-group" style="border:none;">
+				<label class="control-label col-md-2">$multilangue[afficher_pour_site]</label>
+				<div class="col-md-5" style="border:none;">		
+					<select class="form-control select-site" name="siteSelect">
+			       		<!-- BEGIN Articles_menuListeSiteBit -->
+			        		<option value="$site[siteid]"  $selected_site>$site[libelle]</option>														
+			        	<!-- END Articles_menuListeSiteBit -->
+					</select>
+				</div>
+			</div><br><br><br>
+			<input type="hidden" class="idsite" value="$idsite" name="idsite">
+			 <div class="row">
+				<div class="col-md-12">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">    
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_articles_menu]
+								</div>
+							</div>     
+				            <div class="portlet-body">  
+					            <div class="searchArticle">
+									<input id="searchArticle" name="searchArticle" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+									<div id="choixarticle">
+										<!-- BEGIN Articles_menuModificationArticle -->
+										<div id="article$article[artid]"> 
+											- $article[libelle] ($article[artcode]) 
+											<input type="hidden" value="$article[artid]" name="article[artid]" id="article[$article[artid]]"> 
+											<i onclick="$('#article$article[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+										</div>
+										<!-- END Articles_menuModificationArticle -->
+									</div>
+								</div>
+							</div>							
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+							
+			<div class="portlet box red">
+            	<div class="portlet-title">
+                	<div class="caption" >
+                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+                    </div>
+                </div>                        
+	            <div class="portlet-body">  
+					<div class="boites">
+						<ul id="boxes"></ul>
+						<div class="clear"></div>			
+					</div>
+				</div>							
+			</div>
+		<a href="gestion_onglets.php" class="btn grey-silver mb-20"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+		<!-- FIN PAGE CONTENT-->
+		
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="includes/javascript/dragsort.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	createAutoCompleteur('searchArticle', 'choixarticle', 'article', 'search_result_autocomplete.php?type=article', 'multiple');
+
+	function saveOrder() {							
+		var serialStr = "";
+		$('.box2').each(function(i, elm){
+			serialStr += (i > 0 ? "|" : "") + this.id;
+		}); 
+		$('#ordre').val(serialStr);	
+		var data = "action=org&";
+		data += "ordre="+$('#ordre').val()+"&";
+		data += "idSite="+$('.idsite').val();
+		$.ajax({
+			url : 'articles_menu_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+				success : function(code_html, statut){
+					
+			},
+			error : function(resultat, statut, erreur){ 
+				alert(erreur);	
+			}
+		});
+	
+	}
+	
+	function initBoxes(){
+		if($('#ordre').val() != ""){
+			var ordre = $('#ordre').val().split('|');
+			$('#boxes').html("");
+			for(var i=0; i<ordre.length;i++){
+				$('#boxes').html($('#boxes').html()+"<li class='box2' id='"+ordre[i]+"'><div>"+$('#article'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$("#boxes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+		}
+	}
+	
+	$(document).ready(function() {
+		$('#choixarticle').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('e');
+			$('#'+id[1]).remove();
+			var ordre = $("#ordre").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordre").val(nouvelOrdre);
+			saveOrder();
+		});
+		
+		$('#choixarticle').bind('DOMNodeInserted', function(event) {
+			$('#boxes').html("");
+			var id = event.target.id.split('e');
+			if($("#ordre").val() == ""){
+				$("#ordre").val(id[1]);
+			}else{
+				$("#ordre").val($("#ordre").val()+"|"+id[1]);
+			}
+			var ordre = $("#ordre").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				$('#boxes').html($('#boxes').html()+"<li class='box2' id='"+ordre[i]+"'><div>"+$('#article'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$("#boxes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+
+		});
+	
+		$('.select-site').on('change', function () {
+			window.location = "articles_menu.php?idsite="+$(this).val();
+		});
+		
+	initBoxes();
+		
+	});
+</script>
+<!-- END Articles_menuIndex -->

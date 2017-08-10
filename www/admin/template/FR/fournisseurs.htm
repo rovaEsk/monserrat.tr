@@ -1,0 +1,464 @@
+<!-- BEGIN FournisseursIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[gestion_fournisseurs]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[fournisseurs]							
+						</li>
+						<!-- BEGIN FournisseursNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END FournisseursNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN FournisseursSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END FournisseursSuccess -->
+			
+			<!-- BEGIN FournisseursErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END FournisseursErreur -->
+			
+			<!-- BEGIN FournisseursListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="fournisseurs.php?action=modifier" data-original-title="$multilangue[ajt_fournisseur]" class="btn green right">
+									$multilangue[ajt_fournisseur] &nbsp; 
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">									
+									<div class="table-responsive">
+										<table id="tabfournisseurs" class="table table-striped table-bordered table-fournisseurs table-hover">
+											<thead>
+												<tr>
+													<th>
+														$multilangue[fournisseur]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN FournisseursListeBit -->
+													<tr id="$fournisseur[fournisseurid]">
+														<td width="80%" class="highlight">																
+															<a class="lh-30" href="fournisseurs.php?action=modifier&fournisseurid=$fournisseur[fournisseurid]">
+																$fournisseur[libelle]
+															</a>
+														</td>
+														<td width="20%" class="ta-center">
+															<a href="fournisseurs.php?action=modifier&fournisseurid=$fournisseur[fournisseurid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-edit fs-18 font-blue"></i>
+															</a>
+															<a href="inventaire.php?fournisseurid=$fournisseur[fournisseurid]" data-original-title="$multilangue[recap_stocks]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-bars fs-18 font-green"></i>
+															</a>
+															<a href="#myModal$fournisseur[fournisseurid]" id="btn_suppr$fournisseur[fournisseurid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																<i class="fa fa-trash-o fs-18 font-red"></i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabe$fournisseur[fournisseurid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$fournisseur[fournisseurid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">$multilangue[suppression_fournisseur] : "$fournisseur[libelle]" ?</h4>
+																		</div>
+																		<div class="modal-body">																					
+																			
+																			$multilangue[suppression_infos_fournisseur]
+																		</div>
+																		<div class="modal-footer">
+																			<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																			<a href="fournisseurs.php?action=supprimer2&fournisseurid=$fournisseur[fournisseurid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+												<!-- END FournisseursListeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																		
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END FournisseursListe -->
+			
+			
+			<!-- BEGIN FournisseursModification -->	
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$texte_entete
+											</div>																				
+										</div>
+										<div class="portlet-body form">
+											<!-- DEBUT FORM-->														
+											<form action="$_SERVER[PHP_SELF]" name="formModifFournisseur" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+												<input type="hidden" name="action" value="modifier2">
+												<input type="hidden" name="fournisseurid" value="$fd[fournisseurid]">
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-body">
+													<!-- BEGIN FournisseursModificationDefautBit -->												
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[libelle]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="libelle" value="$fd[libelle]"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[raison_sociale]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="raisonsociale" value="$fd[raisonsociale]"/>
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[contact]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="contact" value="$fd[contact]"/>															
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[adresse]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="adresse" value="$fd[adresse]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[code_postal]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="codepostal" value="$fd[codepostal]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[ville]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="ville" value="$fd[ville]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[telephone]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="telephone" value="$fd[telephone]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[email]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="mail" value="$fd[mail]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[email] 2</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="mail2" value="$fd[mail2]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[marque]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="marque" value="$fd[marque]"/>														
+														</div>
+													</div>																
+										
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[commentaire]</label>
+														<div class="col-md-10">
+															<textarea rows="4" name="commentaire" class="form-control">$fd[commentaire]</textarea>														
+														</div>
+													</div>																									
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[condition]</label>
+														<div class="col-md-10">
+															<textarea rows="4" name="conditions" class="form-control">$fd[conditions]</textarea>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[delai_livraison]</label>
+														<div class="col-md-10">
+															<textarea rows="4" name="delais" class="form-control">$fd[delais]</textarea>														
+														</div>
+													</div>
+													<!-- END FournisseursModificationDefautBit -->																					
+												</div>				                    
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-- FIN FORM-->
+											
+										</div>
+									</div>								
+									<!-- BEGIN FournisseursContact -->
+										<div class="portlet box light-grey">
+					                        <div class="portlet-title">
+					                            <div class="caption">
+					                                $multilangue[contacts]
+					                            </div>
+					                            <div class="tools">
+					                                <a class="collapse" href="javascript:;"></a>
+					                            </div>
+					                        </div>
+											<div class="portlet-body form" style="display: block;">
+											<form action="$_SERVER[PHP_SELF]" name="formAjoutContactFournisseur" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+												<input type="hidden" name="action" value="modifiercontact">
+												<input type="hidden" name="fournisseurid" value="$fournisseurid">
+												<div class="form-actions fluid">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="col-md-12 ta-center">
+															<button type="submit" class="btn green"><i class="fa fa-plus"></i> $multilangue[ajouter]</button>															
+														</div>
+													</div>
+												</div>
+											</div>
+											</form>
+											<div class="table-responsive">
+											<!-- BEGIN FournisseursListeContact -->
+												<table id="tabcontactfournisseurs" class="table table-striped table-bordered table-contactfournisseurs table-hover" style="margin-bottom:0px;">
+													<thead>
+													<tr>
+														<th class="ta-center">
+															$multilangue[nom]
+														</th>
+														<th class="ta-center">
+															$multilangue[prenom]
+														</th>
+														<th class="ta-center">
+															$multilangue[fonction]
+														</th>
+														<th class="ta-center">
+															$multilangue[email]
+														</th>
+														<th class="ta-center">
+															$multilangue[adresse]
+														</th>
+														<th class="ta-center">
+															$multilangue[telephone]
+														</th>
+														<th class="ta-center">
+															$multilangue[actions]
+														</th>
+													</tr>
+													</thead>
+													<tbody>
+													<!-- BEGIN FournisseursListeContactBit -->
+														<tr id="$contact[fournisseurcontactid]">
+															<td class="ta-center">
+																$contact[nom]
+															</td>
+															<td class="ta-center">
+																$contact[prenom]
+															</td>
+															<td class="ta-center">
+																$contact[fonction]
+															</td>
+															<td class="ta-center">
+																$contact[mail]
+															</td>
+															<td class="ta-center">
+																$contact[adresse]
+															</td>
+															<td class="ta-center">
+																$contact[telephone]
+															</td>
+															
+															<td width="20%" class="ta-center">
+																<a href="fournisseurs.php?action=modifiercontact&fournisseurid=$contact[fournisseurid]&fournisseurcontactid=$contact[fournisseurcontactid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																	<i class="fa fa-edit fs-18 font-blue"></i>
+																</a>
+																
+																<a href="#myModal$contact[fournisseurcontactid]" id="btn_suppr$contact[fournisseurcontactid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																	<i class="fa fa-trash-o fs-18 font-red"></i>
+																</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabe$contact[fournisseurcontactid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$contact[fournisseurcontactid]" style="display: none;">
+																	<div class="modal-dialog">
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																				<h4 class="modal-title">Voulez-vous vraiment supprimer le contact "$contact[nom] $contact[prenom]" ?</h4>
+																			</div>
+																			<div class="modal-body">																					
+																				Cela supprimera toutes les informations qui étaient associés à ce contact.
+																			</div>
+																			<div class="modal-footer">
+																				<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																				<a href="fournisseurs.php?action=supprimercontact&fournisseurid=$contact[fournisseurid]&fournisseurcontactid=$contact[fournisseurcontactid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</td>
+														</tr>
+													<!-- END FournisseursListeContactBit -->												
+													</tbody>
+												</table>
+											<!-- END FournisseursListeContact -->
+											</div>
+										</div>
+									</div>
+									<!-- END FournisseursContact -->
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END FournisseursModification -->
+			
+			<!-- BEGIN FournisseursContactModification -->	
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$texte_entete
+											</div>																				
+										</div>
+										<div class="portlet-body form">
+											<!-- DEBUT FORM-->														
+											<form action="$_SERVER[PHP_SELF]" name="formModifContactFournisseur" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+												<input type="hidden" name="action" value="modifiercontact2">
+												<input type="hidden" name="fournisseurid" value="$fournisseurid">
+												<input type="hidden" name="fournisseurcontactid" value="$fournisseurcontactid">
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="fournisseurs.php?action=modifier&fournisseurid=$fournisseurid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-body">
+													<!-- BEGIN FournisseursModificationContactDefautBit -->												
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[nom]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="nom" value="$ct[nom]"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[prenom]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="prenom" value="$ct[prenom]"/>
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[fonction]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="fonction" value="$ct[fonction]"/>															
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[email]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="mail" value="$ct[mail]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[adresse]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="adresse" value="$ct[adresse]"/>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[telephone]</label>
+														<div class="col-md-10">
+															<input type="text" class="form-control" name="telephone" value="$ct[telephone]"/>														
+														</div>
+													</div>
+													<!-- END FournisseursModificationContactDefautBit -->																					
+												</div>				                    
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="fournisseurs.php?action=modifier&fournisseurid=$fournisseurid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+																<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-- FIN FORM-->
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END FournisseursContactModification -->	
+			
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+
+<!-- END FournisseursIndex -->

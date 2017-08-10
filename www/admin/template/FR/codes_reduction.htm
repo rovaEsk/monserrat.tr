@@ -1,0 +1,727 @@
+<!-- BEGIN Codes_reductionIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[codes_reduction]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="codes_reduction.php">							
+								$multilangue[codes_reduction]
+							</a>						
+						</li>
+						<!-- BEGIN Codes_reductionNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Codes_reductionNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN Codes_reductionSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Codes_reductionSuccess -->
+			
+			<!-- BEGIN Codes_reductionErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Codes_reductionErreur -->
+			
+			<!-- BEGIN Codes_reductionInfo -->
+				<div class="alert alert-info alert-dismissable">
+					$texteInfo
+				</div>
+			<!-- END Codes_reductionInfo -->
+			
+			<!-- BEGIN Codes_reductionListe -->				
+				<div class="row">
+					<div class="col-md-12">	
+						<div class="btn-group left mb-20">
+                            <a class="btn default" data-toggle="dropdown">
+                                 $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+                            </a>	                            
+                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                <label><input type="checkbox" checked data-column="0">$multilangue[site]</label>
+                                <label><input type="checkbox" checked data-column="1">$multilangue[code]</label>
+                                <label><input type="checkbox" checked data-column="2">$multilangue[commentaire]</label>
+                                <label><input type="checkbox" checked data-column="3">$multilangue[reduction]</label>
+                                <label><input type="checkbox" checked data-column="4">$multilangue[nb_fois_utilisateur_diminutif]</label>
+                                <label><input type="checkbox" checked data-column="5">$multilangue[nb_maxi_total_diminutif]</label>
+                                <label><input type="checkbox" checked data-column="6">$multilangue[date_fin]</label>
+                                <label><input type="checkbox" data-column="7">$multilangue[rayon]</label>
+                                <label><input type="checkbox" data-column="8">$multilangue[article_s]</label>
+                                <label><input type="checkbox" checked data-column="9">$multilangue[client]</label>
+                                <label><input type="checkbox" checked data-column="10">$multilangue[actif]</label>
+                                <label><input type="checkbox" checked checked data-column="11">$multilangue[ca] $multilangue[ttc]</label>
+                            </div>
+                        </div>	
+	                        
+                        <a href="codes_reduction.php?action=modifier" data-original-title="$multilangue[ajouter]" class="btn green right">
+							$multilangue[ajouter] &nbsp;
+							<i class="fa fa-plus "></i>
+						</a>			
+											
+						<div class="tab-content">	
+							<br><br><br>									
+								<div class="table-responsive">
+									<table id="tabcadeaux" class="table table-striped table-bordered table-cadeaux table-hover">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[site]
+												</th>
+												<th class="ta-center">
+													$multilangue[code]
+												</th>
+												<th class="ta-center">
+													$multilangue[commentaire]
+												</th>
+												<th class="ta-center">
+													$multilangue[reduction]
+												</th>
+												<th class="ta-center">
+													$multilangue[nb_fois_utilisateur_diminutif]
+												</th>
+												<th class="ta-center">
+													$multilangue[nb_maxi_total_diminutif]
+												</th>
+												<th class="ta-center">
+													$multilangue[date_fin]
+												</th>
+												<th class="ta-center">
+													$multilangue[rayon] / $multilangue[sous_rayon]
+												</th>
+												<th class="ta-center">
+													$multilangue[article_s]
+												</th>
+												<th class="ta-center">
+													$multilangue[client]
+												</th>
+												<th class="ta-center">
+													$multilangue[actif]
+												</th>
+												<th class="ta-center">
+													$multilangue[ca] $multilangue[ttc]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>								
+										</tbody>
+									</table>												
+								</div>
+							</div>
+					</div>							
+				</div>
+			<!-- END Codes_reductionListe -->
+			
+			<!-- BEGIN Codes_reductionModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifCodesReduction" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifier2">
+										<input type="hidden" name="cadeauid" value="$cadeauid">
+										<input type="hidden" name="catid" value="$cadeau[catid]">
+										<input type="hidden" name="catidOffre" value="">
+										<input type="hidden" name="articles" value="">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[ajt_bon_reduction]
+												</div>																		
+											</div>
+											<div class="portlet-body form">
+												<!-- DEBUT FORM-->
+													<div class="form-body">	
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[site]</label>
+															<div class="col-md-8">																														
+																<select class="form-control select-site" id="select-type" name="site">
+				                                           		<!-- BEGIN Codes_reductionListeSiteBit -->
+				                                            		<option value="$site[siteid]" $selected>$site[libelle]</option>														
+				                                            	<!-- END Codes_reductionListeSiteBit -->
+																</select>
+															</div>	
+														</div>							
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[import_multiple_de_codes]</label>
+															<div class="col-md-8">		
+																<input type="checkbox" data-on-label="&nbsp;$multilangue[non]&nbsp;" data-off-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch switch-code" name="import" value="1" checked>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[code] ($code)</label>
+															<div class="col-md-8">		
+																<div class="col-md-12">																											
+																<input type="text" class="form-control" name="code" required>
+																</div><br><br>
+																<div class="col-md-12 alert_import">
+																	<div class="alert alert-info alert-dismissable ta-center">
+																		$multilangue[infos_import_code_reduction]
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[commentaire]</label>
+															<div class="col-md-8">																														
+																<input type="text" class="form-control" name="commentaire" value="$cadeau[commentaire]">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[type_bon_reduction]</label>
+															<div class="col-md-8">																														
+																<select class="form-control select-type" name="typecadeauid">
+																	<option value="0" $selected0>$multilangue[montant_reduction]</option>	
+																	<option value="1" $selected1>$multilangue[pourcentage_reduction]</option>
+																	<option value="2" $selected2>$multilangue[annule_frais_port]</option>
+																	<option value="3" $selected3>$multilangue[montant_reduction] + $multilangue[annule_frais_port]</option>
+																	<!-- BEGIN Codes_reductionModificationSelectBonachat -->
+																	<option value="4" $selected4>$multilangue[bonachat]</option>
+																	<!-- END Codes_reductionModificationSelectBonachat -->
+																</select>
+															</div>
+														</div>
+														<div class="form-group promotion_progressive">
+															<label class="control-label col-md-4">$multilangue[reduction]</label>
+															<div class="col-md-8">
+																<div class="annule_frais_port checkbox-list">
+																	<!-- BEGIN Codes_reductionModificationSelectMode -->
+																	<label>																					
+																		<input type="checkbox" name="mode[$modeLivraison[modelivraisonid]]" value="$modeLivraison[modelivraisonid]" $checked> $modeLivraison[nom] 
+																	</label>
+																	<!-- END Codes_reductionModificationSelectMode -->
+																</div>
+																<div class="montant_reduction">																														
+																	<input type="text" class="form-control input-inline" name="valeurcadeau" value="$cadeau[valeurcadeau]">
+																	<!-- BEGIN Codes_reductionDeviseSymboleBit -->
+																		<span id="devise$site[siteid]" class="devise_a_cacher" $display>$devise_site_actuel</span>
+																	<!-- END Codes_reductionDeviseSymboleBit -->
+																</div>
+																<div class="pourcentage_reduction">																														
+																	<input type="text" class="form-control input-inline" name="valeurcadeau" value="$cadeau[valeurcadeau]"> %
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[montant_minimum_panier]</label>
+															<div class="col-md-8">																														
+																<input type="text" class="form-control input-inline" name="montantminimum" value="$cadeau[montantminimum]" required> 
+																<!-- BEGIN Codes_reductionDeviseSymboleBit2 -->
+																	<span id="montant_minimum$site[siteid]" class="devise_a_cacher" $display>$devise_site_actuel</span>
+																<!-- END Codes_reductionDeviseSymboleBit2 -->
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[application]</label>
+															<div class="col-md-8">																														
+																<select class="form-control select-application" name="application">
+																	<option value="0" $selectedappli0>$multilangue[sur_le_catalogue]</option>	
+																	<option value="1" $selectedappli1>$multilangue[sur_rayons]</option>
+																	<option value="2" $selectedappli2>$multilangue[sur_un_article]</option>
+																	<option value="3" $selectedappli3>$multilangue[sur_plusieurs_articles]</option>
+																	<option value="4" $selected4>$multilangue[sur_une_marque]</option>
+																</select>
+																<div class="marque">
+																	<select class="form-control select-marque" name="marqueid">
+																	<!-- BEGIN Codes_reductionModificationSelectMarque -->	
+																	<option value="$marque[marqueid]" $selectedmarque>$marque[libelle]</option>
+																	<!-- END Codes_reductionModificationSelectMarque -->
+																	</select>
+																</div>
+																<div class="jstreecateg">
+																</div>
+																<div class="jstreearticles">
+																</div>
+																<div class="searchArticle">
+																	<input id="searchArticle" name="searchArticle" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+																	<div id="choixarticle">
+																		<!-- BEGIN Codes_reductionModificationArticle -->
+																		<div id="articleTab$article[artid]"> 
+																			- $article[libelle] ($article[artcode]) 
+																			<input type="hidden" value="$article[artid]" name="artid" id="$article[artid]"> 
+																			<i onclick="$('#articleTab$article[artid]').remove();" class="fa fa-trash-o fs-18 font-red"></i>
+																		</div>
+																		<!-- END Codes_reductionModificationArticle -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[nb_fois_utilisateur]</label>
+															<div class="col-md-8 radio-list">
+																<label class="radio-inline">
+																	<input type="radio" class="radio-inline" name="selectnbrfois" value="1" checked> 																												
+																</label>
+																<input type="text" class="form-control input-inline" name="nbrfois" value="$cadeau[nbrfois]">
+																<label class="radio-inline">
+																	<input type="radio" class="radio-inline" name="selectnbrfois" value="0" $checkednbrfois> $multilangue[illimite]
+																</label>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[nb_maxi_total]</label>
+															<div class="col-md-8 radio-list">
+																<label class="radio-inline">
+																	<input type="radio" class="radio-inline" name="selectnbrmaxi" value="1" checked>
+																</label>																							
+																<input type="text" class="form-control input-inline" name="nbrmaxi" value="$cadeau[nbrmaxi]">
+																<label class="radio-inline">
+																	<input type="radio" class="radio-inline" name="selectnbrmaxi" value="0" $checkednbrmaxi> $multilangue[illimite]
+																</label>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[date_fin]</label>
+															<div class="col-md-8">
+																<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date">
+																	<input type="text" class="form-control date-picker" name="datefin" value="$cadeau[datefin]"/>
+																	<span class="input-group-btn">
+																		<button type="button" class="btn default date-reset tooltips" data-original-title="$multilangue[aucune]" data-placement="top"><i class="fa fa-times"></i></button>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[utilisateur]</label>
+															<div class="col-md-8">																														
+																<input id="searchClient" name="searchClient" class="form-control" value="$multilangue[saisir_nom]" onclick="if (this.value == '$multilangue[saisir_nom]') this.value =''" />
+																<input type="hidden" value="0" name="userid" id="$utilisateur[userid]">
+																<div id="choixclient">
+																		<!-- BEGIN Codes_reductionModificationUtilisateur -->
+																		<div id="clientTab$utilisateur[userid]"> 
+																			- $utilisateur[nom] $utilisateur[prenom]$utilisateur[mail]$utilisateur[raisonsociale]
+																			<input type="hidden" value="$utilisateur[userid]" name="userid" id="$utilisateur[userid]"> 
+																			<i onclick="$('#clientTab$utilisateur[userid]').remove();" class="fa fa-trash-o fs-18 font-red"></i>
+																		</div>
+																		<!-- END Codes_reductionModificationUtilisateur -->
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[condition]</label>
+															<div class="col-md-8">																														
+																<select class="form-control" name="conditionUtilisation">
+																	<option value="0">$multilangue[aucune]</option>	
+																	<option value="1" $selectedconditionUtilisation>$multilangue[uniquement_1ere_commande]</option>
+																</select>
+															</div>
+														</div>																	
+													</div>												
+												<!-- FIN FORM-->
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END Codes_reductionModification -->
+			
+			<!-- BEGIN Codes_reductionListeUtilisations -->				
+				<div class="row">
+					<div class="col-md-12">							
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a class="btn grey-silver" href="codes_reduction.php"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<a href="../configurations/$host/exports/cadeau.csv" data-original-title="$multilangue[export_donnees_csv]" class="btn green right">
+									$multilangue[exporter] &nbsp; 
+									<i class="fa fa-table"></i>
+								</a>
+								<br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabutilisations" class="table table-striped table-bordered table-utilisations table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[nom]
+													</th>
+													<th class="ta-center">
+														$multilangue[prenom]
+													</th>
+													<th class="ta-center">
+														$multilangue[date_de_commande]
+													</th>
+													<th class="ta-center">
+														$multilangue[num_commande]
+													</th>
+													<th class="ta-center">
+														$multilangue[num_facture]
+													</th>
+													<th class="ta-center">
+														$multilangue[montant_commande]
+													</th>
+													<th class="ta-center">
+														$multilangue[montant_reduction]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+											<!-- BEGIN Codes_reductionListeUtilisationsBit -->
+												<tr id="$commande[factureid]">
+													<td class="ta-center">																
+														<a class="lh-30 text-primary" href="utilisateur.php?action=editer&userid=$commande[userid]" target="_blank" style="text-decoration : none;">
+																$commande[nom]
+														</a>
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="utilisateur.php?action=editer&userid=$commande[userid]" target="_blank" style="text-decoration : none;">
+															$commande[prenom]
+														</a>
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="facture.php?action=editer&factureid=$commande[factureid]" target="_blank" style="text-decoration : none;">
+															$commande[datefacture]
+														</a>		
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="facture.php?action=editer&factureid=$commande[factureid]" target="_blank" style="text-decoration : none;">
+															$commande[factureid]
+														</a>		
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="facture.php?action=editer&factureid=$commande[factureid]" target="_blank" style="text-decoration : none;">
+															$commande[numerofacture]
+														</a>		
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="facture.php?action=editer&factureid=$commande[factureid]" target="_blank" style="text-decoration : none;">
+															$commande[montanttotal_ttc] $devise[symbole]
+														</a>		
+													</td>
+													<td class="ta-center">
+														<a class="lh-30 text-primary" href="facture.php?action=editer&factureid=$commande[factureid]" target="_blank" style="text-decoration : none;">
+															$commande[montantcadeau] $devise[symbole]
+														</a>		
+													</td>
+												</tr>
+												<!-- END Codes_reductionListeUtilisationsBit -->
+												<tr>
+													<td colspan="4"></td>
+													<td class="ta-center">
+														<strong>
+															$multilangue[total]
+														</strong>
+													</td>
+													<td class="ta-center">
+														<strong>
+															$totalCommande $devise[symbole]
+														</strong>
+													</td>
+													<td class="ta-center">
+														<strong>
+															$totalReduction $devise[symbole]
+														</strong>
+													</td>
+												</tr>												
+											</tbody>
+										</table>												
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END Codes_reductionListeUtilisations -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.numeric.js"></script>
+<script src="assets/scripts/custom/table-advanced.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('searchArticle', 'choixarticle', 'articleTab', 'search_result_autocomplete.php?type=article', 'simple');
+	createAutoCompleteur('searchClient', 'choixclient', 'clientTab', 'search_result_autocomplete.php?type=client', 'simple');
+	$(document).ready(function() {
+		$('#tabcadeaux').dataTable( {
+			"aoColumns": [
+              {"sClass": "ta-center hidden-sm hidden-xs", "bSortable": true, "mData": "siteid", "iDataSort": 12, "data": "site", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "code", "iDataSort": 0, "data": "code", "bVisible": true},
+              {"sClass": "ta-center hidden-md hidden-sm hidden-xs", "bSortable": true, "mData": "commentaire", "iDataSort": 1, "data": "commentaire", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "valeurcadeau", "iDataSort": 2, "data": "valeurcadeau", "bVisible": true},
+              {"sClass": "ta-center hidden-sm hidden-xs", "bSortable": true, "mData": "nbrfois", "iDataSort": 3, "data": "nbrfois", "bVisible": true},
+              {"sClass": "ta-center hidden-sm hidden-xs", "bSortable": true, "mData": "nbrmaxi", "iDataSort": 4, "data": "nbrmaxi", "bVisible": true},
+              {"sClass": "ta-center hidden-xs", "bSortable": true, "mData": "date", "iDataSort": 5, "data": "date", "bVisible": true},
+              {"sClass": "ta-center hidden-md hidden-sm hidden-xs", "bSortable": false, "mData": "rayons", "iDataSort": 6, "data": "rayons", "bVisible": false},
+              {"sClass": "ta-center hidden-md hidden-sm hidden-xs", "bSortable": false, "mData": "articles", "iDataSort": 7, "data": "articles", "bVisible": false},
+              {"sClass": "ta-center hidden-sm hidden-xs", "bSortable": true, "mData": "user", "iDataSort": 8, "data": "user", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": false, "mData": "actif", "iDataSort": 9, "data": "actif", "bVisible": true},
+              {"sClass": "ta-center hidden-sm hidden-xs", "bSortable": true, "mData": "total", "iDataSort": 10, "data": "total", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": false, "mData": "action", "iDataSort": 11, "data": "action", "bVisible": true},
+	        ],
+	        "iDisplayStart": 0,
+            "iDisplayLength": 10,
+            "fnDrawCallback": function() {
+                App.initAjax();
+            },
+			"processing": true,
+	        "serverSide": true,
+	        "ajax": "codes_reduction_ajax.php",
+	        "order": [[ 0, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+	            "sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+	            "sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		
+		$('.dropdown-menu input[type="checkbox"]').change(function(){
+            var iCol = parseInt($(this).attr("data-column"));
+            var bVis = $('#tabcadeaux').dataTable().fnSettings().aoColumns[iCol].bVisible;
+            $('#tabcadeaux').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+        });
+		
+		$('.btn-sm').live('click', function() {
+			var cadeauid = $(this).data("value");
+			var color = ($(this).hasClass("green") ? "green" : "red");
+			var data = 'action=codes_reduction_activer&';
+			data += 'cadeauid=' + cadeauid + '&';
+			data += 'color=' + color + '&';
+			$.ajax({
+				url : 'commun_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('div[data-value="' + code_html.split('_')[0] + '"]');
+					div.removeClass("green red").addClass(code_html.split('_')[1]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[2]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[1] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					App.initAjax();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		$('.date-picker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+		$('.date-reset').click(function () {
+			$(this).closest('div').find('input').val("");
+		});
+		$('.switch-code').change(function () {
+			if (!$('.switch-code').is(':checked')){
+				$('input[name=code]').attr('type', 'file').removeClass('form-control');
+				$('.alert_import').show();
+			}else{
+				$('input[name=code]').attr('type', 'text').addClass('form-control');
+				$('.alert_import').hide();
+			}
+		});
+		
+		$('.select-site').change(function () {
+			var siteid = $(this).val();
+			$('.devise_a_cacher').hide();
+			$('#devise'+siteid).show();
+			$('#montant_minimum'+siteid).show();		
+		});
+		
+		$('.select-type').change(function () {
+			$('.annule_frais_port').hide();
+			$('.montant_reduction').hide();
+			$('.montant_reduction > input').removeAttr('required');
+			$('.pourcentage_reduction').hide();
+			$('.pourcentage_reduction > input').removeAttr('required');
+			$('.promotion_progressive').show();
+			switch ($('.select-type').val()) {
+				case "0":
+					$('.montant_reduction').show();
+					$('.montant_reduction > input').attr('required', '');
+					break;
+				case "1":
+					$('.pourcentage_reduction').show();
+					$('.pourcentage_reduction > input').attr('required', '');
+					break;
+				case "2":
+					$('.annule_frais_port').show();
+					break;
+				case "3":
+					$('.annule_frais_port').show();
+					$('.montant_reduction').show();
+					$('.montant_reduction > input').attr('required', '');
+					break;
+				case "4":
+					$('.montant_reduction').show();
+					$('.montant_reduction > input').attr('required', '');
+					break;
+				case "5":
+					$('.promotion_progressive').hide();
+					break;
+			}
+			if (!$('.switch-code').is(':checked')){
+				$('input[name=code]').attr('type', 'file').removeClass('form-control');
+				$('.alert_import').show();
+			}else{
+				$('input[name=code]').attr('type', 'text').addClass('form-control');
+				$('.alert_import').hide();
+			}
+		});
+		$('.select-type').trigger('change');
+		
+		$('.jstreecateg').on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            for(i = 0, j = data.selected.length; i < j; i++) {
+              r.push(data.instance.get_node(data.selected[i]).id);
+            }           
+            $('input[name="catidOffre"]').val(r.join(','));  
+          }).jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'core' : {
+				'data': {
+					'url': 'codes_reduction_ajax.php?action=jstreecateg'
+	         	}
+			}
+		});
+
+		$('.jstreearticles').on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            for(i = 0, j = data.selected.length; i < j; i++) {
+              r.push(data.instance.get_node(data.selected[i]).id);
+            }           
+            $('input[name="articles"]').val(r.join(','));
+          }).jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'core' : {
+				'data': {
+					'url': 'codes_reduction_ajax.php?action=jstreearticles'					
+	         	}
+			}
+		});
+		
+		$('.select-application').change(function () {
+			$('.jstreearticles').hide();
+			$('.jstreecateg').hide();
+			$('.marque').hide();
+			$('.searchArticle').hide();
+			switch ($('.select-application').val()) {
+				case "1":
+					$('.jstreecateg').show();
+					$('.jstreecateg').bind("ready.jstree", function (event, data) {
+			            $(this).jstree("open_all");
+			            var categorie = "$tabCategorie";
+						if(categorie != ""){
+							categorie = categorie.split(',');
+							for(var i=0;i<categorie.length-1;i++){
+									$(this).jstree("select_node", '#'+categorie[i]);
+								}
+						}
+						$(this).jstree("close_all");
+			        });
+					break;
+				case "2":
+					$('.searchArticle').show().css('margin-top', '20px');
+					break;
+				case "3":
+					$('.jstreearticles').show();
+					$('.jstreearticles').bind("ready.jstree", function (event, data) {
+			            $(this).jstree("open_all");
+			            var article = "$tabArticle";
+						if(article != ""){
+							article = article.split(',');
+							for(var i=0;i<article.length-1;i++){
+									$(this).jstree("select_node", '#'+article[i]);
+								}
+						}
+						$(this).jstree("close_all");
+			        });
+					break;
+				case "4":
+					$('.marque').show().css('margin-top', '20px');
+					break;
+			}
+		});
+		$('.select-application').trigger('change');
+		$('.select-marque').change(function () {
+		});
+		
+		$('.ui-autocomplete').css('z-index', '10');
+		$('input[name="nbrfois"]').focus(function () {
+			$(this).parent().find('span').removeClass('checked');
+			$(this).parent().find('span:eq(0)').addClass('checked');
+			$('input[name="selectnbrfois"]:nth-child(0)').attr('checked');
+		});
+		$('input[name="nbrmaxi"]').focus(function () {
+			$(this).parent().find('span').removeClass('checked');
+			$(this).parent().find('span:eq(0)').addClass('checked');
+			$('input[name="selectnbrmaxi"]:nth-child(0)').attr('checked');
+		});
+		$(document).bind("DOMSubtreeModified", function(){
+			$('input[name*="articleTab"]').attr('name', 'artid');
+			$('input[name*="clientTab"]').attr('name', 'userid');
+			$('.fa-trash-o').css("cursor", "pointer");
+		});
+		$('input[name="valeurcadeau"]').change(function () { $('input[name="valeurcadeau"]').val($(this).val()); });
+		$('input[name="valeurcadeau"]').numeric({negative : false});
+		$('input[name="montantminimum"]').numeric({negative : false});
+		$('input[name="nbrfois"]').numeric({negative : false});
+		$('input[name="nbrmaxi"]').numeric({negative : false});
+		$('.fa-trash-o').css("cursor", "pointer");
+	});
+</script>
+
+<!-- END Codes_reductionIndex -->

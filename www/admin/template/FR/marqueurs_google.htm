@@ -1,0 +1,102 @@
+<!-- BEGIN Marqueurs_googleIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[marqueurs_google_analytics]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marqueurs_google_analytics]						
+						</li>
+						<!-- BEGIN PlacedemarcheNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END PlacedemarcheNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+<!-- BEGIN Marqueurs_googleSuccess -->
+	<div class="alert alert-success alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteSuccess
+	</div>
+<!-- END Marqueurs_googleSuccess -->
+<!-- BEGIN Marqueurs_googleErreur -->
+	<div class="alert alert-danger alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteErreur
+	</div>
+<!-- END Marqueurs_googleErreur -->
+
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box blue-chambray" style="">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-bars"></i>$multilangue[code_google_analytics]
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">	
+				<form name="editGA" action="marqueurs_google.php" method="POST">
+					<input type="hidden" name="action" value="doeditcodegoogle">
+					<table class="table table-striped table-bordered ">	
+						<thead>
+							<tr>
+								<td class="ta-center">
+									<label for="googleanalytics" class="control-label"><br/>$multilangue[infos_code_google_analytics]</label>
+								</td>
+							</tr>
+						</thead>				
+						<tbody>					
+							<tr>							
+								<td style="text-align : center;">
+									<input type="text" pattern="UA-[0-9]{8}-[0-9]{1}" onchange="try{setCustomValidity('')}catch(e){}" oninvalid="setCustomValidity('Veuillez respecter le format requis')" name="googleanalytics" value="$infosga[valeur]" class="form-control required" id="googleanalytics" style="width : 50%; display : inline-block;">
+									<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>	
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins	
+</script>
+
+<!-- END Marqueurs_googleIndex -->

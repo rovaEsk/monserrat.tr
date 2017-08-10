@@ -1,0 +1,278 @@
+<!-- BEGIN AvoirsIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[avoirs]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[commandes]	
+							<i class="fa fa-angle-right"></i>						
+						</li>
+						<li>							
+							$multilangue[avoir]							
+						</li>
+						<!-- BEGIN AvoirsLibNavigSupp -->
+						<li>
+							<i class="fa fa-angle-right"></i>
+							$libNavigSupp
+						</li>
+						<!-- END AvoirsLibNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		<!-- DEBUT PAGE CONTENT-->
+			<!-- BEGIN AvoirsAjout -->
+				<div class="alert alert-danger alert-dismissable" style="display: none;">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$multilangue[avoir_champs_obligatoires]
+				</div>
+				<form action="avoirs.php?action=docreerAvoir" method="post" name="formAvoir">
+					<input type="hidden" name="newFactureid" value="">
+					<input type="hidden" name="factureid" value="$factureid">
+					<input type="hidden" name="lignesfactureid" value="">
+					<!-- BEGIN AvoirsAjoutExistant -->
+						<div class="">
+							<h4>$multilangue[avoirs_deja_crees]</h4>
+							<!-- BEGIN AvoirsAjoutExistantBit -->
+							<label>$multilangue[avoir] N°$avoirExistant[factureid]</label><br>
+							<!-- END AvoirsAjoutExistantBit -->
+						</div>
+					<!-- END AvoirsAjoutExistant -->
+					<h4>$multilangue[nouvel_avoir]</h4><br>
+					<div class="row">
+						<div class="col-md-6">
+							<div>
+								<label><b>$multilangue[commande] N°$factureid $dateFacture</b></label>
+							</div>
+							<div>
+								<label><b>$multilangue[client]: </b>$facture[nom] $facture[prenom]</label>
+							</div>
+							<div>
+								<label><b>$multilangue[montant_total] $multilangue[ttc]: </b>$montantTotalTTC</label>
+							</div>
+							<div>
+								<label><b>$multilangue[moyen_de_reglement]: </b>$moyen_paiement_facture[libelle]</label>
+							</div>
+							<div>
+								<label><b>$multilangue[nb_articles_total]: </b>$qtesExpediees[total]</label>
+							</div>
+						</div>
+					</div><br><br>
+					<div class="row">
+						<div>
+							<!-- BEGIN AvoirsAjoutStocks -->
+							<div class="">
+								<label class="control-label col-md-3">$multilangue[reincrementer_stocks]: </label>
+								<div class="col-md-3">		
+									<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" data-value="reincrementationStocks" name="reincrementationStocks" checked>
+								</div>
+							</div><br><br>
+							<!-- END AvoirsAjoutStocks -->
+							<div>
+								<label class="control-label col-md-3" style="width: 220px;">$multilangue[moyen_de_remboursement]: </label>
+								<div class="col-md-3">
+									<select name="moyenid" class="form-control">
+										<!-- BEGIN AvoirsAjoutReglementBit -->
+											<option value="$moyen_paiement[moyenid]" $selectedMoyen>$moyen_paiement[libelle]</option>
+										<!-- END AvoirsAjoutReglementBit -->
+									</select>
+								</div>
+							</div><br><br>
+							<div class="clear"></div>
+							<div class="col-md-6">
+								<textarea rows="" cols="" class="form-control" style="width: 486px" name="commentaire">$multilangue[avoir_commande_num]$factureid</textarea>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+					<br><br>
+					<div class="row">
+						<div class="col-md-5">
+							<select multiple name="liste1" id="liste1" class="form-control" style="width: 100%;" size="10">
+								<!-- BEGIN AvoirsAjoutArticleListe1Bit -->
+									<option value="$lignefacture[lignefactureid]" title="$qtesRestantes">$qtesRestantes x : $lignefacture[libelle] ($lignefacture[artcode])</option>
+								<!-- END AvoirsAjoutArticleListe1Bit -->
+							</select>
+						</div>
+						<div class="col-md-3">
+							<div class="col-md-6" style="transform: translateY(100%);">
+								<div class="ta-center">
+									<label class="control-label col-md-5">$multilangue[qte]: </label>
+									<div class="col-md-1">
+										<input type="text" value="0" name="qteToMove" class="form-control ta-center" style="width: 45px">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="ta-center">
+									<button type="button" class="btn blue" id="btnListe1"><i class="fa fa-arrow-right"></i></button>
+								</div><br><br>
+								<div class="ta-center">
+									<button type="button" class="btn blue" id="btnListe2"><i class="fa fa-arrow-left"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<select multiple name="liste2" id="liste2" class="form-control" style="width: 100%;">
+							</select>
+						</div>
+					</div><br><br>
+					<div class="row">
+						<div class="table-responsive col-md-4 right">
+							<table>
+								<tbody>
+									<tr>
+										<td class=""><input type="checkbox" class="form-control" name="fraisportOk" checked><label>$multilangue[frais_port]: </label></td>
+										<td><label id="montantPort">0,00$devise</label></td>
+									</tr>
+									<tr>
+										<td class=""><label>$multilangue[bon_reduction]: </label></td>
+										<td><label id="montantCadeau">0,00$devise</label></td>
+									</tr>
+									<tr>
+										<td style="padding-right: 5px;"><label>$multilangue[remise_commerciale]: </label></td>
+										<td><input type="text" class="form-control ta-center" name="remiseCommerciale" style="width: 50px; display: inline;" id="remise_commerciale">$devise</td>
+									</tr>
+									<!-- BEGIN AvoirsAjoutSupplementLivraison -->
+									<tr>
+										<td class=""><label>$multilangue[supplement_livraison]: </label></td>
+										<td><input type="text" class="form-control ta-center" name="supplementLivraison" style="width: 50px; display: inline;" id="supplement">$devise</td>
+									</tr>
+									<!-- END AvoirsAjoutSupplementLivraison -->
+									<tr>
+										<td class=""><label>$multilangue[tva]: </label></td>
+										<td><label id="montantTVA">0,00$devise</label></td>
+									</tr>
+									<tr>
+										<td class=""><label>$multilangue[total]: </label></td>
+										<td><label id="total">0,00$devise</label></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-md-12 ta-center mb-20">
+						<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+						<a class="btn green" id="btn_creer">$multilangue[creer]</a>															
+					</div>
+					<div class="clear"></div>
+				</form>
+			<!-- END AvoirsAjout -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	function moveSelected(src,dest){
+		if($('input[name=qteToMove]').attr('disabled')=='disabled' || isNaN($('input[name=qteToMove]').val()) || $('input[name=qteToMove]').val()=='')	var qte=0;
+		else var qte = parseInt($('input[name=qteToMove]').val());	
+		var qteSrc = 0;
+		var optionDest = '';
+		$('#'+src+' option:selected').each(function(){
+			qteSrc = parseInt($(this).attr('title'));
+			idSrc=$(this).val();
+			//Si la quantité saisie est supérieur à la quantité dispo mise à niveau
+			if(qte>qteSrc || qte <= 0) qte = qteSrc;		
+			optionDest = $('#'+dest+' option[value='+idSrc+']');
+			// Si l'article existe déjà ajouter la quantité saisie		
+			if(optionDest.size()){
+				optionDest.attr('title',parseInt(optionDest.attr('title'))+qte);
+			}else{
+				// Sinon créer l'option avec la quantité saisie
+				$('#'+dest).append($(document.createElement("option")).attr({'value':idSrc,'title':qte}).text($(this).text()));								
+			}
+			//retirer la quantité saisie à la source
+			$(this).attr('title',qteSrc-qte);		
+			$('#'+src+' option[value='+idSrc+']').text($(this).attr('title')+' '+$(this).text().slice($(this).text().indexOf('x'),$(this).text().length));
+			optionDest = $('#'+dest+' option[value='+idSrc+']')
+			optionDest.text(optionDest.attr('title')+' '+optionDest.text().slice(optionDest.text().indexOf('x'),optionDest.text().length));
+			//Si plus en stock... supprimer l'option
+			if(parseInt($(this).attr('title'))==0) $(this).remove();		
+		});	
+	}
+
+	
+	function updateTable(id,factureid){
+			var data = "" ;
+			data += 'action=calculerAvoir&';
+			data += 'factureid='+$('input[name=factureid]').val()+'&';
+			data += 'newFactureid='+$('input[name=newFactureid]').val()+'&';
+			data += 'remiseCommerciale='+$('input[name=remiseCommerciale]').val()+'&';
+			data += 'supplementLivraison='+$('input[name=supplementLivraison]').val()+'&';
+			if($('input[name=fraisportOk]').attr('checked'))
+				data += 'fraisportOk=1&';
+			$('#liste2 option').each(function(){
+				data+='lignesfacture['+$(this).val()+']='+$(this).val()+'&';
+				data+='qte['+$(this).val()+']='+$(this).attr('title')+'&';
+			});
+			$.ajax({
+				url : 'avoirs_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'json',
+				success : function(resultat, statut){
+					$('input[name=newFactureid]').val(resultat.newFactureid) ;	
+					$('#montantPort').html(resultat.montantPort.nouveau+' $devise') ;				
+					$('#montantCadeau').html('-'+resultat.montantCadeau.nouveau+' $devise') ;				
+					$('#total').html(resultat.total.nouveau+' $devise') ;							
+					$('#montantTVA').html(resultat.montantTVA.nouveau+' $devise') ;				
+					$('input[name=lignesfactureid]').val(resultat.lignesfactureid) ;		
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+	}
+	
+	function controlerAvoir(){		
+		if($('#liste2 option').length < 1 && $('#remiseCommerciale').val() == undefined){
+			$('.alert-danger').show();
+		}else{
+			$('#liste2 option').each(function(){
+				$('form[name=formAvoir]').append($(document.createElement("input")).attr({'name':'qte['+$(this).val()+']','type':'hidden','value':$(this).attr('title')}));
+			});
+			$('form[name=formAvoir]').submit();
+		}
+	}
+	
+	$(document).ready(function() {
+		$('#btnListe1').on('click', function(){
+			moveSelected('liste1', 'liste2');
+			updateTable();
+		});
+		$('#btnListe2').on('click', function(){
+			moveSelected('liste2', 'liste1');
+			updateTable();
+		});
+		
+		$('#remise_commerciale').keyup(function(){
+			updateTable();
+		});
+		$('#supplement').keyup(function(){
+			updateTable();
+		});
+		$('#btn_creer').on('click', function(){
+			controlerAvoir();
+		});
+	});
+</script>
+
+<!-- END AvoirsIndex -->

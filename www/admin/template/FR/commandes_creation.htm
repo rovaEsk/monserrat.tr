@@ -1,0 +1,292 @@
+<!-- BEGIN Commandes_creationIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[commandes]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="commandes.php">							
+								$multilangue[commandes]			
+								<i class="fa fa-angle-right"></i>
+							</a>				
+						</li>
+						<li>							
+							$multilangue[creation_commande]			
+						</li>
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+				<!-- BEGIN Commandes_creationSelectionClient -->
+					<div><b>$multilangue[etape] 1 : $multilangue[selection_client]</b></div>
+					<form action="commandes_creation.php?action=creationClient" method="post">
+						<div class="form-group">
+							<input type="hidden" name="user" id="userid" value="">
+							<label class="control-label col-md-2">$multilangue[client_existant] : </label>
+							<div class="searchClient col-md-4">
+								<input id="searchClient" style="min-width: 300px;" name="searchClient" class="form-control" value="" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+								<div id="choixclient">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<button type="submit" class="btn green">$multilangue[selectionner]</button>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</form>
+					<div><h4><b>$multilangue[ou]</b></h4></div>
+					<div class="col-md-2"><label>$multilangue[nouveau_client] :</label></div>
+					<div class="clear"></div>
+					<form action="commandes_creation.php?action=creationClient" method="post" id="form_nouveau_client">
+					
+						<!-- Evite l'autocomplete du champ type='password' -->
+						<input style="display:none">
+						<input type="password" style="display:none">
+						<!-- Evite l'autocomplete du champ type='password' -->
+						
+						<div class="col-md-2"></div>
+						<div class="table-responsive left col-md-6">
+							<table class="table table-bordered table-striped">
+								<tbody class="ta-right">
+									<tr>
+										<td>$multilangue[statut] </td>
+										<td>
+											<select name="Fpro" class="form-control">
+												<option value="0">$multilangue[particulier]</option>
+												<option value="1">$multilangue[professionnel]</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>$multilangue[civilite] </td>
+										<td>
+											<select name="Fcivilite" class="form-control">
+												<option value="0">$multilangue[monsieur]</option>
+												<option value="1">$multilangue[madame]</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>$multilangue[site] *</td>
+										<td>
+											<select name="Fsite" class="form-control">
+												<!-- BEGIN Commandes_creationSelectionClientSiteBit -->
+													<option value="$site[siteid]">$site[libelle]</option>
+												<!-- END Commandes_creationSelectionClientSiteBit -->
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>$multilangue[nom] *<div id="errordiv_Fnom" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fnom" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[prenom] *<div id="errordiv_Fprenom" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fprenom" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[raison_sociale] </td>
+										<td><input type="text" name="Fste" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[siret] </td>
+										<td><input type="text" name="Fsiret" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[tva_intracommunautaire] </td>
+										<td><input type="text" name="Ftva" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[email] *<div id="errordiv_Fmail" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fmail" value="" class="form-control" ></td>
+									</tr>
+									<tr>
+										<td>$multilangue[mot_de_passe] *<div id="errordiv_Fpass" style="color: #e02222;"></div></td>
+										<td><input type="password" name="Fpass" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[adresse] *<div id="errordiv_Fadresse" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fadresse" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[adresse2] </td>
+										<td><input type="text" name="Fcomp" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[code_postal] *<div id="errordiv_Fcp" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fcp" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[ville] *<div id="errordiv_Fville" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Fville" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[pays] </td>
+										<td><select name="Fpays" class="form-control">$listePays</select></td>
+									</tr>
+									<tr>
+										<td>$multilangue[telephone] *<div id="errordiv_Ftel1" style="color: #e02222;"></div></td>
+										<td><input type="text" name="Ftel1" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[telephone2] </td>
+										<td><input type="text" name="Ftel2" value="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>$multilangue[date_naissance] </td>
+										<td>
+											<div class="col-md-4" style="padding: 0px 5px;"><select name="Fjour" class="form-control">$listeJours</select></div>
+											<div class="col-md-4" style="padding: 0px 5px;"><select name="Fmois" class="form-control">$listeMois</select></div>
+											<div class="col-md-4" style="padding: 0px 5px;"><select name="Fannee" class="form-control">$listeAnnees</select></div>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="ta-center"><input type="checkbox" name="Fnewsletter" checked>$multilangue[recevoir_newsletter]</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="ta-center"><button type="submit" class="btn green">$multilangue[creer]</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-4"></div>
+						<div class="clear"></div>
+					</form>
+				<!-- END Commandes_creationSelectionClient -->
+				
+				<!-- BEGIN Commandes_creationChoixDetails -->
+					<form method="post" action="commandes_creation.php?action=creationFacture">
+						<input type="hidden" name="user" value="$utilisateur[userid]">
+						<div>
+							<div><b>$multilangue[etape] 1 : $multilangue[selection_client]</b></div>
+							<div>
+								<label>$civilite $utilisateur[nom] $utilisateur[prenom]</label>
+							</div>
+							<div>
+								<label>$utilisateur[adresse]</label>
+							</div>
+							<div>
+								<label>$utilisateur[adresse2]</label>
+							</div>
+							<div>
+								<label>$utilisateur[codepostal] $utilisateur[ville]</label>
+							</div>
+							<div>
+								<label>$pays</label>
+							</div>
+						</div><br><br>
+						<div>
+							<div><b>$multilangue[etape] 2 : $multilangue[selection_moyen_reglement]</b></div>
+							<div class="form-group">
+								<label class="control-label col-md-3">$multilangue[choisissez_moyen_reglement] :</label>
+								<div class="col-md-3">
+									<select name="moyenid" class="form-control">
+										<!-- BEGIN Commandes_creationChoixDetailsPaiementBit -->
+											<option value="$moyen[moyenid]">$moyen[libelle]</option>
+										<!-- END Commandes_creationChoixDetailsPaiementBit -->
+									</select>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div><br><br>
+						<div>
+							<div><b>$multilangue[etape] 3 : $multilangue[selection_mode_livraison]</b></div>
+							<div class="form-group">
+								<label class="control-label col-md-3">$multilangue[choisissez_mode_livraison] :</label>
+								<div class="col-md-3">
+									<select name="modelivraisonid" class="form-control">
+										<!-- BEGIN Commandes_creationChoixDetailsLivraisonBit -->
+											<option value="$livraison[modelivraisonid]">$livraison[nom]</option>
+										<!-- END Commandes_creationChoixDetailsLivraisonBit -->
+									</select>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div><br><br>
+						<div class="form-group">
+							<div class="col-md-3"></div>
+							<button type="submit" class="btn green">$multilangue[creer]</button>
+						</div>
+						<div class="clear"></div>
+					</form>
+				<!-- END Commandes_creationChoixDetails -->
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	createAutoCompleteur('searchClient', 'choixclient', '', 'search_result_autocomplete.php?type=client', 'simple');
+
+	$(document).ready(function() {
+		// Observer sur les modifications de la div #choixarticle
+		if($('#choixclient').length){
+			var target = document.querySelector('#choixclient');
+			var observer = new MutationObserver(function(mutations) {
+			  mutations.forEach(function(mutation) {
+			    if(mutation.addedNodes.length > 0){
+			    	$('#userid').val($('#choixclient').find('div').attr('id'));
+			    }else{
+			    	$('#userid').val("");
+			    }
+			  });    
+			});
+			var config = { attributes: true, childList: true, characterData: true };
+			observer.observe(target, config);
+		}
+		//Fin de l'observer
+		
+		$("#form_nouveau_client").validate({
+			ignore: "",
+			rules: {
+				Fnom: {
+		            required:true
+		        },
+		        Fprenom: {
+		        	required:true
+				},
+				Fmail: {
+					required:true,
+					email: true
+				},
+				Fpass: {
+					required:true
+				},
+				Fadresse: {
+					required:true
+				},
+				Fcp: {
+					required:true
+				},
+				Fville: {
+					required:true
+				},
+				Ftel1: {
+					required:true
+				}
+			},
+			 messages: {
+			},			
+			errorPlacement: function(error, element){	
+				error.appendTo('#errordiv_'+error.attr("for"));						     
+			}
+		});
+		
+	});
+</script>
+
+<!-- END Commandes_creationIndex -->

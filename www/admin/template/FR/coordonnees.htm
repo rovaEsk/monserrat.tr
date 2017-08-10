@@ -1,0 +1,182 @@
+<!-- BEGIN CoordonneesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT PAGE HEADER -->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+				<h3 class="page-title">
+				$multilangue[gestion_coordonnees]<small></small>
+				</h3>
+				<ul class="page-breadcrumb breadcrumb">						
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="index.php">
+							$multilangue[accueil]
+						</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">
+							$multilangue[parametres]
+						</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">
+							$multilangue[coordonnees]
+						</a>
+					</li>
+				</ul>
+				<!-- FIN PAGE TITLE & BREADCRUMB-->
+			</div>
+		</div>
+	<!-- FIN PAGE HEADER -->
+	
+	<!-- DEBUT PAGE CONTENT-->
+	
+		<!-- BEGIN CoordonneesSuccess -->
+			<div class="alert alert-success alert-dismissable">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+				$texteSuccess
+			</div>
+		<!-- END CoordonneesSuccess -->
+		
+		<!-- BEGIN CoordonneesErreur -->
+			<div class="alert alert-danger alert-dismissable">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+				$texteErreur
+			</div>
+		<!-- END CoordonneesErreur -->
+			
+		<div class="row">
+			<div class="col-md-12">		
+				<form action="coordonnees.php" name="formcoords" method="post" class="form-horizontal form-bordered form-row-stripped">
+					<input type="hidden" name="action" value="modifparam">					
+					<div class="col-md-12 ta-center mb-20">
+						<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+					</div>
+						
+					<!-- BEGIN CoordonneesSiteBit -->			
+						<div class="portlet box $site[classcolor]">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[coordonnees] <i>$site[libelle]</i>
+								</div>	
+								<div class="tools">
+									<a href="javascript:;" class="collapse"></a>
+								</div>																			
+							</div>
+							<div class="portlet-body form">
+								<!-- DEBUT FORM-->										
+								
+									<div class="form-body">
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[mail_contact_commandes]</label>
+											<div class="col-md-9">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="fa fa-envelope"></i>
+													</span>
+													<input type="email" name="param[$site[siteid]][mail_commande]" value="$mail_commande" class="form-control" aria-required="true"/>
+													<span class="help-block help-block-error" for="email"></span>
+												</div>
+												<span class="help-block">
+													 $multilangue[adresse_contact_commande]
+												</span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[mail_contact]</label>
+											<div class="col-md-9">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="fa fa-envelope"></i>
+													</span>
+													<input type="email" name="param[$site[siteid]][mail_contact]" value="$mail_contact" class="form-control mail_contact"/>
+												</div>
+												<span class="help-block">
+													 $multilangue[adresse_contact_divers]
+												</span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[nom_prenom]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][nom_contact]" value="$nom_contact" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[raison_sociale]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][raison_sociale]" value="$raison_sociale" class="form-control"/>														
+											</div>
+										</div>												
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[adresse]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][adresse]" value="$adresse" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[adresse2]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][adresse2]" value="$adresse2" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[code_postal]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][cp]" value="$cp" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[ville]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][ville]" value="$ville" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[telephone]</label>
+											<div class="col-md-9">
+												<input type="tel" name="param[$site[siteid]][telephone]" value="$telephone" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[fax]</label>
+											<div class="col-md-9">
+												<input type="tel" name="param[$site[siteid]][fax]" value="$fax" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">$multilangue[siret]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][siret]" value="$siret" class="form-control"/>														
+											</div>
+										</div>
+										<div class="form-group last">
+											<label class="control-label col-md-3">$multilangue[tva]</label>
+											<div class="col-md-9">
+												<input type="text" name="param[$site[siteid]][tva]" value="$tva" class="form-control"/>														
+											</div>
+										</div>												
+									</div>
+							</div>
+						</div>	
+					<!-- END CoordonneesSiteBit -->		
+				<div class="col-md-12 ta-center">
+					<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+				</div>	
+				</form>
+				<!-- FIN FORM-->			
+			</div>
+		</div>
+	<!-- FIN PAGE CONTENT-->
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script>
+	jQuery(document).ready(function() {
+		App.init();		
+	});
+</script>
+<!-- END CoordonneesIndex -->

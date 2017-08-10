@@ -1,0 +1,367 @@
+<!-- BEGIN TagsIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[tags]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[referencement]			
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="tags.php">						
+								$multilangue[tags]
+							</a>
+						</li>
+						<!-- BEGIN TagsNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END TagsNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN TagsSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END TagsSuccess -->
+			
+			<!-- BEGIN TagsErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END TagsErreur -->
+			
+			<!-- BEGIN TagsListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="tags.php?action=modifier" data-original-title="$multilangue[ajouter]" class="btn green right">
+									$multilangue[ajouter] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabechangetag" class="table table-striped table-bordered table-echangetag table-hover dataTable">
+											<thead>
+												<tr>
+													<th></th>
+													<th class="ta-center">
+														$multilangue[tags]
+													</th>
+													<th class="ta-center">
+														$multilangue[nb_clics]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN TagsListeBit -->
+												<tr id="$tag[tagid]">
+													<td>
+														<span class="row-details row-details-close" id="btn_details$tag[tagid]" onclick="openDetails('btn_details$tag[tagid]','details$tag[tagid]');"></span>
+													</td>
+													<td class="ta-center">																
+														$tag[tag]
+													</td>
+													<td class="ta-center">
+														$tagcount[hit]
+													</td>
+													<td class="ta-center">
+														<a href="tags.php?action=modifier&tagid=$tag[tagid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-edit fs-18 font-blue"></i>
+														</a>
+														<a href="#myModal$tag[tagid]" id="btn_suppr$tag[tagid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+															<i class="fa fa-trash-o fs-18 font-red"></i>
+														</a>
+														<div aria-hidden="true" aria-labelledby="myModalLabe$tag[tagid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$tag[tagid]" style="display: none;">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																		<h4 class="modal-title">$multilangue[suppression_tag] :  "$tag[tag]" ?</h4>
+																	</div>
+																	<div class="modal-body">																					
+																		$multilangue[suppression_tag_infos]
+																	</div>
+																	<div class="modal-footer">
+																		<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																		<a href="tags.php?action=supprimer&tagid=$tag[tagid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<a href="#myModalraz$tag[tagid]"  id="btn_raz$tag[tagid]"  data-original-title="$multilangue[raz]" data-placement="top" data-toggle="modal" class="btn tooltips">
+															<i class="fa fa-refresh fs-18 font-blue"></i>
+														</a>
+														<div aria-hidden="true" role="dialog" aria-labelledby="myModalLaberaz$tag[tagid]" tabindex="-1" class="modal fade" id="myModalraz$tag[tagid]" style="display: none;">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																		<h4 class="modal-title">$multilangue[reset_nb_clics] : "$tag[tag]" ?</h4>
+																	</div>
+																	<div class="modal-body">																					
+																		$multilangue[confirmer_raz]
+																	</div>
+																	<div class="modal-footer">
+																		<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																		<a href="tags.php?action=zero&tagid=$tag[tagid]" class="btn blue">$multilangue[oui]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr style="display: none;">
+				                         			<td colspan="4">				                          			
+				                             			&nbsp;								                	
+				                          			</td>				                          
+			                     				</tr>
+				                      			<tr class="details" id="details$tag[tagid]" style="display: none;">
+							                        <td colspan="4" style="padding: 20px;">				                          			
+							                           	<table class="table table-bordered" style="margin: 0px;">
+											               	<thead>
+											                 	<tr>
+												                  	<th class="bg-white ta-center col-md-4">$multilangue[site]</th>								                   			                                 
+																	<th class="bg-white ta-center col-md-4">$multilangue[nb_clics]</th>
+																	<th class="bg-white ta-center col-md-4">$multilangue[action]</th>
+																</tr>
+															</thead>
+															<tbody>
+																<!-- BEGIN TagsListeDetail -->
+																<tr style="border-top: 1px solid #EEEEEE;">
+																	<td class="bg-white ta-center col-md-4">$tagdetail[libelle]</td>
+																	<td class="bg-white ta-center col-md-4">$tagdetail[hit]</td>
+																	<td class="bg-white ta-center col-md-4">
+																		<a href="#myModalraz$tag[tagid]_$tagdetail[siteid]"  id="btn_raz$tag[tagid]_$tagdetail[siteid]"  data-original-title="$multilangue[raz]" data-placement="top" data-toggle="modal" class="btn tooltips">
+																			<i class="fa fa-refresh fs-18 font-blue"></i>
+																		</a>
+																		<div aria-hidden="true" role="dialog" aria-labelledby="myModalLaberaz$tag[tagid]_$tagdetail[siteid]" tabindex="-1" class="modal fade" id="myModalraz$tag[tagid]_$tagdetail[siteid]" style="display: none;">
+																			<div class="modal-dialog">
+																				<div class="modal-content">
+																					<div class="modal-header">
+																						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																						<h4 class="modal-title">Voulez-vous vraiment remettre à zéro le nombre de clics pour le tag "$tag[tag]" pour le $tagdetail[libelle] ?</h4>
+																					</div>
+																					<div class="modal-body">																					
+																						$multilangue[confirmer_raz]
+																					</div>
+																					<div class="modal-footer">
+																						<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																						<a href="tags.php?action=zero&tagid=$tag[tagid]&tagsiteid=$tagdetail[siteid]" class="btn blue">Oui, remettre à zéro</a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</td>
+																</tr>
+											                     <!-- END TagsListeDetail -->
+															</tbody>
+														</table>
+													</td>
+												</tr>
+												<!-- END TagsListeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																		
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- END TagsListe -->
+			
+			<!-- BEGIN TagsModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifTags" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifier2">
+										<input type="hidden" name="tagid" value="$tags[tagid]">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box $classcolor_site_principal">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+												</div>	
+												<div class="tools">
+					                                <a class="collapse" href="javascript:;">
+					                                </a>					                                
+					                            </div>																			
+											</div>
+											<div class="portlet-body form">
+												<!-- DEBUT FORM-->
+													<div class="form-body">											
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[libelle]</label>
+															<div class="col-md-8">																														
+																<input type="text" class="form-control" name="tag" value="$tags[tag]"/>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">$multilangue[description]</label>
+															<div class="col-md-8">																														
+																<textarea class="form-control editeur autosize" name="description">$tags[description]</textarea>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">
+																$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+																$multilangue[longueur_conseillee] : <span class="text-info bold bold">80</span> $multilangue[caracteres].<br>
+																$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+															</label>
+															<div class="col-md-8">																														
+																<textarea class="form-control autosize info" name="ref_title" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tags[ref_title]</textarea>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">
+																$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+																$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+																$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+															</label>
+															<div class="col-md-8">																														
+																<textarea class="form-control autosize info" name="ref_description" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tags[ref_description]</textarea>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-4">
+																$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+																$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+																$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+															</label>
+															<div class="col-md-8">																														
+																<textarea class="form-control autosize info" name="ref_keywords" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tags[ref_keywords]</textarea>
+															</div>
+														</div>															
+													</div>												
+												<!-- FIN FORM-->
+											</div>
+										</div>
+										<!-- BEGIN TagsModificationSiteBit -->
+										<div class="portlet box $site[classcolor]">
+					                        <div class="portlet-title">
+					                            <div class="caption">
+					                                $multilangue[donnees] <i>$site[libelle]</i>
+					                            </div>
+					                            <div class="tools">
+					                                <a class="expand" href="javascript:;">
+					                                </a>					                                
+					                            </div>
+					                        </div>
+					                        <div class="portlet-body form" style="display:none;">															
+												<div class="form-body">
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[libelle]</label>
+														<div class="col-md-8">																														
+															<input type="text" class="form-control" name="tag$site[siteid]" value="$tagsite[tag]"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[description]</label>
+														<div class="col-md-8">																														
+															<textarea class="form-control editeur autosize" name="description$site[siteid]">$tagsite[description]</textarea>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">
+															$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold bold">80</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-8">																														
+															<textarea class="form-control autosize info" name="ref_title$site[siteid]" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tagsite[ref_title]</textarea>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">
+															$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-8">																														
+															<textarea class="form-control autosize info" name="ref_description$site[siteid]" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tagsite[ref_description]</textarea>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">
+															$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-8">																														
+															<textarea class="form-control autosize info" name="ref_keywords$site[siteid]" data-trigger="focus" data-placement="bottom" data-content="$texteInfo">$tagsite[ref_keywords]</textarea>
+														</div>
+													</div>																					
+												</div>													
+					                        </div>
+										</div>
+					                    <!-- END TagsModificationSiteBit -->
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END TagsModification -->
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('textarea').keyup(function () {
+			$(this).parent().parent().find('label').find('span:eq(1)').html($(this).val().length);
+			if ($(this).val().length > parseInt($(this).parent().parent().find('label').find('span:eq(0)').html()))
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-success').addClass('text-danger');
+			else
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-danger').addClass('text-success');
+	    });
+		$('textarea').trigger('keyup');
+		$('.autosize').css('resize', 'vertical').autosize();
+		$('.info').popover({html: true, container: "body"});
+		$('body').live("DOMSubtreeModified", function() {
+			$('.popover-content').find("span").addClass("text-info");
+		});
+	});
+</script>
+<!-- END TagsIndex -->

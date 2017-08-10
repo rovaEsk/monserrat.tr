@@ -1,0 +1,567 @@
+<!-- BEGIN Rapport_activiteIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[rapport_activite]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[statistiques]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="rapport_activite.php">						
+								$multilangue[rapport_activite]
+							</a>
+						</li>
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+            <!-- BEGIN Rapport_activiteFormulaire -->
+				<div class="alert alert-success permanent">
+					$multilangue[remplissez_champs_rapport_perso]
+				</div>
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                    	 <form method="post" action="rapport_activite.php" class="form-inline">
+                         	<input type="hidden" name="action" value="rapport_perso">
+                         	<div class="form-group">
+                                <label>$multilangue[du] (jj/mm/aaaa)&nbsp;:&nbsp;</label>
+                                <div data-date-format="dd/mm/yyyy" class="input-group date date-picker margin-bottom-5">
+                                    <input type="text" placeholder="Du" name="debut" class="form-control input-sm datepicker" value="$periodegraphE">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>$multilangue[au] (jj/mm/aaaa)&nbsp;:&nbsp;</label>
+                                <div data-date-format="dd/mm/yyyy" class="input-group date date-picker margin-bottom-5">
+                                    <input type="text" placeholder="Du" name="fin" class="form-control input-sm datepicker" value="$periodegraphbisE">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>$multilangue[site]&nbsp;:&nbsp;</label>
+                                <div class="select-group  margin-bottom-5">
+                                    <select name='siteid' class="form-control input-sm">
+                                        <!-- BEGIN Rapport_activiteFormulaireSiteBit -->
+                                        <option value="$listeSite[siteid]" $selectedSite>$listeSite[libelle]</option>
+                                        <!-- END Rapport_activiteFormulaireSiteBit -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>$multilangue[filtrer]&nbsp;:&nbsp;</label>
+                                <div class="select-group  margin-bottom-5">
+                                    <select name='filtredate' class="form-control input-sm">
+                                        <option value="datefacture" $filtredate0>$multilangue[date_passage_commande]</option>	
+                                        <option value="datevalidation" $filtredate1>$multilangue[date_validation_commande]</option>																				
+                                        <option value="dateexpedition" $filtredate2>$multilangue[date_expedition_commande]</option>																				
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>$multilangue[etat]&nbsp;:&nbsp;</label>
+                                <div class="select-group  margin-bottom-5">
+                                    <select name='etatSelected' class="form-control input-sm">
+                                        <option value="1" $etatSelected1>$multilangue[validees]</option>
+                                        <option value="0" $etatSelected0>$multilangue[expediees]</option>
+                                        <option value="2" $etatSelected2>$multilangue[validees_expediees]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                         	<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[calculer]</button>
+                         </form>
+                    </div>
+                </div>
+                <br><br>
+			<!-- END Rapport_activiteFormulaire --> 
+            <!-- BEGIN Rapport_activitePaniersEnCours -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box purple" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[rapport_activite_paniers]
+                                    <!-- BEGIN Rapport_activiteTitrePerso -->
+                                    	&nbsp;($multilangue[rapport_perso])
+                                    <!-- END Rapport_activiteTitrePerso -->
+                                    <!-- BEGIN Rapport_activiteTitreMoisEnCours -->
+                                    	&nbsp;($multilangue[mois_en_cours])
+                                    <!-- END Rapport_activiteTitreMoisEnCours -->
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[panier_moyen]
+                                        </th>
+                                        <th>
+                                            $multilangue[commande_moyenne]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_commandes]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_produits_commandes]
+                                        </th>
+                                        <th>
+                                            $multilangue[plus_mauvais_jour]
+                                        </th>
+                                        <th>
+                                            $multilangue[meilleur_jour]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>$periodeLib</td>
+                                        <td>$recupPanierMoyenE $symboleMonetaire</td>
+                                        <td>$recupCommandeMoyenneE $multilangue[article_s]</td>
+                                        <td>$recupNombresCommande</td>
+                                        <td>$recupNombreProd</td>
+                                        <td>$mauvaisjour $multilangue[commande_s] <i>$multilangue[le] $dateMauvais</i></td>
+                                        <td>$meilleurjour $multilangue[commande_s] <i>$multilangue[le] $dateMeilleur</i></td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                
+								<script type="text/javascript">
+                                  google.load("visualization", "1", {packages:["corechart"]});
+                                  google.setOnLoadCallback(drawChart);
+                                  function drawChart() {
+                                    var data = new google.visualization.DataTable();
+                                    data.addColumn('string', '$multilangue[jours]');
+                                    data.addColumn('number', '$multilangue[nb_commandes]');
+                                    data.addColumn('number', '$multilangue[nb_produits_commandes]');
+                                    data.addRows([
+                                    $contenu_stat
+                                    ]);
+                                    var chart = new google.visualization.AreaChart(document.getElementById('visualization_NbrCommande'));
+                                    chart.draw(data, {width: 980, height: 300, title: '$multilangue[nb_commandes] $multilangue[du] $periode1E $multilangue[au] $periode12E',
+                                                      hAxis: {title: '$multilangue[jours]', titleTextStyle: {color: '#FF0000'}}
+                                                     });
+                                  }
+                                </script>
+                                <div id="visualization_NbrCommande" style="width: 980px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+                <br><br>
+            <!-- END Rapport_activitePaniersEnCours -->
+            <!-- BEGIN Rapport_activitePaniers12mois -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box purple" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[rapport_activite_paniers]
+                                    &nbsp;($multilangue[douze_derniers_mois])
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[panier_moyen]
+                                        </th>
+                                        <th>
+                                            $multilangue[commande_moyenne]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_commandes]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_produits_commandes]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN Rapport_activitePaniers12moisBit -->
+                                        <tr>
+                                            <td>$moisEnCoursLib</td>
+                                            <td>$recupPanierMoyenE $symboleMonetaire</td>
+                                            <td>$recupCommandeMoyenneE $multilangue[article_s]</td>
+                                            <td>$recupNombresCommande</td>
+                                            <td>$recupNombreProd</td>
+                                        </tr>
+                                    <!-- END Rapport_activitePaniers12moisBit -->
+                                    </tbody>
+                                    </table>
+                                </div>
+                                
+								<script type="text/javascript">
+                                  google.load("visualization", "1", {packages:["corechart"]});
+                                  google.setOnLoadCallback(drawChart);
+                                  function drawChart() {
+                                    var data = new google.visualization.DataTable();
+                                    data.addColumn('string', '$multilangue[mois]');
+                                    data.addColumn('number', '$multilangue[nb_commandes]');
+                                    data.addColumn('number', '$multilangue[nb_produits_commandes]');
+                                    data.addRows([
+                                   $contenu_stat
+                                    ]);
+                                    var chart = new google.visualization.AreaChart(document.getElementById('visualization_NbrCommandeMois'));
+                                    chart.draw(data, {width: 980, height: 300, title: '$multilangue[nb_commandes] / $multilangue[nb_produits_commandes_12_mois]',
+                                                      hAxis: {title: '$multilangue[mois]', titleTextStyle: {color: '#FF0000'}}
+                                                     });
+                                  }
+                                </script>
+                                <div id="visualization_NbrCommandeMois" style="width: 980px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+                <br><br>
+            <!-- END Rapport_activitePaniers12mois -->            
+            
+            
+            
+            
+            
+            <!-- BEGIN Rapport_activiteChiffreAffairesEnCours -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box blue" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[rapport_activite_ca]
+                                    <!-- BEGIN Rapport_activiteTitrePerso -->
+                                    	&nbsp;($multilangue[rapport_perso])
+                                    <!-- END Rapport_activiteTitrePerso -->
+                                    <!-- BEGIN Rapport_activiteTitreMoisEnCours -->
+                                    	&nbsp;($multilangue[mois_en_cours])
+                                    <!-- END Rapport_activiteTitreMoisEnCours -->
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ttc] $multilangue[hors_frais_port]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ttc]
+                                        </th>
+                                        <th>
+                                            $multilangue[marge_produits] $multilangue[ht]
+                                        </th>
+                                        <th>
+                                            $multilangue[tva_collectee]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>$periodeLib</td>
+                                        <td>$sousTotalHtE $symboleMonetaire</td>
+                                        <td>$sousTotalTTCE $symboleMonetaire</td>
+                                        <td>$totalHTE $symboleMonetaire</td>
+                                        <td>$totalTTCE $symboleMonetaire</td>
+                                        <td>$totalMargeE $symboleMonetaire</td>
+                                        <td>$montantTVAE $symboleMonetaire</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+								<script type="text/javascript">
+                                  google.load("visualization", "1", {packages:["corechart"]});
+                                  google.setOnLoadCallback(drawChart);
+                                  function drawChart() {
+                                    var data = new google.visualization.DataTable();
+                                    data.addColumn('string', '$multilangue[jours])');
+                                    data.addColumn('number', '$multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]');
+                                    data.addColumn('number', '$multilangue[tva_collectee]');
+                                    data.addColumn('number', '$multilangue[marge_produits]');
+                                    data.addRows([
+									$contenu_stat
+                                    ]);
+                                    var chart = new google.visualization.AreaChart(document.getElementById('visualization_ca'));
+                                    chart.draw(data, {width: 980, height: 300, title: '$multilangue[ca] $multilangue[du] $periode1E $multilangue[au] $periode2E',
+                                                      hAxis: {title: '$multilangue[jours]', titleTextStyle: {color: '#FF0000'}}
+                                                     });
+                                  }
+                                </script>
+                                <div id="visualization_ca" style="width: 980px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            <!-- END Rapport_activiteChiffreAffairesEnCours -->
+            
+            <!-- BEGIN Rapport_activiteChiffreAffaires12mois -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box blue" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[rapport_activite_ca]
+                                    &nbsp;($multilangue[douze_derniers_mois])
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ttc] $multilangue[hors_frais_port]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ttc]
+                                        </th>
+                                        <th>
+                                            $multilangue[marge_produits] $multilangue[ht]
+                                        </th>
+                                        <th>
+                                            $multilangue[tva_collectee]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN Rapport_activiteChiffreAffaires12moisBit -->
+                                        <tr>
+                                            <td>$moisEnCoursLib</td>
+                                            <td>$sousTotalHtE $symboleMonetaire</td>
+                                            <td>$sousTotalTTCE $symboleMonetaire</td>
+                                            <td>$totalHTE $symboleMonetaire</td>
+                                            <td>$totalTTCE $symboleMonetaire</td>
+                                            <td>$totalMargeE $symboleMonetaire</td>
+                                            <td>$montantTVAE $symboleMonetaire</td>
+                                        </tr>
+                                    <!-- END Rapport_activiteChiffreAffaires12moisBit -->
+                                    </tbody>
+                                    </table>
+                                </div>
+                            
+								<script type="text/javascript">
+                                  google.load("visualization", "1", {packages:["corechart"]});
+                                  google.setOnLoadCallback(drawChart);
+                                  function drawChart() {
+                                    var data = new google.visualization.DataTable();
+                                        data.addColumn('string', '$multilangue[jours]');
+                                        data.addColumn('number', '$multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]');
+                                        data.addColumn('number', '$multilangue[tva_collectee]');
+                                        data.addColumn('number', '$multilangue[marge_produits]');
+                                    data.addRows([
+                                    $contenu_stat
+                                    ]);
+                                    var chart = new google.visualization.AreaChart(document.getElementById('visualization_CAMois'));
+                                    chart.draw(data, {width: 980, height: 300, title: '$multilangue[nb_commandes] / $multilangue[nb_produits_commandes_12_mois]',
+                                                      hAxis: {title: '$multilangue[mois]', titleTextStyle: {color: '#FF0000'}}
+                                                     });
+                                  }
+                                </script>
+                                <div id="visualization_CAMois" style="width: 980px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                            
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            <!-- END Rapport_activiteChiffreAffaires12mois -->
+            
+            <!-- BEGIN Rapport_activiteChiffreAffairesParReglementEnCours -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box green" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[repartition_ca_par_reglement]
+                                    <!-- BEGIN Rapport_activiteTitrePerso -->
+                                    	&nbsp;($multilangue[rapport_perso])
+                                    <!-- END Rapport_activiteTitrePerso -->
+                                    <!-- BEGIN Rapport_activiteTitreMoisEnCours -->
+                                    	&nbsp;($multilangue[mois_en_cours])
+                                    <!-- END Rapport_activiteTitreMoisEnCours -->
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[moyens_de_reglement]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_commandes]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>$periodeLib</td>
+                                        <td>$listeMoyensPaiement</td>
+                                        <td>$listeNbrCommandes</td>
+                                        <td>$listeMontants</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                
+                            	<!-- BEGIN Rapport_activiteChiffreAffairesParReglementEnCoursGraph -->
+									<script>
+                                    google.load('visualization', '1', {packages: ['corechart']});
+                                    function drawVisualization() {
+                                        var data = new google.visualization.DataTable();
+                                        data.addColumn('string', '$multilangue[type]');
+                                        data.addColumn('number', '$multilangue[nombre]');
+										data.addRows($nbRowsGraph);
+										$datasGraph
+                                        new google.visualization.PieChart(document.getElementById('visualization_MoyenMois')).
+                                            draw(data, {title:"$multilangue[repartition_moyens_reglement]"});
+                                    }
+                                    google.setOnLoadCallback(drawVisualization);
+                                    </script>
+                                    <div id="visualization_MoyenMois" style="width: 600px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                                <!-- END Rapport_activiteChiffreAffairesParReglementEnCoursGraph -->
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            <!-- END Rapport_activiteChiffreAffairesParReglementEnCours -->
+
+            <!-- BEGIN Rapport_activiteChiffreAffairesParReglement12mois -->
+            	<div class="row">
+                	<div class="col-md-12 ta-center">
+                         <div class="portlet box blue" style="">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-bars"></i>$multilangue[repartition_ca_par_reglement]
+                                    &nbsp;($multilangue[douze_derniers_mois])
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            $multilangue[periode]
+                                        </th>
+                                        <th>
+                                            $multilangue[moyens_de_reglement]
+                                        </th>
+                                        <th>
+                                            $multilangue[nb_commandes]
+                                        </th>
+                                        <th>
+                                            $multilangue[ca] $multilangue[ht] $multilangue[hors_frais_port]
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN Rapport_activiteChiffreAffairesParReglement12moisBit -->
+                                        <tr>
+                                            <td>$moisEnCoursLib</td>
+                                            <td>$listeMoyensPaiement</td>
+                                            <td>$listeNbrCommandes</td>
+                                            <td>$listeMontants</td>
+                                        </tr>
+                                    <!-- END Rapport_activiteChiffreAffairesParReglement12moisBit -->
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <script>
+                                google.load('visualization', '1', {packages: ['corechart']});
+                                function drawVisualization() {
+                                    var data = new google.visualization.DataTable();
+                                    data.addColumn('string', '$multilangue[type]');
+                                    data.addColumn('number', '$multilangue[nombre]');
+                                    $scriptContent
+                                    new google.visualization.PieChart(document.getElementById('visualization_Moyen12Mois')).draw(data, {title:"$multilangue[repartition_moyens_reglement]"});
+                                }
+                                google.setOnLoadCallback(drawVisualization);
+                                </script>
+                                <div id="visualization_Moyen12Mois" style="width: 600px; height: 300px; margin:auto; border:1px solid #000; margin-top:10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            <!-- END Rapport_activiteChiffreAffairesParReglement12mois -->
+                   
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<!-- END Rapport_activiteIndex -->

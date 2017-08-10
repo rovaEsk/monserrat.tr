@@ -1,0 +1,357 @@
+<!-- BEGIN JournalventesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[journal_des_ventes]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[journal_des_ventes]						
+						</li>
+						<!-- BEGIN JournalventesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END JournalventesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		<!-- DEBUT PAGE CONTENT-->
+
+		<!-- BEGIN JournalventesSuccess -->
+			<div class="alert alert-success alert-dismissable">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+				$texteSuccess
+			</div>
+		<!-- END JournalventesSuccess -->
+		<!-- BEGIN JournalventesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END JournalventesErreur -->
+		<!-- BEGIN JournalventesListe -->
+			<div class="row" >
+				<div class="col-md-12">
+					<div class="tabbable tabbable-custom boxless tabbable-reversed">
+						<div class="tab-content">
+							<div class="tab-pane active">
+								<form action="$_SERVER[PHP_SELF]" name="formModifJournalVente" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+									<input type="hidden" name="action" value="afficher">
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[afficher_journal_ventes]
+											</div>																		
+										</div>		
+										<div class="portlet-body form">
+											<div class="form-body">									
+												<div class="form-group">
+													<label class="control-label col-md-4">$multilangue[du]</label>
+													<div class="col-md-8">																														
+														<input type="text" name="search_date_from" class="form-control datepicker" value="$search_date_from">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-4">$multilangue[au_from]</label>
+													<div class="col-md-8">																														
+														<input type="text" name="search_date_to" class="form-control datepicker" value="$search_date_to">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-4">$multilangue[filtrer]</label>
+													<div class="col-md-8">																														
+														<select name="filtredate" class="form-control">
+															<option value="datefacture">$multilangue[date_passage_commande]</option>
+															<option value="datevalidation">$multilangue[date_validation_commande]</option>
+															<option value="dateexpedition">$multilangue[date_expedition_commande]</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-4">$multilangue[filtrer]</label>
+													<div class="col-md-8">																														
+														<select name="filtremoyen" class="form-control">
+															<!-- BEGIN JournalventesListeMoyenPaiement -->
+															<option value="$moyenpaiement[moyenid]" $selected>$moyenpaiement[libelle]</option>
+															<!-- END JournalventesListeMoyenPaiement -->
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-4">$multilangue[trier_par]</label>
+													<div class="col-md-8">																														
+														<input type="checkbox" data-on-label="&nbsp;$multilangue[numero_commande]&nbsp;" data-off-label="&nbsp;$multilangue[numero_facture]&nbsp;<br><br>" class="make-switch" name="trierpar" value="1" checked>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 ta-center">
+										<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[lancer]</button>
+										<a href="./export/journal_ventes.csv" data-original-title="$multilangue[export_donnees_csv]" class="btn blue">
+											$multilangue[exporter] &nbsp; 
+											<i class="fa fa-table"></i>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- END JournalventesListe -->
+		
+		<!-- BEGIN JournalventesAfficher -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="portlet box yellow-casablanca">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bars"></i> $multilangue[journal_des_ventes]
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<table class="table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[num_commande]
+										</th>
+										<th class="ta-center">
+											$multilangue[date_de_commande]
+										</th>
+										<th class="ta-center">
+											$multilangue[client]
+										</th>
+										<th class="ta-center">
+											$multilangue[num_facture]
+										</th>
+										<th class="ta-center">
+											$multilangue[date_de_facture]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[marchandise] $multilangue[exonere] $multilangue[ht]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant_frais_port] $multilangue[exonere] $multilangue[ht]
+										</th>
+										<!-- BEGIN JournalventesAfficherValueTitre -->
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[france] $value %
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[intracom] $value %
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[france] $value %
+										</th>							
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[intracom] $value %
+										</th>
+										<!-- END JournalventesAfficherValueTitre -->					
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[france]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[intracom]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[france]
+										</th>							
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[intracom]
+										</th>
+										<th class="ta-center">
+											$multilangue[moyen_de_reglement]
+										</th>		
+									</tr>
+								</thead>
+								<tbody>
+								<!-- BEGIN JournalventesAfficherBit -->
+									<tr>
+										<td class="ta-center">
+											$facture[factureid]
+										</td>
+										<td class="ta-center">
+											$facture[datefacture]
+										</td>
+										<td class="ta-center">
+											$facture[nom] $facture[prenom]
+										</td>
+										<td class="ta-center">
+											$facture[numerofacture]
+										</td>
+										<td class="ta-center">
+											$facture[dateexpedition]
+										</td>
+										<td class="ta-center">
+											$sousTotalMTypeTVA $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$sousTotalFTypeTVA $facture[symbole]
+										</td>
+										<!-- BEGIN JournalventesAfficherValue -->
+										<td class="ta-center">
+											$sousTotalMFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$sousTotalMIntracom $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$sousTotalFFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$sousTotalFIntracom $facture[symbole]
+										</td>
+										<!-- END JournalventesAfficherValue -->
+										<td class="ta-center">
+											$totauxFactureFranceMontantTVA $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totauxFactureIntracomMontantTVA $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totauxFactureFranceTotalTTC $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totauxFactureIntracomTotalTTC $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$facture[libelle]
+										</td>
+									</tr>
+								<!-- END JournalventesAfficherBit -->
+								</tbody>
+							</table>					
+						</div>
+					</div>
+				</div>
+			</div>	
+		<!-- END JournalventesAfficher -->
+		
+		<!-- BEGIN JournalventesTotaux -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="portlet box red-pink">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bars"></i> $multilangue[au_total]
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<table class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[marchandise] $multilangue[exonere] $multilangue[ht]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant_frais_port] $multilangue[exonere] $multilangue[ht]
+										</th>
+										<!-- BEGIN JournalventesTotauxValueTitre -->
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[marchandise] $multilangue[ht] $multilangue[france] $value %
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[marchandise] $multilangue[ht] $multilangue[intracom] $value %
+										</th>
+										<th class="ta-center">
+											$multilangue[montant_frais_port] $multilangue[ht] $multilangue[france] $value %
+										</th>							
+										<th class="ta-center">
+											$multilangue[montant_frais_port] $multilangue[ht] $multilangue[intracom] $value %
+										</th>
+										<!-- END JournalventesTotauxValueTitre -->	
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[france]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[tva] $multilangue[intracom]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[france]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant] $multilangue[ttc] $multilangue[intracom]
+										</th>							
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="ta-center">
+											$totalM0 $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalF0 $facture[symbole]
+										</td>
+										<!-- BEGIN JournalventesTotauxValue -->
+										<td class="ta-center">
+											$totalMFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalMIntracom $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalFFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalFIntracom $facture[symbole]
+										</td>
+										<!-- END JournalventesTotauxValue -->
+										<td class="ta-center">
+											$totalTVAFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalTVAIntracom $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalTTCFrance $facture[symbole]
+										</td>
+										<td class="ta-center">
+											$totalTTCIntracom $facture[symbole]
+										</td>
+									</tr>
+								</tbody>
+							</table>					
+						</div>
+					</div>
+				</div>
+			</div>	
+		<!-- END JournalventesTotaux -->
+	<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$('.table').css('table-layout', 'fixed');
+</script>
+<!-- END JournalventesIndex -->

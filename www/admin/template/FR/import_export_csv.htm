@@ -1,0 +1,2781 @@
+<!-- BEGIN Import_export_csvIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+			<h3 class="page-title">
+			$multilangue[import_export_csv]<small></small>
+			</h3>
+			<ul class="page-breadcrumb breadcrumb">						
+				<li>
+					<a href="index.php">
+						<i class="fa fa-home"></i>					
+						$multilangue[accueil]
+					</a>
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>							
+					$multilangue[utilisationavancee]					
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a href="import_export_csv.php">						
+						$multilangue[import_export_csv]	
+					</a>					
+				</li>
+				<!-- BEGIN Import_export_csvNavigSupp -->
+				    <li>
+				    	<i class="fa fa-angle-right"></i>						    	                       
+				        $libNavigSupp						        
+				    </li>
+				<!-- END Import_export_csvNavigSupp -->
+			</ul>
+			<!-- FIN PAGE TITLE & BREADCRUMB-->
+		</div>
+	</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+	<!-- BEGIN Import_export_csvSuccess -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess
+		</div>
+	<!-- END Import_export_csvSuccess -->
+	
+	<!-- BEGIN Import_export_csvErreur -->
+		<div class="alert alert-danger alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur
+		</div>
+	<!-- END Import_export_csvErreur -->
+
+
+	<!-- BEGIN Import_export_csvImportEtape4Promotions -->	
+		$message		
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+		</div>	
+		<div class="clear"></div>				
+	<!-- END Import_export_csvImportEtape4Promotions -->
+	
+	<!-- BEGIN Import_export_csvImportEtape4Categories -->	
+		$message		
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+		</div>	
+		<div class="clear"></div>				
+	<!-- END Import_export_csvImportEtape4Categories -->
+
+	<!-- BEGIN Import_export_csvImportEtape4Articles -->	
+		$message		
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+		</div>	
+		<div class="clear"></div>				
+	<!-- END Import_export_csvImportEtape4Articles -->
+	
+	
+
+
+	<!-- BEGIN Import_export_csvImportEtape3Promotions -->	
+	<form action="" name="formimport" id="formimport" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="action" value="importbdd$type">
+		<input type="hidden" name="exclureEntete" value="$exclureEntete">
+		<input type="hidden" name="nblignes" value="$ligne">
+		<input type="hidden" name="compteur" value="$compteur">	
+		<input type="hidden" name="type" value="$type">
+		$message
+		<br>
+		<h3>$multilangue[apercu_fichier_csv]</h3>
+			$apercu
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			<button type="submit" class="btn green"><i class="fa fa-download"></i> Importer</button>
+		</div>	
+		<div class="clear"></div>
+	</form>						
+	<!-- END Import_export_csvImportEtape3Promotions -->
+
+	<!-- BEGIN Import_export_csvImportEtape3Categories -->	
+	<form action="" name="formimport" id="formimport" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="action" value="importbdd$type">
+		<input type="hidden" name="exclureEntete" value="$exclureEntete">
+		<input type="hidden" name="nblignes" value="$ligne">
+		<input type="hidden" name="compteur" value="$compteur">			
+		<input type="hidden" name="type" value="$type">
+		$message
+		<br>
+		<h3>$multilangue[apercu_fichier_csv]</h3>
+			$apercu
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			<button type="submit" class="btn green"><i class="fa fa-download"></i> Importer</button>
+		</div>	
+		<div class="clear"></div>
+	</form>						
+	<!-- END Import_export_csvImportEtape3Categories -->	
+
+	<!-- BEGIN Import_export_csvImportEtape3Articles -->	
+	<form action="" name="formimport" id="formimport" method="post" class="form-horizontal form-bordered form-row-stripped form_import" enctype="multipart/form-data">
+		<input type="hidden" name="action" value="importbdd$type">
+		<input type="hidden" name="exclureEntete" value="$exclureEntete">
+		<input type="hidden" name="nblignes" value="$ligne">
+		<input type="hidden" name="compteur" value="$compteur">				
+		<input type="hidden" name="type" value="$type">
+		$message
+		<br>
+		<h3>$multilangue[apercu_fichier_csv]</h3>			
+					
+			$apercu
+		<br><br>
+		<div class="col-md-12 ta-center">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			<button type="submit" class="btn green"><i class="fa fa-download"></i> Importer</button>
+		</div>	
+		<div class="clear"></div>
+	</form>						
+	<!-- END Import_export_csvImportEtape3Articles -->
+	
+	
+	<!-- BEGIN Import_export_csvImportEtape2 -->	
+	<form action="" name="formimport" id="formimport" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="action" value="import$type">
+		<input type="hidden" name="exclureEntete" value="$exclureEntete">
+		<input type="hidden" name="type" value="$type">			
+		<div class="col-md-4">
+			$listeInputsHidden			
+			<h3>$multilangue[apercu_fichier_csv]</h3>
+				$lignesPrevisu
+			<br><br>
+		</div>
+		<div class="col-md-8">
+			<h3>$multilangue[chargement_fichier_csv]</h3>
+			
+			<div class="form-group">
+				<div data-provides="fileinput" class="fileinput fileinput-new"><input type="hidden">
+					<span class="btn default btn-file">
+						<span class="fileinput-new">
+			 				$multilangue[selectionner]
+						</span>
+						<span class="fileinput-exists">
+			 				$multilangue[modification]
+						</span>
+						<input type="file" name="fichier_import">
+					</span>
+					<span class="fileinput-filename">
+					</span>
+	 				&nbsp;
+					<a style="float: none" data-dismiss="fileinput" class="close fileinput-exists" href="#"></a>
+				</div>
+				<button type="submit" style="margin-left:20px;" class="btn green"><i class="fa fa-download"></i> Importer</button>
+			</div>		
+			<br><br>
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+		</div>	
+		<div class="clear"></div>
+	</form>
+	<!-- END Import_export_csvImportEtape2 -->
+
+	<!-- BEGIN Import_export_csvDepart -->
+	<div class="tabbable-custom">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a data-toggle="tab" href="#tab_import">
+					 Import
+				</a>
+			</li>
+			<li class="">
+				<a data-toggle="tab" href="#tab_export">
+					 Export
+				</a>
+			</li>				
+		</ul>
+		<div class="tab-content">
+			<div id="tab_import" class="tab-pane $activeimport">
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[import_categories]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body">	
+						
+						<form action="import_export_csv.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post">
+							<input type="hidden" name="action" value="importer">
+							<input type="hidden" name="type" value="categorie">
+
+							<div class="col-md-6">
+								<b>$multilangue[exclure_premiere_ligne] :</b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exclureEntete" value="1">
+								<br><br>
+								<font class="erreur">$multilangue[infos_import_categories]</font>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesCateg">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutCateg">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="categorie_catid" name="categorie_catid" value="$multilangue[identifiant_categorie]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_categorie]
+											</span>
+										</label>										
+									</div>
+									
+									<!-- BEGIN Import_export_csvCategorieLibelleBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_libelle$site[siteid]" name="categorie_libelle$site[siteid]" value="$multilangue[libelle] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[libelle] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieLibelleBit -->	
+									
+									<!-- BEGIN Import_export_csvCategorieDescriptionBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_description$site[siteid]" name="categorie_description$site[siteid]" value="$multilangue[description] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[description] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieDescriptionBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieMetaTitleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_ref_title$site[siteid]" name="categorie_ref_title$site[siteid]" value="$multilangue[balises_meta] title ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] title <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieMetaTitleBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieMetaDescBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_ref_description$site[siteid]" name="categorie_ref_description$site[siteid]" value="$multilangue[balises_meta] description ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] description <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieMetaDescBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieMetaKeyBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_ref_keywords$site[siteid]" name="categorie_ref_keywords$site[siteid]" value="$multilangue[balises_meta] keywords ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] keywords <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieMetaKeyBit -->
+									
+									<!-- BEGIN Import_export_csvCategorie5836 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_color" name="categorie_color" value="$multilangue[couleur]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorie5836 -->
+									
+									<!-- BEGIN Import_export_csvCategorie5913 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_color_back" name="categorie_color_back" value="$multilangue[couleur_fond]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur_fond]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorie5913 -->
+									
+									<!-- BEGIN Import_export_csvCategorie5927 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_color_survol" name="categorie_color_survol" value="$multilangue[couleur_survol]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur_survol]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorie5927 -->									
+									
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[importer]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>
+				
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[import_articles]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body" style="display:none;">	
+						<form action="import_export_csv.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post">
+							<input type="hidden" name="action" value="importer">
+							<input type="hidden" name="type" value="article">
+
+							<div class="col-md-6">
+								<b>$multilangue[exclure_premiere_ligne] :</b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exclureEntete" value="1">
+								<br><br>
+								<font class="erreur">$multilangue[infos_import_articles]</font>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesArticle">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutArticle">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextArticle">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+			
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_artcode" name="article_artcode" value="$multilangue[reference]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="article_artid" name="article_artid" value="$multilangue[identifiant_article]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_article]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_catid" name="article_catid" value="$multilangue[identifiant_categorie]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_categorie]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_code_EAN" name="article_code_EAN" value="$multilangue[code_ean]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_ean]
+											</span>
+										</label>										
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticle5983 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_ASIN" name="article_ASIN" value="$multilangue[code_asin]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_asin]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticle5983 -->
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_reference_fabricant" name="article_reference_fabricant" value="$multilangue[reference_fabricant]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_fabricant]
+											</span>
+										</label>										
+									</div>
+																		
+									<!-- BEGIN Import_export_csvArticle5864_5957 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_numero_tarifaire_laposte" name="article_numero_tarifaire_laposte" value="$multilangue[numero_tarifaire_laposte]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[numero_tarifaire_laposte]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticle5864_5957 -->
+									
+									<!-- BEGIN Import_export_csvArticleLibelleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_libelle$site[siteid]" name="article_libelle$site[siteid]" value="$multilangue[libelle] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[libelle] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleLibelleBit -->
+				
+									<!-- BEGIN Import_export_csvArticleTitre2Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_titre2$site[siteid]" name="article_titre2$site[siteid]" value="$multilangue[titre2] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[titre2] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleTitre2Bit -->
+				
+									<!-- BEGIN Import_export_csvArticle5922 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_googleshop" name="article_googleshop" value="$multilangue[categorie] Google Shopping">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[categorie] Google Shopping
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticle5922 -->
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_marques" name="article_marques" value="$multilangue[marques]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[marques]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_fournisseur" name="article_fournisseur" value="$multilangue[fournisseur]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[fournisseur]
+											</span>
+										</label>										
+									</div>
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_poids" name="article_poids" value="$multilangue[poids] ($multilangue[grammes])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[poids] ($multilangue[grammes])
+											</span>
+										</label>										
+									</div>
+				
+									<!-- BEGIN Import_export_csvArticle5950 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_dim_longueur" name="article_dim_longueur" value="$multilangue[longueur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[longueur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_dim_largeur" name="article_dim_largeur" value="$multilangue[largeur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[largeur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_dim_hauteur" name="article_dim_hauteur" value="$multilangue[hauteur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[hauteur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticle5950 -->
+				
+									<!-- BEGIN Import_export_csvArticlePrixBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_prix$site[siteid]" name="article_prix$site[siteid]" value="$multilangue[prix_vente] $multilangue[ttc] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_vente] $multilangue[ttc] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticlePrixBit -->
+						
+									<!-- BEGIN Import_export_csvArticlePrixpublicBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_prixpublic$site[siteid]" name="article_prixpublic$site[siteid]" value="$multilangue[prix_public] $multilangue[ttc] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_public] $multilangue[ttc] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticlePrixpublicBit -->
+						
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_prixachat" name="article_prixachat" value="$multilangue[prix_achat] ($multilangue[ht])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_achat] $multilangue[ht]
+											</span>
+										</label>										
+									</div>
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_tauxchoisi" name="article_tauxchoisi" value="$multilangue[taux_tva]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[taux_tva]
+											</span>
+										</label>										
+									</div>
+						
+									<!-- BEGIN Import_export_csvArticleDelaiBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_delai$site[siteid]" name="article_delai$site[siteid]" value="$multilangue[delai_livraison] ($multilangue[jours]) ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_livraison] ($multilangue[jours]) <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleDelaiBit -->	
+									
+									<!-- BEGIN Import_export_csvArticle5937 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_aumetre" name="article_aumetre" value="$multilangue[vendu_au_metre]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[vendu_au_metre]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticle5937 -->			
+												
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_commentaire" name="article_commentaire" value="$multilangue[commentaire]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[commentaire]
+											</span>
+										</label>										
+									</div>			
+												
+									<!-- BEGIN Import_export_csvArticleCommandableBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_commandable$site[siteid]" name="article_commandable$site[siteid]" value="$multilangue[commandable] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[commandable] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleCommandableBit -->	
+									
+									<!-- BEGIN Import_export_csvArticleActiveV1Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_activeV1$site[siteid]" name="article_activeV1$site[siteid]" value="$multilangue[actif] V1 ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[actif] V1 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleActiveV1Bit -->
+									
+									<!-- BEGIN Import_export_csvArticleActiveV2Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_activeV2$site[siteid]" name="article_activeV2$site[siteid]" value="$multilangue[actif] V2 ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[actif] V2 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleActiveV2Bit -->								
+																		
+									<!-- BEGIN Import_export_csvArticle5944 -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" id="article_image" name="article_image" value="$multilangue[image] ($multilangue[url_complete])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[image] ($multilangue[url_complete])
+												</span>
+											</label>										
+										</div>
+										<!-- BEGIN Import_export_csvArticleLegendeBit -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" id="article_legende$site[siteid]" name="article_legende$site[siteid]" value="$multilangue[legende] ($site[libelle])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[legende] <i>($site[libelle])</i>
+												</span>
+											</label>										
+										</div>
+										<!-- END Import_export_csvArticleLegendeBit -->
+									
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" id="article_image2" name="article_image2" value="$multilangue[image] 2 ($multilangue[url_complete])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[image] 2 ($multilangue[url_complete])
+												</span>
+											</label>										
+										</div>
+										<!-- BEGIN Import_export_csvArticleLegende2Bit -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" id="article_legende2$site[siteid]" name="article_legende2$site[siteid]" value="$multilangue[legende] 2 ($site[libelle])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[legende] 2 <i>($site[libelle])</i>
+												</span>
+											</label>										
+										</div>
+										<!-- END Import_export_csvArticleLegende2Bit -->									
+									<!-- END Import_export_csvArticle5944 -->
+																		
+									<!-- BEGIN Import_export_csvArticleDescriptionBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_description$site[siteid]" name="article_description$site[siteid]" value="$multilangue[description] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[description] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleDescriptionBit -->
+									
+									<!-- BEGIN Import_export_csvArticleFichetechniqueBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_fichetechnique$site[siteid]" name="article_fichetechnique$site[siteid]" value="$multilangue[fiche_technique] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[fiche_technique] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleFichetechniqueBit -->
+									
+									<!-- BEGIN Import_export_csvArticleNotreavisBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_notreavis$site[siteid]" name="article_notreavis$site[siteid]" value="$multilangue[notre_avis] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[notre_avis] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleNotreavisBit -->
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_caracteristiques" name="article_caracteristiques" value="$multilangue[caracteristiques]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[caracteristiques] ($multilangue[de_la_forme] : $multilangue[caract_couleur]:$multilangue[bleu],$multilangue[rouge]|$multilangue[caract_taille]:S,M)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_artcode" name="article_stock_artcode" value="$multilangue[reference_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:scvsv5212|$multilangue[bleu],M:scvsv5211|$multilangue[rouge],S:scvsv5214|$multilangue[rouge],M:scvsv5213)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_reference_fabricant" name="article_stock_reference_fabricant" value="$multilangue[reference_fabricant_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_fabricant_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_code_EAN" name="article_stock_code_EAN" value="$multilangue[code_ean_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_ean_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_ASIN" name="article_stock_ASIN" value="$multilangue[code_asin_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_asin_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_total" name="article_stock_total" value="$multilangue[stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:2|$multilangue[bleu],M:3|$multilangue[rouge],S:4|$multilangue[rouge],M:5)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_seuil_alerte" name="article_stock_seuil_alerte" value="$multilangue[seuil_alerte]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[seuil_alerte] ($multilangue[de_la_forme] : $multilangue[bleu],S:9|$multilangue[bleu],M:8|$multilangue[rouge],S:8|$multilangue[rouge],M:7)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_delai_appro" name="article_stock_delai_appro" value="$multilangue[delai_appro] ($multilangue[jours])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_appro] (jours) ($multilangue[de_la_forme] : $multilangue[bleu],S:6|$multilangue[bleu],M:7|$multilangue[rouge],S:1|$multilangue[rouge],M:3)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_delai_livraison" name="article_stock_delai_livraison" value="$multilangue[delai_livraison_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_livraison_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:1|$multilangue[bleu],M:2|$multilangue[rouge],S:3|$multilangue[rouge],M:4)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_zonestockage" name="article_stock_zonestockage" value="$multilangue[zone_stockage_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[zone_stockage_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:1|$multilangue[bleu],M:2|$multilangue[rouge],S:3|$multilangue[rouge],M:4)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_prixachat" name="article_stock_prixachat" value="$multilangue[prix_achat_stock] $multilangue[ht]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_achat_stock] $multilangue[ht] ($multilangue[de_la_forme] : $multilangue[bleu],S:15|$multilangue[bleu],M:16|$multilangue[rouge],S:17|$multilangue[rouge],M:18)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_prix" name="article_stock_prix" value="$multilangue[prix_vente_stock] $multilangue[ttc]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_vente_stock] $multilangue[ttc] ($multilangue[de_la_forme] : $multilangue[bleu],S:30|$multilangue[bleu],M:31|$multilangue[rouge],S:32|$multilangue[rouge],M:33)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_colisage" name="article_colisage" value="$multilangue[colisagefournisseurs]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[colisagefournisseurs]
+											</span>
+										</label>
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticleMetatitleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_ref_title$site[siteid]" name="article_ref_title$site[siteid]" value="$multilangue[balises_meta] title ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] title <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleMetatitleBit -->
+									
+									<!-- BEGIN Import_export_csvArticleMetadescBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_ref_description$site[siteid]" name="article_ref_description$site[siteid]" value="$multilangue[balises_meta] description ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] description <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleMetadescBit -->
+									
+									<!-- BEGIN Import_export_csvArticleMetakeyBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_ref_keywords$site[siteid]" name="article_ref_keywords$site[siteid]" value="$multilangue[balises_meta] keywords ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] keywords <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleMetakeyBit -->
+																
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_conseil" name="article_conseil" value="$multilangue[articles_conseilles]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[articles_conseilles]
+											</span>
+										</label>
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticle134Bit -->
+									<div class="form-group">									
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_tags$site[siteid]" name="article_tags$site[siteid]" value="$multilangue[tags] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[tags] <i>($site[libelle])</i> ($multilangue[separees_par_des] "|")
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticle134Bit -->
+									
+									<!-- BEGIN Import_export_csvArticle5901 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_bundle" name="article_bundle" value="$multilangue[articles_composant_lot]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[articles_composant_lot]
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticle5901 -->
+									
+									
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[importer]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>
+				
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[import_promotions]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body" style="display:none;">
+						
+						<form action="import_export_csv.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post">
+							<input type="hidden" name="action" value="importer">
+							<input type="hidden" name="type" value="promotion">
+
+							<div class="col-md-6">
+								<b>$multilangue[exclure_premiere_ligne] :</b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exclureEntete" value="1">
+								<br><br>
+								<font class="erreur">$multilangue[infos_import_categories]</font>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesPromotions">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutPromotions">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextPromotions">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_artid" name="promotion_artid" value="$multilangue[identifiant_article]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_article]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_site" name="promotion_site" value="$multilangue[site_concerne]">
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																														
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[site_concerne]
+											</span>
+										</label>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="promotion_artcode" name="promotion_artcode" value="$multilangue[reference]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference]
+											</span>
+										</label>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_prix" name="promotion_prix" value="$multilangue[prix] $multilangue[ttc]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix] $multilangue[ttc]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_prixpromo" name="promotion_prixpromo" value="$multilangue[prix_promotion] $multilangue[ttc]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_promotion] $multilangue[ttc]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_datedebut" name="promotion_datedebut" value="$multilangue[date_debut]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[date_debut]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_datefin" name="promotion_datefin" value="$multilangue[date_fin]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[date_fin]
+											</span>
+										</label>										
+									</div>																	
+									
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[importer]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>
+			</div>
+			
+			<div id="tab_export" class="tab-pane">
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[export_categories]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body">
+						<form action="csv_categories.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post" target="_blank">
+							<input type="hidden" name="type" value="categorie">
+
+							<div class="col-md-6">								
+								<font class="erreur">$multilangue[cases_cochees_presentes_import]</font>
+								<br><br>
+								<b>$multilangue[exporter_ligne_entete] : </b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exporterTitre" value="1">
+						
+								<br><br>
+								<b style="text-decoration:underline;">$multilangue[criteres_selection] : </b>
+								<br><br>	
+								<b>$multilangue[visible] : </b>
+								<select name="critereVisible" class="form-control" style="width:200px; display:inline;">
+									<option value="">$multilangue[tous]</option>
+									<option value="1">$multilangue[oui]</option>
+									<option value="0">$multilangue[non]</option>
+								</select>
+							
+							
+								<div id="categorieCritereSite" style="margin-top:20px;">
+									<b>Sites : </b>
+									<!-- BEGIN Import_export_csvCategorieSiteBit -->	
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="critereSite[$site[siteid]]" name="critereSite[$site[siteid]]" value="1">																												
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$site[libelle]
+												</span>
+											</label>										
+										</div>
+									<!-- END Import_export_csvCategorieSiteBit -->										
+								</div>
+							
+							
+								<div id="categorieCritereContientArticle" style="margin-top:20px;">
+									<b>$multilangue[contenant_articles_actifs] : </b>
+									<select name="critereContientArticle" class="form-control" style="width:200px; display:inline;">
+										<option value="">$multilangue[tous]</option>
+										<option value="1">$multilangue[oui]</option>
+										<option value="0">$multilangue[non]</option>
+									</select>
+								</div>
+								<br><br>										
+								<b>$multilangue[en_onglet] : </b>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereOnglet" name="critereOnglet" value="1"> $multilangue[oui] </label>
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereOnglet" name="critereOnglet" value="0"> $multilangue[non] </label>
+									<label class="btn blue active">
+									<input type="radio" class="toggle" id="critereOnglet" name="critereOnglet" value=""> $multilangue[tous] </label>
+								</div>										
+															
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesCategExp">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutCategExp">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCategExp">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="categorie_catid" name="categorie_catid" value="$multilangue[identifiant_categorie]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_categorie]
+											</span>
+										</label>										
+									</div>
+									
+									<!-- BEGIN Import_export_csvCategorieExpLibelleBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_libelle$site[siteid]" name="categorie_libelle$site[siteid]" value="$multilangue[libelle] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[libelle] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpLibelleBit -->	
+									
+									<!-- BEGIN Import_export_csvCategorieExpDescriptionBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_description$site[siteid]" name="categorie_description$site[siteid]" value="$multilangue[description] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[description] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpDescriptionBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpMetaTitleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_ref_title$site[siteid]" name="categorie_ref_title$site[siteid]" value="$multilangue[balises_meta] title ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] title <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpMetaTitleBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpMetaDescBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_ref_description$site[siteid]" name="categorie_ref_description$site[siteid]" value="$multilangue[balises_meta] description ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] description <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpMetaDescBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpMetaKeyBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_ref_keywords$site[siteid]" name="categorie_ref_keywords$site[siteid]" value="$multilangue[balises_meta] keywords ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] keywords <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpMetaKeyBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExp5836 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_color" name="categorie_color" value="$multilangue[couleur]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExp5836 -->
+									
+									<!-- BEGIN Import_export_csvCategorieExp5913 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_color_back" name="categorie_color_back" value="$multilangue[couleur_fond]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur_fond]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExp5913 -->
+									
+									<!-- BEGIN Import_export_csvCategorieExp5927 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="categorie_color_survol" name="categorie_color_survol" value="$multilangue[couleur_survol]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[couleur_survol]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExp5927 -->	
+									
+									<!-- BEGIN Import_export_csvCategorieExpUrlBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_url$site[siteid]" name="categorie_url$site[siteid]" value="$multilangue[url] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[url] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpUrlBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpArboBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_arborescence$site[siteid]" name="categorie_arborescence$site[siteid]" value="$multilangue[arborescence] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[arborescence] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpArboBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpImageBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_image$site[siteid]" name="categorie_image$site[siteid]" value="$multilangue[image] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[image] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpImageBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpImage2Bit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_image2$site[siteid]" name="categorie_image2$site[siteid]" value="$multilangue[image] 2 ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[image] 2 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpImage2Bit -->	
+									
+									<!-- BEGIN Import_export_csvCategorieExpImage3Bit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_image3$site[siteid]" name="categorie_image3$site[siteid]" value="$multilangue[image] 3 ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[image] 3 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpImage3Bit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExp5929 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_background" name="categorie_background" value="$multilangue[background]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[background]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExp5929 -->	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_nb_articles" name="categorie_nb_articles" value="$multilangue[nb_articles_total]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_articles_total]
+											</span>
+										</label>										
+									</div>	
+									
+									<!-- BEGIN Import_export_csvCategorieExpArticlesActifsBit -->	
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_articles_actifs$site[siteid]" name="categorie_articles_actifs$site[siteid]" value="$multilangue[nb_articles_actifs] ($site[libelle])">																												
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_articles_actifs] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpArticlesActifsBit -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpArticlesStock -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_articles_stock" name="categorie_articles_stock" value="$multilangue[nb_articles_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_articles_stock]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpArticlesStock -->
+									
+									<!-- BEGIN Import_export_csvCategorieExpArticlesCommandableBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_articles_commandables$site[siteid]" name="categorie_articles_commandables$site[siteid]" value="$multilangue[nb_articles_commandables] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_articles_commandables] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvCategorieExpArticlesCommandableBit -->
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="categorie_affichage_multiple" name="categorie_affichage_multiple" value="$multilangue[nb_affichages_multiples]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_affichages_multiples]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-upload"></i> $multilangue[exporter]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>
+				
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[export_articles]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body" style="display:none;">	
+						<form action="csv_articles.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post">
+							<input type="hidden" name="type" value="article">
+
+							<div class="col-md-6">								
+								<font class="erreur">$multilangue[cases_cochees_presentes_import]</font>
+								<br><br>
+								<b>$multilangue[exporter_ligne_entete] : </b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exporterTitre" value="1">
+								<br/><br/>						
+								<b style="text-decoration:underline;">$multilangue[criteres_selection] :</b><br/><br/>
+								
+								<div style="margin-bottom:20px;">
+									<b>Sites : </b>									
+									<!-- BEGIN Import_export_csvArticleExpSiteBit2 -->	
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="critereSite[$site[siteid]]" name="critereSite[$site[siteid]]" value="1">																												
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$site[libelle]
+												</span>
+											</label>										
+										</div>
+									<!-- END Import_export_csvArticleExpSiteBit2 -->										
+								</div>
+								
+								<b>$multilangue[visible] :</b>
+								<select name="critereVisible" class="form-control"  style="width:90px; display:inline;">
+									<option value="" onclick="cache('articleCritereSite'); cache('articleCritereVersion');">$multilangue[tous]</option>
+									<option value="1" onclick="affiche('articleCritereSite'); affiche('articleCritereVersion');">$multilangue[oui]</option>
+									<option value="0" onclick="affiche('articleCritereSite'); affiche('articleCritereVersion');">$multilangue[non]</option>
+								</select>
+														
+								
+								<span id="articleCritereSite" style="display:none;">
+									<b>&nbsp;sur le site :&nbsp;</b>
+									<select name="critereSiteVisible" class="form-control" style="width:320px; display:inline;">										
+										<!-- BEGIN Import_export_csvArticleExpSiteBit -->	
+											<option value="$site[siteid]">$site[libelle]</option>
+										<!-- END Import_export_csvArticleExpSiteBit -->	
+									</select>																			
+								</span>									
+								
+								
+								<div id="articleCritereVersion" style="display:none; margin-top:20px;">
+									<b>$multilangue[plateforme] :</b>
+									<select name="critereVersion" class="form-control"  style="width:200px; display:inline;">
+										<option value="">$multilangue[toutes]</option>
+										<option value="1">V1</option>
+										<option value="2">V2</option>
+									</select>
+								</div>
+								
+								<!-- BEGIN Import_export_csvArticleExpFournisseur -->
+									<br/><br/>
+									<b>$multilangue[par_fournisseur] :</b>
+									<select name="critereFournisseur" class="form-control" style="width:200px; display:inline;">
+										<option value="">$multilangue[tous]</option>
+										<!-- BEGIN Import_export_csvArticleExpFournisseurBit -->
+											<option value="$fournisseur[fournisseurid]">$fournisseur[libelle]</option>
+										<!-- END Import_export_csvArticleExpFournisseurBit -->
+									</select>
+								<!-- END Import_export_csvArticleExpFournisseur -->	
+								
+								<!-- BEGIN Import_export_csvArticleExpMarque -->
+									<br/><br/>
+									<b>$multilangue[par_marque] :</b>
+									<select name="critereMarque" class="form-control" style="width:200px; display:inline;">
+										<option value="">$multilangue[toutes]</option>
+										<!-- BEGIN Import_export_csvArticleExpMarqueBit -->
+											<option value="$marque[marqueid]">$marque[libelle]</option>
+										<!-- END Import_export_csvArticleExpMarqueBit -->
+									</select>
+								<!-- END Import_export_csvArticleExpMarque -->
+								
+								<br/><br/>
+								$multilangue[commandable] 								
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereCommandable" name="critereCommandable" value="1"> $multilangue[oui] </label>
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereCommandable" name="critereCommandable" value="0"> $multilangue[non] </label>
+									<label class="btn blue active">
+									<input type="radio" class="toggle" id="critereCommandable" name="critereCommandable" value=""> $multilangue[tous] </label>
+								</div>
+								
+								<br/><br/>
+								$multilangue[deja_ete_vendu] 						
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereVendu" name="critereVendu" value="1"> $multilangue[oui] </label>
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereVendu" name="critereVendu" value="0"> $multilangue[non] </label>
+									<label class="btn blue active">
+									<input type="radio" class="toggle" id="critereVendu" name="critereVendu" value=""> $multilangue[tous] </label>
+								</div>	
+								
+								<!-- BEGIN Import_export_csvArticleExpTri5 -->
+									<br/><br/>
+									$multilangue[en_promotion] 								
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="criterePromotion" name="criterePromotion" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="criterePromotion" name="criterePromotion" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="criterePromotion" name="criterePromotion" value=""> $multilangue[tous] </label>
+									</div>		
+								<!-- END Import_export_csvArticleExpTri5 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri17 -->
+									<br/><br/>
+									$multilangue[en_nouveaute] 									
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereNouveaute" name="critereNouveaute" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereNouveaute" name="critereNouveaute" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereNouveaute" name="critereNouveaute" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri17 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri19 -->
+									<br/><br/>
+									$multilangue[en_top_vente] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereTopVente" name="critereTopVente" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereTopVente" name="critereTopVente" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereTopVente" name="critereTopVente" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri19 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri21 -->
+									<br/><br/>
+									$multilangue[en_coup_coeur] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereCoupDeCoeur" name="critereCoupDeCoeur" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereCoupDeCoeur" name="critereCoupDeCoeur" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereCoupDeCoeur" name="critereCoupDeCoeur" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri21 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri4 -->
+									<br/><br/>
+									$multilangue[en_stock] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereEnStock" name="critereEnStock" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereEnStock" name="critereEnStock" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereEnStock" name="critereEnStock" value=""> $multilangue[tous] </label>
+									</div>
+									
+									<br/><br/>
+									$multilangue[stock_illimite] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereStockIllimite" name="critereStockIllimite" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereStockIllimite" name="critereStockIllimite" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereStockIllimite" name="critereStockIllimite" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri4 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri5888 -->	
+									<br/><br/>						
+									$multilangue[immateriel] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereImmateriel" name="critereImmateriel" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereImmateriel" name="critereImmateriel" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereImmateriel" name="critereImmateriel" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri5888 -->
+								
+								<!-- BEGIN Import_export_csvArticleExpTri5901 -->
+									<br/><br/>
+									$multilangue[bundle] 
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereBundle" name="critereBundle" value="1"> $multilangue[oui] </label>
+										<label class="btn blue">
+										<input type="radio" class="toggle" id="critereBundle" name="critereBundle" value="0"> $multilangue[non] </label>
+										<label class="btn blue active">
+										<input type="radio" class="toggle" id="critereBundle" name="critereBundle" value=""> $multilangue[tous] </label>
+									</div>
+								<!-- END Import_export_csvArticleExpTri5901 -->
+								
+								<br/><br/>				
+								$multilangue[exporter_articles_sous_categs] ? 							
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn blue">
+									<input type="radio" class="toggle" id="critereSscateg" name="critereSscateg" value="1"> $multilangue[oui] </label>
+									<label class="btn blue active">
+									<input type="radio" class="toggle" id="critereSscateg" name="critereSscateg" value="0"> $multilangue[non] </label>									
+								</div>
+								
+								<br/><br/>
+								$multilangue[separateur_decimal] : 
+								<select name="seperateurDecimal" class="form-control"  style="width:200px; display:inline;">
+									<option value=",">,</option>
+									<option value=".">.</option>
+								</select>
+								
+								<br/><br/>
+								$multilangue[donnees_texte] : 
+								<select name="donneesTexte" class="form-control"  style="width:200px; display:inline;">
+									<option value="0">HTML</option>
+									<option value="1">$multilangue[texte_seulement]</option>
+								</select>
+							
+								<br/><br/>
+								$multilangue[categorie] : 
+								<input id="champCatid" style="width:300px; display:inline;" class="form-control" name="champCatid" size="30" value="$multilangue[saisir_libelle]" onclick="if (this.value == '$multilangue[saisir_libelle]') this.value =''" />
+								<input type="hidden" id="critereCatid" name="critereCatid" value="">
+								
+								<script type="text/javascript">
+									
+								</script>				
+															
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesArticleExp">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutArticleExp">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextArticleExp">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+			
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_artcode" name="article_artcode" value="$multilangue[reference]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="article_artid" name="article_artid" value="$multilangue[identifiant_article]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_article]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_catid" name="article_catid" value="$multilangue[identifiant_categorie]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_categorie]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_code_EAN" name="article_code_EAN" value="$multilangue[code_ean]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_ean]
+											</span>
+										</label>										
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticleExp5983 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_ASIN" name="article_ASIN" value="$multilangue[code_asin]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_asin]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExp5983 -->
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_reference_fabricant" name="article_reference_fabricant" value="$multilangue[reference_fabricant]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_fabricant]
+											</span>
+										</label>										
+									</div>
+																		
+									<!-- BEGIN Import_export_csvArticleExp5864_5957 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_numero_tarifaire_laposte" name="article_numero_tarifaire_laposte" value="$multilangue[numero_tarifaire_laposte]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[numero_tarifaire_laposte]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExp5864_5957 -->
+									
+									<!-- BEGIN Import_export_csvArticleExpLibelleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_libelle$site[siteid]" name="article_libelle$site[siteid]" value="$multilangue[libelle] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[libelle] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpLibelleBit -->
+				
+									<!-- BEGIN Import_export_csvArticleExpTitre2Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_titre2$site[siteid]" name="article_titre2$site[siteid]" value="$multilangue[titre2] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[titre2] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpTitre2Bit -->
+				
+									<!-- BEGIN Import_export_csvArticleExp5922 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_googleshop" name="article_googleshop" value="$multilangue[categorie] Google Shopping">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[categorie] Google Shopping
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExp5922 -->
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_marques" name="article_marques" value="$multilangue[marques]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[marques]
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_fournisseur" name="article_fournisseur" value="$multilangue[fournisseur]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[fournisseur]
+											</span>
+										</label>										
+									</div>
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_poids" name="article_poids" value="$multilangue[poids] ($multilangue[grammes])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[poids] ($multilangue[grammes])
+											</span>
+										</label>										
+									</div>
+				
+									<!-- BEGIN Import_export_csvArticleExp5950 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_dim_longueur" name="article_dim_longueur" value="$multilangue[longueur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[longueur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_dim_largeur" name="article_dim_largeur" value="$multilangue[largeur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[largeur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_dim_hauteur" name="article_dim_hauteur" value="$multilangue[hauteur] ($multilangue[millimetres])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[hauteur] ($multilangue[millimetres])
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExp5950 -->
+				
+									<!-- BEGIN Import_export_csvArticleExpPrixBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_prix$site[siteid]" name="article_prix$site[siteid]" value="$multilangue[prix_vente] $multilangue[ttc] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_vente] $multilangue[ttc] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpPrixBit -->
+						
+									<!-- BEGIN Import_export_csvArticleExpPrixpublicBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_prixpublic$site[siteid]" name="article_prixpublic$site[siteid]" value="$multilangue[prix_public] $multilangue[ttc] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_public] $multilangue[ttc] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpPrixpublicBit -->
+						
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_prixachat" name="article_prixachat" value="$multilangue[prix_achat] ($multilangue[ht])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_achat] $multilangue[ht]
+											</span>
+										</label>										
+									</div>
+				
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_tauxchoisi" name="article_tauxchoisi" value="$multilangue[taux_tva]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[taux_tva]
+											</span>
+										</label>										
+									</div>
+						
+									<!-- BEGIN Import_export_csvArticleExpDelaiBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_delai$site[siteid]" name="article_delai$site[siteid]" value="$multilangue[delai_livraison] ($multilangue[jours]) ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_livraison] ($multilangue[jours]) <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpDelaiBit -->	
+									
+									<!-- BEGIN Import_export_csvArticleExp5937 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_aumetre" name="article_aumetre" value="$multilangue[vendu_au_metre]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[vendu_au_metre]
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExp5937 -->			
+												
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_commentaire" name="article_commentaire" value="$multilangue[commentaire]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[commentaire]
+											</span>
+										</label>										
+									</div>			
+												
+									<!-- BEGIN Import_export_csvArticleExpCommandableBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_commandable$site[siteid]" name="article_commandable$site[siteid]" value="$multilangue[commandable] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[commandable] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpCommandableBit -->	
+									
+									<!-- BEGIN Import_export_csvArticleExpActiveV1Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_activeV1$site[siteid]" name="article_activeV1$site[siteid]" value="$multilangue[actif] V1 ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[actif] V1 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpActiveV1Bit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpActiveV2Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_activeV2$site[siteid]" name="article_activeV2$site[siteid]" value="$multilangue[actif] V2 ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[actif] V2 <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpActiveV2Bit -->
+																		
+									<!-- BEGIN Import_export_csvArticleExp5944 -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="article_image" name="article_image" value="$multilangue[image] ($multilangue[url_complete])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[image] ($multilangue[url_complete])
+												</span>
+											</label>										
+										</div>
+										<!-- BEGIN Import_export_csvArticleExpLegendeBit -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="article_legende$site[siteid]" name="article_legende$site[siteid]" value="$multilangue[legende] ($site[libelle])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[legende] <i>($site[libelle])</i>
+												</span>
+											</label>										
+										</div>
+										<!-- END Import_export_csvArticleExpLegendeBit -->
+									
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="article_image2" name="article_image2" value="$multilangue[image] 2 ($multilangue[url_complete])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[image] 2 ($multilangue[url_complete])
+												</span>
+											</label>										
+										</div>
+										<!-- BEGIN Import_export_csvArticleExpLegende2Bit -->
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="article_legende2$site[siteid]" name="article_legende2$site[siteid]" value="$multilangue[legende] 2 ($site[libelle])">																													
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$multilangue[legende] 2 <i>($site[libelle])</i>
+												</span>
+											</label>										
+										</div>
+										<!-- END Import_export_csvArticleExpLegende2Bit -->									
+									<!-- END Import_export_csvArticleExp5944 -->
+																		
+									<!-- BEGIN Import_export_csvArticleExpDescriptionBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_description$site[siteid]" name="article_description$site[siteid]" value="$multilangue[description] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[description] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpDescriptionBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpFichetechniqueBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_fichetechnique$site[siteid]" name="article_fichetechnique$site[siteid]" value="$multilangue[fiche_technique] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[fiche_technique] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpFichetechniqueBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpNotreavisBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_notreavis$site[siteid]" name="article_notreavis$site[siteid]" value="$multilangue[notre_avis] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[notre_avis] <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpNotreavisBit -->
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_caracteristiques" name="article_caracteristiques" value="$multilangue[caracteristiques]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[caracteristiques] ($multilangue[de_la_forme] : $multilangue[caract_couleur]:$multilangue[bleu],$multilangue[rouge]|$multilangue[caract_taille]:S,M)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_artcode" name="article_stock_artcode" value="$multilangue[reference_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:scvsv5212|$multilangue[bleu],M:scvsv5211|$multilangue[rouge],S:scvsv5214|$multilangue[rouge],M:scvsv5213)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_reference_fabricant" name="article_stock_reference_fabricant" value="$multilangue[reference_fabricant_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference_fabricant_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_code_EAN" name="article_stock_code_EAN" value="$multilangue[code_ean_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_ean_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_ASIN" name="article_stock_ASIN" value="$multilangue[code_asin_par_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[code_asin_par_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:123456|$multilangue[bleu],M:987654|$multilangue[rouge],S:654321|$multilangue[rouge],M:987321)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_total" name="article_stock_total" value="$multilangue[stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:2|$multilangue[bleu],M:3|$multilangue[rouge],S:4|$multilangue[rouge],M:5)
+											</span>
+										</label>										
+									</div>	
+
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_seuil_alerte" name="article_stock_seuil_alerte" value="$multilangue[seuil_alerte]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[seuil_alerte] ($multilangue[de_la_forme] : $multilangue[bleu],S:9|$multilangue[bleu],M:8|$multilangue[rouge],S:8|$multilangue[rouge],M:7)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_delai_appro" name="article_stock_delai_appro" value="$multilangue[delai_appro] ($multilangue[jours])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_appro] (jours) ($multilangue[de_la_forme] : $multilangue[bleu],S:6|$multilangue[bleu],M:7|$multilangue[rouge],S:1|$multilangue[rouge],M:3)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_delai_livraison" name="article_stock_delai_livraison" value="$multilangue[delai_livraison_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[delai_livraison_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:1|$multilangue[bleu],M:2|$multilangue[rouge],S:3|$multilangue[rouge],M:4)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_zonestockage" name="article_stock_zonestockage" value="$multilangue[zone_stockage_stock]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[zone_stockage_stock] ($multilangue[de_la_forme] : $multilangue[bleu],S:1|$multilangue[bleu],M:2|$multilangue[rouge],S:3|$multilangue[rouge],M:4)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_prixachat" name="article_stock_prixachat" value="$multilangue[prix_achat_stock] $multilangue[ht]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_achat_stock] $multilangue[ht] ($multilangue[de_la_forme] : $multilangue[bleu],S:15|$multilangue[bleu],M:16|$multilangue[rouge],S:17|$multilangue[rouge],M:18)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_stock_prix" name="article_stock_prix" value="$multilangue[prix_vente_stock] $multilangue[ttc]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_vente_stock] $multilangue[ttc] ($multilangue[de_la_forme] : $multilangue[bleu],S:30|$multilangue[bleu],M:31|$multilangue[rouge],S:32|$multilangue[rouge],M:33)
+											</span>
+										</label>										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_colisage" name="article_colisage" value="$multilangue[colisagefournisseurs]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[colisagefournisseurs]
+											</span>
+										</label>
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticleExpMetatitleBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_ref_title$site[siteid]" name="article_ref_title$site[siteid]" value="$multilangue[balises_meta] title ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] title <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpMetatitleBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpMetadescBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_ref_description$site[siteid]" name="article_ref_description$site[siteid]" value="$multilangue[balises_meta] description ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] description <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpMetadescBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpMetakeyBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_ref_keywords$site[siteid]" name="article_ref_keywords$site[siteid]" value="$multilangue[balises_meta] keywords ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[balises_meta] keywords <i>($site[libelle])</i>
+											</span>
+										</label>										
+									</div>
+									<!-- END Import_export_csvArticleExpMetakeyBit -->
+																
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_conseil" name="article_conseil" value="$multilangue[articles_conseilles]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[articles_conseilles]
+											</span>
+										</label>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_stock_reserv" name="article_stock_reserv" value="$multilangue[qte_reservee]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[qte_reservee] ($multilangue[de_la_forme] : $multilangue[bleu],S:2|$multilangue[bleu],M:3|$multilangue[rouge],S:4|$multilangue[rouge],M:5)
+											</span>
+										</label>										
+									</div>
+									
+									<!-- BEGIN Import_export_csvArticleExp134Bit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_tags$site[siteid]" name="article_tags$site[siteid]" value="$multilangue[tags] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[tags] <i>($site[libelle])</i> ($multilangue[separees_par_des] "|")
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExp134Bit -->
+									
+									<!-- BEGIN Import_export_csvArticleExp5901 -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="article_bundle" name="article_bundle" value="$multilangue[articles_composant_lot]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[articles_composant_lot]
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExp5901 -->
+									
+									<!-- BEGIN Import_export_csvArticleExpPrixpromoBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_prixpromo$site[siteid]" name="article_prixpromo$site[siteid]" value="$multilangue[prix_promotion] $multilangue[ttc] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_promotion] $multilangue[ttc] <i>($site[libelle])</i>
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExpPrixpromoBit -->
+
+									<!-- BEGIN Import_export_csvArticleExpPctpromoBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_pctpromo$site[siteid]" name="article_pctpromo$site[siteid]" value="$multilangue[pourcentage_reduction] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[pourcentage_reduction] <i>($site[libelle])</i>
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExpPctpromoBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpDatedebutBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_datedebut$site[siteid]" name="article_datedebut$site[siteid]" value="$multilangue[debut_promo] (j/m/A), $multilangue[date_inclusive] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[debut_promo] (j/m/A), $multilangue[date_inclusive] <i>($site[libelle])</i>
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExpDatedebutBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpDatefinBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_datefin$site[siteid]" name="article_datefin$site[siteid]" value="$multilangue[fin_promo] (j/m/A), $multilangue[date_exclusive] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[fin_promo] (j/m/A), $multilangue[date_exclusive] <i>($site[libelle])</i>
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExpDatefinBit -->
+									
+									<!-- BEGIN Import_export_csvArticleExpNbventesBit -->
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="article_nbventes$site[siteid]" name="article_nbventes$site[siteid]" value="$multilangue[nb_ventes] ($site[libelle])">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[nb_ventes] <i>($site[libelle])</i>
+											</span>
+										</label>
+									</div>
+									<!-- END Import_export_csvArticleExpNbventesBit -->
+									
+																	
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[exporter]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>
+				
+				<div class="portlet box blue-steel">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[export_promotions]
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body" style="display:none;">
+						
+						<form action="csv_promotions.php" class="form-horizontal form-bordered form-row-stripped form_import" method="post">
+							<input type="hidden" name="type" value="promotion">
+
+							<div class="col-md-6">
+								<font class="erreur">$multilangue[cases_cochees_presentes_import]</font>
+								<br><br>
+								<b>$multilangue[exporter_ligne_entete] : </b>
+								<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" checked="checked" name="exporterTitre" value="1">
+								<br/><br/>
+															
+								<b style="text-decoration:underline;">$multilangue[criteres_selection] : </b>
+
+								<div id="promotionCritereSite" style="margin-top:20px;">
+									<b>Sites : </b>
+									<!-- BEGIN Import_export_csvPromotionExpSiteBit -->	
+										<div class="form-group">
+											<div class="col-md-1">	
+												<input type="checkbox" checked="checked" id="critereSite[$site[siteid]]" name="critereSite[$site[siteid]]" value="1">																												
+											</div>
+											<label class="control-label col-md-11">
+												<span id="cocheTextCateg">
+													$site[libelle]
+												</span>
+											</label>										
+										</div>
+									<!-- END Import_export_csvPromotionExpSiteBit -->										
+								</div>
+									
+							</div>
+							
+							<div class="col-md-6">
+								<div class="form-body" id="casesPromotionsExp">
+									<div class="form-group" style="background-color:#b9ddb9;">
+										<div class="col-md-1">	
+											<input type="checkbox" id="cocheToutPromotionsExp">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextPromotions">
+												$multilangue[tout_cocher]
+											</span>
+										</label>										
+									</div>
+									
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="hidden" id="promotion_artid" name="promotion_artid" value="$multilangue[identifiant_article]">													
+											<input type="checkbox" class="donttouch" checked="checked" disabled="disabled">																											
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[identifiant_article]
+											</span>
+										</label>										
+									</div>															
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_site" name="promotion_site" value="$multilangue[site_concerne]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[site_concerne]
+											</span>
+										</label>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_artcode" name="promotion_artcode" value="$multilangue[reference]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[reference]
+											</span>
+										</label>
+									</div>
+																		
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_prix" name="promotion_prix" value="$multilangue[prix] $multilangue[ttc]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix] $multilangue[ttc]
+											</span>
+										</label>
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_prixpromo" name="promotion_prixpromo" value="$multilangue[prix_promotion] $multilangue[ttc]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[prix_promotion] $multilangue[ttc]
+											</span>
+										</label>
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_datedebut" name="promotion_datedebut" value="$multilangue[date_debut]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[date_debut]
+											</span>
+										</label>
+									</div>	
+										
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" checked="checked" id="promotion_datefin" name="promotion_datefin" value="$multilangue[date_fin]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[date_fin]
+											</span>
+										</label>
+									</div>	
+										
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="promotion_datesaisie" name="promotion_datesaisie" value="$multilangue[date_creation_promotion]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[date_creation_promotion]
+											</span>
+										</label>
+									</div>	
+																
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="promotion_pourcentage" name="promotion_pourcentage" value="$multilangue[pourcentage]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[pourcentage]
+											</span>
+										</label>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-1">	
+											<input type="checkbox" id="promotion_devise" name="promotion_devise" value="$multilangue[devise]">																													
+										</div>
+										<label class="control-label col-md-11">
+											<span id="cocheTextCateg">
+												$multilangue[devise]
+											</span>
+										</label>
+									</div>
+									
+									<div class="col-md-12 ta-center mt-10">	
+										<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[exporter]</button>																														
+									</div>																				
+																		
+								</div>
+							</div>							
+						</form>	
+						<div class="clear"></div>			
+					</div>
+				</div>			
+			</div>				
+		</div>
+	</div>
+	<!-- END Import_export_csvDepart -->	
+		
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" charset="utf8">
+	App.init(); // initlayout and core plugins
+	
+	
+	$(document).ready(function(){
+	    $('#cocheToutCateg').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesCateg").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+			if(this.checked){ // si 'cocheTout' est coché
+				cases.attr('checked', true); // on coche les cases
+				$('#cocheTextCateg').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+				$('#casesCateg .checker span').attr("class","checked");
+			}else{ // si on décoche 'cocheTout'
+				cases.attr('checked', false);// on coche les cases
+				$('#cocheTextCateg').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+				$('#casesCateg .checker span').attr("class","");
+			}
+			$('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });
+		$('#cocheToutArticle').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesArticle").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+	        if(this.checked){ // si 'cocheTout' est coché
+	            cases.attr('checked', true); // on coche les cases
+	            $('#cocheTextArticle').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+	            $('#casesArticle .checker span').attr("class","checked");
+	        }else{ // si on décoche 'cocheTout'
+	            cases.attr('checked', false);// on coche les cases
+	            $('#cocheTextArticle').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+	            $('#casesArticle .checker span').attr("class","");
+	        }
+	        $('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });
+		$('#cocheToutPromotions').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesPromotions").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+	        if(this.checked){ // si 'cocheTout' est coché
+	            cases.attr('checked', true); // on coche les cases
+	            $('#cocheTextPromotions').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+	            $('#casesPromotions .checker span').attr("class","checked");
+	        }else{ // si on décoche 'cocheTout'
+	            cases.attr('checked', false);// on coche les cases
+	            $('#cocheTextPromotions').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+	            $('#casesPromotions .checker span').attr("class","");
+	        }
+	        $('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });	
+		
+		
+		
+		
+		$('#cocheToutCategExp').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesCategExp").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+			if(this.checked){ // si 'cocheTout' est coché
+				cases.attr('checked', true); // on coche les cases
+				$('#cocheTextCategExp').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+				$('#casesCategExp .checker span').attr("class","checked");
+			}else{ // si on décoche 'cocheTout'
+				cases.attr('checked', false);// on coche les cases
+				$('#cocheTextCategExp').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+				$('#casesCategExp .checker span').attr("class","");
+			}
+			$('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });		
+		$('#cocheToutArticleExp').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesArticleExp").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+	        if(this.checked){ // si 'cocheTout' est coché
+	            cases.attr('checked', true); // on coche les cases
+	            $('#cocheTextArticleExp').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+	            $('#casesArticleExp .checker span').attr("class","checked");
+	        }else{ // si on décoche 'cocheTout'
+	            cases.attr('checked', false);// on coche les cases
+	            $('#cocheTextArticleExp').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+	            $('#casesArticleExp .checker span').attr("class","");
+	        }
+	        $('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });	
+		$('#cocheToutPromotionsExp').click(function() { // clic sur la case cocher/decocher
+	        var cases = $("#casesPromotionsExp").find(':checkbox'); // on cherche les checkbox qui dépendent de la liste 'cases'
+	        if(this.checked){ // si 'cocheTout' est coché
+	            cases.attr('checked', true); // on coche les cases
+	            $('#cocheTextPromotionsExp').html("$multilangue[tout_decocher]"); // mise à jour du texte de cocheText
+	            $('#casesPromotionsExp .checker span').attr("class","checked");
+	        }else{ // si on décoche 'cocheTout'
+	            cases.attr('checked', false);// on coche les cases
+	            $('#cocheTextPromotionsExp').html("$multilangue[tout_cocher]");// mise à jour du texte de cocheText
+	            $('#casesPromotionsExp .checker span').attr("class","");
+	        }
+	        $('.disabled span').attr("class","checked");
+			$('.disabled span').find(':checkbox').attr("checked",true);
+	    });
+		
+		$(document).ready(function() {
+			$('.table-apercu').dataTable( {
+		        "order": [[ 0, "desc" ]],
+				"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],					
+				"language": {
+					"search": "$multilangue[recherche] ",
+					"paginate": {
+						"first": "$multilangue[premiere_page]",
+						"last": "$multilangue[derniere_page]",
+						"next": "$multilangue[page_suivante]",
+						"previous": "$multilangue[page_precedente]"
+					},
+					"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+					"info": "$multilangue[affichage_resultats_de_a]",
+					"infoEmpty": "$multilangue[aucun_resultat]",
+					"infoFiltered": "$multilangue[sur_max_]",
+					"lengthMenu": "$multilangue[afficher_menu_resultats]",
+					"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+				}
+		    });
+			$('.dataTables_filter input').addClass("form-control input-small input-inline");
+			$('.dataTables_length select').addClass("form-control input-small");
+		});
+		
+		createAutoCompleteur('champCatid','critereCatid','','search_result_autocomplete.php?type=categorie','simpleSetValue');
+		
+	});
+	
+</script>
+
+
+
+<!-- END Import_export_csvIndex -->

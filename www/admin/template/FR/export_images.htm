@@ -1,0 +1,380 @@
+<!-- BEGIN Export_imagesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[export_images_zip]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							 $multilangue[export_images]
+						</li>
+						<!-- BEGIN Export_imagesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Export_imagesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Export_imagesSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Export_imagesSuccess -->
+			
+			<!-- BEGIN Export_imagesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Export_imagesErreur -->
+			
+			<!-- BEGIN Export_imagesInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Export_imagesInfo -->
+			
+			<!-- BEGIN Export_imagesInfoFixe -->
+				<div class="alert alert-info">
+					$texteInfo
+				</div>
+			<!-- END Export_imagesInfoFixe -->
+			
+			<!-- BEGIN Export_imagesListe -->
+			<div id="accordion" class="panel-group accordion scrollable">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse_articles" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+								$multilangue[export_articles]
+							</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="collapse_articles">
+						<div class="panel-body form">
+							<form class="form-horizontal form-bordered form-row-stripped" action="export_images.php" method="post">
+								<input type="hidden" name="action" value="exportarticles">
+								<div class="form-body">
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[visible]</label>
+										<div class="col-md-2">
+											<select class="form-control input-inline" name="critereVisible">
+												<option value="">$multilangue[tous]</option>
+												<option value="1">$multilangue[oui]</option>
+												<option value="0">$multilangue[non]</option>
+											</select>
+										</div>
+										<label class="control-label col-md-1 articleCritereVisible">$multilangue[site]</label>
+										<div class="col-md-2 articleCritereVisible">
+											<select class="form-control input-inline" name="critereSite">
+												<option value="">$multilangue[tous]</option>
+												<!-- BEGIN Export_imagesListeSite -->
+												<option value="$site[siteid]">$site[libelle]</option>
+												<!-- END Export_imagesListeSite -->
+											</select>
+										</div>
+										<label class="control-label col-md-3 articleCritereVisible">$multilangue[plateforme]</label>
+										<div class="col-md-2 articleCritereVisible">
+											<select class="form-control" name="critereVersion">
+												<option value="">$multilangue[tous]</option>
+												<option value="1">V1</option>
+												<option value="2">V2</option>
+											</select>
+										</div>
+									</div>
+									<!-- BEGIN Export_imagesListeFournisseur -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[fournisseur]</label>
+										<div class="col-md-10">
+											<select class="form-control" name="critereFournisseur">
+												<option value="">$multilangue[tous]</option>
+												<!-- BEGIN Export_imagesListeFournisseurBit -->
+												<option value="$fournisseur[fournisseurid]">$fournisseur[libelle]</option>
+												<!-- END Export_imagesListeFournisseurBit -->
+											</select>
+										</div>
+									</div>
+									<!-- END Export_imagesListeFournisseur -->
+									<!-- BEGIN Export_imagesListeMarque -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[marque]</label>
+										<div class="col-md-10">
+											<select class="form-control" name="critereMarque">
+												<option value="">$multilangue[toutes]</option>
+												<!-- BEGIN Export_imagesListeMarqueBit -->
+												<option value="$marque[marqueid]">$marque[libelle]</option>
+												<!-- END Export_imagesListeMarqueBit -->
+											</select>
+										</div>
+									</div>
+									<!-- END Export_imagesListeMarque -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[commandable]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereCommandable" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereCommandable" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereCommandable" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[deja_ete_vendu]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereVendu" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereVendu" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereVendu" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- BEGIN Export_imagesListePromotion -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_promotion]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="criterePromotion" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="criterePromotion" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="criterePromotion" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListePromotion -->
+									<!-- BEGIN Export_imagesListeNouveaute -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_nouveaute]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereNouveaute" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereNouveaute" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereNouveaute" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeNouveaute -->
+									<!-- BEGIN Export_imagesListeTopVente -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_top_vente]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereTopVente" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereTopVente" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereTopVente" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeTopVente -->
+									<!-- BEGIN Export_imagesListeCoupDeCoeur -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_coup_coeur]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereCoupDeCoeur" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereCoupDeCoeur" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereCoupDeCoeur" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeCoupDeCoeur -->
+									<!-- BEGIN Export_imagesListeEnStock -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_stock]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereEnStock" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereEnStock" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereEnStock" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[stock_illimite]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereStockIllimite" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereStockIllimite" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereStockIllimite" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeEnStock -->
+									<!-- BEGIN Export_imagesListeImmateriel -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[immateriel]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereImmateriel" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereImmateriel" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereImmateriel" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeImmateriel -->
+									<!-- BEGIN Export_imagesListeBundle -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[bundle]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereBundle" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereBundle" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereBundle" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<!-- END Export_imagesListeBundle -->
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[exporter_articles_sous_categs]</label>
+										<div class="col-md-10">
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" name="critereSscateg" value="1" checked>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[categorie]</label>
+										<div class="col-md-10">
+											<input id="champCatid" name="champCatid" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''">
+											<input type="hidden" id="critereCatid" name="critereCatid">
+										</div>
+									</div>
+									<div class="form-actions fluid">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-12 ta-center">
+													<button class="btn green" type="submit">$multilangue[exporter] <i class="fa fa-arrow-left"></i></button>															
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse_categories" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+								$multilangue[export_categories]
+							</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="collapse_categories">
+						<div class="panel-body form">
+							<form class="form-horizontal form-bordered form-row-stripped" action="export_images.php" method="post">
+								<input type="hidden" name="action" value="exportcategories">
+								<div class="form-body">
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[visible]</label>
+										<div class="col-md-2">
+											<select class="form-control input-inline" name="critereVisible">
+												<option value="">$multilangue[tous]</option>
+												<option value="1">$multilangue[oui]</option>
+												<option value="0">$multilangue[non]</option>
+											</select>
+										</div>
+										<label class="control-label col-md-1 categorieCritereVisible">$multilangue[site]</label>
+										<div class="col-md-2 categorieCritereVisible">
+											<select class="form-control input-inline" name="critereSite">
+												<option value="">$multilangue[tous]</option>
+												<!-- BEGIN Export_imagesListeSite -->
+												<option value="$site[siteid]">$site[libelle]</option>
+												<!-- END Export_imagesListeSite -->
+											</select>
+										</div>
+										<label class="control-label col-md-3 categorieCritereVisible">$multilangue[contenant_articles_actifs]</label>
+										<div class="col-md-2 categorieCritereVisible">
+											<select class="form-control" name="critereContientArticle">
+												<option value="">$multilangue[tous]</option>
+												<option value="1">$multilangue[oui]</option>
+												<option value="0">$multilangue[non]</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">$multilangue[en_onglet]</label>
+										<div class="radio-list col-md-10">
+											<label class="radio-inline">
+											<input type="radio" name="critereOnglet" value="1"> $multilangue[oui] </label>
+											<label class="radio-inline">
+											<input type="radio" checked name="critereOnglet" value="0"> $multilangue[non] </label>
+											<label class="radio-inline">
+											<input type="radio" name="critereOnglet" value="" checked> $multilangue[tous] </label>
+										</div>
+									</div>
+									<div class="form-actions fluid">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-12 ta-center">
+													<button class="btn green" type="submit">$multilangue[exporter] <i class="fa fa-arrow-left"></i></button>															
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END Export_imagesListe -->
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	createAutoCompleteur('champCatid','critereCatid','','search_result_autocomplete.php?type=categorie','simpleSetValue');
+	$(document).ready(function() {
+		$('#accordion a').css("text-decoration", "none").first().click();
+		$('.articleCritereVisible').hide();
+		$('#collapse_articles select[name="critereVisible"]').change(function() {
+			if ($('#collapse_articles select[name="critereVisible"]').val() != "")
+				$('.articleCritereVisible').show();
+			else
+				$('.articleCritereVisible').hide();
+		});
+		$('.categorieCritereVisible').hide();
+		$('#collapse_categories select[name="critereVisible"]').change(function() {
+			if ($('#collapse_categories select[name="critereVisible"]').val() != "")
+				$('.categorieCritereVisible').show();
+			else
+				$('.categorieCritereVisible').hide();
+		});
+	});
+</script>
+
+<!-- END Export_imagesIndex -->

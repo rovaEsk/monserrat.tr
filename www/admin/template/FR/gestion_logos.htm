@@ -1,0 +1,225 @@
+<!-- BEGIN Gestion_logosIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[gestion_logos]	<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="instit.php">						
+								$multilangue[gestion_logos]	
+							</a>					
+						</li>
+						<!-- BEGIN Gestion_logosNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Gestion_logosNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+
+			<!-- BEGIN Gestion_logosSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+					$texteSuccess1
+				</div>
+			<!-- END Gestion_logosSuccess -->
+			
+			<!-- BEGIN Gestion_logosErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Gestion_logosErreur -->
+
+
+
+
+<!-- BEGIN Gestion_logosBoutique -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN Portlet PORTLET-->
+				<div class="portlet box grey-cascade">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[logo_boutique]
+						</div>	
+					</div>
+					<div class="portlet-body">
+							<div class="form-group ta-center">
+								<form action="gestion_logos.php" method="POST"  enctype="multipart/form-data">	
+								<input type="hidden" name="action" value="ajoutLogoBoutique">								
+									<div class="form-group ">									
+										<div class="">
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+												<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+													<img src="http://$host/configurations/$host/factures/boutique.jpg?date=$datejs">
+												</div>
+												<div>
+													<span class="btn default btn-file">
+														<span class="fileinput-new">
+															$multilangue[selectionner] </span>
+														<span class="fileinput-exists">
+															$multilangue[modifier] </span>
+														<input type="file" name="logoboutique">
+													</span>
+													<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+														$multilangue[supprimer] </a>	
+												</div>
+											</div>											
+										</div>
+									</div>
+									<Button style="display : inline-block; position : relative; float : left;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+								</form>						
+							</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			<!-- END Portlet PORTLET-->
+		</div>
+	</div>
+<!-- END Gestion_logosBoutique -->
+
+
+
+
+<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN Portlet PORTLET-->
+				<div class="portlet box blue-chambray">
+					<div class="portlet-title">
+						<div class="caption">
+							$multilangue[logo_facture]&nbsp&nbsp&nbsp&nbsp&nbsp<i><font size="2">$multilangue[format_obligatoire] : jpg. &nbsp&nbsp$multilangue[taille_obligatoire] : 150x80 px.</font></i>
+						</div>	
+					</div>
+					<div class="portlet-body">
+						<div class="form-group ta-center">
+							<form action="gestion_logos.php" method="POST"  enctype="multipart/form-data">	
+								<input type="hidden" name="action" value="ajoutLogoFacture">								
+								<div class="form-group ">									
+									<div class="">
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 150px; height: 80px;">
+												<img src="http://$host/configurations/$host/factures/logo.jpg?date=$datejs">
+											</div>
+											<div>
+												<span class="btn default btn-file">
+													<span class="fileinput-new">
+														$multilangue[selectionner] </span>
+													<span class="fileinput-exists">
+														$multilangue[modifier] </span>
+													<input type="file" name="logo">
+												</span>
+												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+													$multilangue[supprimer] </a>	
+											</div>
+										</div>											
+									</div>
+								</div>
+									<Button style="display : inline-block; position : relative; float : left;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+								</form>								
+							</div>
+						<div class="clearfix"></div>
+					</div>					
+				</div>
+			<!-- END Portlet PORTLET-->
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN Portlet PORTLET-->
+				<div class="portlet box red-sunglo">
+					<div class="portlet-title">
+						<div class="caption">
+							Favicon&nbsp&nbsp&nbsp&nbsp&nbsp<i><font size="2">$multilangue[format_obligatoire] : png, ico. &nbsp&nbsp$multilangue[taille_obligatoire] : 32x32 px.</font></i>
+						</div>	
+					</div>
+					<div class="portlet-body">
+							<div class="form-group ta-center">
+								<form action="gestion_logos.php" method="POST"  enctype="multipart/form-data">	
+								<input type="hidden" name="action" value="ajoutFavicon">								
+								<div class="form-group ">									
+									<div class="">
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 32px; height: 32px;">
+												<img src="http://$host/configurations/$host/images/favicon.ico?date=$datejs" style="vertical-align:middle;">
+											</div>
+											<div>
+												<span class="btn default btn-file">
+													<span class="fileinput-new">
+														$multilangue[selectionner] </span>
+													<span class="fileinput-exists">
+														$multilangue[modifier] </span>
+													<input type="file" name="favicon">
+												</span>
+												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+													$multilangue[supprimer] 
+												</a>	
+											</div>
+										</div>											
+									</div>
+								</div>
+									<Button style="display : inline-block; position : relative; float : left;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+								</form>
+							</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			<!-- END Portlet PORTLET-->
+		</div>
+	</div>
+
+
+
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+</script>
+<script type="text/javascript">
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+</script>
+
+
+
+<!-- END Gestion_logosIndex -->

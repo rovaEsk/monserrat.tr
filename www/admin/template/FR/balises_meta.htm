@@ -1,0 +1,277 @@
+<!-- BEGIN Balises_metaIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[balises_meta]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							$multilangue[referencement]
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="balises_meta.php">	
+								$multilangue[balises_meta]
+							</a>
+						</li>
+						<!-- BEGIN Balises_metaNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Balises_metaNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Balises_metaSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Balises_metaSuccess -->
+			
+			<!-- BEGIN Balises_metaErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Balises_metaErreur -->
+			
+			<!-- BEGIN Balises_metaInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Balises_metaInfo -->
+			
+			<!-- BEGIN Balises_metaListe -->				
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">									
+							<div class="tab-pane active" id="tab_0">
+								<div class="table-responsive">
+									<table id="tabbalisemeta" class="table table-striped table-bordered table-balisemeta table-hover">
+										<thead>
+											<tr>
+												<th>
+													$multilangue[balises_meta]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Balises_metaListeBit -->
+											<tr id="$balisemeta[metaid]">
+												<td>
+													$libelle
+												</td>
+												<td class="ta-center">
+													<a href="balises_meta.php?action=modifier&metaid=$balisemeta[metaid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+														<i class="fa fa-edit fs-18 font-blue"></i>
+													</a>
+												</td>
+											</tr>
+											<!-- END Balises_metaListeBit -->												
+										</tbody>
+									</table>												
+								</div>																			
+							</div>
+						</div>							
+					</div>
+					<div class="col-md-8">
+						$multilangue[explication_balises_meta]
+					</div>
+				</div>
+			<!-- END Balises_metaListe -->
+			
+			<!-- BEGIN Balises_metaModification -->
+				<div class="row">
+					<div class="col-md-7">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">											
+							<div class="tab-pane active" id="tab_0">
+								<form action="$_SERVER[PHP_SELF]" name="formModifBaliseMeta" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+									<input type="hidden" name="action" value="modifier2">
+									<input type="hidden" name="metaid" value="$balisemeta[metaid]">
+									<div class="col-md-12 ta-center mb-20">
+										<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+									</div>
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+											</div>	
+											<div class="tools">
+				                                <a class="collapse" href="javascript:;">
+				                                </a>					                                
+				                            </div>																			
+										</div>
+										<div class="portlet-body form">
+											<!-- DEBUT FORM -->
+												<div class="form-body">											
+													<div class="form-group">
+														<label class="control-label col-md-6">
+															$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold bold">80</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-6">																														
+															<textarea class="form-control autosize" name="title">$balisemeta[title]</textarea>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-6">
+															$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-6">																														
+															<textarea class="form-control autosize" name="description">$balisemeta[description]</textarea>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-6">
+															$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+															$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+															$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+														</label>
+														<div class="col-md-6">																														
+															<textarea class="form-control autosize" name="keywords">$balisemeta[keywords]</textarea>
+														</div>
+													</div>																				
+												</div>												
+											<!-- FIN FORM -->
+										</div>
+									</div>
+									<!-- BEGIN Balises_metaModificationSiteBit -->
+									<div class="portlet box $site[classcolor]" style="size : auto;">
+				                        <div class="portlet-title">
+				                            <div class="caption">
+				                                $multilangue[donnees] <i>$site[libelle]</i>
+				                            </div>
+				                            <div class="tools">
+				                                <a class="expand" href="javascript:;">
+				                                </a>					                                
+				                            </div>
+				                        </div>
+				                        <div class="portlet-body form" style="display:none;">															
+											<div class="form-body">													
+												<div class="form-group">
+													<label class="control-label col-md-6">
+														$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+														$multilangue[longueur_conseillee] : <span class="text-info bold">80</span> $multilangue[caracteres].<br>
+														$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+													</label>
+													<div class="col-md-6">																														
+														<textarea class="form-control autosize" name="title$site[siteid]">$balisemetasite[title]</textarea>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-6">
+														$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+														$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+														$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+													</label>
+													<div class="col-md-6">																														
+														<textarea class="form-control autosize" name="description$site[siteid]">$balisemetasite[description]</textarea>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-6">
+														$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+														$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+														$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].
+													</label>
+													<div class="col-md-6">																														
+														<textarea class="form-control autosize" name="keywords$site[siteid]">$balisemetasite[keywords]</textarea>
+													</div>
+												</div>																							
+											</div>													
+				                        </div>
+				                    </div>
+				                    <!-- END Balises_metaModificationSiteBit -->
+									<div class="col-md-12 ta-center mb-20">
+										<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+										<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+									</div>
+								</form>
+							</div>						
+						</div>
+					</div>
+					<div class="col-md-5">
+						$multilangue[la_variable] <strong>[boutiquetitre]</strong> $multilangue[remplacement_boutiquetitre].<br>
+						<span class="text-info">$multilangue[exemple] : $multilangue[exemple] : Fashion Streetwear</span><br><br>
+						$multilangue[la_variable] <strong>[categorietitre]</strong> $multilangue[remplacement_categorietitre].<br>
+						<span class="text-info">$multilangue[exemple] : Prêt-à-porter Homme</span><br><br>
+						$multilangue[la_variable] <strong>[articletitre]</strong> $multilangue[remplacement_articletitre].<br>
+						<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong</span><br><br>
+						$multilangue[la_variable] <strong>[institutionneltitre]</strong> $multilangue[remplacement_institutionneltitre].<br>
+						<span class="text-info">$multilangue[exemple] : Qui sommes-nous ?</span><br><br>
+						$multilangue[la_variable] <strong>[sscatkeywords]</strong> $multilangue[remplacement_sscatkeywords].<br>
+						<span class="text-info">$multilangue[exemple] : Tee-shirts Homme, Maillots de bain Homme, Jeans Homme ...</span><br><br>
+						$multilangue[la_variable] <strong>[keydescription]</strong> $multilangue[remplacement_keydescription].<br>
+						<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+						$multilangue[la_variable] <strong>[marquetitre]</strong> $multilangue[remplacement_marquetitre].<br>
+						<span class="text-info">$multilangue[exemple] : Levi's ...</span><br><br>
+						$multilangue[la_variable] <strong>[articledescription]</strong> $multilangue[remplacement_articledescription].<br>
+						<span class="text-info">$multilangue[exemple] : Le Tee-shirt homme de couleur ...</span><br><br>
+						$multilangue[la_variable] <strong>[listearticles]</strong> $multilangue[remplacement_listearticles].<br>
+						<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+						$multilangue[la_variable] <strong>[categorieracine]</strong> $multilangue[remplacement_categorieracine].<br>
+						<span class="text-info">$multilangue[exemple] : Vêtement</span><br><br>
+						<!-- BEGIN Balises_metaModificationListearticlestop -->
+						$multilangue[la_variable] <strong>[listearticlestop]</strong> $multilangue[remplacement_listearticlestop].<br>
+						<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+						<!-- END Balises_metaModificationListearticlestop -->
+						<!-- BEGIN Balises_metaModificationOptititre -->
+						$multilangue[la_variable] <strong>[optititre]</strong> $multilangue[remplacement_optititre].<br>
+						<span class="text-info">$multilangue[exemple] : Sac à main ...</span><br><br>
+						<!-- END Balises_metaModificationOptititre -->
+						<!-- BEGIN Balises_metaModificationTag -->
+						$multilangue[la_variable] <strong>[tag]</strong> $multilangue[remplacement_tag].<br>
+						<span class="text-info">$multilangue[exemple] : Alimentation ...</span><br><br>
+						<!-- END Balises_metaModificationTag -->
+					</div>
+				</div>	
+			<!-- END Balises_metaModification -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('textarea').keyup(function () {
+			$(this).parent().parent().find('label').find('span:eq(1)').html($(this).val().length);
+			if ($(this).val().length > parseInt($(this).parent().parent().find('label').find('span:eq(0)').html()))
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-success').addClass('text-danger');
+			else
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-danger').addClass('text-success');
+	    });
+		$('textarea').trigger('keyup');
+		$('.autosize').css('resize', 'vertical');
+		$('.autosize').autosize();
+	});
+</script>
+<!-- END Balises_metaIndex -->

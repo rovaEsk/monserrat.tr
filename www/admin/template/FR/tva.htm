@@ -1,0 +1,181 @@
+<!-- BEGIN TvaIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[taux_tva]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>												
+							$multilangue[taux_tva]
+						</li>
+						<!-- BEGIN InstitNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END InstitNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+
+			<!-- BEGIN TvaSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END TvaSuccess -->
+			
+			<!-- BEGIN TvaErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END TvaErreur -->
+			
+
+<!-- BEGIN TvaFormBit -->
+
+<form action="tva.php" method="POST" name="formtva">
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+	<!-- BEGIN TvaSiteBit -->																														
+		<div class="col-md-12">
+			<!-- DEBUT SAMPLE TABLE PORTLET-->
+			<div class="portlet box $infosSite[classcolor]" style="">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%;">					
+						$multilangue[taux_tva] <i>$infosSite[libelle]</i>
+					</div>			
+					<div class="tools">
+						<a href="javascript:;" class="collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+						<input type = "hidden" name = "action" value = "modiftva">
+						<input type = "hidden" name = "paysid" value = "$infosPays[paysid]">
+						<div class="table-scrollable">
+							<table id="" class="table table-striped table-bordered table-hover">
+								<thead>
+								<tr>										
+									<th class="ta-center" colspan="2">
+										$multilangue[pays_livraison]
+									</th>
+									<th class="ta-center">
+										$multilangue[taux_normal]
+									</th>
+									<th class="ta-center">
+										$multilangue[taux_reduit]
+									</th>
+									<th class="ta-center">
+										$multilangue[taux_intermediaire]
+									</th>
+									<th class="ta-center">
+										$multilangue[frais_port] $multilangue[taux_normal]
+									</th>
+									<th class="ta-center">
+										$multilangue[appliquer_tva_sur]
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN TvaSitePaysBit -->
+									<tr id="$infosPage[institutionnelid]">
+										<td class="ta-center va-middle">
+											<img src='assets/img/flags/$libelleTagPays.png'>
+										</td>						
+										<td class="ta-center va-middle">
+											$infosPays[libelle]
+										</td>
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td><input type ="text" name="txnorm_$infosPays[paysid]" value="$infosPays[TVAtauxnormal]" class="form-control" style="text-align : right; min-width:50px; margin : auto; display : inline;"></td>
+												</tr>
+											</table>									
+										</td>	
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td><input type ="text" name="txred_$infosPays[paysid]" value="$infosPays[TVAtauxreduit]" class="form-control" style="text-align : right; min-width:50px; margin : auto; display : inline;"></td>
+												</tr>
+											</table>									
+										</td>		
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td><input type ="text" name="txinter_$infosPays[paysid]" value="$infosPays[TVAtauxintermediaire]" class="form-control" style="text-align : right; min-width:50px; margin : auto; display : inline;"></td>	
+												</tr>
+											</table>									
+										</td>		
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td><input type ="text" name="fraisport_$infosPays[paysid]" value="$infosPays[TVAporttauxnormal]" class="form-control" style="text-align : right; min-width:50px; margin : auto; display : inline;"></td>
+												</tr>
+											</table>									
+										</td>	
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td><input name="tvasur_$infosPays[paysid]" value="1" $isitchecked type="checkbox">$multilangue[frais_port]</td>
+												</tr>
+											</table>									
+										</td>									
+									</tr>
+									<!-- END TvaSitePaysBit -->
+								</tbody>
+							</table>
+						</div>						
+				</div>
+			</div>
+			<!-- FIN SAMPLE TABLE PORTLET-->
+		</div>
+		<br/>
+		<div class="clear"></div>
+	<!-- END TvaSiteBit -->
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+</form>
+
+
+<!-- END TvaFormBit -->
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+</script>
+<script type="text/javascript">
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+</script>
+
+
+<!-- END TvaIndex -->

@@ -1,0 +1,928 @@
+<!-- BEGIN Remises_grosIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+				<h3 class="page-title">
+					$multilangue[remises_gros]
+				</h3>
+				<ul class="page-breadcrumb breadcrumb">
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="index.php">
+						$multilangue[accueil]
+						</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						$multilangue[marketing]
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						$multilangue[remises_gros]
+					</li>
+					<!-- BEGIN Remises_grosNavigSuppCategorie -->
+					<li>
+						<i class="fa fa-angle-right"></i>						    	                       
+						$libNavigSuppCategorie
+					</li>
+					<!-- END Remises_grosNavigSuppCategorie -->
+					<li class="pull-right">
+						<div id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="Changer la période">
+							<i class="fa fa-calendar"></i>
+							<span>
+							</span>
+							<i class="fa fa-angle-down"></i>
+						</div>
+					</li>
+				</ul>
+				<!-- FIN PAGE TITLE & BREADCRUMB-->
+			</div>
+		</div>
+		<div class="alert alert-info ta-center">
+			$multilangue[infos_remises_gros]
+		</div>
+		<!-- FIN PAGE HEADER-->
+		<!-- DEBUT PAGE CONTENT -->
+			<!-- BEGIN Remises_grosErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Remises_grosErreur -->
+		<div class="tabbable-custom ">
+			<ul class="nav nav-tabs ">
+				<!-- BEGIN Remises_grosModificationRemisesGros -->
+				<li class="active">
+					<a href="#remises_gros" data-toggle="tab">
+					Remises de gros
+					</a>
+				</li>
+				<!-- END Remises_grosModificationRemisesGros -->
+				<!-- BEGIN Remises_grosModificationRemisesGrosPro -->
+				<li>
+					<a href="#remises_gros_pro" data-toggle="tab">
+					Remises de gros pro
+					</a>
+				</li>
+				<!-- END Remises_grosModificationRemisesGrosPro -->
+			</ul>
+			<div class="tab-content">
+				
+				<!-- Onglet remises gros -->
+				<div class="tab-pane active" id="remises_gros">
+					<!-- Remises de gros du catalogue -->	
+					<!-- Site principal -->
+					<!-- BEGIN Remises_grosModificationFormulaireRemisesGros -->
+					<form action="remises_gros.php?action=ajouter" method="post" id="form_remises_gros" name="form_remises_gros" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+						<div class="portlet box $classcolor_site_principal mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;"></a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremise
+												</td>
+												<td class="ta-center">
+													$remise[valeur] $typeremisevaleur
+												</td>
+												<td class="ta-center">
+													$remise[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remise[remiseid]" id="btn_suppr$remise[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remise[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remise[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remise[pctremise] % $multilangue[a_partir_de] $remise[valeur] $typeremisevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?action=supprimer&remiseid=$remise[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosTypeExistant -->
+													<input type="hidden" name="typeremise" value="$remise[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeur" name="valeur" value=""> 
+													<span class="remisegros_devise" $display_devise_principal>$tabsites[devise_complete1]</span>													
+													<span class="remisegros_articles" $display_articles_principal>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremise" name="pctremise" value=""> <span class="remisegros">%</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosSite -->
+						<!-- Autres sites -->
+						<div class="portlet box $site[classcolor] mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$site[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosSiteBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremisesite
+												</td>
+												<td class="ta-center">
+													$remisesite[valeur] $typeremisesitevaleur
+												</td>
+												<td class="ta-center">
+													$remisesite[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remisesite[remiseid]" id="btn_suppr$remisesite[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remisesite[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remisesite[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remisesite[pctremise] % $multilangue[a_partir_de] $remisesite[valeur] $typeremisesitevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?action=supprimer&remiseid=$remisesite[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosSiteBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosSiteTypeExistant -->
+													<input type="hidden" name="typeremise$site[siteid]" value="$remisesite[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosSiteTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosSiteType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise$site[siteid]" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosSiteType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeursite" name="valeur$site[siteid]" value=""> 
+													<span class="remisegros_devise" $display_devise>$devise_site_actuel</span>													
+													<span class="remisegros_articles" $display_articles>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremisesite" name="pctremise$site[siteid]" value=""><span class="remisegros">%</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					<!-- END Remises_grosModificationFormulaireRemisesGrosSite -->
+					</form>
+				<!-- END Remises_grosModificationFormulaireRemisesGros -->
+					
+					<!-- Remises de gros d'une catégorie -->
+					
+					<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorie -->
+					<form action="remises_gros.php?catid=$catid&action=ajouter" method="post" id="form_remises_gros_categorie" name="form_remises_gros" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+						<div class="portlet box $classcolor_site_principal mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;"></a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremise
+												</td>
+												<td class="ta-center">
+													$remise[valeur] $typeremisevaleur
+												</td>
+												<td class="ta-center">
+													$remise[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remise[remiseid]" id="btn_suppr$remise[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remise[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remise[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remise[pctremise] % $multilangue[a_partir_de] $remise[valeur] $typeremisevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?catid=$catid&action=supprimer&remiseid=$remise[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieTypeExistant -->
+													<input type="hidden" name="typeremise" value="$remise[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeur" name="valeur" value=""> 
+													<span class="remisegros_devise" $display_devise_principal>$tabsites[devise_complete1]</span>													
+													<span class="remisegros_articles" $display_articles_principal>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremise" name="pctremise" value=""><span class="remisegros">%</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieSite -->
+						<div class="portlet box $site[classcolor] mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$site[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieSiteBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremisesite
+												</td>
+												<td class="ta-center">
+													$remisesite[valeur] $typeremisesitevaleur
+												</td>
+												<td class="ta-center">
+													$remisesite[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remisesite[remiseid]" id="btn_suppr$remisesite[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remisesite[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remisesite[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remisesite[pctremise] % $multilangue[a_partir_de] $remisesite[valeur] $typeremisesitevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?catid=$catid&action=supprimer&remiseid=$remisesite[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieSiteBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieSiteTypeExistant -->
+													<input type="hidden" name="typeremise$site[siteid]" value="$remisesite[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieSiteTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieSiteType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise$site[siteid]" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieSiteType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeursite" name="valeur$site[siteid]" value=""> 
+													<span class="remisegros_devise" $display_devise>$devise_site_actuel</span>													
+													<span class="remisegros_articles" $display_articles>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremisesite" name="pctremise$site[siteid]" value=""><span class="remisegros">%</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieSite -->
+					</form>
+					<!-- END Remises_grosModificationFormulaireRemisesGrosCategorie -->		
+				</div>
+				
+				<!-- Onglet remises gros pro -->
+				
+				<div class="tab-pane" id="remises_gros_pro">
+					<!-- Remises gros pro du catalogue -->
+					<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosPro -->
+					<form action="remises_gros.php?action=ajouter&module=pro" method="post" id="form_remises_gros_pro" name="form_remises_gros_pro" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+						<div class="portlet box $classcolor_site_principal mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremise
+												</td>
+												<td class="ta-center">
+													$remise[valeur] $typeremisevaleur
+												</td>
+												<td class="ta-center">
+													$remise[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remise[remiseid]" id="btn_suppr$remise[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remise[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remise[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remise[pctremise] % $multilangue[a_partir_de] $remise[valeur] $typeremisevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?action=supprimer&module=pro&remiseid=$remise[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosProBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProTypeExistant -->
+													<input type="hidden" name="typeremise" value="$remise[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosProTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosProType -->
+												</td>
+												<td class="ta-center" width="30%">
+													<input type="text" class="form-control input-inline input" id="valeur" name="valeur" value="">
+													<span class="remisegros_devise" $display_devise_principal>$tabsites[devise_complete1]</span>													
+													<span class="remisegros_articles" $display_articles_principal>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center" width="30%">
+													<input type="text" class="form-control input-inline input" id="pctremise" name="pctremise" value=""><span class="remisegros"> %</span>
+												</td>
+												<td class="ta-center" >
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProSite -->
+						<div class="portlet box $site[classcolor] mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$site[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProSiteBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremisesite
+												</td>
+												<td class="ta-center">
+													$remisesite[valeur] $typeremisesitevaleur
+												</td>
+												<td class="ta-center">
+													$remisesite[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remisesite[remiseid]" id="btn_suppr$remisesite[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remisesite[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remisesite[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remisesite[pctremise] % $multilangue[a_partir_de] $remisesite[valeur] $typeremisesitevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?action=supprimer&module=pro&remiseid=$remisesite[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosProSiteBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProSiteTypeExistant -->
+													<input type="hidden" name="typeremise$site[siteid]" value="$remisesite[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosProSiteTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosProSiteType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise$site[siteid]" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosProSiteType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeursite" name="valeur$site[siteid]" value="">
+													<span class="remisegros_devise" $display_devise>$devise_site_actuel</span>													
+													<span class="remisegros_articles" $display_articles>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremisesite" name="pctremise$site[siteid]" value=""><span class="remisegros"> %</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					<!-- END Remises_grosModificationFormulaireRemisesGrosProSite -->
+					</form>
+					<!-- END Remises_grosModificationFormulaireRemisesGrosPro -->
+					
+					<!-- Remises de gros pro d'une catégorie -->
+					
+					<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategoriePro -->
+					<form action="remises_gros.php?catid=$catid&action=ajouter&module=pro" method="post" id="form_remises_gros_categorie_pro" name="form_remises_gros_pro" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+						<div class="portlet box $classcolor_site_principal mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremise
+												</td>
+												<td class="ta-center">
+													$remise[valeur] $typeremisevaleur
+												</td>
+												<td class="ta-center">
+													$remise[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remise[remiseid]" id="btn_suppr$remise[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remise[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remise[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remise[pctremise] % $multilangue[a_partir_de] $remise[valeur] $typeremisevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?catid=$catid&action=supprimer&module=pro&remiseid=$remise[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProTypeExistant -->
+													<input type="hidden" name="typeremise" value="$remise[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProType -->
+												</td>
+												<td class="ta-center" width="30%">
+													<input type="text" class="form-control input-inline input" id="valeur" name="valeur" value="">
+													<span class="remisegros_devise" $display_devise_principal>$tabsites[devise_complete1]</span>													
+													<span class="remisegros_articles" $display_articles_principal>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center" width="30%">
+													<input type="text" class="form-control input-inline input" id="pctremise" name="pctremise" value=""><span class="remisegros">%</span>
+												</td>
+												<td class="ta-center" >
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProSite -->
+						<div class="portlet box $site[classcolor] mb-20">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[donnees] <i>$site[libelle]</i>
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>					                                
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered mb-0">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[type_remise]
+												</th>
+												<th class="ta-center">
+													$multilangue[a_partir_de]
+												</th>
+												<th class="ta-center">
+													$multilangue[pourcentage]
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProSiteBit -->
+											<tr>
+												<td class="ta-center">
+													$typeremisesite
+												</td>
+												<td class="ta-center">
+													$remisesite[valeur] $typeremisesitevaleur
+												</td>
+												<td class="ta-center">
+													$remisesite[pctremise] %
+												</td>
+												<td class="ta-center">
+													<a href="#myModal$remisesite[remiseid]" id="btn_suppr$remisesite[remiseid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabe$remisesite[remiseid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$remisesite[remiseid]" style="display: none;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																	<h4 class="modal-title">Voulez-vous vraiment supprimer cette remise de $remisesite[pctremise] % $multilangue[a_partir_de] $remisesite[valeur] $typeremisesitevaleur ?</h4>
+																</div>
+																<div class="modal-body">																					
+																	Cela supprimera cette remise.
+																</div>
+																<div class="modal-footer">
+																	<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																	<a href="remises_gros.php?catid=$catid&action=supprimer&module=pro&remiseid=$remisesite[remiseid]" class="btn blue">Oui, supprimer</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProSiteBit -->
+											<tr>
+												<td class="ta-center">
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProSiteTypeExistant -->
+													<input type="hidden" name="typeremise$site[siteid]" value="$remisesite[typeremise]">
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProSiteTypeExistant -->
+													<!-- BEGIN Remises_grosModificationFormulaireRemisesGrosCategorieProSiteType -->
+													<input type="checkbox" data-on-label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$multilangue[sur_le_prix]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-off-label="&nbsp;&nbsp;$multilangue[sur_la_quantite]&nbsp;&nbsp;" class="make-switch typeremisegros" name="typeremise$site[siteid]" value="1" checked>
+													<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProSiteType -->
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="valeursite" name="valeur$site[siteid]" value=""> 
+													<span class="remisegros_devise" $display_devise>$devise_site_actuel</span>													
+													<span class="remisegros_articles" $display_articles>$multilangue[articles]</span>
+												</td>
+												<td class="ta-center">
+													<input type="text" class="form-control input-inline input" id="pctremisesite" name="pctremise$site[siteid]" value=""> <span class="remisegros">%</span>
+												</td>
+												<td class="ta-center">
+													<button type="submit" class="btn blue">
+													<i class="fa fa-plus"></i> $multilangue[ajouter]
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					<!-- END Remises_grosModificationFormulaireRemisesGrosCategorieProSite -->
+					</form>
+					<!-- END Remises_grosModificationFormulaireRemisesGrosCategoriePro -->
+				</div>
+			</div>
+		</div>
+		<!-- FIN PAGE CONTENT -->
+	<!-- FIN CONTENT -->
+	$TemplateCommunFooter
+	<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery.numeric.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+	<script type="text/javascript">
+		App.init(); // initlayout and core plugins
+		$(document).ready(function() {    
+			$('.input').numeric({negative : false});
+			$('.typeremisegros').on('switch-change', function () {
+				if ($(this).is(':checked')){
+					$(this).closest("tr").find(".remisegros_devise").show();
+					$(this).closest("tr").find(".remisegros_articles").hide();
+				}else{
+					$(this).closest("tr").find(".remisegros_articles").show();
+					$(this).closest("tr").find(".remisegros_devise").hide();
+				}
+					
+			});
+			$( "#form_remises_gros" ).validate({
+				rules: {
+					valeur: {
+						min: 1
+					},
+					pctremise: {
+						range: [0,100]
+					}
+					$validatejscatalogue
+				}
+			});
+			$( "#form_remises_gros_pro" ).validate({
+				rules: {
+					valeur: {
+						min: 1
+					},
+					pctremise: {
+						range: [0,100]
+					}
+					$validatejscataloguepro
+				}
+			});
+			$( "#form_remises_gros_categorie" ).validate({
+				rules: {
+					valeur: {
+						min: 1
+					},
+					pctremise: {
+						range: [0,100]
+					}
+					$validatejscataloguecategorie
+				}
+			});
+			$( "#form_remises_gros_categorie_pro" ).validate({
+				rules: {
+					valeur: {
+						min: 1
+					},
+					pctremise: {
+						range: [0,100]
+					}
+					$validatejscataloguecategoriepro
+				}
+			});
+
+		});
+	</script>
+<!-- END Remises_grosIndex -->
+

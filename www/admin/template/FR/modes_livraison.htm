@@ -1,0 +1,265 @@
+<!-- BEGIN Modes_livraisonIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					Modes de livraison<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="modes_livraison.php">							
+								Modes de livraison		
+							</a>			
+						</li>
+						<!-- BEGIN Modes_livraisonNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Modes_livraisonNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+
+			<!-- BEGIN Modes_livraisonSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+					$texteSuccess1
+				</div>
+			<!-- END Modes_livraisonSuccess -->
+			
+			<!-- BEGIN Modes_livraisonErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Modes_livraisonErreur -->
+
+
+<!-- BEGIN Modes_livraisonListe -->
+<form action="moyens_reglement.php" method="POST" name="formMR">
+	<input type="hidden" name="action" value="editermoyenreglement">
+	<input type="hidden" name="siteid" value="$site[siteid]">																													
+		<div class="col-md-12">
+			<!-- DEBUT SAMPLE TABLE PORTLET-->
+			<div class="portlet box blue-chambray" style="">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%;">					
+						$multilangue[modes_de_livraison_liste]
+					</div>			
+					<div class="tools">
+						<a href="javascript:;" class="collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body form">					
+					<div class="table-scrollable">
+						<table id="tabmodes" class="table table-striped table-bordered table-hover mb-0">
+							<thead>
+							<tr>										
+								<th class="" >
+									$multilangue[nom]
+								</th>
+								<th class="ta-center">
+									$multilangue[description]
+								</th>
+								<th class="ta-center">
+									$multilangue[actifV1]
+								</th>
+								<th class="ta-center">
+									$multilangue[actifV2]
+								</th>							
+								<th>
+									$multilangue[modifier]
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN Modes_livraisonListeBit -->
+									<tr id="$infosModelivraison[modelivraisonid]">
+										<td>
+											$infosModelivraison[nom]
+										</td>
+										<td>
+											$infosModelivraison[description]
+										</td>
+										<td class="ta-center">																					
+											<a href="modes_livraison.php?action=active&pastille=$color_aff&modelivraisonid=$infosModelivraison[modelivraisonid]" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+												<i class="fa $ico_aff"></i>
+											</a>					
+										</td>	
+										<td class="ta-center">											
+											<a href="modes_livraison.php?action=active2&pastille2=$color_aff2&modelivraisonid=$infosModelivraison[modelivraisonid]" data-original-title="$tooltip_visible2" data-placement="top" class="btn default btn-sm $color2_aff2 tooltips">
+												<i class="fa $ico_aff2"></i>
+											</a>					
+										</td>									
+										<td class="ta-center">
+											<span><a href="modes_livraison.php?action=editML&modelivraisonid=$modelivraison[modelivraisonid]" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></span>
+										</td>
+									</tr>				
+								<!-- END Modes_livraisonListeBit -->		
+							</tbody>													
+						</table>
+					</div>						
+				</div>
+			</div>		
+			<!-- FIN SAMPLE TABLE PORTLET-->
+		</div>
+		<br/>
+	</form>
+	<div class="clearfix"></div>
+<!-- END Modes_livraisonListe -->
+
+<!-- BEGIN Modes_livraisonEditMLForm -->
+<form name="formML" action="modes_livraison.php" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="action" value="doedit_ML">
+	<input type="hidden" name="modelivraisonid" value="$modelivraisonid">
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+<!-- BEGIN Modes_livraisonEditML -->
+	<div id="ancreform3"></div>	
+	<div class="row" >
+		<div class="col-md-12 ">
+			<div class="portlet box $site[classcolor] " style="" id="">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%; font-size : 17px; font-family : sans-serif;">					
+						$infosML[nom] <i><small>$site[libelle]</small></i>
+					</div>	
+					<div class="tools">
+						<a href="javascript:;" class="$collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" $style>		
+					<div class="tab-content">
+						<div class="tab-pane active">			
+							<div class="table-responsive">
+								<table id="" class="table table-striped table-hover table-bordered">
+									<tbody>	
+										<tr>
+											<td><label for="libelle_$site[siteid]">$multilangue[logo_mode_livraison]</label></td>
+											<td>
+												<div class="fileinput fileinput-new" data-provides="fileinput">
+													<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: $modelivraison_largeur px; height: $modelivraison_hauteur px;">
+														<img src="$image">
+													</div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">
+																$multilangue[selectionner] </span>
+															<span class="fileinput-exists">
+																$multilangue[modifier] </span>
+															<input type="file" name="mode_logo$site[siteid]">
+														</span>
+														<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+															$multilangue[supprimer] </a>	
+													</div>
+												</div>	
+											</td>
+										</tr>							
+										<tr>
+											<td>
+												<label for="libelle_$site[siteid]">$multilangue[nom] $multilangue[en] $langue[libelle]</label>
+											</td>
+											<td class="ta-center">											
+												<input type = "text" name="libelle_$site[siteid]" value="$infosML[nom]" class="form-control" id="libelle_$site[siteid]">					
+											</td>	
+										</tr>	
+										<tr>
+											<td>
+												<label for="description_$site[siteid]">$multilangue[description] $multilangue[en] $multilangue[francais]</label>
+											</td>
+											<td class="ta-center">											
+												<textarea name="description_$site[siteid]" class="form-control editeur" id="description_$site[siteid]">$infosML[description]</textarea>					
+											</td>	
+										</tr>													
+										<tr>
+											<td>
+												$multilangue[actifV1]
+											</td>
+											<td class="ta-center va-middle">
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkedv1 class="make-switch switch-type" name="activev1_$site[siteid]" value="1">
+											</td>		
+										</tr>
+										<tr>
+											<td>
+												$multilangue[actifV2]
+											</td>
+											<td class="ta-center">											
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkedv2 class="make-switch switch-type" name="activev2_$site[siteid]" value="1">					
+											</td>		
+										</tr>																													
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- END Modes_livraisonEditML -->
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+</form>
+<!-- END Modes_livraisonEditMLForm -->
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+<script type="text/javascript">
+
+	$(document).ready(function() {								    
+		var ordreDepart;
+		$('#tabmodes > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row){
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=modes_livraison_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});			
+	});
+</script>
+
+<!-- END Modes_livraisonIndex -->

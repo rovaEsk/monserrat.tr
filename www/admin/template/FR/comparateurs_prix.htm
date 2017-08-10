@@ -1,0 +1,397 @@
+<!-- BEGIN Comparateurs_prixIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[comparateurs_prix]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[comparateurs_prix]
+						</li>
+						<!-- BEGIN Comparateurs_prixNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Comparateurs_prixNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Comparateurs_prixSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Comparateurs_prixSuccess -->
+			
+			<!-- BEGIN Comparateurs_prixErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Comparateurs_prixErreur -->
+			
+			<!-- BEGIN Comparateurs_prixInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Comparateurs_prixInfo -->
+			
+			<!-- BEGIN Comparateurs_prixSuccessFixe -->
+				<div class="alert alert-success ta-center">
+					$texteSuccess
+				</div>
+			<!-- END Comparateurs_prixSuccessFixe -->
+			
+			<!-- BEGIN Comparateurs_prixErreurFixe -->
+				<div class="alert alert-danger ta-center">
+					$texteErreur
+				</div>
+			<!-- END Comparateurs_prixErreurFixe -->
+			
+			<!-- BEGIN Comparateurs_prixInfoFixe -->
+				<div class="alert alert-info ta-center">
+					$texteInfo
+				</div>
+			<!-- END Comparateurs_prixInfoFixe -->
+			
+			<!-- BEGIN Comparateurs_prixListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet box light-grey">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[exporter]
+								</div>																	
+							</div>
+							<div class="portlet-body form form-horizontal form-bordered form-row-stripped">
+								<div class="form-body">										
+									<div class="form-group">
+										<label class="control-label col-md-6">$multilangue[article_nn_visibles]</label>
+										<div class="col-md-6">																														
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" $checkedExporterNonVisibles data-value="exporter_non_visibles">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-6">$multilangue[article_nn_commandables]</label>
+										<div class="col-md-6">																														
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" $checkedExporterNonCommandables data-value="exporter_non_commandables">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-6">$multilangue[article_cat_nn_commandables]</label>
+										<div class="col-md-6">																														
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" $checkedExporterCatsNonVisibles data-value="exporter_cats_non_visibles">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-6">$multilangue[article_nn_stock]</label>
+										<div class="col-md-6">																														
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" $checkedExporterStockEpuise data-value="exporter_stock_epuise">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-6">$multilangue[le_prix_public_barre]</label>
+										<div class="col-md-6">																														
+											<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" $checkedExporterPrixpublic data-value="exporter_prixpublic">
+										</div>
+									</div>	
+									<div class="form-group">
+										<div class="ta-center">
+											<button type="submit" class="btn green" id="exportparametre"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>
+										</div>
+									</div>																	
+								</div>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-comparateur table-hover">
+								<thead>
+									<tr>
+										<th class="ta-center">
+											$multilangue[nom]
+										</th>
+										<th class="ta-center">
+											$multilangue[categories]
+										</th>
+										<th class="ta-center">
+											$multilangue[description]
+										</th>
+										<!-- BEGIN Comparateurs_prixListeSelectionArticleTitre -->
+										<th class="ta-center">
+											$multilangue[selection_d_article]
+										</th>
+										<!-- END Comparateurs_prixListeSelectionArticleTitre -->
+										<th class="ta-center">
+											$multilangue[export_auto]
+										</th>
+										<th class="ta-center">
+											$multilangue[export] $multilangue[manuel]
+										</th>
+										<th class="ta-center">
+											$multilangue[exports_dispo]
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Comparateurs_prixListeBit -->
+										<tr id="$comparateur[comparateurid]">
+											<td class="ta-center">
+												<img src="includes/images/comparateurs/$comparateur[comparateurid].$comparateur[image]" alt="$comparateur[titre]" width="100"></img>
+											</td>
+											<td class="ta-center">
+												$comparateur[categories]
+											</td>
+											<td class="ta-center">
+												$comparateur[contenu]
+											</td>
+											<!-- BEGIN Comparateurs_prixListeSelectionArticle -->
+											<td class="ta-center col-md-2">
+												<!-- BEGIN Comparateurs_prixListeSelectionArticleSite -->
+												<a href="comparateurs_prix.php?action=selection&comparateurid=$comparateur[comparateurid]&comparateursiteid=$site[siteid]">$site[libelle] : $count[count] / $articles[count]</a><br>
+												<!-- END Comparateurs_prixListeSelectionArticleSite -->
+											</td>
+											<!-- END Comparateurs_prixListeSelectionArticle -->
+											<td class="col-md-4">
+												<div class="table-responsive ta-center">
+													<table style="display:inline;">
+														<tbody>
+															<!-- BEGIN Comparateurs_prixListeBitAuto -->
+															<tr>												
+																<td style="height:40px; text-align:right; padding-right:10px;">
+																	$site[libelle] $multilangue[tous] : 
+																</td>
+																<td style="height:40px; text-align:left;">
+																	<div data-value="$comparateur[comparateurid]_$site[siteid]" data-action="auto" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+																		<i class="fa $ico_aff"></i>
+																	</div>
+																</td>	
+															</tr>			
+															<!-- END Comparateurs_prixListeBitAuto -->
+															<!-- BEGIN Comparateurs_prixListeBitAutoSel -->
+															<tr>
+																<td style="height:40px; text-align:right; padding-right:10px;">
+																	$site[libelle] $multilangue[selection] : 
+																</td>
+																<td style="height:40px; text-align:left;">
+																	<div data-value="$comparateur[comparateurid]_$site[siteid]" data-action="autosel" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+																		<i class="fa $ico_aff"></i>
+																	</div>
+																</td>
+															</tr>
+															<!-- END Comparateurs_prixListeBitAutoSel -->
+														</tbody>
+													</table>
+												</div>	
+											</td>
+											<td class="ta-center">
+												<!-- BEGIN Comparateurs_prixListeGenerer -->
+												<form action="$_SERVER[PHP_SELF]" name="formSelectionComparateur" method="post" enctype="multipart/form-data">
+													<input type="hidden" name="action" value="exporter">
+													<input type="hidden" name="comparateurid" value="$comparateur[comparateurid]">
+													<input type="hidden" name="selection" value="$count[count]">
+													<button type="submit" class="btn blue">$multilangue[generer]</button>
+												</form>
+												<!-- END Comparateurs_prixListeGenerer -->
+											</td>
+											<td class="ta-center col-md-4">
+												<!-- BEGIN Comparateurs_prixListeBitExport -->
+												<a href="../configurations/$host/exports/export_comparateur_$comparateur[nomcomparateur]$site[siteid].$comparateur[type_export]" target="_blank">
+													$multilangue[tous_les_articles]<br>($site[libelle] : $date)
+												</a><br>
+												<!-- END Comparateurs_prixListeBitExport -->
+												<!-- BEGIN Comparateurs_prixListeBitExportSelection -->
+												<a href="../configurations/$host/exports/export_comparateur_$comparateur[nomcomparateur]_selection$site[siteid].$comparateur[type_export]" target="_blank">
+													$multilangue[selection]<br>($site[libelle] : $date)
+												</a><br>
+												<!-- END Comparateurs_prixListeBitExportSelection -->
+												<!-- BEGIN Comparateurs_prixListeBitExportSoldes -->
+												<a href="../configurations/$host/exports/export_comparateur_$comparateur[nomcomparateur]_soldes$site[siteid].$comparateur[type_export]" target="_blank">
+													$multilangue[soldes]<br>($site[libelle] : $date)
+												</a><br>
+												<!-- END Comparateurs_prixListeBitExportSoldes -->
+											</td>
+										</tr>
+									<!-- END Comparateurs_prixListeBit -->				
+								</tbody>
+							</table>												
+						</div>					
+					</div>
+				</div>
+			<!-- END Comparateurs_prixListe -->
+			
+			<!-- BEGIN Comparateurs_prixSelection -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formSelectionComparateur" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="action" value="selection2">
+							<input type="hidden" name="comparateurid" value="$comparateurid">
+							<input type="hidden" name="comparateursiteid" value="$comparateursiteid">
+							<input type="hidden" name="articles" value="">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+      						  <div class="col-md-12">
+								<div class="jstree">
+								  <ul>
+									<!-- BEGIN Comparateurs_prixSelectionNiveau0 -->
+								    <li>
+								    	$niveau0[libelle]
+								    	<ul>
+								    		<!-- BEGIN Comparateurs_prixSelectionNiveau1 -->
+											<li>
+												$niveau1[libelle]
+												<ul>
+													<!-- BEGIN Comparateurs_prixSelectionNiveau2 -->
+													<li>
+														$niveau2[libelle]
+														<ul>
+															<!-- BEGIN Comparateurs_prixSelectionNiveau3 -->
+															<li>
+																$niveau3[libelle]
+																<ul>
+																<!-- BEGIN Comparateurs_prixSelectionNiveau4 -->
+																	<li>$niveau4[libelle]
+																		<ul>
+																			<!-- BEGIN Comparateurs_prixSelectionArticleNiveau4 -->
+																			<li data-jstree='{"icon": "fa fa-inbox"$checked}' data-value="$articleniveau4[artid]">$articleniveau4[libelle] - $articleniveau4[artcode]</li>
+																			<!-- END Comparateurs_prixSelectionArticleNiveau4 -->
+																		</ul>
+																	</li>																									
+																<!-- END Comparateurs_prixSelectionNiveau4 -->																								
+																</ul>
+																<ul>
+																	<!-- BEGIN Comparateurs_prixSelectionArticleNiveau3 -->
+																	<li data-jstree='{"icon": "fa fa-inbox"$checked}' data-value="$articleniveau3[artid]">$articleniveau3[libelle] - $articleniveau3[artcode]</li>
+																	<!-- END Comparateurs_prixSelectionArticleNiveau3 -->
+																</ul>
+															</li>
+															<!-- END Comparateurs_prixSelectionNiveau3 -->																							
+														</ul>
+														<ul>
+															<!-- BEGIN Comparateurs_prixSelectionArticleNiveau2 -->
+															<li data-jstree='{"icon": "fa fa-inbox"$checked}' data-value="$articleniveau2[artid]">$articleniveau2[libelle] - $articleniveau2[artcode]</li>
+															<!-- END Comparateurs_prixSelectionArticleNiveau2 -->
+														</ul>
+													</li>
+													<!-- END Comparateurs_prixSelectionNiveau2 -->																					
+												</ul>
+												<ul>
+													<!-- BEGIN Comparateurs_prixSelectionArticleNiveau1 -->
+													<li data-jstree='{"icon": "fa fa-inbox"$checked}' data-value="$articleniveau1[artid]">$articleniveau1[libelle] - $articleniveau1[artcode]</li>
+													<!-- END Comparateurs_prixSelectionArticleNiveau1 -->
+												</ul>
+											</li>
+											<!-- END Comparateurs_prixSelectionNiveau1 -->
+										</ul>
+										<ul>
+											<!-- BEGIN Comparateurs_prixSelectionArticleNiveau0 -->
+											<li data-jstree='{"icon": "fa fa-inbox"$checked}' data-value="$articleniveau0[artid]">$articleniveau0[libelle] - $articleniveau0[artcode]</li>
+											<!-- END Comparateurs_prixSelectionArticleNiveau0 -->
+										</ul>
+									</li>
+									<!-- END Comparateurs_prixSelectionNiveau0 -->
+								  </ul>					
+								</div>											
+								<div class="col-md-12 ta-center">
+									<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+									<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END Comparateurs_prixSelection -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('#exportparametre').click(function () {	
+			var data = 'action=parametre&';
+			var tab = new Array();
+			$('input[type="checkbox"]').each(function(){
+				data += $(this).data("value") + '=' + $(this).is(':checked') + '&';
+			})
+			$.ajax({
+				url : 'comparateurs_prix_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+					success : function(code_html, statut){
+				},
+				error : function(resultat, statut, erreur){ 
+					//alert(erreur);	
+				}
+			});
+		});
+		$('.btn-sm').click(function () {
+			var data = 'action=' + $(this).data("action") + '&';
+			data += 'comparateurid=' + $(this).data("value").split('_')[0] + '&';
+			data += 'comparateursiteid=' + $(this).data("value").split('_')[1] + '&';
+			data += 'color=' + ($(this).hasClass("green") ? "green" : "red") + '&';
+			$.ajax({
+				url : 'comparateurs_prix_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('#' + code_html.split('_')[1]).find("td:eq(4)").find("div[data-action='" + code_html.split('_')[0] + "'][data-value='" + code_html.split('_')[1] + '_' + code_html.split('_')[2] + "']");
+					div.removeClass("green red").addClass(code_html.split('_')[3]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[4]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[3] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){ 
+					alert(erreur);	
+				}
+			});
+		});
+		$('.jstree').jstree({"plugins": [["checkbox"]]});
+		$('.jstree').jstree("open_all");
+		$('.jstree').find('li[data-jstree*="checked"]').each(function () {
+			$(this).find('a').click();
+		});
+		$('.jstree').jstree("close_all");
+		$('form').submit(function () {
+			var articles;
+			articles = "";
+			$('.jstree').jstree("open_all");
+			$('.jstree').find("li").each(function () {
+				if (String($(this).data('jstree')) != "undefined" && $(this).find("a").hasClass("jstree-clicked"))
+					articles += String($(this).data('value')) + ',';
+			});
+			$('.jstree').jstree("close_all");
+			$('input[name="articles"]').val(articles);
+		});
+	});
+</script>
+<!-- END Comparateurs_prixIndex -->

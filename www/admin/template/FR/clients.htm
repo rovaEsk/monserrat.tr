@@ -1,0 +1,1754 @@
+<!-- BEGIN ClientsIndex -->
+	$TemplateCommunHeader
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+    			<div class="col-md-12">
+        			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$titrepage
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">
+						    <li>
+						        <i class="fa fa-home"></i>
+						        <a href="index.html">
+						            $multilangue[accueil]
+						        </a>
+						        <i class="fa fa-angle-right"></i>
+						    </li>
+						    <li>
+						    	<a href="$lienpagebase">                        
+						        	$multilangue[clients]
+						        </a>						        
+						    </li>
+						    <!-- BEGIN ClientsNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						    <!-- END ClientsNavigSupp -->
+						    
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+    			</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+		<!-- DEBUT PAGE CONTENT-->
+		
+			<!-- BEGIN ClientsSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END ClientsSuccess -->
+			
+			<!-- BEGIN ClientsErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END ClientsErreur -->
+		
+            <!-- BEGIN ClientsListe -->
+            	<div class="row">
+					<div class="col-md-12">                
+                    	<a href="clients.php?action=utilisateursactifs" type="button" class="btn btn-warning">
+                        	$multilangue[voir_users_en_ligne]
+                        	<i class="fa fa-user" style="margin-left:8px;"></i>
+                        </a>
+                        <a href="clients.php?action=ajoutclient" type="button" class="btn btn-success">
+                        	$multilangue[ajt_compte_client]
+                        	<i class="fa fa-plus" style="margin-left:8px;"></i>
+                       	</a>
+
+                        <div class="btn-group right">
+                            <a class="btn default" href="#" data-toggle="dropdown">
+                                 $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div id="datatable_ajax_liste_clients_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                <label><input type="checkbox" checked data-column="0">$multilangue[identifiant]</label>
+                                <label><input type="checkbox" checked data-column="1">$multilangue[date_inscription]</label>
+                                <label><input type="checkbox" checked data-column="3">$multilangue[email]</label>
+                                <label><input type="checkbox" checked data-column="5">$multilangue[prenom]</label>
+                                <label><input type="checkbox" checked data-column="6">$multilangue[pays]</label>
+                                <label><input type="checkbox" data-column="7">$multilangue[telephone]</label>
+                                <label><input type="checkbox" data-column="8">$multilangue[telephone2]</label>
+                                <label><input type="checkbox" data-column="9">$multilangue[siret]</label>
+                                <label><input type="checkbox" data-column="10">$multilangue[TVA]</label>
+                                <label><input type="checkbox" data-column="11">$multilangue[adresse]</label>
+                                <label><input type="checkbox" data-column="12">$multilangue[adresse2]</label>
+                                <label><input type="checkbox" data-column="13">$multilangue[code_postal]</label>
+                                <label><input type="checkbox" data-column="14">$multilangue[ville]</label>
+                            </div>
+                        </div>
+						<br><br>
+                        <table class="table table-bordered table-striped table-hover" id="datatable_ajax_liste_clients" style="margin-top:15px;">
+                            <thead>                           
+	                            <tr style="background-color:#FFFFFF;">
+	                                <th class="hidden-xs">
+	                                     $multilangue[identifiant]
+	                                </th>
+	                                <th class="hidden-sm hidden-xs">
+	                                     $multilangue[date_inscription]
+	                                </th>
+	                                <th>
+	                                    $multilangue[email]
+	                                </th>
+	                                <th class="hidden-md hidden-sm hidden-xs">
+	                                     $multilangue[raison_sociale]
+	                                </th>
+	                                <th role="columnheader">
+	                                     $multilangue[nom]
+	                                </th>
+	                                <th class="hidden-xs">
+	                                     $multilangue[prenom]
+	                                </th>
+	                                <th class="hidden-sm hidden-xs">
+	                                     $multilangue[pays]
+	                                </th>
+	                                <th>
+	                                     $multilangue[telephone]
+	                                </th>
+	                                <th>
+	                                     $multilangue[telephone2]
+	                                </th>
+	                                <th>
+	                                     $multilangue[siret]
+	                                </th>
+	                                <th>
+	                                     $multilangue[TVA]
+	                                </th>
+	                                <th>
+	                                     $multilangue[adresse]
+	                                </th>
+	                                <th>
+	                                     $multilangue[adresse2]
+	                                </th>
+	                                <th>
+	                                     $multilangue[code_postal]
+	                                </th>
+	                                <th>
+	                                     $multilangue[code_postal]
+	                                </th>
+	                                <th>
+	                                     $multilangue[action]
+	                                </th>	                                
+	                            </tr>
+	                            <tr class="filter" style="background-color:#FFFFFF;">
+									<td class="hidden-xs">
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_userid">
+									</td>
+									<td class="hidden-sm hidden-xs">
+										<div data-date-format="dd/mm/yyyy" class="input-group date date-picker margin-bottom-5">
+											<input type="text" placeholder="De" name="search_date_from" class="form-control filter-submitchange form-filter input-sm datepicker">
+											<span class="input-group-btn">
+												<button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+											</span>
+										</div>
+										<div data-date-format="dd/mm/yyyy" class="input-group date date-picker">
+											<input type="text" placeholder="A" name="search_date_to" class="form-control form-filter filter-submitchange input-sm datepicker">
+											<span class="input-group-btn">
+												<button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+											</span>
+										</div>
+									</td>									
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_mail">
+									</td>									
+									<td class="hidden-md hidden-sm hidden-xs">
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_raisonsociale">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_nom">
+									</td>
+									<td class="hidden-xs">
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_prenom">
+									</td>
+									<td class="hidden-sm hidden-xs">
+										<select name="search_paysid" class="form-control form-filter filter-submitchange input-sm">
+											<option value="0">$multilangue[filtrer] $multilangue[par] $multilangue[pays]</option>
+											$listePays
+										</select>
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_telephone">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_telephone2">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_siret">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_tva">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_adresse">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_adresse2">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_codepostal">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter filter-submitkeyup input-sm" name="search_ville">
+									</td>
+									<td>										
+										<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> $multilangue[raz2]</button>
+									</td>									
+								</tr>
+                            	</thead>
+                            	<tbody>                             		                         
+		                            <!-- BEGIN ClientsListeBit --> 
+			                            <tr>
+			                                <td class="hidden-xs">
+			                                    $rs_client[userid]
+			                                </td>
+			                                <td class="hidden-sm hidden-xs">
+			                                    $jour/$mois/$annee
+			                                </td>
+			                                <td>
+			                                    $rs_client[mail]
+			                                </td>
+			                                <td class="hidden-md hidden-sm hidden-xs">
+			                                    $rs_client[raisonsociale]
+			                                </td>
+			                                <td>
+			                                    $rs_client[nom]
+			                                </td>
+			                                <td class="hidden-xs">
+			                                    $rs_client[prenom]
+			                                </td>
+			                                <td class="hidden-sm hidden-xs">
+			                                    $pays_user
+			                                </td>
+			                                <td class="ta-center">
+			                                    <a href="$lien_connexion" target="_blank" data-original-title="$multilangue[connexion_compte]" data-placement="top" class="tooltips"><i class="fa fa-key" style="color : #D1B110;"></i></a> 
+			                                     &nbsp; &nbsp; <a href="clients.php?action=editer&user=$rs_client[userid]"><i class="fa fa-pencil-square-o"></i></a>
+			                                     &nbsp; &nbsp; <a href=""><i class="fa fa-times" style="color : red;"></i></a>
+			                                </td>
+			                            </tr>
+		                            <!-- END ClientsListeBit -->                        
+                            	</tbody>
+                            </table>
+                    	</div>
+                   </div>                   
+			<!-- END ClientsListe -->
+			
+			
+			<!-- BEGIN ClientsListeEnLigne -->
+            	<div class="row">
+					<div class="col-md-12">              
+                        <a href="clients.php" type="button" class="btn grey-silver right">
+                        	<i class="fa fa-arrow-left"></i>
+                        	$multilangue[retour]                        	
+                       	</a>
+                        
+						<br><br><br>
+                        <table class="table table-bordered table-striped table-hover" style="margin-top:0;">
+                            <thead>                           
+	                            <tr style="background-color:#FFFFFF;">
+	                                <th class="hidden-xs">
+	                                     $multilangue[Identifiant]
+	                                </th>
+	                                <th class="hidden-sm hidden-xs">
+	                                     $multilangue[date_inscription]
+	                                </th>
+	                                <th>
+	                                    $multilangue[email]
+	                                </th>
+	                                <th class="hidden-md hidden-sm hidden-xs">
+	                                     $multilangue[rasion_sociale]
+	                                </th>
+	                                <th role="columnheader">
+	                                     $multilangue[nom]
+	                                </th>
+	                                <th class="hidden-xs">
+	                                     $multilangue[prenom]
+	                                </th>
+	                                <th class="hidden-sm hidden-xs">
+	                                     $multilangue[pays]
+	                                </th>	                                
+	                                <th>
+	                                     $multilangue[action]
+	                                </th>	                                
+	                            </tr>	                            
+                            	</thead>
+                            	<tbody>                            
+		                            <!-- BEGIN ClientsListeEnLigneBit --> 
+			                            <tr>
+			                                <td class="hidden-xs">
+			                                    $rs_client[userid]
+			                                </td>
+			                                <td class="hidden-sm hidden-xs">
+			                                    $jour/$mois/$annee
+			                                </td>
+			                                <td>
+			                                    $rs_client[mail]
+			                                </td>
+			                                <td class="hidden-md hidden-sm hidden-xs">
+			                                    $rs_client[raisonsociale]
+			                                </td>
+			                                <td>
+			                                    $rs_client[nom]
+			                                </td>
+			                                <td class="hidden-xs">
+			                                    $rs_client[prenom]
+			                                </td>
+			                                <td class="hidden-sm hidden-xs">
+			                                    $pays_user
+			                                </td>
+			                                <td class="ta-center">
+			                                	<a href="$lien_connexion" target="_blank" data-original-title="$multilangue[connexion_compte]" data-placement="top" class="tooltips"><i class="fa fa-key" style="color : #D1B110;"></i></a> 
+			                                     &nbsp; &nbsp; <a href="clients.php?action=editer&user=$rs_client[userid]" data-original-title="$multilangue[modifier]" data-placement="top" class="tooltips"><i class="fa fa-pencil-square-o"></i></a>
+			                                     &nbsp; &nbsp; <a href="" data-original-title="$multilangue[supprimer]" data-placement="top" class="tooltips"><i class="fa fa-times" style="color : red;"></i></a>			                                    
+			                                </td>
+			                            </tr>
+		                            <!-- END ClientsListeEnLigneBit -->                        
+                            	</tbody>
+                            </table>
+                    	</div>
+                   </div>                   
+			<!-- END ClientsListeEnLigne -->      
+
+            <!-- BEGIN ClientsInfos -->             
+            <div class="row" id="clientInfos">
+                <div class="col-md-12">
+                    <div class="portlet box red">
+                        <div class="portlet-title">
+                            <div class="caption" >
+                                <i class="fa fa-user"></i>$multilangue[informations_client]
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse">
+                                </a>                                
+                            </div>
+                        </div>                        
+                        <div class="portlet-body">                        	
+                            <div id="infosclient" $display_infos>
+                            	<a href="$_SERVER[PHP_SELF]" class="btn grey-silver" style="float:left;"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+                            	<a href="$lien_connexion" target="_blank" class="btn yellow" style="float:left; margin-left:10px;"><i class="fa fa-key"></i> $multilangue[connexion_compte]</a>
+                            	<button type="button" id="btn_modif_client" onclick="$('#infosclient').hide();$('#modifclient').show();" class="btn yellow" name="modifier" style="float: right;">$multilangue[modifier]</button>
+                            	<br><br>
+	                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left; margin-right:1%;">                                
+		                            <table class="table table-striped table-bordered table-hover">                                    
+										<tr>
+										    <td class="entete_client">
+										        $multilangue[date_inscription]
+										    </td>
+										    <td>
+										        $utilisateur[dateinscription]
+										    </td>
+										   
+										</tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                	$multilangue[civilite]
+			                                </td>
+			                                <td>
+			                                    $transmettreCivilite
+			                                </td>
+			                               
+			                            </tr>
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                      	$multilangue[nom] / $multilangue[prenom]
+		                                 	</td>
+		                                 	<td>
+		                                     	$utilisateur[nom] $utilisateur[prenom]
+		                                 	</td>                               
+		                             	</tr>
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                 		$multilangue[email]
+		                                 	</td>
+		                                 	<td>
+		                                     	$utilisateur[mail]		                                     	
+		                                     	<!-- BEGIN ClientsInfosNewsletter --> 
+		                                     		<span class="help-block">$utilisateur[news]</span>
+		                                     	<!-- END ClientsInfosNewsletter -->		                                     	
+		                                     	<!-- BEGIN ClientsInfosNewsletterPart --> 
+		                                     		<span class="help-block">$utilisateur[news_partenaire]</span>
+		                                     	<!-- END ClientsInfosNewsletterPart --> 
+		                                 	</td>	                                   
+		                             	</tr>		                             	
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                     	$multilangue[raison_sociale]
+		                                 	</td>
+		                                 	<td>
+		                                     	$utilisateur[raisonsociale]
+		                                 	</td>                                 
+		                             	</tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                     $multilangue[adresse]
+			                                </td>
+			                                <td>
+			                                    $utilisateur[adresse]
+			                                </td>
+			                            </tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                     $multilangue[adresse2]
+			                                </td>
+			                                <td>
+			                                    $utilisateur[adresse2]
+			                                </td>
+			                            </tr>	                                
+			                            <tr>
+			                                <td class="entete_client">
+			                                    $multilangue[code_postal]/$multilangue[ville]
+			                                </td>
+			                                <td>
+			                                    $utilisateur[codepostal] $utilisateur[ville]
+			                                </td>
+			                            </tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                    $multilangue[telephone] / $multilangue[telephone2]
+			                                </td>
+			                                <td>
+			                                    $utilisateur[telephone] / $utilisateur[telephone2]
+			                                </td>
+			                            </tr>  
+		                            </table>
+	      						</div>							
+	                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left;">
+	                                <table class="table table-striped table-bordered table-hover">
+	                                	<!-- BEGIN ClientsInfosFidelite -->
+		                                	<tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[points_fidelite]
+			                                    </td>
+			                                    <td>
+			                                        $utilisateur[est_fidele]
+			                                    </td>
+			                                </tr>   
+		                                <!-- END ClientsInfosFidelite -->
+	                                	<!-- BEGIN ClientsInfosPro -->
+		                                	<tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[professionnel]
+			                                    </td>
+			                                    <td>
+			                                        $utilisateur[est_pro]
+			                                    </td>
+			                                </tr>   
+		                                <!-- END ClientsInfosPro -->
+		                                <!-- BEGIN ClientsInfosEncours -->
+		                                	<tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[encours_max]
+			                                    </td>
+			                                    <td>
+			                                        $utilisateur[encours_max]
+			                                    </td>
+			                                </tr>   
+		                                <!-- END ClientsInfosEncours -->		                                                                
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[siret]
+		                                    </td>
+		                                    <td>
+		                                        $utilisateur[siret]
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[tva_intracommunautaire] 
+		                                    </td>
+		                                    <td>
+		                                        $utilisateur[tva]
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[fonction]
+		                                    </td>
+		                                    <td>
+		                                        $utilisateur[fonction]
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[pays] / $multilangue[langue]
+		                                    </td>
+		                                    <td>
+		                                        $paysUser
+		                                    </td>
+		                                </tr>
+		                                <tr>                                            
+		                                    <td class="entete_client">
+		                                       $multilangue[date_last_connexion]
+		                                    </td>
+		                                    <td>
+		                                    	$dateLastConnexion
+		                                    </td>
+		                                </tr>
+	                                </table>                                
+								</div>
+							</div>
+							<div id="modifclient" $display_modif>								
+								<form method="post" action="clients.php" name="aForm">
+									<input type="hidden" name="action" value="doediter">
+									<input type="hidden" name="userid" value="$utilisateur[userid]">
+									<input type="submit" class="btn green" style="float: right;" value="$multilangue[enregistrer]" />
+									<a href="Javascript:;" onclick="$('#modifclient').hide();$('#infosclient').show();" class="btn grey" style="float:right; margin-right:10px;">$multilangue[annuler]</a>
+                            	<br><br>
+	                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left; margin-right:1%;">                                
+		                            <table class="table table-striped table-bordered table-hover">
+			                            <tr>
+			                                <td class="entete_client">
+			                                	$multilangue[civilite]
+			                                </td>
+			                                <td>
+			                                	<div class="radio-list">
+													<label class="radio-inline">
+													<input type="radio" name="civilite" value="0" $checked_civ0> Mr </label>
+													<label class="radio-inline">
+													<input type="radio" name="civilite" value="1" $checked_civ1> Mme </label>													
+												</div>												
+			                                </td>			                               
+			                            </tr>
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                      	$multilangue[nom]
+		                                 	</td>
+		                                 	<td>
+		                                 		<input class="form-control" name="nom" type="text" value="$utilisateur[nom]">
+		                                 	</td>                               
+		                             	</tr>
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                      	$multilangue[prenom]
+		                                 	</td>
+		                                 	<td>
+		                                 		<input class="form-control" name="prenom" type="text" value="$utilisateur[prenom]">
+		                                 	</td>                               
+		                             	</tr>
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                 		$multilangue[email]
+		                                 	</td>
+		                                 	<td>
+		                                 		<input class="form-control" name="mail" type="text" value="$utilisateur[mail]">
+		                                 		<span class="help-block">
+		                                 			$multilangue[inscrit_newsletter]		                                 			
+													<label class="radio-inline">
+													<input type="radio" name="recevoir" value="1" $checked_recevoir1> $multilangue[oui] </label>
+													<label class="radio-inline">
+													<input type="radio" name="recevoir" value="0" $checked_recevoir0> $multilangue[non] </label>													
+		                                 		</span>	
+		                                 		<!-- BEGIN ClientsModifNewsletterPart --> 
+			                                 		<span class="help-block">
+			                                 			$multilangue[inscrit_newsletter_partenaire]		                                 			
+														<label class="radio-inline">
+														<input type="radio" name="recevoir_part" value="1" $checked_recevoir_part1> $multilangue[oui] </label>
+														<label class="radio-inline">
+														<input type="radio" name="recevoir_part" value="0" $checked_recevoir_part0> $multilangue[non] </label>													
+			                                 		</span>	
+		                                 		<!-- END ClientsModifNewsletterPart --> 	                                     	
+		                                 	</td>	                                   
+		                             	</tr>
+		                             	
+		                             	<tr>
+		                                 	<td class="entete_client">
+		                                     	$multilangue[raison_sociale]
+		                                 	</td>
+		                                 	<td>
+		                                 		<input class="form-control" name="raisonsociale" type="text" value="$utilisateur[raisonsociale]">		                                     	
+		                                 	</td>                                 
+		                             	</tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                     $multilangue[adresse]
+			                                </td>
+			                                <td>
+			                                    <input class="form-control" name="adresse" type="text" value="$utilisateur[adresse]">
+			                                </td>
+			                            </tr>
+			                            <tr>
+			                                <td class="entete_client">
+			                                     $multilangue[adresse2]
+			                                </td>
+			                                <td>
+			                                    <input class="form-control" name="adresse2" type="text" value="$utilisateur[adresse2]">
+			                                </td>
+			                            </tr>                                
+			                            <tr>
+			                                <td class="entete_client">
+			                                    $multilangue[code_postal] / $multilangue[ville]
+			                                </td>
+			                                <td>
+			                                    <input style="width:30%; display:inline-block; float:left;" class="form-control" name="codepostal" type="text" value="$utilisateur[codepostal]">
+			                               		<input style="width:69%; display:inline-block; float:right;" class="form-control" name="ville" type="text" value="$utilisateur[ville]">
+			                                </td>
+			                            </tr> 
+			                            <tr>
+			                                <td class="entete_client">
+			                                    $multilangue[telephone] / $multilangue[telephone2]
+			                                </td>
+			                                <td>
+			                                    <input style="width:49.5%; display:inline-block; float:left;" class="form-control" name="telephone" type="text" value="$utilisateur[telephone]">
+			                               		<input style="width:49.5%; display:inline-block; float:right;" class="form-control" name="telephone2" type="text" value="$utilisateur[telephone2]">
+			                                </td>
+			                            </tr>                                                 
+		                            </table>
+	      						</div>							
+	                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left;">
+	                                <table class="table table-striped table-bordered table-hover"> 
+	                                	<!-- BEGIN ClientsModifFidelite --> 
+	                                		<tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[points_fidelite]
+			                                    </td>
+			                                    <td>
+			                                    	<input class="form-control" name="nbpoints" type="text" value="$utilisateur[nbpoints]">
+			                                    </td>
+			                                </tr>	                                 		
+                                 		<!-- END ClientsModifFidelite -->
+	                                	<!-- BEGIN ClientsModifPro --> 
+	                                		<tr>	                                    
+			                                    <td class="entete_client">
+			                                         $multilangue[professionnel] ?
+			                                    </td>
+			                                    <td>
+			                                    	<label class="radio-inline">
+													<input type="radio" name="pro" value="1" $checked_pro1> $multilangue[oui] </label>
+													<label class="radio-inline">
+													<input type="radio" name="pro" value="0" $checked_pro0> $multilangue[non] </label>
+													<span class="help-block">
+														$multilangue[envoyer_mail_client] <input type="checkbox" checked name="envoieemailclientPro"/> ($multilangue[si_changement_en_pro]) 
+														<i class="fa fa-question-circle fs-20 info font-blue pointer" data-trigger="click" data-placement="bottom" data-content="$multilangue[texte_info_passage_pro]"></i> 
+													</span>
+			                                    </td>
+			                                </tr>	                                 		
+                                 		<!-- END ClientsModifPro -->
+                                 		<!-- BEGIN ClientsModifEncours --> 
+	                                		<tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[encours_max]
+			                                    </td>
+			                                    <td>
+			                                    	<input class="form-control" name="encours_max" type="text" value="$utilisateur[encours_max]">
+			                                    </td>
+			                                </tr>	                                 		
+                                 		<!-- END ClientsModifEncours -->                                  
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                         $multilangue[siret]
+		                                    </td>
+		                                    <td>
+		                                    	<input class="form-control" name="siret" type="text" value="$utilisateur[siret]">
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[tva_intracommunautaire] 
+		                                    </td>
+		                                    <td>
+		                                    	<input class="form-control" name="tva" type="text" value="$utilisateur[tva]">
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[fonction]
+		                                    </td>
+		                                    <td>
+		                                    	<input class="form-control" name="fonction" type="text" value="$utilisateur[fonction]">
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[pays]
+		                                    </td>
+		                                    <td>
+		                                    	<select name="paysid" class="form-control">
+		                                    		$optionsPays
+		                                    	</select>		                                        
+		                                    </td>
+		                                </tr>	
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[mot_de_passe]
+		                                    </td>
+		                                    <td>
+		                                    	<input style="width:35%; display:inline-block; float:left;" class="form-control" type="text" name="passField"/>
+		                                    	<input style="margin-left:10px;" type="button" onclick="GeneratePassword();" value="$multilangue[generer_mdp]" class="btn blue"/>		                                        
+		                                    </td>
+		                                </tr>
+		                                <tr>	                                    
+		                                    <td class="entete_client">
+		                                        $multilangue[envoyer_mail_client] ?
+		                                    </td>
+		                                    <td>
+		                                    	<input type="checkbox" checked="checked" name="envoieemailclient"/> ($multilangue[si_changement_mdp]) 
+		                                    	<i class="fa fa-question-circle fs-20 info font-blue pointer" data-trigger="click" data-placement="bottom" data-content="$multilangue[texte_info_changement_mdp]"></i> 
+		                                    </td>
+		                                </tr>                               
+	                                </table>                                
+								</div>
+								</form>
+							</div>							
+                            <div class="clearfix"></div>
+						</div>
+					</div>
+				</div> 
+			</div> 
+			<!-- END ClientsInfos -->
+
+			<!-- BEGIN ClientsAdresseLivraison -->    
+                <div class="row">
+                    <div class="col-md-12">
+	                    <div class="portlet box green">
+	                        <div class="portlet-title">
+	                            <div class="caption">
+	                                <i class="fa fa-truck"></i>$multilangue[adresses_livraison]
+	                            </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="expand">
+	                                </a>
+	                                
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body" style="display:none;">
+		                        <table class="table table-striped table-bordered table-hover">                                
+		                         	<thead>
+		                         		<tr class="va-middle">                                
+			                          		<th width="15%">
+			                                   	$multilangue[nom_adresse]
+			                              	</th>                                 
+		                              		<th width="5%">
+		                                   		$multilangue[civilite]
+		                              		</th>	                                
+		                              		<th width="8%">
+		                                   		$multilangue[nom]<br/>$multilangue[prenom]
+		                              		</th>	                                  
+		                              		<th width="8%">
+		                                  		$multilangue[raison_sociale]
+			                              	</th>	                                  
+			                              	<th width="14%">
+			                                   	$multilangue[adresse]
+			                              	</th>
+			                              	<th width="10%">
+			                                   	$multilangue[adresse2]
+			                              	</th>	                                
+			                              	<th width="10%">
+			                                  	$multilangue[code_postal]<br/>$multilangue[ville]
+			                              	</th>	                                
+			                              	<th width="10%">
+			                                   	$multilangue[telephone]<br/>$multilangue[telephone2]
+			                              	</th>	                                
+			                              	<th width="10%">
+			                                  	$multilangue[pays]
+			                              	</th>	                                 
+			                              	<th width="10%">
+		                                   		$multilangue[commentaire]
+		                              		</th>                                  
+		                         		</tr>
+		                         	</thead>
+		                        	<tbody>
+		                         		<!-- BEGIN ClientsAdresseLivraisonBit -->
+		                        			<tr>
+		                         				<td>$adresseLivraison[nomlivraison]</td>
+		                         				<td>$livCivilite</td>
+		                         				<td>
+		                         					$adresseLivraison[nom]
+		                         					<br/>
+		                         					$adresseLivraison[prenom]
+		                         				</td>
+					                           	<td>$adresseLivraison[raisonsociale]</td>
+					                           	<td>$adresseLivraison[adresse]</td>
+					                           	<td>$adresseLivraison[adresse2]</td>
+				                               	<td>
+				                                	$adresseLivraison[codepostal]
+				                                	<br/>
+				                                	$adresseLivraison[ville]
+				                               	</td>
+	                               				<td>
+		                               				$adresseLivraison[telephone]
+		                               				<br/>
+		                               				$adresseLivraison[telephone2]
+		                               			</td>
+	                               				<td>$livPays</td>
+		                               			<td>$adresseLivraison[commentaire]</td>
+	                             			</tr>
+		                         		<!-- END ClientsAdresseLivraisonBit -->
+		                        	</tbody>                                
+		                        </table>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+			<!-- END ClientsAdresseLivraison -->
+			
+			
+			<!-- BEGIN ClientsRecapCommande -->    
+                <div class="row">
+                    <div class="col-md-12">
+	                    <div class="portlet box green-jungle">
+	                        <div class="portlet-title">
+	                            <div class="caption">
+	                                <i class="fa fa-tag"></i>$multilangue[recap_commandes]
+	                            </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="expand">
+	                                </a>
+	                                
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body" style="display:none;">
+	                            
+	                            <div class="table-responsive">
+	                                <table class="table table-hover table-striped" style="text-align : left;">                                
+		                                <thead>
+			                                <tr>
+			                                    <td></td>
+			                                    <th class="ta-center">$multilangue[total]</th>
+			                                    <th class="ta-center">$multilangue[cette_annee]</th>
+			                                    <th class="ta-center">$multilangue[ce_mois]</th>
+			                                    <th class="ta-center">$multilangue[cette_semaine]</th>
+			                                </tr>
+		                                </thead>
+		                                <tbody>
+		                                	<!-- BEGIN ClientsRecapCommandePassees -->
+			                                <tr>
+			                                    <th> $multilangue[commandes_passees]</th>
+			                                    <td class="ta-center">$nbTotalCmdPassees</td>
+			                                    <td class="ta-center">$nbCmdPasseesAnnee</td>
+			                                    <td class="ta-center">$nbCmdPasseesMois</td>
+			                                    <td class="ta-center">$nbCmdPasseesSemaine</td>
+			                                </tr>
+			                                <!-- END ClientsRecapCommandePassees -->
+			                                
+			                                <!-- BEGIN ClientsRecapCommandeExpediees -->
+			                                <tr>
+			                                    <th> $multilangue[commandes_expediees</th>
+			                                    <td class="ta-center">$nbTotalCmdExpediees</td>
+			                                    <td class="ta-center">$nbCmdExpedieesAnnee</td>
+			                                    <td class="ta-center">$nbCmdExpedieesMois</td>
+			                                    <td class="ta-center">$nbCmdExpedieesSemaine</td>
+			                                </tr>
+			                                <!-- END ClientsRecapCommandeExpediees -->
+			                                
+			                                <!-- BEGIN ClientsRecapCommandeRemboursees -->
+			                                <tr>
+			                                    <th>$multilangue[commandes_remboursees]</th>
+			                                    <td class="ta-center">$nbTotalCmdRemboursees</td>
+			                                    <td class="ta-center">$nbCmdRembourseesAnnee</td>
+			                                    <td class="ta-center">$nbCmdRembourseesMois</td>
+			                                    <td class="ta-center">$nbCmdRembourseesSemaine</td>                                   
+			                                </tr>
+			                                <!-- END ClientsRecapCommandeRemboursees -->
+			                                
+			                                <!-- BEGIN ClientsRecapCommandeMoyenBit -->
+				                                <tr>
+				                                    <th>$typePaiement</th>
+				                                    <td class="ta-center">$nbTotalPaiement</td>
+				                                    <td class="ta-center">$nbPaiementCetteAnnee</td>
+				                                    <td class="ta-center">$nbPaiementCeMois</td>
+				                                    <td class="ta-center">$nbPaiementCetteSemaine</td>
+				                                </tr>
+			                                <!-- END ClientsRecapCommandeMoyenBit -->
+										</tbody>
+	                                
+	                                
+	                                </table>
+	                            </div>	                            
+	                        </div>
+	                    </div>
+             		</div>
+          		</div>
+          	<!-- END ClientsRecapCommande -->          
+          
+	     	<!-- BEGIN ClientsDetailCommande -->
+	          	<div class="row">
+	                <div class="col-md-12">
+	                    <div class="portlet box green-turquoise">
+	                        <div class="portlet-title">
+	                            <div class="caption">
+	                                <i class="fa fa-shopping-cart"></i>$multilangue[liste_commandes] 
+	                            </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="expand">
+	                                </a>
+	                                
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body" style="display:none;">
+	                            <div class="table-responsive">
+	                                <table class="table table-striped table-bordered table-hover table-full-width"  id="sample_3">
+	                                <thead>
+	                                <tr>                                    
+	                                    <th class="ta-center">
+	                                         N° $multilangue[facture]
+	                                    </th>
+	                                    <th class="ta-center">
+	                                         N° $multilangue[commande]
+	                                    </th>
+	                                    <th class="ta-center">
+	                                        $multilangue[date]
+	                                    </th>
+	                                    <th>
+	                                       $multilangue[montant] $multilangue[ttc]
+	                                    </th>
+	                                    <th>
+	                                        $multilangue[moyen_de_reglement]
+	                                    </th>
+	                                    <th>
+	                                        $multilangue[etat]
+	                                    </th>
+	                                    <th>
+	                                        $multilangue[action]
+	                                    </th>
+	                                </tr>
+	                                </thead>
+	                                <tbody>
+	                                <!-- BEGIN ClientsDetailCommandeBit -->
+	                                <tr>
+	                                    <td class="ta-center">
+	                                         $detailCommande[numerofacture]
+	                                    </td>
+	                                    <td class="ta-center">
+	                                        $detailCommande[factureid]
+	                                    </td>
+	                                    <td class="ta-center">
+	                                         $detailCommande[datefacture]
+	                                    </td>
+	                                    <td>
+	                                        $detailCommande[montanttotal_ttc] $symboleMonetaire
+	                                    </td>
+	                                    <td>
+	                                        $modePaiement[libelle]
+	                                    </td>
+	                                    <td>
+	                                         $etatFacture[libelle] $deleted
+	                                    </td>
+	                                    <td>
+	                                        <a href="commandes.php?action=modifier&factureid=$detailCommande[factureid]"><i class="fa fa-pencil-square-o" style=";"></i>
+	                                        $multilangue[plus_de_details]</a> 
+	                                    </td>
+	                                </tr>
+	                                <!-- END ClientsDetailCommandeBit -->                               
+	                        	</tbody>
+	                  		</table>
+	                        <!-- BEGIN ClientsTotauxCommandeBit -->
+		                        <table class="table">
+		                            <tr>
+		                                <td><b>$multilangue[total_factures] : </b>$totalFactTtc[total]€ $multilangue[ttc]</td>   
+		                                <td><b>$multilangue[total_commandes_en_cours] : </b>$totalCmdEnCours[Cmd_total]€ $multilangue[ttc]</td>
+		                                <td><b>$multilangue[total_commandes_en_attente] : </b>$cmdAttente[attente]€ $multilangue[ttc]</td>
+		                      			<td><b>$multilangue[total_commandes_factures] : </b>$totalCmd[sum]€ $multilangue[ttc]</td>
+		                          	</tr>
+		                        </table>
+	                        <!-- END ClientsTotauxCommandeBit -->
+	                        </div>		                                     
+	                	</div>
+	  				</div>
+				</div>
+			</div>   	
+			
+			<div class="row">
+	       		<div class="col-md-12">
+            		<div class="portlet box green-seagreen">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-shopping-cart"></i>$multilangue[statistiques]
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="expand">
+                                </a>
+                                
+                            </div>
+	                   	</div>
+	                  	<div class="portlet-body" style="display:none;">	                            
+		                    $graph2	              
+		                    $graph3	                         
+	                	</div>
+	  				</div>
+				</div>
+			</div> 
+					
+			<!-- END ClientsDetailCommande -->
+            
+			
+			<!-- BEGIN ClientsEchanges -->
+			<a name="echanges"></a>
+			<div class="row">				 
+                <div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-envelope-o"></i>$multilangue[echange_client]
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="expand">
+                                </a>                                
+                            </div>
+                        </div>
+                        <div class="portlet-body" style="display:none;">                         	 
+         					<a href="#envoimailclient" data-toggle="modal" name="envoimail" class="btn green" style="float:left;"><i class="fa fa-edit"></i> $multilangue[envoyer_mail_client]</a>
+         					<a href="#AjoutCommentaire" data-toggle="modal" data-original-title="$multilangue[voir]" data-placement="top" class="btn green mb-10" style="float:right;"><i class="fa fa-plus"></i> $multilangue[ajouter_nouveau_commentaire]</a>                            
+         					<div aria-hidden="true" aria-labelledby="envoimailclient" role="dialog" class="modal fade" id="envoimailclient" style="display: none;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									<form id="envoyermail" action="clients.php" method="post">
+										<input type="hidden" value="envoyermail" name="action">
+										<input type="hidden" name="userid" value="$user">
+										<div class="modal-header">
+											<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+											<h4 class="modal-title">$multilangue[contacter_client] : <b>"$utilisateur[mail]"</b></h4>
+										</div>
+										<div class="modal-body">
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[sujet]</label>
+												<div class="col-md-10 mb-20">																														
+													<input type="text" class="form-control" name="sujet"/>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[message]</label>
+												<div class="col-md-10">																														
+													<textarea class="form-control autosize" name="message"></textarea>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="modal-footer">
+											<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+											<input type="submit" class="btn blue" value="$multilangue[envoyer]"/>
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+         					
+                            <br><br>         
+                        	<!-- BEGIN ClientsRecapMail -->
+                        		<div class="panel panel-info">
+									<!-- Default panel contents -->
+									<div class="panel-heading">
+										<h3 class="panel-title"><i class="fa fa-envelope-o"></i> $multilangue[recap_emails_envoyes_pour_adresse] "$utilisateur[mail]" </h3>
+									</div>
+		                            <div class="table-responsive" style="padding:10px;">	                            	
+		                                <table class="table table-striped table-bordered table-hover tab_recap_mails">
+			                                <thead>
+				                                <tr>                                    
+				                                    <th>$multilangue[date]</th>
+				                                    <th>$multilangue[sujet]</th>
+				                                    <th>$multilangue[contenu]</th>
+				                                </tr>
+			                                </thead>
+			                                <tbody>
+				                                <!-- BEGIN ClientsRecapMailBit -->
+					                                <tr>
+					                                    <td>$dateMail</td>
+					                                    <td>
+					                                        $emailSend[sujet] 
+					                                    </td>
+					                                    <td>
+					                                        $emailSend[contenucoupe] <a href="#myModal$emailSend[emailenvoyeid]" data-toggle="modal"><i>$multilangue[lire_suite]</i></a>
+					                                        <div aria-hidden="true" aria-labelledby="myModalLabe$emailSend[emailenvoyeid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$emailSend[emailenvoyeid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">$multilangue[email_envoye_a] '$emailSend[destinataire]' ?</h4>
+																		</div>
+																		<div class="modal-body">																					
+																			<b>$multilangue[date] : </b>$dateMail<br>
+																			<b>$multilangue[sujet] : </b>$emailSend[sujet] <br>
+																			<br><br>
+																			$emailSend[contenu]
+																		</div>																														
+																	</div>
+																</div>
+															</div>
+					                                    </td>			                                    
+					                                </tr>
+				                                <!-- END ClientsRecapMailBit --> 
+			                                </tbody>
+		                                </table>                                                              
+		                            </div>
+	                            </div>
+                            <!-- END ClientsRecapMail -->
+                            
+
+                            <!-- BEGIN ClientsRecapReponse -->
+                            	<a name="reponsesformulaires"></a>
+	                            <div class="panel panel-info">
+									<!-- Default panel contents -->
+									<div class="panel-heading">
+										<h3 class="panel-title"><i class="fa fa-edit"></i> $multilangue[recap_formu_remplis] "$utilisateur[mail]"</h3>
+									</div>
+		                            <div class="table-responsive">
+		                                <table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[date] / $multilangue[heure]
+													</th>
+													<th class="ta-center">
+														$multilangue[page]
+													</th>
+													<th class="ta-center">
+														$multilangue[statut]
+													</th>
+													<th class="ta-center">
+														$multilangue[action]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN ClientsRecapReponseBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="ta-center">																
+															$multilangue[le] $reponse[date] $multilangue[a] $reponse[heure]
+														</td>
+														<td class="ta-center">
+															$reponse[page]
+														</td>
+														<td class="ta-center">
+															<!-- BEGIN ClientsRecapReponseStatuts -->
+															<select id="$reponse[formulairereponseid]" class="form-control select">
+																<!-- BEGIN ClientsRecapReponseStatutsBit -->
+																	<option value="$statut[statutid]" $selected>$statut[libelle]</option>
+																<!-- END ClientsRecapReponseStatutsBit -->
+															</select>
+															<!-- END ClientsRecapReponseStatuts -->
+														</td>
+														<td class="ta-center">
+												        	<a href="clients.php?action=supprimerreponse&userid=$user#reponsesformulaires" data-original-title="$multilangue[supprimer]" data-placement="top" class="btn tooltips">
+												            	<i class="fa fa-trash-o fs-18 font-red"></i>
+												        	</a>	
+												        	<a href="#ModalReponse$reponse[formulairereponseid]" data-toggle="modal" data-original-title="$multilangue[voir]" data-placement="top" class="btn tooltips">													
+																<i class="fa fa-eye fs-18 font-blue"></i>
+															</a>
+															<!-- BEGIN ClientsDetailsReponsesBit -->
+																<div aria-hidden="true" aria-labelledby="detail_echange$iechange" role="dialog" tabindex="-1" class="modal fade" id="detail_echange$iechange" style="display: none;">
+																	<div class="modal-dialog">
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																				<h4 class="modal-title">$multilangue[details_reponse_form] "$reponse[page]"</h4>
+																			</div>
+																			
+																			<div class="modal-body">																					
+																				<div class="table-responsive">
+																					<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+																						<thead>
+																							<tr>
+																								<th class="ta-center">
+																									$multilangue[champ]
+																								</th>
+																								<th class="ta-center">
+																									$multilangue[valeur]
+																								</th>
+																						</thead>
+																						<tbody>
+																							<!-- BEGIN ClientsDetailsReponsesBit2 -->
+																								<tr id="$reponse[formulaireid]">
+																									<td class="ta-center">
+																										$champ[champ]
+																									</td>
+																									<td class="ta-center">
+																										$champ[valeur]
+																									</td>
+																								</tr>
+																							<!-- END ClientsDetailsReponsesBit2 -->												
+																						</tbody>
+																					</table>												
+																				</div>
+																			</div>																																															
+																		</div>
+																	</div>
+																</div>
+															<!-- END ClientsDetailsReponsesBit -->
+														</td>
+													</tr>
+												<!-- END ClientsRecapReponseBit -->												
+											</tbody>
+										</table>                                                             
+		                            </div>
+	                            </div>
+	                            <form id="modifierstatut" action="clients.php" method="post">
+									<input type="hidden" value="setstatut" name="action">
+									<input type="hidden" value="$user" name="userid">
+									<input type="hidden" name="formulaireid" value="">
+									<input type="hidden" name="formulairereponseid">
+									<input type="hidden" name="statutid">
+								</form>
+                            <!-- END ClientsRecapReponse -->
+                                 
+                            <!-- BEGIN ClientsCommentaires -->                         	         
+                            	<a name="commentaires"></a>
+	                            <div class="panel panel-info">
+									<!-- Default panel contents -->
+									<div class="panel-heading">
+										<h3 class="panel-title"><i class="fa fa-comments"></i> Liste des commentaires sur ce client</h3>
+									</div>
+		                            <div class="table-responsive">
+		                                <table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[ecrit_par]
+													</th>
+													<th class="ta-center">
+														$multilangue[date]
+													</th>
+													<th class="ta-center">
+														$multilangue[commentaire]
+													</th>													
+													<th class="ta-center">
+														$multilangue[action]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN ClientsCommentairesBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="ta-center">																
+															$utilisateur_admin_commentaire[username]
+														</td>
+														<td class="ta-center">																
+															$commentaire[date_eu]
+														</td>
+														<td class="ta-center">
+															$commentaire[commentaire]
+														</td>													
+														<td class="ta-center">
+															<!-- BEGIN ClientsCommentairesBitSuppression -->
+												        	<a href="clients.php?action=supprimercommentaire&commentaireid=$commentaire[commentaireid]&userid=$user#commentaires" data-original-title="$multilangue[supprimer]" data-placement="top" class="btn tooltips">
+												            	<i class="fa fa-trash-o fs-18 font-red"></i>
+												        	</a>	
+												        	<!-- END ClientsCommentairesBitSuppression -->
+														</td>
+													</tr>
+												<!-- END ClientsCommentairesBit -->												
+											</tbody>
+										</table>                                                             
+		                            </div>
+	                            </div>	                            
+                            <!-- END ClientsCommentaires -->
+                            <div aria-hidden="true" aria-labelledby="AjoutCommentaire" role="dialog" tabindex="-1" class="modal fade" id="AjoutCommentaire" style="display: none;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+											<h4 class="modal-title">$multilangue[ajout_commenaire_client] "$utilisateur[prenom] $utilisateur[nom] ($utilisateur[mail])"</h4>
+										</div>																			
+										<div class="modal-body">																					
+											<form id="formajoutcommentaire" action="clients.php" method="post">
+												<input type="hidden" value="ajoutcomentaire" name="action">
+												<input type="hidden" value="$user" name="userid">											
+												<textarea name="commentaire" class="form-control" placeholder="Commentaire ..."></textarea><br>
+												<input type="submit" value="$multilangue[enregistrer]" style="float: right;" class="btn green">												
+											</form>
+											<div class="clearfix"></div>
+										</div>																																															
+									</div>
+								</div>
+							</div>
+							
+							<div class="clearfix"></div>
+							<!-- BEGIN ClientsCommentairesCommandes -->                         	         
+                            	<a name="commentairescommandes"></a>
+	                            <div class="panel panel-info">									
+									<div class="panel-heading">
+										<h3 class="panel-title"><i class="fa fa-comments"></i> $multilangue[liste_commentaire_commande_client] </h3>
+									</div>
+		                            <div class="table-responsive">
+		                                <table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[num_commande]
+													</th>
+													<th class="ta-center">
+														$multilangue[num_facture]
+													</th>
+													<th class="ta-center">
+														$multilangue[date_de_commande]
+													</th>
+													<th class="ta-center">
+														Ecrit par
+													</th>
+													<th class="ta-center">
+														$multilangue[date_commentaire]
+													</th>
+													<th class="ta-center">
+														$multilangue[commentaire]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN ClientsCommentairesCommandesBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="ta-center">																
+															$commentaire_fact[factureid]
+														</td>
+														<td class="ta-center">																
+															$commentaire_fact[numerofacture]
+														</td>
+														<td class="ta-center">																
+															$commentaire_fact[timestamp]
+														</td>
+														<td class="ta-center">																
+															$utilisateur_admin_commentaire[username]
+														</td>
+														<td class="ta-center">																
+															$commentaire_fact[date_eu]
+														</td>
+														<td class="ta-center">
+															$commentaire_fact[commentaire_fact]
+														</td>
+													</tr>
+												<!-- END ClientsCommentairesCommandesBit -->												
+											</tbody>
+										</table>                                                             
+		                            </div>
+	                            </div>	                            
+                            <!-- END ClientsCommentairesCommandes -->
+
+                       		
+							<!-- Default panel contents -->							
+                            <div class="table-responsive" style="padding:10px;">	                            	
+                                <table class="table table-striped table-bordered table-hover tab_recap_echanges">
+	                                <thead>
+		                                <tr>                                    
+		                                    <th>$multilangue[date] </th>
+		                                    <th>$multilangue[type] </th>
+		                                    <th>$multilangue[contenu] </th>
+		                                    <th>$multilangue[action] </th>
+		                                </tr>
+	                                </thead>
+	                                <tbody>
+		                                <!-- BEGIN ClientsEchangesBit -->
+			                                <tr>
+			                                    <td>$echangebit[date]</td>
+			                                    <td>
+			                                        $echangebit[type]
+			                                    </td>
+			                                    <td>
+			                                        $echangebit[contenu]
+			                                    </td>
+			                                    <td>
+			                                    	$echangebit[details]			                                    	
+			                                    </td>			                                    
+			                                </tr>
+		                                <!-- END ClientsEchangesBit --> 
+	                                </tbody>
+                                </table>                                                              
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>                    
+				</div>
+			</div>
+			<!-- END ClientsEchanges -->
+                
+	     	<!-- BEGIN ClientsDetailPaniers -->
+	     		<div class="row">
+	                <div class="col-md-12">
+				        <div class="portlet box blue-steel">
+				            <div class="portlet-title">
+				                <div class="caption">
+				                    <i class="fa fa-shopping-cart"></i>$multilangue[detail_paniers]
+				                </div>
+				                <div class="tools">
+				                    <a href="javascript:;" class="expand">
+				                    </a>
+				                    
+				                </div>
+				            </div>
+				            <div class="portlet-body" style="display:none;">
+				                <div class="table-responsive">
+				                    <table class="table table-striped table-bordered dataTable">
+				                    	<thead>
+					                   		<tr> 
+					                   			<th></th>                                   
+					                          	<th>$multilangue[num_panier]</th>
+					                          	<th>$multilangue[date]</th>
+					                          	<th>$multilangue[nb_produits]</th>
+					                          	<th>$multilangue[frais_port] $multilangue[ttc]</th>
+					                          	<th>$multilangue[montant] $multilangue[ttc]</th>
+					                          	<th>$multilangue[facture]</th>
+					                          	<th>$multilangue[etat]</th>
+					                      	</tr>
+				                    	</thead>
+				                    	<tbody>
+				                    		<!-- BEGIN ClientsDetailPaniersBit -->
+				                      		<tr>
+				                          		<td><span class="row-details row-details-close" id="btn_details$i_paniers" onclick="openDetails('btn_details$i_paniers','details$i_paniers');"></span></td>
+				                          		<td>$rs_panier[panierid]</td>
+				                          		<td>$jour/$mois/$annee</td>
+				                          		<td>$nb_articles_panier</td>
+				                          		<td>$montantPortTTCE $symboleMonetaire</td>
+				                          		<td>$totalTTCE $symboleMonetaire</td>
+				                          		<td>$affNumFact</td>
+				                          		<td>$affEtat</td>				                          
+				                      		</tr>
+				                      		<tr style="display:none;">
+				                          		<td colspan="8">&nbsp;				                          			
+				                              										                	
+				                          		</td>				                          
+			                     			</tr>
+				                      		<tr class="details" id="details$i_paniers" style="display:none;">
+				                          		<td colspan="8" style="padding:20px;">				                          			
+				                              		<table class="table table-bordered"  style="margin:0px;">
+								                    	<thead>
+									                   		<tr>									                   			                                 
+									                          	<th style="background-color:#FFFFFF">$multilangue[reference]</th>
+									                          	<th style="background-color:#FFFFFF">$multilangue[libelle]</th>
+									                          	<th style="background-color:#FFFFFF">$multilangue[quantite]</th>
+									                          	<th style="background-color:#FFFFFF">$multilangue[prix_unitaire] $multilangue[ttc]</th>
+									                          	<th style="background-color:#FFFFFF">$multilangue[prix_total] $multilangue[ttc]</th>
+									                      	</tr>
+								                    	</thead>
+								                    	<tbody>
+								                    		<!-- BEGIN ClientsDetailPaniersBitLigneBit -->
+									                      		<tr style="border-top:1px solid #EEEEEE;">
+									                          		<td style="background-color:#FFFFFF">$lignepaniertmp[lp_artcode]</td>
+									                          		<td style="background-color:#FFFFFF">$lignepaniertmp[libellearticle] $listeCaracteristiques</td>
+									                          		<td style="background-color:#FFFFFF">$lignepaniertmp[qte]</td>
+									                          		<td style="background-color:#FFFFFF">$prixLignePanierE $symboleMonetaire $personnalisation</td>
+									                          		<td style="background-color:#FFFFFF">$prixLignePanierTotalE $symboleMonetaire</td>			                          
+									                      		</tr>
+								                      		<!-- END ClientsDetailPaniersBitLigneBit -->								                      		
+								                      	</tbody>
+								                	</table>								                	
+				                          		</td>				                          
+			                     			</tr>
+			                     			<!-- END ClientsDetailPaniersBit -->				                      		
+				                    	</tbody>
+				                    </table>
+				                </div>
+				            </div>
+				        </div>
+					</div>
+				</div>
+			<!-- END ClientsDetailPaniers -->
+			
+			<!-- BEGIN ClientsAjout -->
+	            <div class="row" id="clientInfos">
+	                <div class="col-md-12">
+	                    <div class="portlet box red">
+	                        <div class="portlet-title">
+	                            <div class="caption" >
+	                                <i class="fa fa-user"></i>$multilangue[infos_client]
+	                            </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="collapse">
+	                                </a>                                
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body">
+								<div id="modifclient">									
+									<form method="post" action="clients.php" name="aForm">
+										<input type="hidden" name="action" value="ajoutclientbdd">
+										<input type="hidden" name="userid" value="$utilisateur[userid]">
+										<input type="submit" class="btn green" style="float: right; margin-left:10px;" value="$multilangue[enregistrer]" />
+											<a href="clients.php" type="button" class="btn grey-silver right">
+				                        	<i class="fa fa-arrow-left"></i>
+				                        	$multilangue[retour]                        	
+				                       	</a>
+	                            	<br><br>
+		                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left; margin-right:1%;">                                
+			                            <table class="table table-striped table-bordered table-hover">
+				                            <tr>
+				                                <td class="entete_client">
+				                                	$multilangue[civilite]
+				                                </td>
+				                                <td>
+				                                	<div class="radio-list">
+														<label class="radio-inline">
+														<input type="radio" name="Fcivilite" value="0" $Fcivilite0>$multilangue[monsieur_diminutif]</label>
+														<label class="radio-inline">
+														<input type="radio" name="Fcivilite" value="1" $Fcivilite1> $multilangue[madame_diminutif] </label>													
+													</div>												
+				                                </td>			                               
+				                            </tr>
+			                             	<tr>
+			                                 	<td class="entete_client">
+			                                      	$multilangue[nom]
+			                                 	</td>
+			                                 	<td>
+			                                 		<input class="form-control" name="Fnom" type="text" value="$Fnom">
+			                                 	</td>                               
+			                             	</tr>
+			                             	<tr>
+			                                 	<td class="entete_client">
+			                                      	$multilangue[prenom]
+			                                 	</td>
+			                                 	<td>
+			                                 		<input class="form-control" name="Fprenom" type="text" value="$Fprenom">
+			                                 	</td>                               
+			                             	</tr>
+			                             	<tr>
+			                                 	<td class="entete_client">
+			                                 		$multilangue[email]
+			                                 	</td>
+			                                 	<td>
+			                                 		<input class="form-control" name="Fmail" type="text" value="$Fmail">
+			                                 		<span class="help-block">
+			                                 			$multilangue[inscrit_newsletter]		                                 			
+														<label class="radio-inline">
+														<input type="radio" name="Fnewsletter" value="1" $Fnewsletter_partenaire1> $multilangue[oui] </label>
+														<label class="radio-inline">
+														<input type="radio" name="Fnewsletter" value="0" $Fnewsletter_partenaire0> $multilangue[non] </label>													
+			                                 		</span>	
+			                                 		<!-- BEGIN ClientsAjoutNewsletterPart --> 
+				                                 		<span class="help-block">
+				                                 			$multilangue[inscrit_newsletter_partenaire]		                                 			
+															<label class="radio-inline">
+															<input type="radio" name="Fnewsletter_partenaire" value="1" $Fnewsletter_partenaire1> $multilangue[oui] </label>
+															<label class="radio-inline">
+															<input type="radio" name="Fnewsletter_partenaire" value="0" $Fnewsletter_partenaire0> $multilangue[non] </label>													
+				                                 		</span>	
+			                                 		<!-- END ClientsAjoutNewsletterPart --> 	                                     	
+			                                 	</td>	                                   
+			                             	</tr>
+			                             	
+			                             	<tr>
+			                                 	<td class="entete_client">
+			                                     	$multilangue[raison_sociale]
+			                                 	</td>
+			                                 	<td>
+			                                 		<input class="form-control" name="Fraisonsociale" type="text" value="$Fraisonsociale">		                                     	
+			                                 	</td>                                 
+			                             	</tr>
+				                            <tr>
+				                                <td class="entete_client">
+				                                     $multilangue[adresse]
+				                                </td>
+				                                <td>
+				                                    <input class="form-control" name="Fadresse" type="text" value="$Fadresse">
+				                                </td>
+				                            </tr>
+				                            <tr>
+				                                <td class="entete_client">
+				                                     $multilangue[adresse2]
+				                                </td>
+				                                <td>
+				                                    <input class="form-control" name="Fadresse2" type="text" value="$Fadresse2">
+				                                </td>
+				                            </tr>                                
+				                            <tr>
+				                                <td class="entete_client">
+				                                    $multilangue[code_postal] / $multilangue[ville]
+				                                </td>
+				                                <td>
+				                                    <input style="width:30%; display:inline-block; float:left;" class="form-control" name="Fcodepostal" type="text" value="$Fcodepostal">
+				                               		<input style="width:69%; display:inline-block; float:right;" class="form-control" name="Fville" type="text" value="$Fville">
+				                                </td>
+				                            </tr> 
+				                            <tr>
+				                                <td class="entete_client">
+				                                    $multilangue[telephone] / $multilangue[telephone2]
+				                                </td>
+				                                <td>
+				                                    <input style="width:49.5%; display:inline-block; float:left;" class="form-control" name="Ftelephone" type="text" value="$Ftelephone">
+				                               		<input style="width:49.5%; display:inline-block; float:right;" class="form-control" name="Ftelephone2" type="text" value="$Ftelephone2">
+				                                </td>
+				                            </tr>                                                 
+			                            </table>
+		      						</div>							
+		                            <div style="width:49.5%; min-width:300px; display:inline-block; float:left;">
+		                                <table class="table table-striped table-bordered table-hover">
+		                                	<!-- BEGIN ClientsAjoutPro --> 
+		                                		<tr>	                                    
+				                                    <td class="entete_client">
+				                                         $multilangue[professionnel] ?
+				                                    </td>
+				                                    <td>
+				                                    	<label class="radio-inline">
+														<input type="radio" name="Fpro" value="1" $Fpro1> $multilangue[oui] </label>
+														<label class="radio-inline">
+														<input type="radio" name="Fpro" value="0" $Fpro0> $multilangue[non] </label>													
+														<i class="fa fa-question-circle info font-blue pointer" style="font-size:18px;" data-trigger="click" data-placement="bottom" data-content="$multilangue[texte_info_passage_pro_creation]"></i> 
+				                                    </td>
+				                                </tr>	                                 		
+	                                 		<!-- END ClientsAjoutPro -->
+	                                 		<!-- BEGIN ClientsAjoutEncours --> 
+		                                		<tr>	                                    
+				                                    <td class="entete_client">
+				                                        $multilangue[encours_max]
+				                                    </td>
+				                                    <td>
+				                                    	<input class="form-control" name="Fencours_max" type="text" value="$Fencours_max">
+				                                    </td>
+				                                </tr>	                                 		
+	                                 		<!-- END ClientsAjoutEncours -->                                  
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                         $multilangue[siret]
+			                                    </td>
+			                                    <td>
+			                                    	<input class="form-control" name="Fsiret" type="text" value="$Fsiret">
+			                                    </td>
+			                                </tr>
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[tva_intracommunautaire] 
+			                                    </td>
+			                                    <td>
+			                                    	<input class="form-control" name="Ftva" type="text" value="$Ftva">
+			                                    </td>
+			                                </tr>
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[fonction]
+			                                    </td>
+			                                    <td>
+			                                    	<input class="form-control" name="Ffonction" type="text" value="$Ffonction">
+			                                    </td>
+			                                </tr>
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[pays]
+			                                    </td>
+			                                    <td>
+			                                    	<select name="Fpays" class="form-control">
+			                                    		$optionsPays
+			                                    	</select>		                                        
+			                                    </td>
+			                                </tr>	
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[mot_de_passe]
+			                                    </td>
+			                                    <td>
+			                                    	<input style="width:35%; display:inline-block; float:left;" class="form-control" type="text" name="passField"/>
+			                                    	<input style="margin-left:10px;" type="button" onclick="GeneratePassword();" value="$multilangue[generer_mdp]" class="btn blue"/>		                                        
+			                                    </td>
+			                                </tr>
+			                                <tr>	                                    
+			                                    <td class="entete_client">
+			                                        $multilangue[envoyer_mail_client] ?
+			                                    </td>
+			                                    <td>   
+													<input type="checkbox" checked="checked" name="envoieemailclient"/>
+		                                    		<i class="fa fa-question-circle fs-20 info font-blue pointer" style="font-size:18px;" data-trigger="click" data-placement="bottom" data-content="$multilangue[texte_info_changement_mdp_creation]"></i>        
+			                                    </td>
+			                                </tr>                          
+		                                </table>                                
+									</div>
+									</form>
+								</div>							
+	                            <div class="clearfix"></div>
+							</div>
+						</div>
+					</div> 
+				</div> 
+				<!-- END ClientsAjout -->
+			
+			
+
+            <!-- FIN PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script src="assets/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.crosshair.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+<script src="assets/scripts/core/datatable.js"></script>
+<script src="assets/scripts/custom/charts.js"></script>
+
+<script src="clients.js"></script>
+
+<script type="text/javascript">
+	jQuery(function(){
+      jQuery("#btn_yellow").click(function () {
+         $("#clientInfos").hide();		 
+         $("#clientModif").show();
+      });
+    });						 
+</script>
+
+<script type="text/javascript" src="assets/plugins/data-tables/plugins/sorting/date-euro.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+<script>
+	jQuery(document).ready(function() {     
+	   App.init(); // initlayout and core plugins
+	   $('.info').popover({html: true, container: "body"});
+	   
+	   $('.autosize').css('resize', 'vertical').autosize();
+	   
+	   $(document).ready(function() {
+			$('.tab_recap_mails').dataTable( {
+		        "order": [[ 0, "desc" ]],
+				"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "Tout les"]],
+				"columnDefs": [{ type: 'date-euro', targets: 0 }],
+				"language": {
+					"search": "Recherche : ",
+					"paginate": {
+						"first": "$multilangue[premiere_page]",
+						"last": "$multilangue[derniere_page]",
+						"next": "$multilangue[page_suivante]",
+						"previous": "$multilangue[page_precedente]"
+					},
+					"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+					"info": "$multilangue[affichage_resultats_de_a]",
+					"infoEmpty": "$multilangue[aucun_resultat]",
+					"infoFiltered": "$multilangue[sur_max_]",
+					"lengthMenu": "$multilangue[afficher_menu_resultats]",
+					"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+				}
+		    });
+
+			 $('.tab_recap_echanges').dataTable( {
+		        "order": [[ 0, "desc" ]],
+				"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "Tout les"]],
+				"columnDefs": [{ type: 'date-euro', targets: 0 }],
+				"language": {
+					"search": "Recherche : ",
+					"paginate": {
+						"first": "$multilangue[premiere_page]",
+						"last": "$multilangue[derniere_page]",
+						"next": "$multilangue[page_suivante]",
+						"previous": "$multilangue[page_precedente]"
+						},
+						"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+						"info": "$multilangue[affichage_resultats_de_a]",
+						"infoEmpty": "$multilangue[aucun_resultat]",
+						"infoFiltered": "$multilangue[sur_max_]",
+						"lengthMenu": "$multilangue[afficher_menu_resultats]",
+						"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+				}
+		    });
+			$('.dataTables_filter input').addClass("form-control input-small input-inline");
+			$('.dataTables_length select').addClass("form-control input-small");
+	
+		});
+	   
+	   	$('.select').change(function() {
+			$('#modifierstatut input[name="formulairereponseid"]').val($(this).attr('id'));
+			$('#modifierstatut input[name="statutid"]').val($(this).val());
+			$('#modifierstatut').submit();
+		});
+	   
+	   //Charts.init();	   
+	});
+</script>
+
+<!-- BEGIN ClientsInitTable -->
+<script>
+	jQuery(document).ready(function() { 
+	   ListeClients.init();   	   
+	});
+</script>
+<!-- END ClientsInitTable -->
+
+
+<!-- END ClientsIndex -->

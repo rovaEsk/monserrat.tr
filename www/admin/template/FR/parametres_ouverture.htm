@@ -1,0 +1,255 @@
+﻿<!-- BEGIN Parametres_ouvertureIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT PAGE HEADER -->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+				<h3 class="page-title">
+				Paramètres d'ouverture<small></small>
+				</h3>
+				<ul class="page-breadcrumb breadcrumb">						
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="index.php">
+							$multilangue[accueil]
+						</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							Arobases
+						</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							Paramètres d'ouverture
+						</a>
+					</li>
+				</ul>
+				<!-- FIN PAGE TITLE & BREADCRUMB-->
+			</div>
+		</div>
+	<!-- FIN PAGE HEADER -->
+	
+	<!-- DEBUT PAGE CONTENT-->
+	
+		<!-- BEGIN Parametres_ouvertureSuccess -->
+			<div class="alert alert-success alert-dismissable">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+				$texteSuccess
+			</div>
+		<!-- END Parametres_ouvertureSuccess -->
+		
+		<!-- BEGIN Parametres_ouvertureErreur -->
+			<div class="alert alert-danger alert-dismissable">
+				<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+				$texteErreur
+			</div>
+		<!-- END Parametres_ouvertureErreur -->
+			
+		<div class="row">
+			<div class="col-md-12">		
+				<!-- BEGIN Parametres_ouvertureImagesArticleForm -->
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							Redimensionnement des images des articles
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body form">
+					<div style="padding:20px;text-align:center;">
+						<!-- BEGIN Parametres_ouvertureImagesArticleFormSucces -->
+							Les images de l'article $article[artid] ont été redimensionnées<br>
+						<!-- END Parametres_ouvertureImagesArticleFormSucces -->
+						<!-- BEGIN Parametres_ouvertureImagesArticleFormSuivant -->
+							<form action="parametres_ouverture.php" name="formredim" method="POST" id="formredim">
+								<input type="hidden" name="action" value="redimensionner_article">
+								<input type="hidden" name="lastartid" value="$last_article">
+								<!-- BEGIN Parametres_ouvertureImagesArticleFormSuivantOption -->
+								<input type="hidden" name="$dossier" value="on">
+								<!-- END Parametres_ouvertureImagesArticleFormSuivantOption -->
+							</form>
+							<br>
+							<a class="btn blue" href="javascript:$('#formredim').submit();">Redimensionner les 5 articles suivants</a>
+							<script type="text/javascript">
+								setTimeout("$('#formredim').submit();",3000);
+							</script>
+						<!-- END Parametres_ouvertureImagesArticleFormSuivant -->
+						<div class="clear"></div>
+					</div>
+					</div>
+				</div>	
+				<!-- END Parametres_ouvertureImagesArticleForm -->
+				<!-- BEGIN Parametres_ouvertureImagesArticle -->
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							Redimensionnement des images des articles
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body form" style="display:none;">
+					<div style="padding:20px;">
+						<a class="btn green" href="javascript:void(0);" id="checkbox_article_check">Tout cocher</a>
+						<a class="btn green" href="javascript:void(0);" id="checkbox_article_uncheck">Tout décocher</a>
+						<br><br>
+						<form action="parametres_ouverture.php" method="POST">
+							<input type="hidden" name="action" value="redimensionner_article"/>
+							<!-- BEGIN Parametres_ouvertureImagesArticleBit -->
+							<div class="flagCheck">
+								<label>
+									<input type="checkbox" class="checkbox_article" name="$repertoire"> $repertoire
+								</label>
+							</div>
+							<!-- END Parametres_ouvertureImagesArticleBit -->
+							<div class="clear"></div>
+							<br><br>
+							<input class="btn blue" type="submit" value="Procéder au redimensionnement">
+						</form>
+						<div class="clear"></div>
+					</div>
+					</div>
+				</div>	
+				<!-- END Parametres_ouvertureImagesArticle -->
+				<!-- BEGIN Parametres_ouvertureImagesAutre -->
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							Redimensionnement des autres images
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body form" style="display:none;">
+					<div style="padding:20px;">
+						<a class="btn green" href="javascript:void(0);" id="checkbox_categ_check">Tout cocher</a>
+						<a class="btn green" href="javascript:void(0);" id="checkbox_categ_uncheck">Tout décocher</a>
+						<br><br>
+						<form action="parametres_ouverture.php" method="POST">
+							<input type="hidden" name="action" value="redimensionner"/>
+							<!-- BEGIN Parametres_ouvertureImagesCategorie -->
+								<h3>Catégories</h3>
+								<div class="clear"></div>
+								<!-- BEGIN Parametres_ouvertureImagesCategorieBit -->
+								<div class="flagCheck">
+									<label>
+										<input type="checkbox" class="checkbox_categ" name="$repertoire"> $repertoire
+									</label>
+								</div>
+								<!-- END Parametres_ouvertureImagesCategorieBit -->
+								<div class="clear"></div>
+							<!-- END Parametres_ouvertureImagesCategorie -->
+							<!-- BEGIN Parametres_ouvertureImagesCaractval -->
+								<h3>Article Caractéristiquevaleur</h3>
+								<div class="clear"></div>
+								<!-- BEGIN Parametres_ouvertureImagesCaractvalBit -->
+								<div class="flagCheck">
+									<label>
+										<input type="checkbox" class="checkbox_articlec" name="$repertoire"> $repertoire
+									</label>
+								</div>
+								<!-- END Parametres_ouvertureImagesCaractvalBit -->
+								<div class="clear"></div>
+							<!-- END Parametres_ouvertureImagesCaractval -->
+							<br><br>
+							<input class="btn blue" type="submit" value="Procéder au redimensionnement">
+						</form>
+						<div class="clear"></div>
+					</div>
+					</div>
+				</div>	
+				<!-- END Parametres_ouvertureImagesAutre -->
+				<!-- BEGIN Parametres_ouvertureRegenerationPDF -->
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							Regénération des PDF
+						</div>	
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>																			
+					</div>
+					<div class="portlet-body form" style="display:none;">
+					<div style="padding:20px;">
+						<a class="btn green" href="javascript:void(0);" id="checkbox_pdf_check">Tout cocher</a>
+						<a class="btn green" href="javascript:void(0);" id="checkbox_pdf_uncheck">Tout décocher</a>
+						<br><br>
+						<form action="parametres_ouverture.php" method="POST">
+							<input type="hidden" name="action" value="genererPDF"/>
+							<!-- BEGIN Parametres_ouvertureRegenerationPDFBit -->
+							<div class="flagCheck">
+								<label>
+									<input type="checkbox" class="checkbox_pdf" name="checkbox_pdf[$repertoire]"> $repertoire
+								</label>
+							</div>
+							<!-- END Parametres_ouvertureRegenerationPDFBit -->
+							<div class="clear"></div>
+							<br><br>
+							<input class="btn blue" type="submit" value="Procéder à la regénération">
+						</form>
+						<div class="clear"></div>
+					</div>
+					</div>
+				</div>	
+				<!-- END Parametres_ouvertureRegenerationPDF -->
+			</div>
+		</div>
+	<!-- FIN PAGE CONTENT-->
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script>
+	jQuery(document).ready(function() {
+		App.init();		
+		$("#checkbox_article_check").click(function(){
+			$(".checkbox_article").each(function(){
+				if($(this).prop('checked') === false){
+					$(this).click();
+				}
+			});
+		});		
+		$("#checkbox_article_uncheck").click(function(){
+			$(".checkbox_article").each(function(){
+				if($(this).prop('checked') === true){
+					$(this).click();
+				}
+			});
+		});				
+		$("#checkbox_categ_check").click(function(){
+			$(".checkbox_categ, .checkbox_articlec").each(function(){
+				if($(this).prop('checked') === false){
+					$(this).click();
+				}
+			});
+		});		
+		$("#checkbox_categ_uncheck").click(function(){
+			$(".checkbox_categ, .checkbox_articlec").each(function(){
+				if($(this).prop('checked') === true){
+					$(this).click();
+				}
+			});
+		});			
+		$("#checkbox_pdf_check").click(function(){
+			$(".checkbox_pdf").each(function(){
+				if($(this).prop('checked') === false){
+					$(this).click();
+				}
+			});
+		});		
+		$("#checkbox_pdf_uncheck").click(function(){
+			$(".checkbox_pdf").each(function(){
+				if($(this).prop('checked') === true){
+					$(this).click();
+				}
+			});
+		});	
+	});
+</script>
+<!-- END Parametres_ouvertureIndex -->

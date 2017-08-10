@@ -1,0 +1,842 @@
+<!-- BEGIN CommunHeader -->
+
+<!DOCTYPE html>
+
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.1.1
+Version: 2.0.2
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- DEBUT HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>$pagetitle</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<!-- BEGIN PACE PLUGIN FILES -->
+<!--<script src="assets/plugins/pace/pace.js" type="text/javascript"></script>
+<link href="assets/plugins/pace/themes/pace-theme-minimal.css" rel="stylesheet" type="text/css"/> -->
+<!-- END PACE PLUGIN FILES -->
+<!-- DEBUT GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link type="text/css" href="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+<!-- FIN GLOBAL MANDATORY STYLES -->
+<!-- DEBUT PAGE LEVEL PLUGIN STYLES -->
+<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/css/bootstrap-switch.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/jstree/dist/themes/default/style.min.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2-metronic.css"/>
+<link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/clockface/css/clockface.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<!-- FIN PAGE LEVEL PLUGIN STYLES -->
+<!-- DEBUT THEME STYLES -->
+<link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="assets/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="assets/css/component.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="includes/javascript/gridstack/src/gridstack.css" rel="stylesheet">
+<!-- FIN THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- FIN HEAD -->
+<!-- DEBUT BODY -->
+<body class="page-header-fixed page-sidebar-fixed">
+
+<div class="header navbar navbar-fixed-top">
+	<!-- DEBUT TOP NAVIGATION BAR -->
+	<div class="header-inner">
+		<!-- DEBUT LOGO -->
+		<a class="navbar-brand" href="./">
+			<img src="includes/images/logo_arobases.png" alt="logo" class="img-responsive"/>
+		</a>
+		<!-- FIN LOGO -->
+		<!-- DEBUT RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<img src="assets/img/menu-toggler.png" alt=""/>
+		</a>
+		<!-- FIN RESPONSIVE MENU TOGGLER -->
+		<!-- DEBUT TOP NAVIGATION MENU -->
+		<ul class="nav navbar-nav pull-right">
+		
+			<!-- BEGIN LANGUAGE DROPDOWN -->
+			<li class="dropdown language">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<img alt="" src="assets/img/flags/$admin_langue_drapeau.png"/>
+					<span class="username">
+						 $admin_langue
+					</span>
+					<i class="fa fa-angle-down"></i>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="?admin_langue=FR">
+							<img alt="" src="assets/img/flags/fr.png"/> Français
+						</a>
+					</li>
+					<li>
+						<a href="?admin_langue=GB">
+							<img alt="" src="assets/img/flags/gb.png"/> English
+						</a>
+					</li>					
+				</ul>
+			</li>
+			<!-- END LANGUAGE DROPDOWN -->
+						
+			<!-- DEBUT USER LOGIN DROPDOWN -->
+			<li class="dropdown user">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<img width=29 alt="" src="$user_imgsrc"/>
+					<span class="username">
+						 $user_info[username]
+					</span>
+					<i class="fa fa-angle-down"></i>
+				</a>
+				<ul class="dropdown-menu">					
+					<li>
+						<a href="javascript:;" id="trigger_fullscreen">
+							<i class="fa fa-arrows"></i> $multilangue[plein_ecran]
+						</a>
+					</li>
+					<li>
+						<a href="index.php?action=verrouille">
+							<i class="fa fa-lock"></i> $multilangue[verouiller]
+						</a>
+					</li>
+					<li>
+						<a href="?action=logout">
+							<i class="fa fa-power-off"></i> $multilangue[deconnexion]
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!-- FIN USER LOGIN DROPDOWN -->
+		</ul>
+		<!-- FIN TOP NAVIGATION MENU -->
+	</div>
+	<!-- FIN TOP NAVIGATION BAR -->
+</div>
+<div class="clearfix">
+	</div>
+	<!-- DEBUT CONTAINER -->
+	<div class="page-container">
+		<!-- DEBUT SIDEBAR -->
+		<div class="page-sidebar-wrapper">
+			<div class="page-sidebar navbar-collapse collapse">
+				<!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+				<!-- DEBUT SIDEBAR MENU -->
+				<ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+					<li class="sidebar-toggler-wrapper">
+						<!-- DEBUT SIDEBAR TOGGLER BUTTON -->
+						<div class="sidebar-toggler hidden-phone">
+						</div>
+						<!-- DEBUT SIDEBAR TOGGLER BUTTON -->
+					</li>
+					<li class="sidebar-search-wrapper">
+						<!-- DEBUT RESPONSIVE QUICK SEARCH FORM -->
+						<form class="sidebar-search" onsubmit="return valide_recherche();" action="recherche_globale.php" method="POST"  id="formGlobalSearch"><!-- old action : ="extra_search.html" -->
+							<input type="hidden" name="action" value="recherche_globale" >
+							<div class="form-container">
+								<div class="input-box">
+									<a href="javascript:;" class="remove">
+									</a>
+									<input type="text" placeholder="$multilangue[recherce_globale]" name="global_search" id="coreGlobalSearch"/>
+									<input type="button" class="submit" id="submitGlobalSearch"/>
+								</div>
+							</div>
+						</form>
+						<!-- FIN RESPONSIVE QUICK SEARCH FORM -->
+					</li>
+					<li class="start $class_menu_index_active">
+						<a href="index.php">
+							<i class="fa fa-home"></i>
+							<span class="title">
+								$multilangue[tableau_de_bord]
+							</span>
+							<span class="selected">
+							</span>
+						</a>
+					</li>	
+					<!-- BEGIN CommunMenuAdminBit -->
+						<li class="$class_menu_active">
+						<!-- BEGIN CommunMenuAdminBitLien -->
+						<a href="$admin_categorie[lien]">
+							<i class="$admin_categorie[css]"></i>
+							<span class="title">$admin_categorie[libelle]</span>
+						</a>
+						<!-- END CommunMenuAdminBitLien -->
+						<!-- BEGIN CommunMenuAdminBitSousMenu -->
+						<a href="javascript:;">
+							<i class="$admin_categorie[css]"></i>
+							<span class="title">$admin_categorie[libelle]</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<!-- BEGIN CommunMenuAdminBitSousMenuBit -->
+							<li class="$class_sousmenu_active">
+								<a href="$admin_page[lien]"><i class="$admin_page[css]"></i> $admin_page[libelle]</a>
+							</li>
+							<!-- END CommunMenuAdminBitSousMenuBit -->
+						</ul>
+						<!-- END CommunMenuAdminBitSousMenu -->
+						</li>	
+					<!-- END CommunMenuAdminBit -->					
+					<!-- BEGIN CommunMenuArobases -->					
+					<li class="$class_menu_arobases_active">
+						<a href="javascript:;">
+							<i class="fa fa-plus-circle"></i>
+							<span class="title">
+								Arobases
+							</span>
+							<span class="arrow">
+							</span>
+						</a>
+						<ul class="sub-menu">
+							<li class="$class_menu_parametres_ouverture_active">
+								<a href="parametres_ouverture.php">
+									<i class="fa fa-gear"></i>
+									$multilangue[parametres_ouverture]
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- END CommunMenuArobases -->
+				</ul>				
+				<!-- FIN SIDEBAR MENU -->
+			</div>
+		</div>
+		<!-- FIN SIDEBAR -->
+		<!-- DEBUT CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- DEBUT SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							 Widget settings form goes here
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn blue">Save changes</button>
+							<button type="button" class="btn default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			<!-- FIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- DEBUT STYLE CUSTOMIZER -->
+			<div class="theme-panel hidden-xs hidden-sm" style="display:none;">
+				<div class="toggler">
+				</div>
+				<div class="toggler-close">
+				</div>
+				<div class="theme-options">
+					<div class="theme-option theme-colors clearfix">
+						<span>
+							 Couleur du thème
+						</span>
+						<ul>
+							<li class="color-black current color-default" title="défaut" data-style="default">
+							</li>
+							<li class="color-blue" title="Bleu" data-style="blue">
+							</li>
+							<li class="color-brown" title="Marron" data-style="brown">
+							</li>
+							<li class="color-purple" title="Violet" data-style="purple">
+							</li>
+							<li class="color-grey" title="Gris" data-style="grey">
+							</li>
+							<li class="color-white color-light" title="Blanc" data-style="light">
+							</li>
+						</ul>
+					</div>
+					<div class="theme-option">
+						<span>
+							 Largeur de page
+						</span>
+						<select class="layout-option form-control input-small">
+							<option value="fluid" selected="selected">100%</option>
+							<option value="boxed">Centré</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+							 Bandeau du haut
+						</span>
+						<select class="header-option form-control input-small">
+							<option value="fixed" selected="selected">Fixé</option>
+							<option value="default">Normal</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+							 Menu côté
+						</span>
+						<select class="sidebar-option form-control input-small">
+							<option value="fixed" selected="selected">Fixé</option>
+							<option value="default">Normal</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+							 Position menu
+						</span>
+						<select class="sidebar-pos-option form-control input-small">
+							<option value="left" selected="selected">Gauche</option>
+							<option value="right">Droite</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+							 Bandeau du bas
+						</span>
+						<select class="footer-option form-control input-small">
+							<option value="fixed">Fixé</option>
+							<option value="default" selected="selected">Normal</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- FIN STYLE CUSTOMIZER -->
+			<div class="debug">$_SESSION[debug_trace]</div>
+<!-- END CommunHeader -->
+
+
+
+<!-- BEGIN CommunFooter -->
+	</div>
+<!-- FIN CONTAINER -->
+<div class="footer">
+	<div class="footer-inner">
+		 2015 &copy; Arobases
+	</div>
+	<div class="footer-tools">
+		<span class="go-top">
+			<i class="fa fa-angle-up"></i>
+		</span>
+	</div>
+	
+	<!-- Modal explication metas -->
+	
+	<div aria-hidden="true" aria-labelledby="modalExplicationMetaTitle" role="dialog" tabindex="-1" class="modal fade" id="modalExplicationMetaTitle" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title">Quelques explications sur la balise meta title</h4>
+				</div>
+				<div class="modal-body">																					
+					Les balises META sont des balises HTML spéciales, situées dans l'en-tête de la page. Celles-ci ne s'affichent pas directement sur la page lors d'une visite du site, mais sont utilisées par les navigateurs et les moteurs de recherche.
+					<br><br>
+					Les moteurs de recherche affichent le contenu de ces balises dans leurs résultats de recherche :<br>
+					<center><img src="includes/images/illustrationPagetitle.jpg" alt=""></center>
+					 <br><br>
+					* <strong>La balise title est la plus importante pour votre référencement. </strong><br><br />
+					Celle-ci doit contenir les mots-clés caractérisant de la façon la plus précise possible la page concernée.<br><br>
+					Elle s'adresse aux internautes autant qu'aux moteurs de recherche.<br><br>
+					Elle doit être <strong>COURTE</strong> (moins de 60 caractères environ), et même la plus courte possible en intégrant les mots-clés ciblés.<br><br>
+					Elle doit être <strong>UNIQUE</strong>. A chaque page sa balise title, il faut éviter au maximum la duplication. 
+					En particulier, éviter d'utiliser certains mots-clés sur toutes les balises title du site, comme par exemple le nom du site (sauf si celui-ci est déjà connu et que l'optimiser est un objectif) ou un slogan (surtout si celui-ci est présent partout sur le site…). <br>
+					Vous pouvez éventuellement mentionner le nom de la boutique dans les titres des catégories, mais uniquement à droite (c-à-d. en dernier dans la phrase).<br><br>
+					La balise title ne doit <strong>JAMAIS</strong> comporter une simple liste de mots-clés, mais bien une phrase.<br><br>
+					Longueur conseillée : 60 caractères
+					<br>
+				</div>
+				<div class="modal-footer">
+					<button aria-hidden="true" data-dismiss="modal" class="btn default">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div aria-hidden="true" aria-labelledby="modalExplicationMetaDescription" role="dialog" tabindex="-1" class="modal fade" id="modalExplicationMetaDescription" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title">Quelques explications sur la balise meta description</h4>
+				</div>
+				<div class="modal-body">																					
+					Les balises META sont des balises HTML spéciales, situées dans l'en-tête de la page. Celles-ci ne s'affichent pas directement sur la page lors d'une visite du site, mais sont utilisées par les navigateurs et les moteurs de recherche.
+					<br><br>
+					Les moteurs de recherche affichent le contenu de ces balises dans leurs résultats de recherche :<br>
+					<center><img src="includes/images/illustrationPagetitle.jpg" alt=""></center>
+					 <br><br>					
+					* <strong>La balise META description (meta tag description)</strong> n'a pas d'influence directe sur le positionnement du site dans les résultats de recherche de Google, mais en revanche elle est très importante pour attirer l'attention des internautes. C'est donc en quelque sorte un espace publicitaire gratuit sur les pages des moteurs de recherche, il faut donc la traiter comme tel.<br><br>
+					Elle s'adresse aux internautes uniquement ! Inutile de la remplir de mots-clés.<br><br>
+					Elle doit contenir environ 160 caractères. Parfois il peut être intéressant de proposer une description plus longue si de nombreux termes doivent y être mentionnés, Google présentera la partie de la description la plus pertinente. Donc contrairement à la balise title, ce n'est pas grave si celle-ci est trop longue (si nécessaire).<br><br>
+					Elle peut aussi rester vide, à condition que la page en question de votre site contienne du texte. Google affichera un extrait de ce texte. Pratique pour un catalogue volumineux.<br><br>
+					Elle doit aussi être <strong>UNIQUE</strong>. Tout comme pour la balise title, il faut éviter au maximum la duplication. Il vaut mieux que cette balise soit vide plutôt que de présenter la même balise description sur plusieurs pages.
+					Vous pouvez y intégrer des slogans, mais attention de ne pas utiliser le même dans toutes les descriptions.<br><br>
+					Dans la balise meta description d'une fiche produit, présenter les avantages et spécificités de l'article (article exclusif, promotion, livraison gratuite, etc.). Ceci afin de garantir leur unicité, mais aussi pour attirer l'attention de l'internaute qui cherche quelque chose de spécifique.<br><br>
+					Longueur conseillée : 150 caractères<br>				
+				</div>
+				<div class="modal-footer">
+					<button aria-hidden="true" data-dismiss="modal" class="btn default">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div aria-hidden="true" aria-labelledby="modalExplicationMetaKeywords" role="dialog" tabindex="-1" class="modal fade" id="modalExplicationMetaKeywords" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title">Quelques explications sur la balise meta keywords</h4>
+				</div>
+				<div class="modal-body">																					
+					Les balises META sont des balises HTML spéciales, situées dans l'en-tête de la page. Celles-ci ne s'affichent pas directement sur la page lors d'une visite du site, mais sont utilisées par les navigateurs et les moteurs de recherche.
+					<br><br>
+					Les moteurs de recherche affichent le contenu de ces balises dans leurs résultats de recherche :<br>
+					<center><img src="includes/images/illustrationPagetitle.jpg" alt=""></center>
+					 <br><br>			
+					* <strong>La balise META keywords (meta tag keywords) :</strong> cette balise contient une liste de mots clés, séparés soit par des virgules, soit par des espaces.<br>
+					<strong><font color="red">La balise « keywords » est obsolète, il n'est pas recommandé de l'utiliser.</font></strong><br>
+				</div>
+				<div class="modal-footer">
+					<button aria-hidden="true" data-dismiss="modal" class="btn default">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div aria-hidden="true" aria-labelledby="modalExplicationVariables" role="dialog" tabindex="-1" class="modal fade" id="modalExplicationVariables" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title">Quelques explications sur les variables</h4>
+				</div>
+				<div class="modal-body">																					
+					$multilangue[la_variable] <strong>[boutiquetitre]</strong> $multilangue[remplacement_boutiquetitre].<br>
+					<span class="text-info">$multilangue[exemple] : $multilangue[exemple] : Fashion Streetwear</span><br><br>
+					$multilangue[la_variable] <strong>[categorietitre]</strong> $multilangue[remplacement_categorietitre].<br>
+					<span class="text-info">$multilangue[exemple] : Prêt-à-porter Homme</span><br><br>
+					$multilangue[la_variable] <strong>[articletitre]</strong> $multilangue[remplacement_articletitre].<br>
+					<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong</span><br><br>
+					$multilangue[la_variable] <strong>[institutionneltitre]</strong> $multilangue[remplacement_institutionneltitre].<br>
+					<span class="text-info">$multilangue[exemple] : Qui sommes-nous ?</span><br><br>
+					$multilangue[la_variable] <strong>[sscatkeywords]</strong> $multilangue[remplacement_sscatkeywords].<br>
+					<span class="text-info">$multilangue[exemple] : Tee-shirts Homme, Maillots de bain Homme, Jeans Homme ...</span><br><br>
+					$multilangue[la_variable] <strong>[keydescription]</strong> $multilangue[remplacement_keydescription].<br>
+					<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+					$multilangue[la_variable] <strong>[marquetitre]</strong> $multilangue[remplacement_marquetitre].<br>
+					<span class="text-info">$multilangue[exemple] : Levi's ...</span><br><br>
+					$multilangue[la_variable] <strong>[articledescription]</strong> $multilangue[remplacement_articledescription].<br>
+					<span class="text-info">$multilangue[exemple] : Le Tee-shirt homme de couleur ...</span><br><br>
+					$multilangue[la_variable] <strong>[listearticles]</strong> $multilangue[remplacement_listearticles].<br>
+					<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+					$multilangue[la_variable] <strong>[categorieracine]</strong> $multilangue[remplacement_categorieracine].<br>
+					<span class="text-info">$multilangue[exemple] : Vêtement</span><br><br>
+					$multilangue[la_variable] <strong>[listearticlestop]</strong> $multilangue[remplacement_listearticlestop].<br>
+					<span class="text-info">$multilangue[exemple] : Tee-shirt homme Billabong, Coton, Tee-shirt fashion ...</span><br><br>
+					$multilangue[la_variable] <strong>[optititre]</strong> $multilangue[remplacement_optititre].<br>
+					<span class="text-info">$multilangue[exemple] : Sac à main ...</span><br><br>
+					$multilangue[la_variable] <strong>[tag]</strong> $multilangue[remplacement_tag].<br>
+					<span class="text-info">$multilangue[exemple] : Alimentation ...</span><br><br>
+				</div>
+				<div class="modal-footer">
+					<button aria-hidden="true" data-dismiss="modal" class="btn default">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal explication metas -->
+	
+</div>
+<!-- DEBUT JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- DEBUT CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.min.js"></script>
+<script src="assets/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-ui/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+		
+<script src="assets/scripts/core/arobases.category.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js" type="text/javascript"></script>
+<script src="assets/plugins/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="assets/plugins/amcharts/pie.js" type="text/javascript"></script>
+<script src="assets/plugins/amcharts/serial.js" type="text/javascript"></script>
+<script src="assets/plugins/amcharts/xy.js" type="text/javascript"></script>
+<script src="assets/plugins/amcharts/lang/fr.js"></script>
+<script src="assets/plugins/amcharts/lang/es.js"></script>
+<script src="assets/plugins/amcharts/lang/pt.js"></script>
+<script src="assets/scripts/metronic.js" type="text/javascript"></script>
+<!-- FIN CORE PLUGINS -->
+<!-- DEBUT PAGE LEVEL PLUGINS -->
+<script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-knob/js/jquery.knob.js" type="text/javascript"></script>
+<script src="assets/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="assets/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="assets/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-daterangepicker/moment.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<!-- FIN PAGE LEVEL PLUGINS -->
+<!-- DEBUT PAGE LEVEL SCRIPTS -->
+<script src="assets/scripts/core/app.js" type="text/javascript"></script>
+<script src="assets/scripts/custom/tasks.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js" charset="utf8"></script>
+<script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js" charset="utf8"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-validation/dist/jquery.validate$admin_langue.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.fr.js"></script>
+<script type="text/javascript" src="assets/plugins/nouislider/jquery.nouislider.js"></script>
+<!-- FIN PAGE LEVEL SCRIPTS -->
+
+<!-- DEBUT Script sortable -->
+<script src="assets/scripts/custom/jquery-sortable.js" type="text/javascript"></script>
+<script src="assets/scripts/custom/tabledragndrop.js" type="text/javascript"></script>
+<!-- FIN Script sortable -->
+
+<script src="assets/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/include/gsd65g4v5ds4vds41vd/tinymce.js"></script>
+<script type="text/javascript" src="includes/fonctions.js"></script>
+
+$TemplateIncludeJs
+
+<!-- FIN JAVASCRIPTS -->
+</body>
+<!-- FIN BODY -->
+</html>
+<!-- END CommunFooter -->
+
+<!-- BEGIN CommunLogin -->
+<!DOCTYPE html>
+
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.1.1
+Version: 2.0.2
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- DEBUT HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Administration de votre boutique ${$title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+
+<!-- DEBUT GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<!-- FIN GLOBAL MANDATORY STYLES -->
+<!-- DEBUT PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2-metronic.css"/>
+<!-- FIN PAGE LEVEL SCRIPTS -->
+<!-- DEBUT THEME STYLES -->
+<link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="assets/css/pages/login-soft.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- FIN THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- FIN HEAD -->
+<!-- DEBUT BODY -->
+<body class="login">
+<!-- DEBUT LOGO -->
+<div class="logo">			
+	<img src="includes/images/logo_arobases2.png" class="logo_login" alt="logo"/>
+</div>
+<!-- FIN LOGO -->
+<!-- DEBUT LOGIN -->
+<div class="content">
+	<!-- DEBUT LOGIN FORM -->
+	<form class="login-form" action="index.php" method="post">
+		<input type="hidden" name="action" value="cnx" />
+		<input type="hidden" name="urlToRedirect" value="$_SERVER[REQUEST_URI]" />
+		<h3 class="form-title">Accès à l'administration
+		$erreur_log</h3>
+		<div class="alert alert-danger display-hide">
+			<button class="close" data-close="alert"></button>
+			<span>
+				 Veuillez saisir votre identifiant et votre mot de passe.
+			</span>
+		</div>
+		<div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Identifiant</label>
+			<div class="input-icon">
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Identifiant" name="admin_username"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
+			<div class="input-icon">
+				<i class="fa fa-lock"></i>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Mot de passe" name="admin_passcode"/>
+			</div>
+		</div>	
+		<div class="form-actions">			
+			<button type="submit" class="btn green pull-right">
+			Connexion <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>
+	</form>
+	<!-- FIN LOGIN FORM -->
+	<!-- DEBUT FORGOT PASSWORD FORM -->
+	<form class="forget-form" action="index.html" method="post">
+		<h3>Forget Password ?</h3>
+		<p>
+			 Enter your e-mail address below to reset your password.
+		</p>
+		<div class="form-group">
+			<div class="input-icon">
+				<i class="fa fa-envelope"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="button" id="back-btn" class="btn">
+			<i class="m-icon-swapleft"></i> Back </button>
+			<button type="submit" class="btn blue pull-right">
+			Submit <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>
+	</form>
+	<!-- FIN FORGOT PASSWORD FORM -->
+</div>
+<!-- FIN LOGIN -->
+<!-- DEBUT COPYRIGHT -->
+<div class="copyright">
+	 2014 &copy; Arobases - Solution E-commerce.
+</div>
+<!-- FIN COPYRIGHT -->
+<!-- DEBUT JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- DEBUT CORE PLUGINS -->
+<!--[if lt IE 9]>
+	<script src="assets/plugins/respond.min.js"></script>
+	<script src="assets/plugins/excanvas.min.js"></script> 
+	<![endif]-->
+<script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- FIN CORE PLUGINS -->
+<!-- DEBUT PAGE LEVEL PLUGINS -->
+<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+<script src="assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+<!-- FIN PAGE LEVEL PLUGINS -->
+<!-- DEBUT PAGE LEVEL SCRIPTS -->
+<script src="assets/scripts/core/app.js" type="text/javascript"></script>
+<script src="assets/scripts/custom/login-soft.js" type="text/javascript"></script>
+<!-- FIN PAGE LEVEL SCRIPTS -->
+<script>
+	jQuery(document).ready(function() {     
+	  App.init();
+	  Login.init();
+	});
+</script>
+<!-- FIN JAVASCRIPTS -->
+
+</body>
+<!-- FIN BODY -->
+</html>
+<!-- END CommunLogin -->
+
+<!-- BEGIN CommunLockScreen -->
+<!DOCTYPE html>
+
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.1.1
+Version: 2.0.2
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- DEBUT HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Administration ${$title} - Ecran verrouillé</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+
+<!-- DEBUT GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<!-- FIN GLOBAL MANDATORY STYLES -->
+<!-- DEBUT THEME STYLES -->
+<link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="assets/css/pages/lock.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- FIN THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- FIN HEAD -->
+<!-- DEBUT BODY -->
+<body>
+<div class="page-lock">
+	<div class="page-logo">		
+		<img src="includes/images/logo_arobases2.png" class="logo_login" alt="logo"/>
+	</div>
+	<div class="page-body">
+		$user_img
+		<div class="page-lock-info">
+			<h1>$user_info[username]</h1>			
+			<span class="locked">
+				 Verrouillé
+			</span>
+			<div class="erreur">
+				 $erreur
+			</div>
+			<form class="form-inline" action="index.php" method="post">
+				<input type="hidden" name="action" value="deverrouille" />
+				<div class="input-group input-medium">
+					<input class="form-control" type="password" name="admin_password" placeholder="Mot de passe">
+					<span class="input-group-btn">
+						<button type="submit" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>
+					</span>
+				</div>
+				<!-- /input-group -->
+				<div class="relogin">
+					<a href="index.php?action=logout">
+						 Vous n'êtes pas $user_info[username] ?
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="page-footer">
+		 2014 &copy; Arobases. Solution E-commerce.
+	</div>
+</div>
+<!-- DEBUT JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- DEBUT CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.min.js"></script>
+<script src="assets/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- FIN CORE PLUGINS -->
+<!-- DEBUT PAGE LEVEL PLUGINS -->
+<script src="assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+<!-- FIN PAGE LEVEL PLUGINS -->
+<script src="assets/scripts/core/app.js"></script>
+<script src="assets/scripts/custom/lock.js"></script>
+<script>
+jQuery(document).ready(function() {    
+   App.init();
+   Lock.init();
+});
+</script>
+<!-- FIN JAVASCRIPTS -->
+</body>
+<!-- FIN BODY -->
+</html>
+<!-- END CommunLockScreen -->
+
+

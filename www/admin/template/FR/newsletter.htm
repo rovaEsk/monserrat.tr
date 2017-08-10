@@ -1,0 +1,1272 @@
+<!-- BEGIN NewsletterIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[page_newsletter]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="newsletter.php">						
+								$multilangue[newsletter]
+							</a>
+						</li>
+						<!-- BEGIN NewsletterNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END NewsletterNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN NewsletterSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END NewsletterSuccess -->
+			
+			<!-- BEGIN NewsletterErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END NewsletterErreur -->
+			
+			<!-- BEGIN NewsletterInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END NewsletterInfo -->
+			
+			<!-- BEGIN NewsletterSuccessFixe -->
+				<div class="alert alert-success alert-dismissable permanent">
+					$texteSuccess
+				</div>
+			<!-- END NewsletterSuccessFixe -->
+			
+			<!-- BEGIN NewsletterErreurFixe -->
+				<div class="alert alert-danger alert-dismissable">
+					$texteErreur
+				</div>
+			<!-- END NewsletterErreurFixe -->
+			
+			<!-- BEGIN NewsletterListeMailings -->		
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet box $classcolor_site_principal">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[liste_mailings_enregistres]
+								</div>																				
+							</div>					
+							<div class="portlet-body form">																													
+								<div class="form-body">	
+									<div class="ta-center">									
+										<a $display_none_ecriture href="newsletter.php?action=envoyer" class="btn green mb-20" title="$multilangue[selection_destinataires_mailing]">
+											<i class="fa fa-envelope" style="margin-right:8px;"></i>
+											$multilangue[selection_destinataires_mailing]
+											<i class="fa fa-floppy-o" style="margin-left:8px;"></i>
+										</a>
+									</div>									
+									<div class="col-md-12">												
+										<div class="table-responsive">							
+											<div class="clear"></div>
+											<table class="table table-striped table-bordered table-mailings">
+												<thead>
+													<tr>										
+														<td>$multilangue[mail_type]</td>
+														<td>$multilangue[date_debut_envoi]</td>
+														<td>$multilangue[date_fin_envoi]</td>
+														<td>$multilangue[nb_envoyes]</td>
+														<td>$multilangue[nb_lus]</td>
+														<td>$multilangue[nb_clics]</td>
+														<td>$multilangue[nb_cdes]</td>
+														<td>$multilangue[montant_cdes]</td>
+														<td>$multilangue[actions]</td>
+													</tr>
+												</thead>
+												<tbody>				
+												</tbody>
+											</table>
+										</div>												
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>																		                    
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet box $classcolor_site_principal">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[liste_newsletters_types]
+								</div>																				
+							</div>
+							<div class="portlet-body form">																						
+								<div class="form-body">	
+									<div class="col-md-12">												
+										<div class="table-responsive">							
+											<div class="clear"></div>
+											<table class="table table-striped table-bordered table-newsletters">
+												<thead>
+													<tr>										
+														<td>$multilangue[titre]</td>
+														<td>$multilangue[faire_un_test]</td>
+														<td>$multilangue[voir]</td>
+														<td>$multilangue[actions]</td>
+													</tr>
+												</thead>
+												<tbody>				
+												</tbody>
+											</table>
+										</div>												
+									</div>
+									
+									<div class="col-md-12 ta-center">	
+										<a $display_none_ecriture href="$pageName?action=ajouter" class="btn blue" title="$multilangue[ajt_newsletter_type]">
+											<i class="fa fa-plus" style="margin-left:8px;"></i>
+											$multilangue[ajt_newsletter_type]
+										</a>
+										<a $display_none_ecriture href="$pageName?action=generer" class="btn blue" title="$multilangue[generer_newsletter_type]">
+											<i class="fa fa-plus" style="margin-left:8px;"></i>
+											$multilangue[generer_newsletter_type]
+										</a>
+									</div>
+									<br>
+									<div class="clear"></div>
+								</div>
+								<div class="clear"></div>
+							</div>																		                    
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="row" $display_none_ecriture>
+					<div class="col-md-12">
+						<div class="portlet box $classcolor_site_principal">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[gestion_inscrits_newsletter]
+								</div>																				
+							</div>
+							<div class="portlet-body form">																						
+								<div class="form-body">	
+									<div class="col-md-12">	
+										<a $display_none_ecriture href="Javascript:;" onclick="$('#formajoutadresses').slideDown(); $('#formsuppradresses').slideUp();" type="button" class="btn green">
+				                        	$multilangue[ajt_adresses]
+				                        	<i class="fa fa-plus" style="margin-left:8px;"></i>
+				                       	</a>
+										<a $display_none_suppression href="Javascript:;" onclick="$('#formsuppradresses').slideDown(); $('#formajoutadresses').slideUp();" type="button" class="btn red">
+				                        	$multilangue[retirer_adresses]
+				                        	<i class="fa fa-times" style="margin-left:8px;"></i>
+				                        </a>
+				                        
+				                        <div class="" id="formajoutadresses" style="display:none;">
+				                        	<br><br>
+											<form method="post" enctype="multipart/form-data" action="">
+												<input type="hidden" name="action" value="importCsv">
+												<font class="erreur">$msg_importcsv $msg_erreur_importcsv</font>
+												<div class="input-group">
+				                        			<label class="col-md-12">
+				                        				<b>$multilangue[importer_fichier_emails]</b>
+				                        			</label>
+												</div>
+												<div class="input-group">												
+				                        			<label class="col-md-12">
+				                        				<b>$multilangue[fichier_doit_etre_csv] $multilangue[un_email_par_ligne]</b>
+				                        			</label>
+												</div>
+												
+												<div class="form-group">
+													<label class="col-md-2">
+				                        				$multilangue[libelle] $multilangue[import] : 
+				                        			</label>
+				                        			<div class="col-md-4">
+				                        				<input type="text" class="form-control" name="lib_importcsv" value=""> 
+													</div>
+													<div class="col-md-3">
+														$multilangue[ou] $multilangue[selectionnez_import] :
+													</div>
+													<div class="col-md-3">
+														<select class="form-control" name="selectimportnewss">
+															<option value="-1" >$multilangue[aucun]</option>															
+															<!-- BEGIN NewsletterListeImportBit -->
+																<option value="$importnew[import_newsletterid]" >$importnew[import_newsletter_lib]</option>															
+															<!-- END NewsletterListeImportBit -->
+														</select> 
+													</div>                                                   
+                                                </div>
+												
+												
+												<br><br>
+												
+												<div class="form-group">
+													<label class="col-md-1">
+				                        				$multilangue[site] : 
+				                        			</label>
+				                        			<div class="input-group">
+														<select class="form-control" name="selectimportsite">															
+															<!-- BEGIN NewsletterListeSitesBit -->
+																<option value="$site_import_news[siteid]" >$site_import_news[libelle]</option>															
+															<!-- END NewsletterListeSitesBit -->
+														</select>    
+													</div>                                               
+                                                </div>
+												
+												<div class="form-group">
+													<label class="col-md-1">
+				                        				$multilangue[fichier] :  
+				                        			</label>
+				                        			<div class="col-md-3">
+														<input type="file" name="fichier">
+													</div>													                                                
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                	<div class="input-group">
+		                                                <button type="submit" class="btn green">
+															<i class="fa fa-plus"></i> $multilangue[ajouter]
+														</button> 
+													</div>
+												</div>					
+											
+											</form>
+										</div>
+										
+										<div class="" id="formsuppradresses" style="display:none;">
+				                        	<br><br>
+				                        	<form method="post" action="">											
+												<input type="hidden" name="action" value="supprimer_Import">																							
+												<div class="form-group">													
+													<label class="col-md-3">
+														$multilangue[selectionnez_import] $multilangue[a] $multilangue[supprimer] :
+													</label>
+													<div class="col-md-3">
+														<select class="form-control" name="selectimportnewsstodelete">
+															<option value="-1"></option>															
+															<!-- BEGIN NewsletterListeImportBit -->
+																<option value="$importnew[import_newsletterid]" >$importnew[import_newsletter_lib]</option>															
+															<!-- END NewsletterListeImportBit -->
+														</select> 
+													</div> 
+													<div class="col-md-3">
+														<div class="input-group">
+			                                                <button type="submit" class="btn red">
+																<i class="fa fa-times"></i> $multilangue[supprimer] $multilangue[import]
+															</button> 
+														</div>
+													</div>                                                  
+                                                </div>
+											</form>												
+											<br><br>
+											
+																	
+											<form method="post" enctype="multipart/form-data" action="">											
+												<input type="hidden" name="action" value="supprimer_CSV">													
+												<font class="erreur">$msg_importcsv_suppr $msg_erreur_importcsv_suppr</font>
+												<br><br>
+												<div class="input-group">
+				                        			<label class="col-md-12">
+				                        				<b>$multilangue[importer_emails_a_supprimer]</b>
+				                        			</label>
+												</div>
+												
+												<div class="input-group">
+				                        			<label class="col-md-12">
+				                        				<b>$multilangue[fichier_doit_etre_csv] $multilangue[un_email_par_ligne]</b>
+				                        			</label>
+												</div>
+																						
+												<div class="form-group">
+													<label class="col-md-1">
+				                        				$multilangue[fichier] :  
+				                        			</label>
+				                        			<div class="col-md-3">
+														<input type="file" name="fichier">
+													</div>	
+													<div class="col-md-1">
+		                                                <button type="submit" class="btn red">
+															<i class="fa fa-times"></i> $multilangue[supprimer]
+														</button> 
+													</div>												                                                
+                                                </div>
+											</form>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+													                        				                      
+				                        <div class="clear"></div>
+				                        <hr>
+				                        <br>
+				                        <div class="col-md-6 font-green bold">$msg_saisi</div>
+				                        <div class="col-md-6 font-red bold">$msg_suppr</div>
+				                        <div class="clear"></div>						                        			                        
+			                        	<form action="" method="post" $display_none_ecriture>
+				                        	<input type="hidden" name="action" value="ajout_rapide">
+				                        	<div class="col-md-6">
+				                        		<div class="input-group">
+				                        			<label>
+				                        				<b>$multilangue[ajout_rapide] : </b>
+				                        			</label>								                        		
+	                                                <div class="input-group">
+	                                                    <div class="input-icon">
+	                                                        <i class="fa fa-envelope fa-fw"></i>
+	                                                    <input id="ad_mail" class="form-control" name="ad_mail" placeholder="E-mail" type="text"> </div>
+	                                                    <span class="input-group-btn">
+	                                                        <button id="addadresse" class="btn btn-success green" type="submit">
+	                                                            <i class="fa fa-plus fa-fw"></i> $multilangue[ajouter]
+	                                                        </button>
+	                                                    </span>
+	                                                </div>
+                                                </div>
+                                            </div>
+				                        </form>
+					                        	
+				                        
+				                        
+										
+			                        	<form action="" method="post" $display_none_suppression>
+				                        	<input type="hidden" name="action" value="suppression_rapide">
+				                        	<div class="col-md-6">
+					                        	<div class="input-group">
+				                        			<label>
+				                        				<b>$multilangue[suppression_rapide] : </b>
+				                        			</label>
+	                                                <div class="input-group">
+	                                                    <div class="input-icon">
+	                                                        <i class="fa fa-envelope fa-fw"></i>
+	                                                    <input id="mailtodelete" class="form-control" name="mailtodelete" placeholder="E-mail" type="text"> </div>
+	                                                    <span class="input-group-btn">
+	                                                        <button id="addadresse" class="btn btn-success red" type="submit">
+	                                                            <i class="fa fa-times fa-fw"></i> $multilangue[supprimer]
+	                                                        </button>
+	                                                    </span>
+	                                                </div>
+	                                         	</div>
+                                            </div>
+				                        </form>
+					                      
+				                        <div class="clear"></div>  	
+										<br><br>
+				                        
+				                        								
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>																		                    
+						</div>
+					</div>
+				</div>
+				
+								
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet box $classcolor_site_principal">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[liste_inscrits_newsletter]
+								</div>																				
+							</div>
+							<div class="portlet-body form">																						
+								<div class="form-body">	
+									<div class="col-md-12">												
+										<div class="table-responsive">							
+											<div class="clear"></div>
+											<table class="table table-striped table-bordered table-inscritsN">
+												<thead>
+													<tr>										
+														<td>$multilangue[email]</td>
+														<td>$multilangue[site]</td>
+														<td>$multilangue[import]</td>
+														<td>$multilangue[actions]</td>
+													</tr>
+												</thead>
+												<tbody>				
+												</tbody>
+											</table>
+										</div>	
+										
+										
+										<div class="table-responsive">							
+											<div class="clear"></div>
+											<table class="table table-striped table-bordered table-inscritsC">
+												<thead>
+													<tr>										
+														<td>$multilangue[email]</td>
+														<td>$multilangue[nom_prenom]</td>
+														<td>$multilangue[date_inscription]</td>
+														<td>$multilangue[site]</td>
+														<td>$multilangue[actions]</td>
+													</tr>
+												</thead>
+												<tbody>				
+												</tbody>
+											</table>
+										</div>											
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>																		                    
+						</div>
+					</div>
+				</div>				
+							
+			<!-- END NewsletterListeMailings -->
+			
+			
+			<!-- BEGIN NewsletterAjoutNewsletterType -->			
+				<div class="row">
+					<div class="col-md-12">		
+						<form method="post" action="newsletter.php" name="formuNewsletter" id="formuNewsletter" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="ajouter2">
+                            <input type="hidden" name="newsletterid" value="$newsletterid">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="newsletter.php" class="btn blue" title="$multilangue[retour]">
+									<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+									$multilangue[retour]
+								</a>
+								<button type="submit" class="btn green" title="$multilangue[valider]">
+									<i class="fa fa-check" style="margin-left:8px;"></i>
+									$multilangue[valider]
+								</button>
+							</div>
+							<!-- BEGIN NewsletterAjoutNewsletterTypeSiteBit -->					
+								<div class="portlet box $site[classcolor]">
+									<div class="portlet-title">
+										<div class="caption">
+											$site[libelle]
+										</div>	
+										<div class="tools">
+		                                	<a class="collapse" href="javascript:;"></a>		                                					                                
+		                            	</div>																				
+									</div>
+									<div class="portlet-body form">																						
+										<div class="form-body">	
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[titre]</label>
+												<div class="col-md-8">																														
+													<input type="text" class="form-control" name="titre$site[siteid]" value="$infosNewsletterEdit[libelle]">
+												</div>
+											</div>											
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[contenu]</label>
+												<div class="col-md-8">																														
+													<textarea class="form-control editeur" name="contenu$site[siteid]">$infosNewsletterEdit[contenu]</textarea>
+												</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>																		                    
+								</div>												
+							<!-- END NewsletterAjoutNewsletterTypeSiteBit -->	
+							
+							<div class="col-md-12 ta-center mb-20">
+								<a href="newsletter.php" class="btn blue" title="$multilangue[retour]">
+									<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+									$multilangue[retour]
+								</a>
+								<button type="submit" class="btn green" title="$multilangue[valider]">
+									<i class="fa fa-check" style="margin-left:8px;"></i>
+									$multilangue[valider]
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>	
+				
+			<!-- END NewsletterAjoutNewsletterType -->
+			
+						
+			<!-- BEGIN NewsletterGenererNewsletterType -->			
+				<div class="row">
+					<div class="col-md-12">		
+						<form method="post" action="newsletter.php" name="formuNewsletter" id="formuNewsletter" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="generer2">
+							
+							<div class="col-md-12 ta-center mb-20">
+								<a href="newsletter.php" class="btn blue" title="$multilangue[retour]">
+									<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+									$multilangue[retour]
+								</a>
+								<button type="submit" class="btn green" title="$multilangue[valider]">
+									<i class="fa fa-check" style="margin-left:8px;"></i>
+									$multilangue[valider]
+								</button>
+							</div>
+						
+							<!-- BEGIN NewsletterGenererType -->
+							<div class="row">
+								<div class="col-md-12">									  
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[choisissez_newsletter_type]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+								            <div class="form-body">														
+												<div class="col-md-12">																														
+													<select class="form-control" name="newsletter_type">
+														<!-- BEGIN NewsletterGenererTypeBit -->
+															<option value="$i">Newsletter $i</option>
+														<!-- END NewsletterGenererTypeBit -->
+													</select>
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>							
+									</div>
+								</div>								
+							</div>
+							<!-- END NewsletterGenererType -->
+														
+							<div class="row">
+								<div class="col-md-12">									  
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_articles]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+							            	<input type="hidden" id="ordreArticles" value="$ordreArticles">
+								            <div class="searchArticles">								            	
+												<input id="searchArticles" name="searchArticles" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+												<div id="choixArticles">
+													<!-- BEGIN NewsletterArticles -->
+													<div id="articles$art_newsletter[artid]"> 
+														- $art_newsletter[libelle] ($art_newsletter[artcode]) 
+														<input type="hidden" value="$art_newsletter[artid]" name="articles[$art_newsletter[artid]]" id="articles[$art_newsletter[artid]]"> 
+														<i onclick="$('#articles$art_newsletter[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+													</div>
+													<!-- END NewsletterArticles -->
+												</div>
+											</div>
+										</div>							
+									</div>
+								</div>								
+							</div>
+							<div class="clear"></div>
+							<div class="portlet box red">
+				            	<div class="portlet-title">
+				                	<div class="caption" >
+				                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+				                    </div>
+				                </div>                        
+					            <div class="portlet-body">  
+									<div class="boites">
+										<ul id="boxes" class="articles"> 
+											<!-- BEGIN NewsletterArticlesBoitesBit -->
+												<li class="box2" id="tv-$art_newsletter[artid]">
+													<div>$texte_article</div>
+													$image_article
+												</li>
+											<!-- END NewsletterArticlesBoitesBit -->
+										</ul>
+										<div class="clear"></div>			
+									</div>
+								</div>							
+							</div>
+							
+					
+							<!-- BEGIN NewsletterGenererNewsletterTypeSiteBit -->			
+								<div class="portlet box $site[classcolor]">
+									<div class="portlet-title">
+										<div class="caption">
+											$multilangue[contenu] $site[libelle]
+										</div>	
+										<div class="tools">
+		                                	<a class="collapse" href="javascript:;"></a>		                                					                                
+		                            	</div>																				
+									</div>
+									<div class="portlet-body form">																						
+										<div class="form-body">											
+																					
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[titre]</label>
+												<div class="col-md-8">																														
+													<input type="text" class="form-control" name="titre$site[siteid]" value="">
+												</div>
+											</div>											
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[contenu] header</label>
+												<div class="col-md-8">																														
+													<textarea class="form-control editeur" name="contenuheader$site[siteid]"></textarea>
+												</div>
+											</div>											
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[contenu] footer</label>
+												<div class="col-md-8">																														
+													<textarea class="form-control editeur" name="contenufooter$site[siteid]"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>																		                    
+								</div>
+							<!-- END NewsletterGenererNewsletterTypeSiteBit -->	
+							
+							<div class="col-md-12 ta-center mb-20">
+								<a href="newsletter.php" class="btn blue" title="$multilangue[retour]">
+									<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+									$multilangue[retour]
+								</a>
+								<button type="submit" class="btn green" title="$multilangue[valider]">
+									<i class="fa fa-check" style="margin-left:8px;"></i>
+									$multilangue[valider]
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>	
+				
+			<!-- END NewsletterGenererNewsletterType -->
+			
+			
+			<!-- BEGIN NewsletterEnvoyerEtape1 -->
+			<!-- <div class="mt-element-step">
+				<div class="row step-default">	        
+		            <div class="col-md-4 bg-grey mt-step-col active">
+		                <div class="mt-step-number bg-white font-grey">1</div>
+		                <div class="mt-step-title uppercase font-grey-cascade">Destinataires</div>
+		                <div class="mt-step-content font-grey-cascade">Sélection et filtrage des destinataires</div>
+		            </div>
+		            <div class="col-md-4 bg-grey mt-step-col ">
+		                <div class="mt-step-number bg-white font-grey">2</div>
+		                <div class="mt-step-title uppercase font-grey-cascade">Planification</div>
+		                <div class="mt-step-content font-grey-cascade">Date et heure du début de l'envoi</div>
+		            </div>
+		            <div class="col-md-4 bg-grey mt-step-col ">
+		                <div class="mt-step-number bg-white font-grey">3</div>
+		                <div class="mt-step-title uppercase font-grey-cascade">Confirmation</div>
+		                <div class="mt-step-content font-grey-cascade">Choix du mail type à envoyer</div>
+		            </div>
+		        </div>
+	        </div>
+			 -->
+			
+			<div class="row">
+				<div class="col-md-12">		
+					<form method="post" action="newsletter.php?action=envoyer" name="formuNewsletter" id="formuNewsletter" class="form-horizontal form-bordered form-row-stripped">
+						<input type="hidden" id="actionSpe" name="actionSpe" value="validEtape1">
+							
+							
+						<div class="erreur">$erreur</div>										
+						<div class="portlet box blue">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[selection_destinataires]
+								</div>																												
+							</div>
+							<div class="portlet-body form">																						
+								<div class="form-body">	
+									<div class="form-group">
+                                        <label class="col-md-4 control-label">$multilangue[choisir_les_destinataires]</label>
+                                        <div class="col-md-8">
+                                            <div class="radio-list">
+                                                <label>                                                    
+                                                   	<span>
+                                                   		<input onclick="$('#FiltresInscrits').slideUp(); $('#FiltresClients').slideUp();" $checked_dest_0 name="destinataires" id="optionsRadios0" value="0" checked="checked" type="radio">
+                                                   	</span>
+                                                    $multilangue[tous_les_inscrits_a_la_newsletter]
+                                                </label>
+                                                <label>                                                    
+                                                   	<span>
+                                                   		<input onclick="$('#FiltresInscrits').slideUp(); $('#FiltresClients').slideDown();" $checked_dest_1 name="destinataires" id="optionsRadios1" value="1" type="radio">
+                                                   	</span>
+                                                    $multilangue[seulement_clients_newsletter]
+                                                </label>
+                                                <label>                                                   
+                                                    <span>
+                                                    	<input onclick="$('#FiltresInscrits').slideDown(); $('#FiltresClients').slideUp();" $checked_dest_2 name="destinataires" id="optionsRadios2" value="2" type="radio">
+                                                    </span>
+                                                    $multilangue[seulement_inscrits_newsletter]
+                                                </label>
+                                                <label>                                                    
+                                                   	<span>
+                                                   		<input onclick="$('#FiltresInscrits').slideUp(); $('#FiltresClients').slideDown();" $checked_dest_3 name="destinataires" id="optionsRadios3" value="3" type="radio">
+                                                   	</span>
+                                                    $multilangue[tous_comptes_clients_meme_pas_newsletter]. 
+                                                    <br><i class="fa fa-exclamation-triangle font-red" style="margin-right:8px;"></i>$multilangue[attention_clients_pas_newsletter].
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+																
+									<div id="FiltresInscrits" style="display:none;">
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[pour_inscrits_newsletter] :</label>
+											<div class="col-md-8">	
+												<div class="col-md-1">		
+													<input type="checkbox" value="1" name="selectImport" $selectI class="form-control">
+												</div>																											
+												<div class="col-md-4">
+													$multilangue[seulement_adresses_import] :	
+												</div>
+												<div class="col-md-7">											
+													<select name="import_newsletterid" class="form-control">
+														<!-- BEGIN NewsletterEnvoyerEtape1ImportBit -->
+														<option value="$arr_import[import_newsletterid]" $selectedImport>$arr_import[import_newsletter_lib] : $multilangue[le] $dateImport</option>
+														<!-- END NewsletterEnvoyerEtape1ImportBit -->
+													</select>
+												</div>
+											</div>
+										</div>	
+									</div>
+								
+									<div id="FiltresClients" style="display:none;">
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[sexe] :</label>
+											<div class="col-md-8">			
+												<input name="homme" value="1" type="checkbox" $selectH class="form-control">
+												$multilangue[hommes]
+												<input name="femme" value="1" type="checkbox" $selectF class="form-control">																											
+												$multilangue[femmes]									
+											</div>
+										</div>										
+										<!-- BEGIN NewsletterEnvoyerEtape1Module122 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[type] :</label>
+											<div class="col-md-8">			
+												<input name="particulier" value="1" type="checkbox" $selectPa class="form-control">
+												$multilangue[particuliers]
+												<input name="pro" value="1" type="checkbox" $selectPr class="form-control">																											
+												$multilangue[professionnels]									
+											</div>
+										</div>
+										<!-- END NewsletterEnvoyerEtape1Module122 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[clients_du_des_sites] :</label>
+											<div class="col-md-8">		
+												<select class="form-control" multiple="multiple">
+													<option value="0" selected="selected">$multilangue[tous]</option>
+													<!-- BEGIN NewsletterEnvoyerEtape1SiteBit -->
+													<option value="$site[siteid]">$site[libelle]</option>
+													<!-- END NewsletterEnvoyerEtape1SiteBit -->
+												</select>
+											</div>
+										</div>	
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[clients_du_des_pays] :</label>
+											<div class="col-md-8">		
+												<select class="form-control" name="paysid" multiple="multiple">
+													<option value="0" $selectTousPays>$multilangue[tous]</option>
+													<!-- BEGIN NewsletterEnvoyerEtape1PaysBit -->
+													<option value="$pays[paysid]" $selectPays>$pays[libelle]</option>
+													<!-- END NewsletterEnvoyerEtape1PaysBit -->
+												</select>
+											</div>
+										</div>										
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[date_inscription] :</label>
+											<div class="col-md-8">
+												<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                	<span class="input-group-addon"> $multilangue[entre] </span>
+                                                	<input class="form-control" name="inscripDebut" type="text" value="$inscripDebut">
+                                                	<span class="input-group-addon"> $multilangue[et] </span>
+                                                	<input class="form-control" name="inscripFin" type="text" value="$inscripFin"> 
+                                                </div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[clients_ayant_deja_commande] ? </label>
+											<div class="col-md-8">
+	                                            <div class="radio-list">
+	                                                <label class="radio-inline">                                                    
+	                                                   	<span>
+	                                                   		<input onclick="$('#FiltreCommandes').slideDown();" name="acommande" id="optionsRadios1" value="1" type="radio">
+	                                                   	</span>
+	                                                    $multilangue[oui]
+	                                                </label>
+	                                                <label class="radio-inline">                                                    
+	                                                   	<span>
+	                                                   		<input onclick="$('#FiltreCommandes').slideUp();" name="acommande" id="optionsRadios2" value="2" type="radio">
+	                                                   	</span>
+	                                                    $multilangue[non]
+	                                                </label>
+	                                                <label class="radio-inline">                                                   
+	                                                    <span>
+	                                                    	<input onclick="$('#FiltreCommandes').slideUp();" name="acommande" id="optionsRadios3" checked="checked" value="0" type="radio">
+	                                                    </span>
+	                                                    $multilangue[tous]
+	                                                </label>
+	                                            </div>
+	                                        </div>
+										</div>
+										<div id="FiltreCommandes" style="display:none;">
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[derniere_commande] :</label>
+												<div class="col-md-8">
+													<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+	                                                	<span class="input-group-addon"> $multilangue[entre] </span>
+	                                                	<input class="form-control" name="lastCommandeDebut" type="text" value="$lastCommandeDebut">
+	                                                	<span class="input-group-addon"> $multilangue[et] </span>
+	                                                	<input class="form-control" name="lastCommandeFin" type="text" value="$lastCommandeFin"> 
+	                                                </div>																									
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[a_commande_produit_de_la_les_categories] :</label>
+												<div class="col-md-8">		
+													<select class="form-control" name="catid" multiple="multiple">	
+														<option value="0" $selectTousCatid>$title1</option>													
+														$options_categ
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[a_commande_un_ou_plusieurs_produits_precis] :</label>
+												<div class="col-md-8">		
+													<div class="searchArticles">								            	
+														<input id="searchArticles" name="searchArticles" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+														<div id="choixArticles">															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>																		                    
+						</div>												
+												
+						<div class="col-md-12 ta-center mb-20">
+							<a href="newsletter.php" class="btn grey" title="$multilangue[retour]">
+								<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+								$multilangue[retour]
+							</a>
+							<a href="Javascript:;" onclick="$('#actionSpe').val('exportEtape1'); $('#formuNewsletter').submit();" class="btn blue" title="$multilangue[exporter_seulement]">
+								<i class="fa fa-disk" style="margin-left:8px;"></i>
+								$multilangue[exporter_seulement]
+							</a>
+							<a href="Javascript:;" onclick="$('#actionSpe').val('validEtape1'); $('#formuNewsletter').submit();" class="btn green" title="$multilangue[valider]">
+								<i class="fa fa-check" style="margin-left:8px;"></i>
+								$multilangue[valider]
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- END NewsletterEnvoyerEtape1 -->
+			
+						
+			<!-- BEGIN NewsletterEnvoyerEtape2 -->
+				<div class="row">
+					<div class="col-md-12">		
+						<form method="post" action="newsletter.php" name="formuNewsletterEtape2" id="formuNewsletterEtape2" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" id="actionSpe" name="actionSpe" value="validEtape2">
+							<input type="hidden" name="mailingid" value="$_SESSION[mailingid]">
+							<input type="hidden" name="action" value="envoyer">	
+								
+							<div class="erreur">$erreur</div>										
+							<div class="portlet box blue">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[vous_avez_selectionne] <b>$nb_mail</b> $multilangue[destinataires]
+									</div>																												
+								</div>
+								<div class="portlet-body form">																						
+									<div class="form-body">					
+										<div class="form-group">
+	                                        <label class="control-label col-md-4">$multilangue[date_debut_envoi] :</label>
+	                                        <div class="col-md-4">
+	                                            <div class="input-group">
+	                                            	<input type="hidden" id="nb_minutes_envoi" value="$nb_minutes_envoi">
+	                                                <input size="16" name="date_debut" onchange="calculeDateFin($(this).val());" value="$date_debut" class="form-control datetimepicker" type="text">
+	                                            </div>
+	                                        </div>
+	                                    </div>							
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[date_fin_envoi_estimee] :</label>
+											<input type="hidden" id="newsletter_per_min" value="$newsletter_per_min">
+											<div class="col-md-2">
+												<div class="input-group">                                                	
+                                                	<input class="form-control" readonly id="date_fin_estimee" name="date_fin_estimee" type="text" value="$date_fin_estimee">
+                                                </div>		
+											</div>
+											<label class="control-label col-md-6" style="text-align:left;">($newsletter_per_min $multilangue[mails_envoyes_toutes_les_minutes] $max_mails_jour $multilangue[envois_par_jour].)</label>
+										</div>
+										
+										<div class="form-group">
+	                                        <label class="control-label col-md-4">$multilangue[mail_type_a_envoyer] :</label>
+	                                        <div class="col-md-4">
+	                                            <div class="input-group">
+	                                                <select name="newsletterid" class="form-control">
+	                                                	<!-- BEGIN NewsletterEnvoyerEtape2NewsletterBit -->
+	                                                		<option value="$arr_newsletter[newsletterid]" $selectedNewsLetter>$arr_newsletter[libelleadmin]</option>
+	                                                	<!-- END NewsletterEnvoyerEtape2NewsletterBit -->
+	                                                </select>
+	                                            </div>
+	                                        </div>
+	                                    </div>	
+																	
+									</div>
+									<div class="clear"></div>
+								</div>																		                    
+							</div>											
+								
+							<div class="col-md-12 ta-center mb-20">
+								<a href="Javascript:;" onclick="$('#actionSpe').val('annulEtape2'); $('#formuNewsletterEtape2').submit();" class="btn blue" title="$multilangue[retour]">
+									<i class="fa fa-arrow-left" style="margin-left:8px;"></i>
+									$multilangue[retour]
+								</a>							
+								<a href="Javascript:;" onclick="$('#actionSpe').val('validEtape2'); $('#formuNewsletterEtape2').submit();" class="btn green" title="$multilangue[envoyer]">
+									<i class="fa fa-check" style="margin-left:8px;"></i>
+									$multilangue[envoyer]
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>										
+			<!-- END NewsletterEnvoyerEtape2 -->
+
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/plugins/moment.js"></script>
+<script type="text/javascript" src="includes/javascript/dragsort.js"></script>
+<script type="text/javascript" src="assets/plugins/data-tables/plugins/sorting/num-html.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('searchArticles', 'choixArticles', 'articles', 'search_result_autocomplete.php?type=article', 'multiple');
+	
+	function saveOrder() {							
+		var data = "action=org&";
+		
+		if($('.articles').is(":visible")){
+			var serialStr = "";
+			$('.articles .box2').each(function(i, elm){
+				serialStr += (i > 0 ? "|" : "") + this.id.split("-")[1];
+			}); 
+			$('#ordreArticles').val(serialStr);
+			data += "ordre="+$('#ordreArticles').val()+"&";
+		}
+		$.ajax({
+			url : 'newsletter_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+				success : function(code_html, statut){
+					
+			},
+			error : function(resultat, statut, erreur){ 
+				alert(erreur);	
+			}
+		});
+	}
+	
+	function calculeDateFin(date_debut){
+		var date_debut_js = moment(date_debut, "DD/MM/YYYY HH:mm");		
+		var nb_minutes_envoi = $('#nb_minutes_envoi').val();
+		var date_fin_js = date_debut_js.add(nb_minutes_envoi, 'minute');
+		var date_fin_txt = date_fin_js.format('DD/MM/YYYY HH:mm');		
+		$('#date_fin_estimee').val(date_fin_txt);
+	}
+	
+	function file_exists (url) {
+		  var req = this.window.ActiveXObject ? new ActiveXObject("Microsoft.XMLHTTP") : new XMLHttpRequest();
+		  if (!req) {
+		    throw new Error("L'objet XMLHttpRequest n'est pas supporté par votre navigateur");
+		  }
+
+		  req.open('HEAD', url, false);
+		  req.send(null);
+		  //200 correspond à un code d'état de réussite
+		  if (req.status == 200) {
+		    return true;
+		  }
+
+		  return false;
+	}
+	
+	
+	$(document).ready(function() {		
+		$('.datetimepicker').datetimepicker({
+			rtl: App.isRTL(),
+	        language: 'fr',
+	        autoclose: true,
+			format: 'dd/mm/yyyy hh:ii',
+			startDate: new Date()
+		});
+		
+		$(".articles").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });		
+	
+		$('#choixArticles').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('s');
+			$('#tv-'+id[1]).remove();
+			var ordre = $("#ordreArticles").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordreArticles").val(nouvelOrdre);
+			saveOrder();
+		});
+				
+		$('#choixArticles').bind('DOMNodeInserted', function(event) {
+			$('.articles').html("");
+			var id = event.target.id.split('s');
+			if($("#ordreArticles").val() == ""){
+				$("#ordreArticles").val(id[1]);
+			}else{
+				$("#ordreArticles").val($("#ordreArticles").val()+"|"+id[1]);
+			}
+			var url_image = "";
+			var ordre = $("#ordreArticles").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				
+				if(file_exists("http://$host/br-a-"+ordre[i]+".jpg")){
+					url_image = "http://$host/br-a-"+ordre[i]+".jpg";					
+				}else if(file_exists("http://$host/br-a-"+ordre[i]+".png")){
+					url_image = "http://$host/br-a-"+ordre[i]+".png";
+				}else if(file_exists("http://$host/br-a-"+ordre[i]+".gif")){
+					url_image = "http://$host/br-a-"+ordre[i]+".gif";
+				}else{
+					url_image = "http://$host/br-a-"+ordre[i]+".jpg";
+				}
+				
+				$('.articles').html($('.articles').html()+"<li class='box2' id='tv-"+ordre[i]+"'><div>"+$('#articles'+ordre[i]).text().replace('- ', '').substring(0, 31) +"</div><img src='"+url_image+"' style='max-width:140px;max-height:100px;'></li>");
+				$(".articles").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+		});
+		
+		
+		$('.table-mailings').dataTable({
+			"aoColumns": [
+				{"sClass": "ta-center", "bSortable": false, "mData": "mail_type", "iDataSort": 0, "data": "mail_type", "bVisible": true},    
+				{"sClass": "ta-center", "bSortable": false, "mData": "date_debut_envoi", "iDataSort": 1, "data": "date_debut_envoi", "bVisible": true},           
+	            {"sClass": "ta-center", "bSortable": false, "mData": "date_fin_envoi", "iDataSort": 2, "data": "date_fin_envoi", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "nb_envoyes", "iDataSort": 3, "data": "nb_envoyes", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "nb_lus", "iDataSort": 4, "data": "nb_lus", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "nb_clics", "iDataSort": 5, "data": "nb_clics", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "nb_cdes", "iDataSort": 6, "data": "nb_cdes", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "montant_cdes", "iDataSort": 7, "data": "montant_cdes", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "actions", "iDataSort": 8, "data": "actions", "bVisible": true}
+   		    ],
+       		"iDisplayStart": 0,
+          	"iDisplayLength": 10,
+          	"fnDrawCallback": function() {
+				App.initAjax();
+         	 },
+         	"bSortCellsTop": true,
+         	"bFilter": false,
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+	           "url": "newsletter_ajax.php",
+	           "type": "POST",
+	           "data": function ( d ) {
+	        	   d.action = "listemailings";
+	           }
+	        },       
+			"order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+         
+		});
+	
+		$('.table-newsletters').dataTable({
+			"aoColumns": [
+				{"sClass": "ta-center", "bSortable": true, "mData": "titre", "iDataSort": 0, "data": "titre", "bVisible": true},    
+				{"sClass": "ta-center", "bSortable": false, "mData": "faire_un_test", "iDataSort": 1, "data": "faire_un_test", "bVisible": true},           
+	            {"sClass": "ta-center", "bSortable": false, "mData": "voir", "iDataSort": 2, "data": "voir", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "actions", "iDataSort": 3, "data": "actions", "bVisible": true}
+   		    ],
+       		"iDisplayStart": 0,
+          	"iDisplayLength": 10,
+          	"fnDrawCallback": function() {
+				App.initAjax();
+         	 },
+         	"bSortCellsTop": true,
+         	"bFilter": true,
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+	           "url": "newsletter_ajax.php",
+	           "type": "POST",
+	           "data": function ( d ) {
+	        	   d.action = "listenewsletters";
+	           }
+	        },       
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+         
+		});
+		
+		
+		$('.table-inscritsN').dataTable({
+			"aoColumns": [
+				{"sClass": "ta-center", "bSortable": true, "mData": "adresse_mail", "iDataSort": 0, "data": "adresse_mail", "bVisible": true},    
+				{"sClass": "ta-center", "bSortable": true, "mData": "site", "iDataSort": 1, "data": "site", "bVisible": true},           
+	            {"sClass": "ta-center", "bSortable": true, "mData": "import", "iDataSort": 2, "data": "import", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "actions", "iDataSort": 3, "data": "actions", "bVisible": true}
+   		    ],
+       		"iDisplayStart": 0,
+          	"iDisplayLength": 10,
+          	"fnDrawCallback": function() {
+				App.initAjax();
+         	 },
+         	"bSortCellsTop": true,
+         	"bFilter": true,
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+	           "url": "newsletter_ajax.php",
+	           "type": "POST",
+	           "data": function ( d ) {
+	        	   d.action = "listeinscritsN";
+	           }
+	        },       
+			"order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}         
+		});
+		
+		
+		
+		$('.table-inscritsC').dataTable({
+			"aoColumns": [
+				{"sClass": "ta-center", "bSortable": true, "mData": "mail", "iDataSort": 0, "data": "mail", "bVisible": true},    
+				{"sClass": "ta-center", "bSortable": true, "mData": "nom_prenom", "iDataSort": 1, "data": "nom_prenom", "bVisible": true},           
+	            {"sClass": "ta-center", "bSortable": true, "mData": "dateinscription", "iDataSort": 2, "data": "dateinscription", "bVisible": true},          
+	            {"sClass": "ta-center", "bSortable": true, "mData": "site", "iDataSort": 2, "data": "site", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": false, "mData": "actions", "iDataSort": 3, "data": "actions", "bVisible": true}
+   		    ],
+       		"iDisplayStart": 0,
+          	"iDisplayLength": 10,
+          	"fnDrawCallback": function() {
+				App.initAjax();
+         	 },
+         	"bSortCellsTop": true,
+         	"bFilter": true,
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+	           "url": "newsletter_ajax.php",
+	           "type": "POST",
+	           "data": function ( d ) {
+	        	   d.action = "listeinscritsC";
+	           }
+	        },       
+			"order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}         
+		});
+		
+
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		
+        $('.date-picker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+	});
+</script>
+<!-- END NewsletterIndex -->

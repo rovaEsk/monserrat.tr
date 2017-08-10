@@ -1,0 +1,360 @@
+<!-- BEGIN Fond_administrableIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[fond_administrable]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="fond_administrable.php">						
+								$multilangue[fond_administrable]	
+							</a>						
+						</li>
+						<!-- BEGIN Fond_administrableNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Fond_administrableNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN Fond_administrableSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Fond_administrableSuccess -->
+			
+			<!-- BEGIN Fond_administrableErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Fond_administrableErreur -->
+			
+			<!-- BEGIN Fond_administrableInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END Fond_administrableInfo -->
+			
+			<!-- BEGIN Fond_administrableListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="fond_administrable.php?action=modifier" data-original-title="$multilangue[ajt_background]" class="btn green right">
+									$multilangue[ajt_background] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">									
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[liste_backgrounds]												
+											</div>																															
+										</div>
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabbackground" class="table table-striped table-bordered table-background table-hover">
+													<thead>
+														<tr>
+															<th>
+																$multilangue[nom]
+															</th>
+															<th class="ta-center">
+																$multilangue[image]
+															</th>
+															<th class="ta-center">
+																$multilangue[actifV1]
+															</th>
+															<th class="ta-center">
+																$multilangue[actifV2]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN Fond_administrableListeBit -->
+															<tr id="$background[backgroundid]">
+																<td width="20%" class="highlight">																
+																	<a class="lh-30" href="fond_administrable.php?action=modifier&backgroundid=$background[backgroundid]">
+																		$background[libelle]
+																	</a>
+																</td>
+																<td width="20%" class="ta-center">
+																	<div style="width: 200px; height: 150px; margin:auto;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img" alt=""></div>
+																</td>
+																<td width="20%" class="ta-center">
+																	<div data-value="$background[backgroundid]" data-version="V1" data-original-title="$tooltip_visibleV1" data-placement="top" class="btn default btn-sm $color2_affV1 tooltips">
+																		<i class="fa $ico_affV1"></i>
+																	</div>
+																</td>
+																<td width="20%" class="ta-center">
+																	<div data-value="$background[backgroundid]" data-version="V2" data-original-title="$tooltip_visibleV2" data-placement="top" class="btn default btn-sm $color2_affV2 tooltips">
+																		<i class="fa $ico_affV2"></i>
+																	</div>
+																</td>
+																<td width="20%" class="ta-center">
+																	<a href="fond_administrable.php?action=modifier&backgroundid=$background[backgroundid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-edit fs-18 font-blue"></i>
+																	</a>
+																	<a href="#myModal$background[backgroundid]" id="btn_suppr$background[backgroundid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																		<i class="fa fa-trash-o fs-18 font-red"></i>
+																	</a>
+																	<div aria-hidden="true" aria-labelledby="myModalLabe$background[backgroundid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$background[backgroundid]" style="display: none;">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																					<h4 class="modal-title">$multilangue[suppression_background] : "$background[libelle]" ?</h4>
+																				</div>
+																				<div class="modal-body">																					
+																					$multilangue[suppression_background_infos]
+																				</div>
+																				<div class="modal-footer">
+																					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																					<a href="fond_administrable.php?action=supprimer&backgroundid=$background[backgroundid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														<!-- END Fond_administrableListeBit -->												
+													</tbody>
+												</table>												
+											</div>																			
+										</div>																		
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END Fond_administrableListe -->
+			
+			<!-- BEGIN Fond_administrableModification -->	
+				<!-- DEBUT FORM-->														
+					<form action="$_SERVER[PHP_SELF]" name="formModifBackground" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+						<input type="hidden" name="action" value="modifier2">
+						<input type="hidden" name="backgroundid" value="$background[backgroundid]">						
+						<div class="col-md-12 ta-center mb-20">
+							<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+							<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+						</div>	
+						<div class="row">
+							<div class="col-md-12">
+								<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+									<div class="tab-content">							
+										<div class="tab-pane active" id="tab_0">
+											<div class="portlet box $classcolor_site_principal">
+												<div class="portlet-title">
+													<div class="caption">
+														$multilangue[donnees] <i>$libelle_site_principal</i>
+													</div>																				
+												</div>
+												<div class="portlet-body">											
+													<div class="form-body">	
+														<!-- BEGIN Fond_administrableModificationDefautBit -->												
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[libelle]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control" name="libelle" value="$background[libelle]"/>
+															</div>
+														</div>													
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[couleur_fond]</label>
+															<div class="col-md-4">
+																<div data-color-format="rgba" data-color="#$background[couleur]" class="input-group color colorpicker-default">
+																<input type="text" class="form-control" name="couleur" value="$background[couleur]" >
+																	<span class="input-group-btn">
+																		<button type="button" class="btn default"><i></i>&nbsp;</button>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[fond_fixe]</label>
+															<div class="col-md-10">
+																<div class="has-switch switch-on" tabindex="1">
+																	<div>
+																		<div>
+																			<input type="checkbox" class="make-switch" $checked name="fixe" value="1">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[image]</label>
+															<div class="col-md-10">
+																<div data-provides="fileinput" class="fileinput fileinput-new">
+																	<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img" alt=""></div>
+																	<div>
+																		<span class="btn default btn-file">
+																			<span class="fileinput-new">$multilangue[selectionner]</span>
+																			<span class="fileinput-exists">$multilangue[modification]</span>
+																			<input type="file" name="image">
+																		</span>
+																		<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- BEGIN Fond_administrableModificationDefautBitActif -->
+														<div class="form-group">
+															<div class="table-responsive">
+																	<table id="tabbackgroundactif" class="table table-striped table-bordered table-backgroundactif">
+																		<thead>
+																			<tr>
+																				<th class="ta-center">
+																					$multilangue[actifV1]
+																				</th>
+																				<th class="ta-center">
+																					$multilangue[actifV2]
+																				</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr id="$background[backgroundid]">
+																				<td width="20%" class="ta-center">
+																					<a href="fond_administrable.php?action=actifsite&pastille=$color_affV1&backgroundid=$background[backgroundid]&actifsiteid=1&plateforme=V1" data-original-title="$tooltip_visibleV1" data-placement="top" class="btn default btn-sm $color2_affV1 tooltips">
+																						<i class="fa $ico_affV1"></i>
+																					</a>
+																				</td>
+																				<td width="20%" class="ta-center">
+																					<a href="fond_administrable.php?action=actifsite&pastille=$color_affV2&backgroundid=$background[backgroundid]&actifsiteid=1&plateforme=V2" data-original-title="$tooltip_visibleV2" data-placement="top" class="btn default btn-sm $color2_affV2 tooltips">
+																						<i class="fa $ico_affV2"></i>
+																					</a>
+																				</td>
+																			</tr>										
+																		</tbody>
+																	</table>												
+																</div>
+															</div>
+															<!-- END Fond_administrableModificationDefautBitActif -->
+														<!-- END Fond_administrableModificationDefautBit -->																
+													</div>																			                    
+												</div>
+											</div>											
+											<!-- BEGIN Fond_administrableModificationSiteBit -->
+												<div class="portlet box $site[classcolor]" style="size : auto;">
+							                        <div class="portlet-title">
+							                            <div class="caption">
+							                                $multilangue[donnees] <i>$site[libelle]</i>
+							                            </div>
+							                            <div class="tools">
+							                                <a class="$expand" href="javascript:;"></a>
+							                            </div>
+							                        </div>
+							                        <div class="portlet-body" style="display: $display;">
+														<div class="table-responsive">
+															<table id="tabbackgroundsite" class="table table-striped table-bordered table-backgroundsite">
+																<thead>
+																	<tr>
+																		<th class="ta-center">
+																			$multilangue[actifV1]
+																		</th>
+																		<th class="ta-center">
+																			$multilangue[actifV2]
+																		</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr id="$background[backgroundid]">
+																		<td width="20%" class="ta-center">
+																			<a href="fond_administrable.php?action=actifsite&pastille=$color_affV1&backgroundid=$background[backgroundid]&actifsiteid=$site[siteid]&plateforme=V1&display" data-original-title="$tooltip_visibleV1" data-placement="top" class="btn default btn-sm $color2_affV1 tooltips">
+																				<i class="fa $ico_affV1"></i>
+																			</a>
+																		</td>
+																		<td width="20%" class="ta-center">
+																			<a href="fond_administrable.php?action=actifsite&pastille=$color_affV2&backgroundid=$background[backgroundid]&actifsiteid=$site[siteid]&plateforme=V2&display" data-original-title="$tooltip_visibleV2" data-placement="top" class="btn default btn-sm $color2_affV2 tooltips">
+																				<i class="fa $ico_affV2"></i>
+																			</a>
+																		</td>
+																	</tr>										
+																</tbody>
+															</table>												
+														</div>
+							                        </div>
+							                    </div>
+							              	<!-- END Fond_administrableModificationSiteBit -->										
+											<div class="col-md-12 ta-center">
+												<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+												<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+											</div>
+										</div>							
+									</div>
+								</div>
+							</div>
+						</div>	
+					</form>
+				<!-- FIN FORM-->
+			<!-- END Fond_administrableModification -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('.colorpicker-default').colorpicker({
+			format: 'hex'
+	    });
+		$('.btn-sm').live('click', function() {
+			var data = 'action=fond_administrable_activer&';
+			data += 'backgroundid=' + $(this).data("value") + '&';
+			data += 'color=' + ($(this).hasClass("green") ? "green" : "red") + '&';
+			data += 'version=' + $(this).data("version") + '&';
+			$.ajax({
+				url : 'commun_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('[data-value="' + code_html.split('_')[0] + '"][data-version="' + code_html.split('_')[3] + '"]');
+					div.removeClass("green red").addClass(code_html.split('_')[1]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[2]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[1] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					App.initAjax();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+	});
+</script>
+
+<!-- END Fond_administrableIndex -->

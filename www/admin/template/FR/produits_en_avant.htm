@@ -1,0 +1,848 @@
+<!-- BEGIN Produits_en_avantIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$multilangue[produits_mis_en_avant]<small></small>
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">						
+							<li>
+								<i class="fa fa-home"></i>
+								<a href="index.php">
+									$multilangue[accueil]
+								</a>
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>							
+								$multilangue[catalogue]	
+								<i class="fa fa-angle-right"></i>						    	                       
+							</li>
+						    <li>
+						        $multilangue[produits_mis_en_avant]					        
+						    </li>
+						    <!-- BEGIN Produits_en_avantNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Produits_en_avantNavigSupp -->
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+	<!-- DEBUT PAGE CONTENT -->	
+		<!-- BEGIN Produits_en_avantTabs -->
+			<div class="form-group" style="border:none;">
+				<label class="control-label col-md-2">$multilangue[afficher_pour_site]</label>
+				<div class="col-md-5" style="border:none;">		
+					<select class="form-control select-site" name="siteSelect">
+						<!-- BEGIN Produits_en_avantListeSiteBit -->
+							<option value="$site[siteid]" $selected_site>$site[libelle]</option>														
+						<!-- END Produits_en_avantListeSiteBit -->
+					</select>
+				</div>
+			</div>
+			<input type="hidden" class="idsite" value="$idsite" name="idsite">
+			<div class="clear"></div>
+			<br>
+			<div class="form-group" style="border:none;">
+				<label class="control-label col-md-2">$multilangue[encart_affiche_pardefaut]</label>
+				<div class="col-md-5" style="border:none;">		
+					<select class="form-control select-defaut" name="top_defaut">
+						<!-- BEGIN Produits_en_avantListeTopBit -->
+							<option value="$tab_top" $selected_top>$multilangue[$tab_top]</option>														
+						<!-- END Produits_en_avantListeTopBit -->
+					</select>
+				</div>
+			</div>
+			
+			<!-- BEGIN Produits_en_avantErreur -->
+				<div class="alert alert-danger">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Produits_en_avantErreur -->
+			
+			<!-- BEGIN Produits_en_avantSucces -->
+				<div class="alert alert-success">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$multilangue[succes_ajt_promotion]
+				</div>
+			<!-- END Produits_en_avantSucces -->
+			
+			<br><br><br>	
+			<div class="tabbable-custom ">	
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#coups_coeur" data-toggle="tab" id="ongletCoupsCoeur">
+							 $multilangue[coups_de_coeur]
+						</a>
+					</li>
+					<li class="">
+						<a href="#nouveautes" data-toggle="tab" id="ongletNouveautes">
+							 $multilangue[nouveautes]
+						</a>
+					</li>
+					<li class="">
+						<a href="#top_ventes" data-toggle="tab" id="ongletTopVentes">
+							 $multilangue[top_ventes]
+						</a>
+					</li>
+					<li class="">
+						<a href="#avant_premieres" data-toggle="tab" id="ongletTopVentes">
+							 $multilangue[en_avant_premiere]
+						</a>
+					</li>
+					<li class="">
+						<a href="#promotions" data-toggle="tab" id="ongletPromotions">
+							 $multilangue[promotions]
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade active in" id="coups_coeur">
+						<input type="hidden" id="ordreCoupsCoeur" value="$ordreCoupsCoeur">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">    
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_coups_coeur]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+								            <div class="searchCoupsCoeur">
+												<input id="searchCoupsCoeur" name="searchCoupsCoeur" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+												<div id="choixCoupsCoeur">
+													<!-- BEGIN Produits_en_avantCoupsCoeur -->
+													<div id="coupscoeur$coupcoeur[artid]"> 
+														- $coupcoeur[libelle] ($coupcoeur[artcode]) 
+														<input type="hidden" value="$coupcoeur[artid]" name="coupscoeur[$coupcoeur[artid]]" id="coupscoeur[$coupcoeur[artid]]"> 
+														<i onclick="$('#coupscoeur$coupcoeur[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+													</div>
+													<!-- END Produits_en_avantCoupsCoeur -->
+												</div>
+											</div>
+										</div>							
+									</div>
+								</div>
+								<div class="col-md-2"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body">  
+								<div class="boites">
+									<ul id="boxes" class="coups_coeur">
+										<!-- BEGIN Produits_en_avantCoupsCoeurBoitesBit -->
+											<li class="box2" id="cc-$coupcoeur[artid]">
+												<div>$texte_coup_coeur</div>
+												$image_article
+											</li>
+										<!-- END Produits_en_avantCoupsCoeurBoitesBit -->
+									</ul>
+									<div class="clear"></div>			
+								</div>
+							</div>							
+						</div>
+					</div>
+					
+					<div class="tab-pane fade" id="nouveautes">
+						<input type="hidden" id="ordreNouveautes" value="$ordreNouveautes">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">    
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_nouveautes]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+								           <div class="searchNouveautes">
+												<input id="searchNouveautes" name="searchNouveautes" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+												<div id="choixNouveautes">
+													<!-- BEGIN Produits_en_avantNouveautes -->
+													<div id="nouveautes$nouveaute[artid]"> 
+														- $nouveaute[libelle] ($nouveaute[artcode]) 
+														<input type="hidden" value="$nouveaute[artid]" name="nouveautes[$nouveaute[artid]]" id="nouveautes[$nouveaute[artid]]"> 
+														<i onclick="$('#nouveautes$nouveaute[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+													</div>
+													<!-- END Produits_en_avantNouveautes -->
+												</div>
+											</div>
+										</div>							
+									</div>
+								</div>
+								<div class="col-md-2"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body">  
+								<div class="boites">
+									<ul id="boxes" class="nouveautes">
+										<!-- BEGIN Produits_en_avantNouveautesBoitesBit -->
+											<li class="box2" id="nouv-$nouveaute[artid]">
+												<div>$texte_nouveaute</div>												
+												$image_article
+											</li>
+										<!-- END Produits_en_avantNouveautesBoitesBit -->
+									</ul>
+									<div class="clear"></div>			
+								</div>
+							</div>							
+						</div>
+					</div>
+					
+					<div class="tab-pane fade" id="top_ventes">
+						<input type="hidden" id="ordreTopVentes" value="$ordreTopVentes">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">    
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_top_ventes]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+								            <div class="searchTopVentes">
+												<input id="searchTopVentes" name="searchTopVentes" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+												<div id="choixTopVentes">
+													<!-- BEGIN Produits_en_avantTopVentes -->
+													<div id="topventes$topvente[artid]"> 
+														- $topvente[libelle] ($topvente[artcode]) 
+														<input type="hidden" value="$topvente[artid]" name="topventes[$topvente[artid]]" id="topventes[$topvente[artid]]"> 
+														<i onclick="$('#topventes$topvente[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+													</div>
+													<!-- END Produits_en_avantTopVentes -->
+												</div>
+											</div>
+										</div>							
+									</div>
+								</div>
+								<div class="col-md-2"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body">  
+								<div class="boites">
+									<ul id="boxes" class="top_ventes"> 
+										<!-- BEGIN Produits_en_avantTopVentesBoitesBit -->
+											<li class="box2" id="tv-$topvente[artid]">
+												<div>$texte_top_vente</div>
+												$image_article
+											</li>
+										<!-- END Produits_en_avantTopVentesBoitesBit -->
+									</ul>
+									<div class="clear"></div>			
+								</div>
+							</div>							
+						</div>
+					</div>
+					
+					
+					<div class="tab-pane fade" id="avant_premieres">
+						<input type="hidden" id="ordreAvantPremieres" value="$ordreAvantPremieres">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">    
+									<div class="portlet box red">
+						            	<div class="portlet-title">
+						                	<div class="caption" >
+						                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_avant_premiere]
+											</div>
+										</div>     
+							            <div class="portlet-body">  
+								            <div class="searchAvantPremieres">
+												<input id="searchAvantPremieres" name="searchAvantPremiere" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+												<div id="choixAvantPremiere">
+													<!-- BEGIN Produits_en_avantAvantPremiere -->
+													<div id="avantpremieres$avantpremiere[artid]"> 
+														- $avantpremiere[libelle] ($avantpremiere[artcode]) 
+														<input type="hidden" value="$avantpremiere[artid]" name="avantpremieres[$avantpremiere[artid]]" id="avantpremieres[$avantpremiere[artid]]"> 
+														<i onclick="$('#avantpremieres$avantpremiere[artid]').remove();" class="fa fa-trash-o fs-18 font-red" style="cursor: pointer;"></i>
+													</div>
+													<!-- END Produits_en_avantAvantPremiere -->
+												</div>
+											</div>
+										</div>							
+									</div>
+								</div>
+								<div class="col-md-2"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body">  
+								<div class="boites">
+									<ul id="boxes" class="avant_premieres"> 
+										<!-- BEGIN Produits_en_avantAvantPremiereBoitesBit -->
+											<li class="box2" id="ap-$avantpremiere[artid]">
+												<div>$texte_avant_premiere</div>
+												$image_article
+											</li>
+										<!-- END Produits_en_avantAvantPremiereBoitesBit -->
+									</ul>
+									<div class="clear"></div>			
+								</div>
+							</div>							
+						</div>
+					</div>
+					
+					<div class="tab-pane fade" id="promotions">
+						<a href="produits_en_avant.php?action=ajouter" data-original-title="$multilangue[ajouter]" class="btn green right mb-20">
+							$multilangue[ajouter] &nbsp;
+							<i class="fa fa-plus "></i>
+						</a><br><br>
+						<div class="tab-content">
+							<div class="table-responsive">
+								<table id="tabpromotions" class="table table-striped table-bordered table-promotions table-hover">
+									<thead>
+										<tr>
+											<th class="ta-center">
+												$multilangue[site]
+											</th>
+											<th class="ta-center">
+												$multilangue[photo]
+											</th>
+											<th class="ta-center">
+												$multilangue[article]
+											</th>
+											<th class="ta-center">
+												$multilangue[rayon]
+											</th>
+											<th class="ta-center">
+												$multilangue[date_debut]
+											</th>
+											<th class="ta-center">
+												$multilangue[date_fin]
+											</th>
+											<th class="ta-center">
+												$multilangue[pourcentage]
+											</th>
+											<th class="ta-center">
+												$multilangue[prix_promotion]
+											</th>
+											<th class="ta-center">
+												$multilangue[prix_normal]
+											</th>
+											<th class="ta-center">
+												$multilangue[actions]
+											</th>
+										</tr>
+									</thead>
+									<tbody>								
+									</tbody>
+								</table>												
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<!-- END Produits_en_avantTabs -->
+		<!-- BEGIN Produits_en_avantAjoutPromotion -->
+			<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="produits_en_avant.php?action=add" name="formAjoutPromotion" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped" id="form_ajout_promotion">
+										<input type="hidden" name="articles" value="">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="produits_en_avant.php#promotions" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[ajt_promotion]
+												</div>																		
+											</div>
+											<div class="portlet-body form">
+												<div class="form-body">	
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[site]</label>
+														<div class="col-md-8">
+															<div class="checkbox-list liste_site">
+																<!-- BEGIN Produits_en_avantCheckboxSiteBit -->
+																	<label class="">	
+																		<input  class="chk_site" type="checkbox" value="$site[siteid]" name="site[$site[siteid]]">$site[libelle]
+																	</label>	
+																<!-- END Produits_en_avantCheckboxSiteBit -->	
+																<input type="hidden" class="siteid_coches" value="" name="idsite">
+																<div class="clear"></div>
+															</div>
+														</div>	
+													</div>							
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[articles]</label>
+														<div class="col-md-8">	
+															<div class="jstreearticles">
+															</div>	
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[type_promotion]</label>
+														<div class="col-md-8">																														
+															<select class="form-control select-type" name="typepromotion">
+																<option value="0">$multilangue[montant_reduction]</option>	
+																<option value="1">$multilangue[pourcentage_reduction]</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[reduction]</label>
+														<div class="col-md-8">
+															<div class="montant_reduction">																														
+																<input type="text" class="form-control input-inline" name="montant" value=""> $multilangue[devise]
+															</div>
+															<div class="pourcentage_reduction">																														
+																<input type="text" class="form-control input-inline" name="pourcentage" value=""> %
+															</div>														
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">$multilangue[periode]</label>
+														<div class="col-md-8">	
+															<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-large date">
+																<input type="text" id="date_debut" class="form-control date-picker date_debut" name="datedebut" value="$datedebut_offre" placeholder="$multilangue[du]"/>
+																<span class="input-group-btn">
+																	<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('date_debut')" style="float:left;"><i class="fa fa-times"></i></button>
+																</span>
+																<input type="text" id="heure_debut" name="timedebut" value="" class="form-control timepicker-24" placeholder="hh:mm:ss">
+																<span class="input-group-btn">
+																	<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('heure_debut')"><i class="fa fa-times"></i></button>
+																</span>
+															</div><br>
+															<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-large date">													
+																<input type="text" id="date_fin" class="form-control date-picker date_fin" name="datefin" value="$datefin_offre" placeholder="$multilangue[au]"/>
+																<span class="input-group-btn">
+																	<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('date_fin')"><i class="fa fa-times"></i></button>
+																</span>
+																<input type="text" id="heure_fin" name="timefin" value="" class="form-control timepicker-24" placeholder="hh:mm:ss">
+																<span class="input-group-btn">
+																	<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('heure_fin')"><i class="fa fa-times"></i></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>												
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="produits_en_avant.php#promotions" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+		
+		<!-- END Produits_en_avantAjoutPromotion -->
+	<!-- FIN PAGE CONTENT-->
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="includes/javascript/dragsort.js"></script>
+<script type="text/javascript" src="assets/plugins/data-tables/plugins/sorting/num-html.js"></script>
+
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('searchCoupsCoeur', 'choixCoupsCoeur', 'coupscoeur', 'search_result_autocomplete.php?type=article', 'multiple');
+	createAutoCompleteur('searchNouveautes', 'choixNouveautes', 'nouveautes', 'search_result_autocomplete.php?type=article', 'multiple');
+	createAutoCompleteur('searchTopVentes', 'choixTopVentes', 'topventes', 'search_result_autocomplete.php?type=article', 'multiple');
+	createAutoCompleteur('searchAvantPremieres', 'choixAvantPremiere', 'avantpremieres', 'search_result_autocomplete.php?type=article', 'multiple');
+
+	function saveOrder() {							
+		var data = "action=org&";
+		
+		if($('.coups_coeur').is(":visible")){
+			var serialStr = "";
+			$('.coups_coeur .box2').each(function(i, elm){
+				serialStr += (i > 0 ? "|" : "") + this.id.split("-")[1];
+			}); 
+			$('#ordreCoupsCoeur').val(serialStr);
+			data += "table=topcoupdecoeur&";
+			data += "ordre="+$('#ordreCoupsCoeur').val()+"&";
+		} else if($('.nouveautes').is(":visible")){
+			var serialStr = "";
+			$('.nouveautes .box2').each(function(i, elm){
+				serialStr += (i > 0 ? "|" : "") + this.id.split("-")[1];
+			}); 
+			$('#ordreNouveautes').val(serialStr);	
+			data += "table=topnouveaute&";
+			data += "ordre="+$('#ordreNouveautes').val()+"&";
+		} else if($('.top_ventes').is(":visible")){
+			var serialStr = "";
+			$('.top_ventes .box2').each(function(i, elm){
+				serialStr += (i > 0 ? "|" : "") + this.id.split("-")[1];
+			}); 
+			$('#ordreTopVentes').val(serialStr);	
+			data += "table=topvente&";
+			data += "ordre="+$('#ordreTopVentes').val()+"&";
+		}else if($('.avant_premieres').is(":visible")){
+			var serialStr = "";
+			$('.avant_premieres .box2').each(function(i, elm){
+				serialStr += (i > 0 ? "|" : "") + this.id.split("-")[1];
+			}); 
+			$('#ordreAvantPremieres').val(serialStr);	
+			data += "table=topavantpremiere&";
+			data += "ordre="+$('#ordreAvantPremieres').val()+"&";
+		}
+		data += "idSite="+$('.idsite').val();
+		$.ajax({
+			url : 'produits_en_avant_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+				success : function(code_html, statut){
+					
+			},
+			error : function(resultat, statut, erreur){ 
+				alert(erreur);	
+			}
+		});
+	}
+	
+	$(document).ready(function() {
+
+		$(".coups_coeur").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+		$(".nouveautes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+		$(".top_ventes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+		$(".avant_premieres").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+		
+		$('#choixCoupsCoeur').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('r');
+			$('#cc-'+id[1]).remove();
+			var ordre = $("#ordreCoupsCoeur").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordreCoupsCoeur").val(nouvelOrdre);
+			saveOrder();
+		});
+		
+		$('#choixCoupsCoeur').bind('DOMNodeInserted', function(event) {
+			$('.coups_coeur').html("");
+			var id = event.target.id.split('r');
+			if($("#ordreCoupsCoeur").val() == ""){
+				$("#ordreCoupsCoeur").val(id[1]);
+			}else{
+				$("#ordreCoupsCoeur").val($("#ordreCoupsCoeur").val()+"|"+id[1]);
+			}
+			var ordre = $("#ordreCoupsCoeur").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				$('.coups_coeur').html($('.coups_coeur').html()+"<li class='box2' id='cc-"+ordre[i]+"'><div>"+$('#coupscoeur'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$(".coups_coeur").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+
+		});
+	
+		$('#choixNouveautes').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('s');
+			$('#nouv-'+id[1]).remove();
+			var ordre = $("#ordreNouveautes").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordreNouveautes").val(nouvelOrdre);
+			saveOrder();
+		});
+		
+		$('#choixNouveautes').bind('DOMNodeInserted', function(event) {
+			$('.nouveautes').html("");
+			var id = event.target.id.split('s');
+			if($("#ordreNouveautes").val() == ""){
+				$("#ordreNouveautes").val(id[1]);
+			}else{
+				$("#ordreNouveautes").val($("#ordreNouveautes").val()+"|"+id[1]);
+			}
+			var ordre = $("#ordreNouveautes").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				$('.nouveautes').html($('.nouveautes').html()+"<li class='box2' id='nouv-"+ordre[i]+"'><div>"+$('#nouveautes'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$(".nouveautes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+
+		});
+	
+		$('#choixTopVentes').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('s');
+			$('#tv-'+id[1]).remove();
+			var ordre = $("#ordreTopVentes").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordreTopVentes").val(nouvelOrdre);
+			saveOrder();
+		});
+		
+		$('#choixTopVentes').bind('DOMNodeInserted', function(event) {
+			$('.top_ventes').html("");
+			var id = event.target.id.split('s');
+			if($("#ordreTopVentes").val() == ""){
+				$("#ordreTopVentes").val(id[1]);
+			}else{
+				$("#ordreTopVentes").val($("#ordreTopVentes").val()+"|"+id[1]);
+			}
+			var ordre = $("#ordreTopVentes").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				$('.top_ventes').html($('.top_ventes').html()+"<li class='box2' id='tv-"+ordre[i]+"'><div>"+$('#topventes'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$(".top_ventes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+
+		});
+		
+		$('#choixAvantPremiere').bind('DOMNodeRemoved', function(event) {
+			var id = event.target.id.split('s');
+			$('#ap-'+id[1]).remove();
+			var ordre = $("#ordreAvantPremieres").val().split('|');
+			var nouvelOrdre = "";
+			for(var i=0;i<ordre.length;i++){
+				if(ordre[i] != id[1]){
+					nouvelOrdre += "|"+ordre[i];
+				}
+			}
+			$("#ordreAvantPremieres").val(nouvelOrdre);
+			saveOrder();
+		});
+		
+		$('#choixAvantPremiere').bind('DOMNodeInserted', function(event) {
+			$('.avant_premieres').html("");
+			var id = event.target.id.split('s');
+			if($("#ordreAvantPremieres").val() == ""){
+				$("#ordreAvantPremieres").val(id[1]);
+			}else{
+				$("#ordreAvantPremieres").val($("#ordreAvantPremieres").val()+"|"+id[1]);
+			}
+			var ordre = $("#ordreAvantPremieres").val().split('|');
+			for(var i=0; i<ordre.length;i++){
+				$('.avant_premieres').html($('.avant_premieres').html()+"<li class='box2' id='ap-"+ordre[i]+"'><div>"+$('#avantpremieres'+ordre[i]).text().replace('- ', '')+"</div><img src='http://$host/br-a-"+ordre[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$(".avant_premieres").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+			saveOrder();
+
+		});
+	
+		$('.select-site').on('change', function () {
+			if($('#promotions').is(":visible")){
+				return;
+			}else{
+				var location = "produits_en_avant.php?idsite="+$(this).val();
+				if($('.coups_coeur').is(":visible")){
+					location += "#coups_coeur";
+				} else if($('.nouveautes').is(":visible")){
+					location += "#nouveautes";
+				} else if($('.top_ventes').is(":visible")){
+					location += "#top_ventes";
+				} else if($('.avant_premieres').is(":visible")){
+					location += "#avant_premieres";
+				}  
+				window.location = location;
+			}
+		});
+		
+		$('.select-defaut').on('change', function () {
+			var location = "produits_en_avant.php?top_defaut="+$(this).val()+"&idsite="+$('.select-site').val();
+			window.location = location;
+		});
+		
+		$('#tabpromotions').dataTable( {
+			"aoColumns": [
+			  {"sClass": "ta-center", "bSortable": true, "mData": "site", "iDataSort": 0, "data": "site", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": false, "mData": "photo", "iDataSort": 1, "data": "photo", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "article", "iDataSort": 2, "data": "article", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "rayon", "iDataSort": 3, "data": "rayon", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "date_debut", "iDataSort": 4, "data": "date_debut", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "date_fin", "iDataSort": 5, "data": "date_fin", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "pourcentage", "iDataSort": 6, "data": "pourcentage", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "prix_promo", "iDataSort": 7, "data": "prix_promo", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": true, "mData": "prix_normal", "iDataSort": 8, "data": "prix_normal", "bVisible": true},
+              {"sClass": "ta-center", "bSortable": false, "mData": "action", "iDataSort": 9, "data": "action", "bVisible": true},
+	        ],
+	        "iDisplayStart": 0,
+            "iDisplayLength": 10,
+            "fnDrawCallback": function() {
+                App.initAjax();
+            },
+			"processing": true,
+	        "serverSide": true,
+	        "ajax": "produits_en_avant_ajax.php",
+	        "order": [[ 5, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+	            "sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+	            "sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			},
+            "aoColumnDefs": [
+    		                 { "sType": "num-html", "aTargets": [ 7, 8 ] }
+    		               ]
+	    });
+		
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		
+		$('.jstreearticles').on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            for(i = 0, j = data.selected.length; i < j; i++) {
+              r.push(data.instance.get_node(data.selected[i]).id);
+            }           
+            $('input[name="articles"]').val(r.join(','));
+          }).jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'core' : {
+				'data': {
+					'url': 'produits_en_avant_ajax.php?action=jstreearticles'					
+	         	}
+			}
+		});
+		
+		$('.liste_site').on('change', function () {
+			var checkedValues = $('.chk_site:checked').map(function() {
+			    return this.value;
+			}).get();
+			$('.siteid_coches').val(checkedValues);
+		});
+		
+		$('.select-type').change(function () {
+			$('.montant_reduction').hide();
+			$('.pourcentage_reduction').hide();
+			$('.montant_reduction > input').removeAttr('required');
+			$('.pourcentage_reduction > input').removeAttr('required');
+			switch ($('.select-type').val()) {
+				case "0":
+					$('.montant_reduction').show();
+					$('.montant_reduction > input').attr('required', '');
+					break;
+				case "1":
+					$('.pourcentage_reduction').show();
+					$('.pourcentage_reduction > input').attr('required', '');
+					break;
+			}
+		});
+		$('.select-type').trigger('change');
+
+		$('.date-picker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+		
+		jQuery.validator.addMethod("greaterThan", function(value, element){
+			var datedebut = $('.date_debut').val().split("/");
+			datedebut = new Date(datedebut[2], datedebut[1], datedebut[0]);
+			var datefin = value.split("/");
+			datefin = new Date(datefin[2], datefin[1], datefin[0]);
+
+			return this.optional(element) || datefin > datedebut;
+
+		}, "La date de fin doit être supérieur à la date de début");
+		
+		$( "#form_ajout_promotion" ).validate({
+			rules: {
+				datedebut: {
+		            required:true
+		        },
+		        datefin: {
+		            required:true,
+		            greaterThan: true
+		        },
+		        pourcentage: {
+					range: [0,100]
+				}
+			}		
+			
+		});
+		
+		$('#ongletCoupsCoeur').click(function(){
+			$('.select-site').show();
+			$('.alert-danger').hide();
+			$('.alert-success').hide();
+		});
+		$('#ongletNouveautes').click(function(){
+			$('.select-site').show();
+			$('.alert-danger').hide();
+			$('.alert-success').hide();
+		});
+		$('#ongletTopVentes').click(function(){
+			$('.select-site').show();
+			$('.alert-danger').hide();
+			$('.alert-success').hide();
+		});
+		$('#ongletAvantPremiere').click(function(){
+			$('.select-site').show();
+			$('.alert-danger').hide();
+			$('.alert-success').hide();
+		});
+		$('#ongletPromotions').click(function(){
+			$('.select-site').hide();
+		});
+		
+		if($('#promotions').is(":visible")){
+			$('.select-site').hide();
+		}
+	});
+</script>
+<!-- END Produits_en_avantIndex -->

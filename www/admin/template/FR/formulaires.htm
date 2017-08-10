@@ -1,0 +1,1132 @@
+<!-- BEGIN FormulairesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[formulaires]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[formulaires]
+						</li>
+						<!-- BEGIN FormulairesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END FormulairesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN FormulairesSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END FormulairesSuccess -->
+			
+			<!-- BEGIN FormulairesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END FormulairesErreur -->
+			
+			<!-- BEGIN FormulairesInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END FormulairesInfo -->
+			
+			<!-- BEGIN FormulairesListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="formulaires.php?action=modifier" data-original-title="$multilangue[nouveau_formulaire]" class="btn green right">
+									$multilangue[nouveau_formulaire] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th>
+														$multilangue[nom]
+													</th>
+													<th class="ta-center">
+														$multilangue[actif]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+											</thead>
+											<tbody>
+												<!-- BEGIN FormulairesListeBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="highlight col-md-8">																
+															<a class="lh-30" href="formulaires.php?action=modifier&formulaireid=$formulaire[formulaireid]">
+																$formulaire[nom]
+															</a>
+														</td>
+														<td class="ta-center">
+															<div data-value="$formulaire[formulaireid]" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+																<i class="fa $ico_aff"></i>
+															</div>
+														</td>
+														<td class="ta-center">
+															<!-- BEGIN FormulairesListeBitModifier -->
+															<a href="formulaires.php?action=modifier&formulaireid=$formulaire[formulaireid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-edit fs-18 font-blue"></i>
+															</a>
+															<!-- END FormulairesListeBitModifier -->
+															<!-- BEGIN FormulairesListeBitCopier -->
+															<a href="#myModalcopy$formulaire[formulaireid]" id="btn_copy$formulaire[formulaireid]" data-original-title="$multilangue[copier]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																<i class="fa fa-copy fs-18 font-blue"></i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabel$formulaire[formulaireid]" role="dialog" tabindex="-1" class="modal fade" id="myModalcopy$formulaire[formulaireid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">Voulez-vous vraiment copier le formulaire "$formulaire[nom]" ?</h4>
+																		</div>
+																		<div class="modal-body">																					
+																			Cela copiera ce formulaire.
+																		</div>
+																		<div class="modal-footer">
+																			<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																			<a href="formulaires.php?action=copier&formulaireid=$formulaire[formulaireid]" class="btn blue">$multilangue[oui], $multilangue[copier]</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- END FormulairesListeBitCopier -->
+															<!-- BEGIN FormulairesListeBitSupprimer -->
+															<a href="#myModal$formulaire[formulaireid]" id="btn_suppr$formulaire[formulaireid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																<i class="fa fa-trash-o fs-18 font-red"></i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabel$formulaire[formulaireid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$formulaire[formulaireid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">$multilangue[suppression_formulaire] : "$formulaire[nom]" ?</h4>
+																		</div>
+																		<div class="modal-body">																					
+																			$multilangue[suppression_formulaire_infos]
+																		</div>
+																		<div class="modal-footer">
+																			<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																			<a href="formulaires.php?action=supprimer&formulaireid=$formulaire[formulaireid]" class="btn blue">$multilangue[oui], $multilangue[supprimer]</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- END FormulairesListeBitSupprimer -->
+															<!-- BEGIN FormulairesListeBitReponses -->
+															<a href="formulaires.php?action=reponses&formulaireid=$formulaire[formulaireid]" data-original-title="$multilangue[voir_reponses]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-align-left fs-18 font-blue"></i>
+															</a>
+															<a href="formulaires.php?action=exportCsv&formulaireid=$formulaire[formulaireid]" data-original-title="$multilangue[exporter_en_csv]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-table fs-18 font-blue"></i>
+															</a>
+															<!-- END FormulairesListeBitReponses -->
+														</td>
+													</tr>
+												<!-- END FormulairesListeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END FormulairesListe -->
+			
+			<!-- BEGIN FormulairesListeReponses -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<div class="col-md-12 ta-center">
+									<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+									<a class="btn green" href="formulaires.php?action=statuts&formulaireid=$formulaireid"><i class="fa fa-edit"></i> $multilangue[gerer_statuts_reponse]</a>
+								</div>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[date] / $multilangue[heure]
+													</th>
+													<th class="ta-center">
+														$multilangue[page]
+													</th>
+													<th class="ta-center">
+														$multilangue[code_client]
+													</th>
+													<th class="ta-center">
+														$multilangue[statut]
+													</th>
+													<th class="ta-center">
+														$multilangue[action]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN FormulairesListeReponsesBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="ta-center">																
+																$multilangue[le] $reponse[date] $multilangue[a] $reponse[heure]
+														</td>
+														<td class="ta-center">
+															$reponse[page]
+														</td>
+														<td class="ta-center">
+															$reponse[userid]
+														</td>
+														<td class="ta-center">
+															<!-- BEGIN FormulairesListeReponsesStatuts -->
+															<select id="$reponse[formulairereponseid]" class="form-control select">
+																<!-- BEGIN FormulairesListeReponsesStatutsBit -->
+																	<option value="$statut[statutid]" $selected>$statut[libelle]</option>
+																<!-- END FormulairesListeReponsesStatutsBit -->
+															</select>
+															<!-- END FormulairesListeReponsesStatuts -->
+														</td>
+														<td class="ta-center">
+												        	<a href="formulaires.php?action=supprimerreponse&formulairereponseid=$reponse[formulairereponseid]" data-original-title="$multilangue[supprimer]" data-placement="top" class="btn tooltips">
+												            	<i class="fa fa-trash-o fs-18 font-red"></i>
+												        	</a>														
+															<a href="formulaires.php?action=reponseschamps&formulaireid=$formulaireid&formulairereponseid=$reponse[formulairereponseid]" data-original-title="$multilangue[voir]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-align-left fs-18 font-blue"></i>
+															</a>
+														</td>
+													</tr>
+												<!-- END FormulairesListeReponsesBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																
+							</div>
+							<form id="modifierstatut" action="formulaires.php" method="post">
+								<input type="hidden" value="setstatut" name="action">
+								<input type="hidden" name="formulaireid" value="$formulaireid">
+								<input type="hidden" name="formulairereponseid">
+								<input type="hidden" name="statutid">
+							</form>
+						</div>							
+					</div>
+				</div>
+			<!-- END FormulairesListeReponses -->
+			
+			<!-- BEGIN FormulairesDetailsReponses -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<div class="col-md-12 ta-center">
+									<a href="formulaires.php?action=reponses&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+									<a class="btn green" href="#myModal$formulairereponseid" data-toggle="modal" role="button"><i class="fa fa-envelope"></i> $multilangue[contacter_ce_client]</a>
+									<div aria-hidden="true" aria-labelledby="myModalLabe$formulairereponseid" role="dialog" class="modal fade" id="myModal$formulairereponseid" style="display: none;">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											<form id="modifierstatut" action="formulaires.php" method="post">
+												<input type="hidden" value="envoyer" name="action">
+												<input type="hidden" name="formulaireid" value="$formulaireid">
+												<input type="hidden" name="formulairereponseid" value="$formulairereponseid">
+												<div class="modal-header">
+													<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+													<h4 class="modal-title">$multilangue[contacter_client]</h4>
+												</div>
+												<div class="modal-body">
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[sujet]</label>
+														<div class="col-md-10 mb-20">																														
+															<input type="text" class="form-control" name="sujet"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[message]</label>
+														<div class="col-md-10">																														
+															<textarea class="form-control autosize" name="message"></textarea>
+														</div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="modal-footer">
+													<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+													<input type="submit" class="btn blue" value="$multilangue[envoyer]"/>
+												</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br><br><br>											
+								<div class="table-responsive">
+									<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[champ]
+												</th>
+												<th class="ta-center">
+													$multilangue[valeur]
+												</th>
+										</thead>
+										<tbody>
+											<!-- BEGIN FormulairesDetailsReponsesBit -->
+												<tr id="$formulaire[formulaireid]">
+													<td class="ta-center">
+														$reponse[champ]
+													</td>
+													<td class="ta-center">
+														$reponse[valeur]
+													</td>
+												</tr>
+											<!-- END FormulairesDetailsReponsesBit -->												
+										</tbody>
+									</table>												
+								</div>																			
+								<!-- BEGIN FormulairesDetailsReponsesContacts -->
+								<div class="portlet box light-grey">
+									<div class="portlet-title">
+										<div class="caption">
+											$multilangue[historique_messages]
+										</div>	
+										<div class="tools">
+											<a class="collapse" href="javascript:;"></a>
+										</div>																			
+									</div>
+									<div class="portlet-body form">
+										<div class="table-responsive">
+											<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+												<thead>
+													<tr>
+														<th class="ta-center">
+															$multilangue[date] / $multilangue[heure]
+														</th>
+														<th class="ta-center">
+															$multilangue[sujet]
+														</th>
+														<th class="ta-center">
+															$multilangue[contenu]
+														</th>
+												</thead>
+												<tbody>
+													<!-- BEGIN FormulairesDetailsReponsesContactsBit -->
+													<tr id="$formulaire[formulaireid]">
+														<td class="ta-center">
+															$date[2]/$date[1]/$date[0] $date[3]:$date[4]:$date[5]
+														</td>
+														<td class="ta-center">
+															$reponsecontact[sujet]
+														</td>
+														<td class="ta-center">
+															$reponsecontact[contenu]
+														</td>
+													</tr>
+													<!-- END FormulairesDetailsReponsesContactsBit -->												
+												</tbody>
+											</table>
+										</div>											
+									</div>
+								</div>
+								<!-- END FormulairesDetailsReponsesContacts -->
+								<div class="col-md-12 ta-center">
+									<a href="formulaires.php?action=reponses&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+									<a class="btn green" href="#myModal$formulairereponseid" data-toggle="modal" role="button"><i class="fa fa-envelope"></i> $multilangue[contacter_ce_client]</a>
+								</div>															
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END FormulairesDetailsReponses -->
+			
+			<!-- BEGIN FormulairesListeStatuts -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<div class="col-md-12 ta-center">
+									<a href="formulaires.php?action=reponses&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+									<a class="btn green" href="formulaires.php?action=modifierstatut&formulaireid=$formulaireid"><i class="fa fa-plus"></i> $multilangue[ajt_statut]</a>
+								</div>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabformulaire" class="table table-striped table-bordered table-formulaire table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center">
+														$multilangue[statut]
+													</th>
+													<th class="ta-center">
+														$multilangue[action]
+													</th>
+											</thead>
+											<tbody>
+												<!-- BEGIN FormulairesListeStatutsBit -->
+													<tr id="$statut[statutid]">
+														<td class="ta-center">
+															$statut[libelle]
+														</td>
+														<td class="ta-center">														
+															<a href="formulaires.php?action=modifierstatut&statutid=$statut[statutid]" data-original-title="$multilangue[modif_statut]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-edit fs-18 font-blue"></i>
+															</a>
+															<a href="formulaires.php?action=supprimerstatut&statutid=$statut[statutid]" data-original-title="$multilangue[supprimer]" data-placement="top" class="btn tooltips">
+												            	<i class="fa fa-trash-o fs-18 font-red"></i>
+												        	</a>
+														</td>
+													</tr>
+												<!-- END FormulairesListeStatutsBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END FormulairesListeStatuts -->
+			
+			<!-- BEGIN FormulairesModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifMarque" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifier2">
+										<input type="hidden" name="formulaireid" value="$formulaire[formulaireid]">
+										<input type="hidden" name="siteidformulaire" value="$siteidformulaire">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+												</div>	
+												<div class="tools">
+					                                <a class="collapse" href="javascript:;">
+					                                </a>					                                
+					                            </div>																			
+											</div>
+											<div class="portlet-body form">
+												<!-- DEBUT FORM-->
+													<div class="form-body">
+														<!-- BEGIN FormulairesModificationDefautBit -->												
+														<div class="form-group">
+															<label class="control-label col-md-2">$multilangue[nom]</label>
+															<div class="col-md-10">																														
+																<input type="text" class="form-control" name="nom1" value="$formulaire[nom]"/>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-2 antiforcebrute" data-trigger="hover" data-placement="bottom" data-content="$multilangue[infos_formulaire_antiforce_brute]">$multilangue[activer_antiforce_brute]</label>
+															<div class="col-md-10">																														
+																<input type="checkbox" class="make-switch" $checked name="antiforcebrute" value="1">
+															</div>
+														</div>
+														<!-- END FormulairesModificationDefautBit -->																					
+													</div>												
+												<!-- FIN FORM-->
+											</div>
+										</div>
+										<!-- BEGIN FormulairesModificationSiteBit -->
+										<div class="portlet box $site[classcolor]" style="size : auto;">
+					                        <div class="portlet-title">
+					                            <div class="caption">
+					                                $multilangue[donnees] <i>$site[libelle]</i>
+					                            </div>
+					                            <div class="tools">
+					                                <a class="expand" href="javascript:;">
+					                                </a>					                                
+					                            </div>
+					                        </div>
+					                        <div class="portlet-body form" style="display:none;">															
+												<div class="form-body">													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[nom]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="nom$site[siteid]" value="$formulairesite[nom]"/>
+														</div>
+													</div>																						
+												</div>													
+					                        </div>
+					                    </div>
+					                    <!-- END FormulairesModificationSiteBit -->
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+									<!-- BEGIN FormulairesChamps -->
+									<div class="portlet box light-grey">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[champs_existants]
+											</div>	
+											<div class="tools">
+					                        	<a class="collapse" href="javascript:;">
+					                        	</a>					                                
+					                        </div>																			
+										</div>
+										<div class="portlet-body form">
+												<input type="hidden" name="action" value="modifierchamp">
+												<input type="hidden" name="formulaireid" value="$formulaireid">
+												<input type="hidden" name="formulairechampid" value="$formulairechamp[formulairechampid]">
+												<div class="form-actions fluid">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="col-md-12 ta-center">
+																<a href="formulaires.php?action=modifierchamp&formulaireid=$formulaireid&formulairechampid=$formulairechamp[formulairechampid]" class="btn green"><i class="fa fa-plus"></i> $multilangue[ajt_champ]</a>															
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="table-responsive">
+											<!-- BEGIN FormulairesListeChamps -->
+												<table id="tabchamp" class="table table-striped table-bordered table-champ table-hover dataTable">
+													<thead>
+														<tr>
+															<th></th>
+															<th class="ta-center">
+																$multilangue[texte_affiche]
+															</th>
+															<th class="ta-center">
+																$multilangue[nom_champ]
+															</th>
+															<th class="ta-center">
+																$multilangue[type_champ]
+															</th>
+															<th class="ta-center">
+																$multilangue[obligatoire]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+													<!-- BEGIN FormulairesListeChampsBit -->
+														<tr id="$formulairechamp[formulairechampid]">
+															<td>
+																<span class="row-details row-details-close" id="btn_details$formulairechamp[formulairechampid]" onclick="openDetails('btn_details$formulairechamp[formulairechampid]','details$formulairechamp[formulairechampid]');"></span>
+															</td>
+															<td class="ta-center">
+																$formulairechamp[libelle]
+															</td>
+															<td class="ta-center">
+																$formulairechamp[nom]
+															</td>
+															<td class="ta-center">
+																$typechamp[nom]
+															</td>
+															<td class="ta-center">
+																$obligatoire
+															</td>
+															<td width="20%" class="ta-center">
+																<a href="formulaires.php?action=modifierchamp&formulaireid=$formulaire[formulaireid]&formulairechampid=$formulairechamp[formulairechampid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																	<i class="fa fa-edit fs-18 font-blue"></i>
+																</a>
+																<a href="#myModal$formulairechamp[formulairechampid]" id="btn_suppr$formulairechamp[formulairechampid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																	<i class="fa fa-trash-o fs-18 font-red"></i>
+																</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabe$formulairechamp[formulairechampid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$formulairechamp[formulairechampid]" style="display: none;">
+																	<div class="modal-dialog">
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																				<h4 class="modal-title">Voulez-vous vraiment supprimer le champ "$formulairechamp[nom]" ?</h4>
+																			</div>
+																			<div class="modal-body">																					
+																				Cela supprimera toutes les informations qui étaient associés à ce champ
+																			</div>
+																			<div class="modal-footer">
+																				<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																				<a href="formulaires.php?action=supprimerchamp&formulaireid=$formulaire[formulaireid]&formulairechampid=$formulairechamp[formulairechampid]" class="btn blue">Oui, supprimer</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</td>
+														</tr>
+														<tr style="display:none;">
+				                          					<td colspan="8">				                          			
+				                              					&nbsp;								                	
+				                          					</td>				                          
+			                     						</tr>
+				                      					<tr class="details" id="details$formulairechamp[formulairechampid]" style="display: none;">
+							                          		<td colspan="8" style="padding: 20px;">				                          			
+							                              		<table class="table table-bordered"  style="margin: 0px;">
+											                    	<thead>
+												                   		<tr>
+												                   		<!-- BEGIN FormulairesDetailChampTitre -->
+												                   			<th class="bg-white ta-center col-md-6">$multilangue[description]</th>								                   			                                 
+												                          	<th class="bg-white ta-center col-md-6">$multilangue[valeur]</th>
+												                        <!-- END FormulairesDetailChampTitre -->
+												                   		<!-- BEGIN FormulairesDetailChampTitreSupprimer -->
+												                   			<th class="bg-white ta-center col-md-4">$multilangue[description]</th>							                   			                                 
+												                          	<th class="bg-white ta-center col-md-4">$multilangue[valeur]</th>
+												                          	<th class="bg-white ta-center col-md-4">$multilangue[action]</th>
+												                          	<!-- END FormulairesDetailChampTitreSupprimer -->
+												                      	</tr>
+											                    	</thead>
+											                    	<tbody>
+											                    		<!-- BEGIN FormulairesDetailChamp -->
+												                      		<tr style="border-top: 1px solid #EEEEEE;">
+												                          		<td class="bg-white ta-center col-md-6">$champvaleur[description]</td>
+												                          		<td class="bg-white ta-center col-md-6">$champvaleur[valeur]</td>
+												                      		</tr>
+											                      		<!-- END FormulairesDetailChamp -->
+											                      		<!-- BEGIN FormulairesDetailChampSupprimer -->
+												                      		<tr style="border-top: 1px solid #EEEEEE;">
+												                      			<td class="bg-white ta-center col-md-4">$champvaleur[description]</td>
+												                          		<td class="bg-white ta-center col-md-4">$champvaleur[valeur]</td>
+												                          		<td class="bg-white ta-center col-md-4">
+												                          			<a href="formulaires.php?action=supprimervaleur&formulaireid=$formulaireid&formulairechampid=$formulairechamp[formulairechampid]&formulairechampvaleurid=$champvaleur[formulairechampvaleurid]" data-original-title="$multilangue[supprimer]" data-placement="top"class="btn tooltips">
+												                          				<i class="fa fa-trash-o fs-18 font-red"></i>
+												                          			</a>
+												                          		</td>		                          
+												                      		</tr>
+											                      		<!-- END FormulairesDetailChampSupprimer -->									                      		
+											                      	</tbody>
+											                	</table>								                	
+							                          		</td>				                          
+			                     						</tr>
+														<!-- END FormulairesListeChampsBit -->												
+													</tbody>
+												</table>
+												<!-- END FormulairesListeChamps -->
+											</div>
+										</div>
+									</div>
+									<!-- END FormulairesChamps -->
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END FormulairesModification -->
+			
+			<!-- BEGIN FormulairesModificationChamp -->	
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifChamp" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifierchamp2">
+										<input type="hidden" name="formulaireid" value="$formulaireid">
+										<input type="hidden" name="formulairechampid" value="$formulairechampid">
+										<input type="hidden" name="siteidformulaire" value="$siteidformulaire">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="formulaires.php?action=modifier&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+												</div>	
+												<div class="tools">
+					                                <a class="collapse" href="javascript:;">
+					                                </a>					                                
+					                            </div>																			
+											</div>
+											<div class="portlet-body form">
+												<div class="form-body">
+													<!-- BEGIN FormulairesModificationChampDefautBit -->												
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[texte_affiche]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" onchange="changenom(this.value, '');" name="libelle1" value="$champ[libelle]"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[nom_champ]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" readonly id="nom_champ" name="nom" value="$champ[nom]"/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[type_champ]</label>
+															<div class="col-md-10">
+																<!-- BEGIN FormulairesListeTypes -->
+																<select class="form-control switch-type" name="type">
+																	<!-- BEGIN FormulairesListeTypesBit -->
+																		<option value="$type[formulairetypechampid]" $selected>$type[nom]</option>
+																	<!-- END FormulairesListeTypesBit -->
+																</select>
+															<!-- END FormulairesListeTypes -->
+														</div>
+													</div>
+													<div id="boiteDeTexte" style="display: $displayboiteDeTexte;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2 info" data-trigger="hover" data-placement="bottom" data-content="$multilangue[infos_boite_texte]">$multilangue[largeur]</label>
+															<div class="col-md-10">																												
+																<input type="text" class="form-control" name="cols" value="$largeur"/>
+															</div>
+														</div>
+														<div class="form-group">
+	 														<label class="control-label col-md-2 info" data-trigger="hover" data-placement="bottom" data-content="$multilangue[infos_boite_texte]">$multilangue[hauteur]</label>
+															<div class="col-md-10">																												
+																<input type="text" class="form-control" name="rows" value="$hauteur"/>
+															</div>
+														</div>
+													</div>
+													<div id="boutonsRadio" style="display: $displayboutonsRadio;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valueboutonsRadio0" value="$first"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn green ajouterValeur"><i class="fa fa-plus"></i> $multilangue[ajouter_valeur]</div>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvalueboutonsRadio -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valueboutonsRadio$i" value="$description[description]"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn red supprimerValeur"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</div>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvalueboutonsRadio -->
+													</div>
+													<div id="casesACocher" style="display: $displaycasesACocher;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuecasesACocher0" value="$first"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn green ajouterValeur"><i class="fa fa-plus "></i> $multilangue[ajouter_valeur]</div>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluecasesACocher -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuecasesACocher$i" value="$description[description]"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn red supprimerValeur"><i class="fa fa-trash"></i> $multilangue[supprimer]</div>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluecasesACocher -->
+													</div>
+													<div id="champTexte" style="display: $displaychampTexte;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2 info" data-trigger="hover" data-placement="bottom" data-content="$multilangue[infos_champ_texte]">$multilangue[longueur]</label>
+															<div class="col-md-10">																												
+																<input type="text" class="form-control" name="maxlength" value="$longueur"/>
+															</div>
+														</div>
+														<div class="form-group">
+	 														<label class="control-label col-md-2 info" data-trigger="hover" data-placement="bottom" data-content="$multilangue[infos_champ_texte]">$multilangue[taille]</label>
+															<div class="col-md-10">																												
+																<input type="text" class="form-control" name="size" value="$taille"/>
+															</div>
+														</div>
+													</div>
+													<div id="listeASelectionUnique" style="display: $displaylisteASelectionUnique;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionUnique0" value="$first"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn green ajouterValeur"><i class="fa fa-plus "></i> $multilangue[ajouter_valeur]</div>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluelisteASelectionUnique -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionUnique$i" value="$description[description]"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn red supprimerValeur"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</div>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluelisteASelectionUnique -->
+													</div>
+													<div id="listeASelectionsMultiples" style="display: $displaylisteASelectionsMultiples;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionsMultiples0" value="$first"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn green ajouterValeur"><i class="fa fa-plus "></i> $multilangue[ajouter_valeur]</div>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluelisteASelectionsMultiples -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionsMultiples$i" value="$description[description]"/>
+															</div>
+															<div class="col-md-4 ta-center">
+																<div class="btn red supprimerValeur"><i class="fa fa-trash-o"></i> $multilangue[supprimer]</div>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluelisteASelectionsMultiples -->
+													</div>
+													<div id="insertionDeFichier" style="display: $displayinsertionDeFichier;"></div>
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[obligatoire]</label>
+														<div class="col-md-10">																														
+															<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checked name="obligatoire" value="1">
+														</div>
+													</div>
+													<!-- END FormulairesModificationChampDefautBit -->																					
+												</div>												
+											</div>
+										</div>
+										<!-- BEGIN FormulairesModificationChampSiteBit -->
+										<div class="portlet box $site[classcolor]" style="size : auto;">
+					                        <div class="portlet-title">
+					                            <div class="caption">
+					                                $multilangue[donnees] <i>$site[libelle]</i>
+					                            </div>
+					                            <div class="tools">
+					                                <a class="expand" href="javascript:;">
+					                                </a>					                                
+					                            </div>
+					                        </div>
+					                        <div id="site$site[siteid]" class="portlet-body form" style="display:none;">															
+												<div class="form-body">													
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[texte_affiche]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="libelle$site[siteid]" value="$formulairechampsite[libelle]"/>
+														</div>
+													</div>
+													<div id="boutonsRadioSite" style="display: $displayboutonsRadio;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valueboutonsRadio0site$site[siteid]" value="$first"/>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvalueboutonsRadioSite -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valueboutonsRadio${i}site$site[siteid]" value="$description[description]"/>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvalueboutonsRadioSite -->
+													</div>
+													<div id="casesACocherSite" style="display: $displaycasesACocher;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuecasesACocher0site$site[siteid]" value="$first"/>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluecasesACocherSite -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuecasesACocher${i}site$site[siteid]" value="$description[description]"/>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluecasesACocherSite -->
+													</div>
+													<div id="listeASelectionUniqueSite" style="display: $displaylisteASelectionUnique;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionUnique0site$site[siteid]" value="$first"/>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluelisteASelectionUniqueSite -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionUnique${i}site$site[siteid]" value="$description[description]"/>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluelisteASelectionUniqueSite -->
+													</div>
+													<div id="listeASelectionsMultiplesSite" style="display: $displaylisteASelectionsMultiples;">
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] 0</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionsMultiples0site$site[siteid]" value="$first"/>
+															</div>
+														</div>
+														<!-- BEGIN FormulairesModificationChampDefautBitAddvaluelisteASelectionsMultiplesSite -->
+														<div class="form-group">
+	 														<label class="control-label col-md-2">$multilangue[valeur] $i</label>
+															<div class="col-md-6">																												
+																<input type="text" class="form-control" name="valuelisteASelectionsMultiples${i}site$site[siteid]" value="$description[description]"/>
+															</div>
+														</div>
+														<!-- END FormulairesModificationChampDefautBitAddvaluelisteASelectionsMultiplesSite -->
+													</div>															
+												</div>													
+					                        </div>
+					                    </div>
+					                    <!-- END FormulairesModificationChampSiteBit -->
+										<div class="col-md-12 ta-center mb-20">
+											<a href="formulaires.php?action=modifier&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END FormulairesModificationChamp -->
+			
+			<!-- BEGIN FormulairesModificationStatut -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifStatut" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifierstatut2">
+										<input type="hidden" name="statutid" value="$statutid">
+										<div class="col-md-12 ta-center mb-20">
+											<a href="formulaires.php?action=statuts&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										<div class="portlet box light-grey">
+											<div class="portlet-title">
+												<div class="caption">
+													$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+												</div>																	
+											</div>
+											<div class="portlet-body form">
+												<div class="form-body">												
+													<div class="form-group">
+														<label class="control-label col-md-2">$multilangue[libelle]</label>
+														<div class="col-md-10">																														
+															<input type="text" class="form-control" name="libelle" value="$statut[libelle]"/>
+														</div>
+													</div>																		
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12 ta-center mb-20">
+											<a href="formulaires.php?action=statuts&formulaireid=$formulaireid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									</form>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>	
+			<!-- END FormulairesModificationStatut -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		var ordreDepart;
+		$('.table-champ > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=formulaires_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+		$('.antiforcebrute').popover();
+		$('.info').popover();
+		$('.switch-type').change(function() {
+			$('#boiteDeTexte').hide();
+			$('#boutonsRadio').hide();
+			$('#boutonsRadioSite').hide();
+			$('#casesACocher').hide();
+			$('#casesACocherSite').hide();
+			$('#champTexte').hide();
+			$('#listeASelectionUnique').hide();
+			$('#listeASelectionUniqueSite').hide();
+			$('#listeASelectionsMultiples').hide();
+			$('#listeASelectionsMultiplesSite').hide();
+			$('#insertionDeFichier').hide();
+			switch(parseInt(this.value)) {
+				case 1:
+					$('#boiteDeTexte').show();
+					break;
+				case 2:
+					$('#boutonsRadio').show();
+					$('#boutonsRadioSite').show();
+					if ($('#boutonsRadio > div').length <= 2) {
+						$('#boutonsRadio > div > div > input').val("");
+						$('#boutonsRadioSite > div > div > input').val("");
+					}
+					break;
+				case 3:
+					$('#casesACocher').show();
+					$('#casesACocherSite').show();
+					if ($('#boutonsRadio > div').length <= 2) {
+						$('#casesACocher > div > div > input').val("");
+						$('#casesACocherSite > div > div > input').val("");
+					}
+					break;
+				case 4:
+					$('#champTexte').show();
+					break;
+				case 5:
+					$('#listeASelectionUnique').show();
+					$('#listeASelectionUniqueSite').show();
+					if ($('#boutonsRadio > div').length <= 2) {
+						$('#listeASelectionUnique > div > div > input').val("");
+						$('#listeASelectionUniqueSite > div > div > input').val("");
+					}
+					break;
+				case 6:
+					$('#listeASelectionsMultiples').show();
+					$('#listeASelectionsMultiplesSite').show();
+					if ($('#boutonsRadio > div').length <= 2) {
+						$('#listeASelectionsMultiples > div > div > input[0]').val("");
+						$('#listeASelectionsMultiplesSite> div > div > input[0]').val("");
+					}
+					break;
+				case 7:
+					$('#insertionDeFichier').show();
+					break;
+			}
+		});
+		var tab = new Array();
+		tab['boutonsRadio'] = $('#boutonsRadio > div').length;;
+		tab['casesACocher'] = $('#casesACocher > div').length;
+		tab['listeASelectionUnique'] = $('#listeASelectionUnique > div').length;
+		tab['listeASelectionsMultiples'] = $('#listeASelectionsMultiples > div').length;
+		$('.ajouterValeur').click(function(){
+			var id = $(this).parent().parent().parent().attr('id');
+			var label = '<label class="control-label col-md-2">Valeur ' + tab[id] + '</label>';
+			var input = '<input type="text" class="form-control" name="value' + id + tab[id] + '" value=""/>';
+			var div = '<div class="form-group">' + label + '<div class="col-md-6">' + input + '</div><div class="col-md-4 ta-center"><div class="btn red supprimerValeur"><i class="fa fa-trash-o"></i> Supprimer</div></div></div>';
+			$($(this).parent().parent().parent()).append(div);
+			var i = 2;
+			var site = '#' + id + 'Site';
+			while (i <= $('form > div.portlet').length){
+				input = '<input type="text" class="form-control" name="value' + id + tab[id] + 'site' + i + '" value=""/>';
+				div = '<div class="form-group">' + label + '<div class="col-md-6">' + input + '</div></div>';
+				$(site).append(div);
+				++i;
+			}
+			++tab[id];
+		});
+		$('.supprimerValeur').live('click', function(){
+			var id = $(this).parent().parent().parent().attr('id');
+			var child = parseInt($(this).parent().parent().text().replace(/[^0-9]/g,''));
+			$(this).parent().parent().remove();
+			var i = 1;
+			while (i < tab[id]){
+				$('#' + id + ' > div:nth-child(' + (i + 1) + ') > label').html('Valeur ' + i);
+				$('#' + id + ' > div:nth-child(' + (i + 1) + ') > div > input').attr('name', 'value' + id + i);
+				++i;
+			}
+			i = 2;
+			var j = 1;
+			var site = '#' + id + 'Site';
+			while (i <= $('form > div.portlet').length){
+				$(site + ' > div:nth-child(' + (child + 1) + ')').remove();
+				while (j < tab[id]){
+					$(site + ' > div:nth-child(' + (j + 1) + ') > label').html('Valeur ' + j);
+					$(site + ' > div:nth-child(' + (j + 1) + ') > div > input').attr('name', 'value' + id + j + 'site' + i);
+					++j;
+				}
+				++i;
+			}
+			--tab[id];
+		});
+		$('.select').change(function() {
+			$('#modifierstatut input[name="formulairereponseid"]').val($(this).attr('id'));
+			$('#modifierstatut input[name="statutid"]').val($(this).val());
+			$('#modifierstatut').submit();
+		});
+		$('.autosize').css('resize', 'vertical').autosize();
+		$('.btn-sm').live('click', function() {
+			var formulaireid = $(this).data("value");
+			var color = ($(this).hasClass("green") ? "green" : "red");
+			var data = 'action=formulaires_activer&';
+			data += 'formulaireid=' + formulaireid + '&';
+			data += 'color=' + color + '&';
+			$.ajax({
+				url : 'commun_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('div[data-value="' + code_html.split('_')[0] + '"]');
+					div.removeClass("green red").addClass(code_html.split('_')[1]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[2]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[1] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					App.initAjax();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){ 
+					alert(erreur);	
+				}
+			});
+		});
+	});
+</script>
+<!-- END FormulairesIndex -->

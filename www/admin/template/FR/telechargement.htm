@@ -1,0 +1,316 @@
+<!-- BEGIN TelechargementIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[page_telechargement]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="telechargement.php">						
+								$multilangue[telechargement]
+							</a>
+						</li>
+						<!-- BEGIN TelechargementNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END TelechargementNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN TelechargementSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END TelechargementSuccess -->
+			
+			<!-- BEGIN TelechargementErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END TelechargementErreur -->
+			
+			<!-- BEGIN TelechargementInfo -->
+				<div class="alert alert-info alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteInfo
+				</div>
+			<!-- END TelechargementInfo -->
+			
+			<!-- BEGIN TelechargementSuccessFixe -->
+				<div class="alert alert-success alert-dismissable permanent">
+					$texteSuccess
+				</div>
+			<!-- END TelechargementSuccessFixe -->
+			
+			<!-- BEGIN TelechargementErreurFixe -->
+				<div class="alert alert-danger alert-dismissable">
+					$texteErreur
+				</div>
+			<!-- END TelechargementErreurFixe -->
+			
+			<!-- BEGIN TelechargementListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="telechargement.php?action=modifier" data-original-title="$multilangue[ajt_document]" class="btn green right">
+									$multilangue[ajt_document] &nbsp;
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">
+									<div class="table-responsive">
+										<table id="tabtelechargement" class="table table-striped table-bordered table-telechargement table-hover">
+											<thead>
+												<tr>
+													<th>
+														$multilangue[nom]
+													</th>
+													<th class="ta-center">
+														$multilangue[date_debut]
+													</th>
+													<th class="ta-center">
+														$multilangue[date_fin]
+													</th>
+													<th class="ta-center">
+														$multilangue[visible]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN TelechargementListeBit -->
+													<tr id="$document[documentid]">
+														<td width="20%" class="highlight">																
+															<a class="lh-30" href="telechargement.php?action=modifier&documentid=$document[documentid]">
+																$document[nom]
+															</a>
+														</td>
+														<td width="20%" class="ta-center">
+															$document[datedebut]
+														</td>
+														<td width="20%" class="ta-center">
+															$document[datefin]
+														</td>
+														<td width="20%" class="ta-center">
+															<a href="telechargement.php?action=visible&pastille=$color_aff&documentid=$document[documentid]" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+																<i class="fa $ico_aff"></i>
+															</a>
+														</td>
+														<td width="20%" class="ta-center">
+															<a href="telechargement.php?action=modifier&documentid=$document[documentid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-edit fs-18 font-blue"></i>
+															</a>
+															<a href="../configurations/$host/images/docs/$document[documentid].$document[extension]" target="_blank" data-original-title="$multilangue[apercu]" data-placement="top" class="btn tooltips">
+																<i class="fa fa-desktop fs-18 font-green"></i>
+															</a>
+															<a href="#myModal$document[documentid]" id="btn_suppr$document[documentid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																<i class="fa fa-trash-o fs-18 font-red"></i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabe$document[documentid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$document[documentid]" style="display: none;">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																			<h4 class="modal-title">$multilangue[suppression_document] : "$document[nom]" ?</h4>
+																		</div>
+																		<div class="modal-body">																					
+																			$multilangue[suppression_document_infos] 
+																		</div>
+																		<div class="modal-footer">
+																			<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																			<a href="telechargement.php?action=supprimer&documentid=$document[documentid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+												<!-- END TelechargementListeBit -->												
+											</tbody>
+										</table>												
+									</div>																			
+								</div>																		
+							</div>
+						</div>							
+					</div>
+				</div>
+			<!-- END TelechargementListe -->
+			
+			<!-- BEGIN TelechargementModification -->
+				<!-- DEBUT FORM-->				
+					<form action="$_SERVER[PHP_SELF]" name="formModifDocument" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+						<input type="hidden" name="action" value="modifier2">
+						<input type="hidden" name="documentid" value="$document[documentid]">
+						
+						<div class="col-md-12 ta-center mb-20">
+							<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+							<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+						</div>			
+									
+						<div class="row">
+							<div class="col-md-12">
+								<div class="portlet box $classcolor_site_principal">
+									<div class="portlet-title">
+										<div class="caption">
+											$texte_entete
+										</div>																				
+									</div>
+									<div class="portlet-body form">																						
+										<div class="form-body">	
+											<!-- BEGIN TelechargementModificationDefautBit -->												
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[nom]</label>
+												<div class="col-md-10">																														
+													<input type="text" class="form-control" name="nom1" value="$document[nom]"/>
+												</div>
+											</div>													
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[document]</label>
+												<div class="col-md-6">
+													<div data-provides="fileinput" class="fileinput fileinput-new"><input type="hidden">
+														<span class="btn default btn-file">
+															<span class="fileinput-new">
+												 				$multilangue[selectionner]
+															</span>
+															<span class="fileinput-exists">
+												 				$multilangue[modification]
+															</span>
+															<input type="file" name="doc">
+														</span>
+														<span class="fileinput-filename">
+														</span>
+										 				&nbsp;
+														<a style="float: none" data-dismiss="fileinput" class="close fileinput-exists" href="#"></a>
+													</div>
+												</div>
+												<!-- BEGIN TelechargementModificationDefautBitApercu -->	
+												<a href="../configurations/stickers.arobases.fr/images/docs/$document[documentid].$document[extension]" target="_blank" data-original-title="Aperçu du fichier actuel" data-placement="left" class="btn tooltips right">
+														<i class="fa fa-desktop fs-18 font-green"></i>
+												</a>
+												<!-- END TelechargementModificationDefautBitApercu -->
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[date_debut]</label>
+												<div class="col-md-10">
+													<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date date-picker">
+														<input type="text" class="form-control" name="datedebut" value="$document[datedebut]"/>
+														<span class="input-group-btn">
+															<button type="button" class="btn default"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">$multilangue[date_fin]</label>
+												<div class="col-md-10">
+													<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date date-picker">
+														<input type="text" class="form-control" name="datefin" value="$document[datefin]"/>
+														<span class="input-group-btn">
+															<button type="button" class="btn default"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+												</div>
+											</div>
+											<!-- END TelechargementModificationDefautBit -->																
+										</div>																		                    
+									</div>
+								</div>
+								<!-- BEGIN TelechargementModificationSiteBit -->
+									<div class="portlet box $site[classcolor]" style="size : auto;">
+				                        <div class="portlet-title">
+				                            <div class="caption">
+				                                $multilangue[donnees] <i>$site[libelle]</i>
+				                            </div>
+				                            <div class="tools">
+				                                <a class="expand" href="javascript:;"></a>
+				                            </div>
+				                        </div>
+				                        <div class="portlet-body" style="display:none;">															
+											<div class="form-body">													
+												<div class="form-group">
+													<label class="control-label col-md-2">$multilangue[nom]</label>
+													<div class="col-md-10">																														
+														<input type="text" class="form-control" name="nom$site[siteid]" value="$documentsite[nom]"/>
+													</div>
+												</div>				
+											</div>													
+				                        </div>
+				                    </div>
+				             	<!-- END TelechargementModificationSiteBit -->																		
+							</div>
+						</div>
+						<div class="col-md-12 ta-center">
+							<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+							<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+						</div>										
+					</form>			
+				<!-- FIN FORM-->
+			<!-- END TelechargementModification -->
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		var ordreDepart;
+		$('#tabtelechargement > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=telechargement_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+        $('.date-picker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+	});
+</script>
+<!-- END TelechargementIndex -->

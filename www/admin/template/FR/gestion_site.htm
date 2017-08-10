@@ -1,0 +1,505 @@
+<!-- BEGIN Gestion_siteIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[gestion_sites]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[gestion_sites]							
+						</li>
+						<!-- BEGIN Gestion_siteNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Gestion_siteNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+<!-- BEGIN Gestion_siteSuccess -->
+	<div class="alert alert-success alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteSuccess
+	</div>
+<!-- END Gestion_siteSuccess -->
+
+<!-- BEGIN Gestion_siteErreur -->
+	<div class="alert alert-danger alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteErreur
+	</div>
+<!-- END Gestion_siteErreur -->
+
+
+	<!-- BEGIN Gestion_siteListe -->
+		<div class="row" id="siteListe" style="size : auto;">
+        	<div class="col-md-12">
+            	<!-- DEBUT SAMPLE TABLE PORTLET-->
+            	<a href="gestion_site.php?action=ajout" data-original-title="$multilangue[ajt_marque]" class="btn green right">
+					$multilangue[ajt_site] &nbsp;
+					
+					<i class="fa fa-plus "></i>
+				</a>
+				<br/><br/> <br/> 
+
+                	<div class="portlet box red" style="size : auto;">
+                    	<div class="portlet-title">
+                        	<div class="caption" >
+                                <i class="fa fa-bars"></i>$multilangue[liste_sites]
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>                                 
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="clearfix"></div>
+                            <div class="table-responsive">                          
+                                <table class="table table-striped table-bordered table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                $multilangue[id_du_site]
+                                            </th>
+                                            
+                                            <th>
+                                                 $multilangue[site_libelle]
+                                            </th>
+                                            <th>
+                                                 $multilangue[langue]
+                                            </th>
+                                            <th>
+                                                 $multilangue[devise]
+                                            </th>
+                                            <th>
+                                                 $multilangue[pays_livre]
+                                            </th>
+                                            <th class="ta-center">
+                                                 $multilangue[modifier]
+                                            </th>
+                                        </tr>	                                        
+                                    </thead>
+                                    <tbody>
+                                    	<!-- BEGIN Gestion_siteListeBit -->
+                                    	<tr>
+                                    		<td class="bg-$listeSite[classcolor]">$listeSite[siteid]</td>
+                                    		<td>$listeSite[libelle]</td>
+                                    		<td>$langueSite[libelle]</td>
+                                    		<td>$siteDevise[contenu]</td>
+                                    		<td>
+                                    			<!-- BEGIN Gestion_sitePaysLivreBit -->
+													$libelle_pays_livre
+                                    			<!-- END Gestion_sitePaysLivreBit -->
+                                    		</td>
+                                    		<td style="text-align:center;">
+                                    			<a href="gestion_site.php?action=editer&idSite=$listeSite[siteid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+                                    				<i class="fa fa-pencil-square-o fs-18"></i>
+                                    			</a>
+                                    			<a style="margin-left : 6%;" href="traduction.php?action=traduire&idSite=$listeSite[siteid]" data-original-title="Traduction" data-placement="top" class="btn tooltips">
+                                    				<i class="fa fa-quote-left fs-18"></i>
+                                    			</a>	
+                                    		</td>
+                                    	</tr>
+                                    	<!-- END Gestion_siteListeBit -->
+                                    </tbody>	                                  
+                                </table>       								  
+                           	</div>
+                        </div>
+                   	</div>
+           		</div> 
+       		</div> 
+       	
+                   
+            <!-- FIN SAMPLE TABLE PORTLET-->
+	<!-- END Gestion_siteListe -->
+	
+	<!-- BEGIN Gestion_siteModifSite -->
+	<div class="row" id="siteModif" style="size : auto;  ">
+    	<div class="col-md-12">
+    		 <!-- DEBUT SAMPLE TABLE PORTLET-->
+	             <div class="portlet box blue" style="size : auto; width : 100%;">
+	             	<div class="portlet-title">
+                    	<div class="caption" >
+                        	$infoSite2[libelle]
+                        </div>                             
+                   </div>
+                   <div class="portlet-body">
+                   <form name="editSite" action="gestion_site.php" method="post">
+                   <div class="boutons_liste">
+                  		<a style=" margin-left : 1%; display : inline-block;" href="gestion_site.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+                  		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>		               
+                   </div>          		
+             			<input type="hidden" name="action" value="doediter">
+             			<input type="hidden" name="idSite" value="$idSite">
+                  	<div class="clearfix"></div>
+                      	<div class="table-responsive">
+                          	<div style = "width :100%; float : left;">
+                          		<table class="table table-striped table-bordered table-hover">
+                          			<thead>
+                          				<tr>
+                                        <th>
+                                           $multilangue[libelle]
+                                        </th>
+                                        <td>
+                                           	<input type="text" class="form-control" name="libellesite" value="$infoSite2[libelle]">
+                                           
+                                        	
+                                        </td>
+                                  		</tr>
+                                  		<tr>
+                                            <th>
+                                               $multilangue[langue]
+                                            </th>
+                                            <td>
+                                               	<select class="form-control" name="langueSite">
+													<!-- BEGIN Gestion_siteListeLangueBit -->
+	                                            		<option value="$langue[langueid]" $select>$langue[libelle] ($langue[libelle_langue])</option>														
+	                                            	<!-- END Gestion_siteListeLangueBit -->                                         
+                                            	</select> 
+                                            </td>
+                                      	</tr>
+                                  		<tr>
+                                        <th>     
+                                           $multilangue[couleur_site_admin]<br/><br/>
+                                           <i>$multilangue[couleur_site_admin_justification]</i>
+                                        </th>
+                                        <td>                                        
+											<div class="btn-group" id="groupe_couleurs" data-toggle="buttons">
+												<label class="btn blue $active_blue">
+												<input type="radio" name="color" value="blue" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn blue-hoki $active_bluehoki">
+												<input type="radio" name="color" value="blue-hoki" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn blue-steel $active_bluesteel">
+												<input type="radio" name="color" value="blue-steel" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn blue-madison $active_bluemadison">
+												<input type="radio" name="color" value="blue-madison" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn blue-chambray $active_bluechambray">
+												<input type="radio" name="color" value="blue-chambray" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn blue-ebonyclay $active_blueebonyclay">
+												<input type="radio" name="color" value="blue-ebonyclay" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																												
+												<label class="btn red $active_red">
+												<input type="radio" name="color" value="red" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn red-pink $active_redpink">
+												<input type="radio" name="color" value="red-pink" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn red-sunglo $active_redsunglo">
+												<input type="radio" name="color" value="red-sunglo" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn red-intense $active_redintense">
+												<input type="radio" name="color" value="red-intense" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn red-flamingo $active_redflamingo">
+												<input type="radio" name="color" value="red-flamingo" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn red-thunderbird $active_redthunderbird">
+												<input type="radio" name="color" value="red-thunderbird" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												
+												<label class="btn green $active_green">
+												<input type="radio" name="color" value="green" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn green-meadow $active_greenhaze">
+												<input type="radio" name="color" value="green-meadow" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn green-seagreen $active_greenseagreen">
+												<input type="radio" name="color" value="green-seagreen" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn green-turquoise $active_greenturquoise">
+												<input type="radio" name="color" value="green-turquoise" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn green-haze $active_greenhaze">
+												<input type="radio" name="color" value="green-haze" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn green-jungle $active_greenjungle">
+												<input type="radio" name="color" value="green-jungle" class="toggle">&nbsp; &nbsp; &nbsp;</label><br/><br/>
+												
+												<label class="btn yellow $active_yellow">
+												<input type="radio" name="color" value="yellow" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn yellow-gold $active_yellowgold">
+												<input type="radio" name="color" value="yellow-gold" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn yellow-casablanca $active_yellowcasablanca">
+												<input type="radio" name="color" value="yellow-casablanca" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn yellow-crusta $active_yellowcrusta">
+												<input type="radio" name="color" value="yellow-crusta" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn yellow-lemon $active_yellowlemon">
+												<input type="radio" name="color" value="yellow-lemon" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn yellow-saffron $active_yellowsaffron">
+												<input type="radio" name="color" value="yellow-saffron" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												
+												<label class="btn purple $active_purple">
+												<input type="radio" name="color" value="purple" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn purple-plum $active_purpleplum">
+												<input type="radio" name="color" value="purple-plum" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn purple-medium $active_purplemedium">
+												<input type="radio" name="color" value="purple-medium" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn purple-studio $active_purplestudio">
+												<input type="radio" name="color" value="purple-studio" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn purple-wisteria $active_purplewisteria">
+												<input type="radio" name="color" value="purple-wisteria" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn purple-seance $active_purpleseance">
+												<input type="radio" name="color" value="purple-seance" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												
+												<label class="btn grey $active_grey">
+												<input type="radio" name="color" value="grey" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn grey-cascade $active_greycascade">
+												<input type="radio" name="color" value="grey-cascade" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn grey-silver $active_greysilver">
+												<input type="radio" name="color" value="grey-silver" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn grey-steel $active_greysteel">
+												<input type="radio" name="color" value="grey-steel" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn grey-carrarra $active_greycarrarra">
+												<input type="radio" name="color" value="grey-cararra" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+												<label class="btn grey-gallery $active_greygallery">
+												<input type="radio" name="color" value="grey-gallery" class="toggle">&nbsp; &nbsp; &nbsp;</label><br/><br/>															
+											</div>										                                              																
+                                        </td>
+                                  		</tr>
+                                  		<tr>
+                                  			<th style="vertical-align : top;">
+                                  				$multilangue[pays]<br/><br/><br/>
+                                  				<i>$multilangue[pays_livraison_site].</i>
+                                  			</th>
+                                  			<td>
+                                  				<!-- BEGIN Gestion_siteModifSiteBit -->                                      			
+                                   			<div class="flagCheck">
+                                   				<label class="">
+                                   					$input_hidden_pays_defaut
+                                   					<input type="checkbox" $checked name="chk_pays[$flagCheckBoxes[paysid]]" value="$flagCheckBoxes[paysid]">
+                                   					<img src='assets/img/flags/$libelleTagPays.png'>&nbsp;$flagCheckBoxes[libelle]
+                                   				</label> 
+                                   			</div>
+                                  				<!-- END Gestion_siteModifSiteBit -->
+                                  			</td>
+                                  		</tr>                                        		
+                          			</thead>
+                          		</table>
+                          	</div>
+                          </div>
+                          <div class="clearfix"></div>
+                       </form>
+                    </div>
+                 </div>
+        	<!-- FIN SAMPLE TABLE PORTLET-->                    		
+    	</div>
+    </div> 
+    
+    <!-- END Gestion_siteModifSite -->
+    
+    
+    <!-- BEGIN Gestion_siteAjoutSite -->
+	<div class="row" id="siteModif" style="size : auto;  ">
+    	<div class="col-md-12">
+    		 <!-- DEBUT SAMPLE TABLE PORTLET-->
+	             <div class="portlet box blue" style="size : auto; width : 100%;">
+	             	<div class="portlet-title">
+                    	<div class="caption" >
+                        	<i class="fa fa-user"></i>Site $_GET[idSite]
+                        </div>
+                        <div class="tools">
+                        	<a href="javascript:;" class="collapse">
+                            </a>                                  
+                        </div>      
+                   </div>
+                   <div class="portlet-body">           
+                   		<form name="ajoutSite" action="gestion_site.php" method="post">
+                   			<div class="boutons_liste">
+			                   	<a style=" margin-left : 1%; display : inline-block;" href="gestion_site.php" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			                   	<Button  type="submit" class="btn green"  style="display : inline-block;"><i class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+					                                               	
+			                </div>
+                   			<input type="hidden" name="action" value="doajout">
+                        	<div class="clearfix"></div>
+                            	<div class="table-responsive">
+                                	<div style = "width :100%; float : left;">
+                                		<table class="table table-striped table-bordered table-hover">
+                                			<thead>
+                                				<tr>
+		                                            <th>
+		                                               $multilangue[libelle]
+		                                            </th>
+		                                            <td>
+		                                               	<input type="text" class="form-control" name="libellesite" value="">
+		                                               	
+		                                            	
+		                                            </td>
+                                        		</tr>
+                                        		<tr>
+		                                            <th>
+		                                               $multilangue[devise]
+		                                            </th>
+		                                            <td>
+			                                            <select class="form-control" name="deviseSite">
+			                                            	<option value="1">euro (€, EUR)</option>														
+			                                           		<!-- BEGIN Gestion_siteListeDeviseBit -->
+			                                            		<option value="$devise[deviseid]">$devise[contenu] ($devise[symbole], $devise[devise])</option>														
+			                                            	<!-- END Gestion_siteListeDeviseBit -->
+														</select>                                           
+		                                            	
+		                                            </td>
+                                        		</tr>
+                                        		<tr>
+		                                            <th>
+		                                               $multilangue[langue]
+		                                            </th>
+		                                            <td>
+		                                               	<select class="form-control" name="langueSite">
+															<!-- BEGIN Gestion_siteListeLangueBit -->
+			                                            		<option value="$langue[langueid]">$langue[libelle] ($langue[libelle_langue])</option>														
+			                                            	<!-- END Gestion_siteListeLangueBit -->                                         
+		                                            	</select> 
+		                                            </td>
+                                        		</tr>
+                                        	 	<tr>
+		                                            <th>
+		                                               $multilangue[pays]
+		                                            </th>
+		                                            <td>   
+                                                		<select class="form-control" name="pays">$optionsPays</select>                                 
+		                                            </td>
+                                        		</tr> 
+                                        		<tr>
+		                                            <th>
+		                                               $multilangue[couleur_site_admin]<br/><br/>
+                                          	 			<i>$multilangue[couleur_site_admin_justification]</i>
+		                                            </th>
+		                                            <td>
+		                                            	<div class="clearfix">
+															<div class="btn-group" id="groupe_couleurs" data-toggle="buttons">
+																<label class="btn blue $active_blue">
+																<input type="radio" title="blue" $checked_blue name="color" value="blue" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn blue-hoki $active_bluehoki">
+																<input type="radio" title="blue-hoki" $checked_bluehoki name="color" value="blue-hoki" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn blue-steel $active_bluesteel">
+																<input type="radio" name="color" value="blue-steel" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn blue-madison $active_bluemadison">
+																<input type="radio" name="color" value="blue-madison" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn blue-chambray $active_bluechambray">
+																<input type="radio" name="color" value="blue-chambray" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn blue-ebonyclay $active_blueebonyclay">
+																<input type="radio" name="color" value="blue-ebonyclay" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																																
+																<label class="btn red $active_red">
+																<input type="radio" name="color" value="red" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn red-pink $active_redpink">
+																<input type="radio" name="color" value="red-pink" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn red-sunglo $active_redsunglo">
+																<input type="radio" name="color" value="red-sunglo" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn red-intense $active_redintense">
+																<input type="radio" name="color" value="red-intense" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn red-flamingo $active_redflamingo">
+																<input type="radio" name="color" value="red-flamingo" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn red-thunderbird $active_redthunderbird">
+																<input type="radio" name="color" value="red-thunderbird" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn green $active_green">
+																<input type="radio" name="color" value="green" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn green-meadow $active_greenhaze">
+																<input type="radio" name="color" value="green-meadow" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn green-seagreen $active_greenseagreen">
+																<input type="radio" name="color" value="green-seagreen" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn green-turquoise $active_greenturquoise">
+																<input type="radio" name="color" value="green-turquoise" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn green-haze $active_greenhaze">
+																<input type="radio" name="color" value="green-haze" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn green-jungle $active_greenjungle">
+																<input type="radio" name="color" value="green-jungle" class="toggle">&nbsp; &nbsp; &nbsp;</label><br/><br/>
+																
+																<label class="btn yellow $active_yellow">
+																<input type="radio" name="color" value="yellow" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn yellow-gold $active_yellowgold">
+																<input type="radio" name="color" value="yellow-gold" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn yellow-casablanca $active_yellowcasablanca">
+																<input type="radio" name="color" value="yellow-casablanca" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn yellow-crusta $active_yellowcrusta">
+																<input type="radio" name="color" value="yellow-crusta" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn yellow-lemon $active_yellowlemon">
+																<input type="radio" name="color" value="yellow-lemon" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn yellow-saffron $active_yellowsaffron">
+																<input type="radio" name="color" value="yellow-saffron" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn purple $active_purple">
+																<input type="radio" name="color" value="purple" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn purple-plum $active_purpleplum">
+																<input type="radio" name="color" value="purple-plum" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn purple-medium $active_purplemedium">
+																<input type="radio" name="color" value="purple-medium" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn purple-studio $active_purplestudio">
+																<input type="radio" name="color" value="purple-studio" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn purple-wisteria $active_purplewisteria">
+																<input type="radio" name="color" value="purple-wisteria" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn purple-seance $active_purpleseance">
+																<input type="radio" name="color" value="purple-seance" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																
+																<label class="btn grey $active_grey">
+																<input type="radio" name="color" value="grey" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn grey-cascade $active_greycascade">
+																<input type="radio" name="color" value="grey-cascade" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn grey-silver $active_greysilver">
+																<input type="radio" name="color" value="grey-silver" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn grey-steel $active_greysteel">
+																<input type="radio" name="color" value="grey-steel" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn grey-carrarra $active_greycarrarra">
+																<input type="radio" name="color" value="grey-cararra" class="toggle">&nbsp; &nbsp; &nbsp;</label>
+																<label class="btn grey-gallery $active_greygallery">
+																<input type="radio" name="color" value="grey-gallery" class="toggle">&nbsp; &nbsp; &nbsp;</label><br/><br/>
+																
+															</div>
+														</div>		                                              																
+		                                            </td>
+                                        		</tr>
+                                        		<tr>
+                                        			<th style="vertical-align : top;">
+		                                  				$multilangue[pays]<br/><br/><br/>
+		                                  				<i>$multilangue[pays_livraison_site]</i>
+		                                  			</th>
+                                        			<td>
+                                        			<!-- BEGIN Gestion_siteAjoutSiteBit -->
+                                        			
+	                                        			<div class="flagCheck">
+	                                        				<label class=""><input type="checkbox" $checked name="chk_pays[$flagCheckBoxes[paysid]]" value="$flagCheckBoxes[paysid]">
+	                                        					<img src='assets/img/flags/$libelleTagPays.png'>&nbsp;$flagCheckBoxes[libelle]
+	                                        				</label> 
+	                                        			</div>
+                                        			
+                                        			<!-- END Gestion_siteAjoutSiteBit -->
+                                        			</td>                                        		
+                                        		</tr>
+                                			</thead>
+                                		</table>
+                                	</div>
+                                </div>
+                                <div class="clearfix"></div>
+                       </form>
+                    </div>
+                 </div>
+        	<!-- FIN SAMPLE TABLE PORTLET-->                    		
+    	</div>
+    	
+    </div> 
+    
+    <!-- END Gestion_siteAjoutSite -->
+
+<!-- FIN PAGE CONTENT-->
+$TemplateCommunFooter
+
+<script>
+	jQuery(document).ready(function() {
+		App.init();		
+	});
+</script>
+<!-- END Gestion_siteIndex -->

@@ -1,0 +1,509 @@
+﻿<!-- BEGIN Utilisateurs_adminIndex -->
+	$TemplateCommunHeader
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+    			<div class="col-md-12">
+        			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$titrepage
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">
+						    <li>
+						        <i class="fa fa-home"></i>
+						        <a href="index.html">
+						            $multilangue[accueil]
+						        </a>
+						        <i class="fa fa-angle-right"></i>
+						    </li>
+						    <li>
+						    	<a href="$lienpagebase">                        
+						        	$multilangue[utilisateurs_admin]
+						        </a>						        
+						    </li>
+						    <!-- BEGIN Utilisateurs_adminNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						    <!-- END Utilisateurs_adminNavigSupp -->
+						    
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+    			</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+		<!-- DEBUT PAGE CONTENT-->
+		
+			<!-- BEGIN Utilisateurs_adminDroits -->
+				<div class="row">
+				<div class="col-md-6 mb-20">
+					<form role="form" class="form-inline">
+						<input type="hidden" name="action" value="ajouter_groupe">
+						<div class="form-group">
+							<label for="exampleInputEmail2" class="sr-only">$multilangue[nom_groupe]</label>
+							<input type="text" name="nom_groupe" placeholder="$multilangue[nom_groupe]" class="form-control">
+						</div>
+						<button class="btn green" type="submit">$multilangue[ajt_groupe]</button>
+					</form>
+				</div>
+				<form action="$lienpagebase" method="POST">
+				<input type="hidden" name="action" value="maj_droits">
+				<div class="col-md-6 mb-20">
+					<button class="btn green right" type="submit"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>
+				</div>
+				<!-- BEGIN Utilisateurs_adminDroitsGroupeBit -->
+					<div class="col-md-12">
+						<div class="portlet box red">
+							<div class="portlet-title">
+								<div class="caption" >
+									$multilangue[groupe] <strong>$groupe[libelle]</strong>
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse"></a>                                 
+								</div>
+							</div>
+							<div class="portlet-body form">
+								<div class="clearfix"></div>
+								<div class="col-md-6">
+								<!-- BEGIN Utilisateurs_adminCategorieBit -->
+									<div class="portlet box blue  mt-20">
+										<div class="portlet-title">
+											<div class="caption" >
+												$categorie[libelle]</strong>
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>                                 
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="clearfix"></div>
+											<div class="table-responsive">                          
+												<table class="table table-striped table-bordered table-hover">
+													<tr>
+														<th>$multilangue[page]</th>
+														<th>$multilangue[actions_auth]</th>
+													</tr>
+													<!-- BEGIN Utilisateurs_adminPageBit -->
+													<tr>
+														<td>$page[libelle]</td>
+														<td>
+															<label>
+																<input type="checkbox" $disabled_lecture $checked_lecture class="checkbox_lecture" name="lecture[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[lecture]
+															</label>
+															<label>
+																<input type="checkbox" $disabled_ecriture $checked_ecriture class="checkbox_ecriture" name="ecriture[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[ecriture]
+															</label>
+															<label>
+																<input type="checkbox" $disabled_suppression $checked_suppression class="checkbox_suppression" name="suppression[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[suppression]
+															</label>
+														</td>
+													</tr>
+													<!-- END Utilisateurs_adminPageBit -->
+												</table>
+											</div>
+										</div>
+									</div>
+								<!-- END Utilisateurs_adminCategorieBit -->
+								</div> 
+								<div class="col-md-6">
+								<!-- BEGIN Utilisateurs_adminCategorieBit2 -->
+									<div class="portlet box blue mt-20">
+										<div class="portlet-title">
+											<div class="caption" >
+												$categorie[libelle]</strong>
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>                                 
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="clearfix"></div>
+											<div class="table-responsive">                          
+												<table class="table table-striped table-bordered table-hover">
+													<tr>
+														<th>$multilangue[page]</th>
+														<th>$multilangue[actions_auth]</th>
+													</tr>
+													<!-- BEGIN Utilisateurs_adminPageBit -->
+													<tr>
+														<td>$page[libelle]</td>
+														<td>
+															<label>
+																<input type="checkbox" $disabled_lecture $checked_lecture class="checkbox_lecture" name="lecture[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[lecture]
+															</label>
+															<label>
+																<input type="checkbox" $disabled_ecriture $checked_ecriture class="checkbox_ecriture" name="ecriture[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[ecriture]
+															</label>
+															<label>
+																<input type="checkbox" $disabled_suppression $checked_suppression class="checkbox_suppression" name="suppression[$groupe[groupeid]][$page[pageid]]"/>
+																$multilangue[suppression]
+															</label>
+														</td>
+													</tr>
+													<!-- END Utilisateurs_adminPageBit -->
+												</table>
+											</div>
+										</div>
+									</div>
+								<!-- END Utilisateurs_adminCategorieBit2 -->
+								</div> 
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div> 
+				<!-- END Utilisateurs_adminDroitsGroupeBit -->
+				</form>
+				</div> 
+			
+			<!-- END Utilisateurs_adminDroits -->
+		
+			<!-- BEGIN Utilisateurs_adminSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Utilisateurs_adminSuccess -->
+			
+			<!-- BEGIN Utilisateurs_adminErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Utilisateurs_adminErreur -->
+		
+            <!-- BEGIN Utilisateurs_adminListe -->
+			<div class="row">
+				<div class="col-md-12">                
+					<a href="$lienpagebase?action=histo" type="button" class="btn btn-warning">
+					$multilangue[voir_historique_all_admin]
+					<i class="fa fa-user" style="margin-left:8px;"></i>
+					</a>
+					<a href="$lienpagebase?action=droits" type="button" class="btn btn-warning">
+					$multilangue[gestion_des_droits]
+					</a>
+					<a href="$lienpagebase?action=ajoututilisateur" type="button" class="btn btn-success">
+					$multilangue[ajt_utilisateur]
+					<i class="fa fa-plus" style="margin-left:8px;"></i>
+					</a>
+					<div class="btn-group right">
+						<a class="btn default" data-toggle="dropdown">
+						Colonnes <i class="fa fa-angle-down"></i>
+						</a>
+						<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+							<label><input type="checkbox" checked data-column="0">$multilangue[identifiant]</label>
+							<label><input type="checkbox" checked data-column="1">$multilangue[login]</label>
+							<label><input type="checkbox" checked data-column="2">$multilangue[nom]</label>
+							<label><input type="checkbox" checked data-column="3">$multilangue[prenom]</label>
+							<label><input type="checkbox" data-column="4">$multilangue[email]</label>
+							<label><input type="checkbox" data-column="5">$multilangue[telephone]</label>
+							<label><input type="checkbox" checked data-column="6">$multilangue[groupe]</label>
+						</div>
+					</div>
+					<br><br>
+					<div class="clear"></div>
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered table-article table-hover">
+							<thead>
+								<tr>
+									<th class="ta-center">
+										$multilangue[identifiant]
+									</th>
+									<th class="ta-center">
+										$multilangue[login]
+									</th>
+									<th class="ta-center">
+										$multilangue[nom]
+									</th>
+									<th class="ta-center">
+										$multilangue[prenom]
+									</th>
+									<th class="ta-center">
+										$multilangue[email]
+									</th>
+									<th class="ta-center">
+										$multilangue[telephone]
+									</th>
+									<th class="ta-center">
+										$multilangue[groupe]
+									</th>
+									<th class="ta-center">
+										$multilangue[actions]
+									</th>
+								</tr>
+							</thead>
+							<tbody>				
+							</tbody>
+						</table>					
+					</div>
+				</div>
+			</div>                   
+			<!-- END Utilisateurs_adminListe -->
+
+			<!-- BEGIN Utilisateurs_adminAjout -->
+	            <div class="row" id="clientInfos">
+	                <div class="col-md-12">
+	                    <div class="portlet box red">
+	                        <div class="portlet-title">
+	                            <div class="caption" >
+	                                <i class="fa fa-user"></i>$multilangue[infos_utilisateur]
+	                            </div>
+	                            <div class="tools">
+	                                <a href="javascript:;" class="collapse">
+	                                </a>                                
+	                            </div>
+	                        </div>
+	                        <div class="portlet-body">
+							<div id="modifclient">									
+									<form enctype="multipart/form-data" method="post" action="$lienpagebase" name="aForm">
+										<input type="hidden" name="action" value="$action_form">
+										<input type="hidden" name="userid" value="$utilisateur[userid]">
+										<input type="submit" class="btn green" style="float: right; margin-left:10px;" value="$multilangue[enregistrer]" />
+											<a href="$lienpagebase" type="button" class="btn grey-silver right">
+				                        	<i class="fa fa-arrow-left"></i>
+				                        	$multilangue[retour]                        	
+				                       	</a>
+	                            	<br><br>
+							<div class="col-md-6">
+								<table class="table table-striped table-bordered table-hover">
+								<tr>
+									<td class="entete_client">
+										$multilangue[login]
+									</td>
+									<td>
+										<input class="form-control" name="Uusername" type="text" value="$Uusername">
+									</td>                               
+								</tr>
+								<tr>
+									<td class="entete_client">
+										$multilangue[nom]
+									</td>
+									<td>
+										<input class="form-control" name="Unom" type="text" value="$Unom">
+									</td>                               
+								</tr>
+								<tr>
+									<td class="entete_client">
+										$multilangue[prenom]
+									</td>
+									<td>
+										<input class="form-control" name="Uprenom" type="text" value="$Uprenom">
+									</td>                               
+								</tr>
+								<tr>
+									<td class="entete_client">
+										$multilangue[email]
+									</td>
+									<td>
+										<input class="form-control" name="Umail" type="text" value="$Umail">                                     	
+									</td>	                                   
+								</tr>
+								<tr>
+									<td class="entete_client">
+										$multilangue[telephone]
+									</td>
+									<td>
+										<input class="form-control" name="Utelephone" type="text" value="$Utelephone">
+									</td>
+								</tr>                                                 
+								</table>
+							</div>							
+							<div class="col-md-6">
+								<table class="table table-striped table-bordered table-hover">     
+									<tr>	                                    
+										<td class="entete_client">
+											$multilangue[photo]
+										</td>
+										<td>
+										<!-- BEGIN Utilisateurs_adminAjoutInsertPhoto -->
+											<input type="file" name="Uphoto">
+										<!-- END Utilisateurs_adminAjoutInsertPhoto -->
+										<!-- BEGIN Utilisateurs_adminAjoutPhoto -->
+											<table>
+												<tr><td>
+													<img width=100 src="includes/images/utilisateurs_admin/$utilisateur[photo]">
+												</td></tr>
+												<tr><td align=center>
+													<a class="btn tooltips" role="button" data-toggle="modal" data-placement="top" data-original-title="$multilangue[supprimer]" id="btn_supprPhoto" href="#myModalPhoto">
+														<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+													<div style="display: none;" id="myModalPhoto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabePhoto" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+																	<h4 class="modal-title">"$multilangue[suppression_photo]"</h4>
+																</div>
+																<div class="modal-body">$multilangue[suppression_photo]</div>
+																<div class="modal-footer">
+																	<button class="btn default" data-dismiss="modal" aria-hidden="true">"$multilangue[non]"</button>
+																	<a class="btn blue" href="utilisateurs_admin.php?action=supprimerPhoto&userid=$utilisateur[userid]">"$multilangue[oui_supprimer]"</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</td></tr>
+											</table>
+										<!-- END Utilisateurs_adminAjoutPhoto -->
+										</td>
+									</tr>								
+									<tr>	                                    
+										<td class="entete_client">
+											$multilangue[groupe]
+										</td>
+										<td>
+											<select name="Ugroupeid" class="form-control">
+												<option></option>
+												$optionsGroupes
+											</select>		                                        
+										</td>
+									</tr>	
+									<tr>	                                    
+										<td class="entete_client">
+											$multilangue[mot_de_passe]
+										</td>
+										<td>
+											<input style="width:35%; display:inline-block; float:left;" class="form-control" type="text" name="passField"/>
+											<input style="margin-left:10px;" type="button" onclick="GeneratePassword();" value="$multilangue[generer_mdp]" class="btn blue"/>		                                        
+										</td>
+									</tr>
+									<tr>	                                    
+										<td class="entete_client">
+											$multilangue[envoyer_mail_client] ?
+										</td>
+										<td>   
+											<input type="checkbox" name="Unotificationmail"/>
+										</td>
+									</tr>                          
+								</table>                                
+							</div>
+									</form>
+								</div>							
+	                            <div class="clearfix"></div>
+							</div>
+						</div>
+					</div> 
+				</div> 
+			<!-- END Utilisateurs_adminAjout -->
+
+            <!-- FIN PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script src="assets/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.crosshair.min.js"></script>
+<script src="assets/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+<script src="assets/scripts/core/datatable.js"></script>
+<script src="assets/scripts/custom/charts.js"></script>
+
+<script type="text/javascript">
+	jQuery(function(){
+      jQuery("#btn_yellow").click(function () {
+         $("#clientInfos").hide();		 
+         $("#clientModif").show();
+      });
+    });						 
+</script>
+
+<script type="text/javascript" src="assets/plugins/data-tables/plugins/sorting/date-euro.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+	<script>
+	jQuery(document).ready(function() {     
+		$(document).ready(function() {
+			App.init(); // initlayout and core plugins
+			$('.table-article').dataTable({
+				"aoColumns": [
+					{"sClass": "ta-center", "bSortable": true, "mData": "userid", "iDataSort": 0, "data": "userid", "bVisible": true},
+					{"sClass": "ta-center", "bSortable": true, "mData": "username", "iDataSort": 1, "data": "username", "bVisible": true},
+					{"sClass": "ta-center", "bSortable": true, "mData": "nom", "iDataSort": 2, "data": "nom", "bVisible": true},
+					{"sClass": "ta-center", "bSortable": true, "mData": "prenom", "iDataSort": 3, "data": "prenom", "bVisible": true},
+					{"sClass": "ta-center", "bSortable": true, "mData": "mail", "iDataSort": 4, "data": "mail", "bVisible": false},
+					{"sClass": "ta-center", "bSortable": true, "mData": "telephone", "iDataSort": 5, "data": "telephone", "bVisible": false},
+					{"sClass": "ta-center", "bSortable": true, "mData": "groupe", "iDataSort": 6, "data": "groupe", "bVisible": true},
+					{"sClass": "ta-center", "bSortable": false, "mData": "action", "iDataSort": 7, "data": "action", "bVisible": true},
+				],
+				"iDisplayStart": 0,
+				"iDisplayLength": 10,
+				"fnDrawCallback": function() {
+					App.initAjax();                 
+				},
+				"processing": true,
+				"serverSide": true,
+				"ajax": {
+					"url": "utilisateurs_admin_ajax.php",
+					"type": "POST",
+					"data": function ( d ) {
+					}
+				},        
+				"order": [[ 0, "asc" ]],
+				"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "Tous les"]],
+				"language": {
+				"search": "Recherche : ",
+				"paginate": {
+					"first": "Première page",
+					"last": "Dernière page",
+					"next": "Page suivante",
+					"previous": "Page précédente"
+				},
+				"emptyTable": "Aucune donnée disponible dans la table",
+				"info": "Affichage des résultats de _START_ à  _END_ sur _TOTAL_ résultats",
+				"infoEmpty": "Aucun résultat",
+				"infoFiltered": "sur _MAX_",
+				"lengthMenu": "Afficher _MENU_ résultats",
+				"sLoadingRecords": "Chargement ...",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;Chargement ...</span>',
+				"sZeroRecords": "Aucun résultat trouvé"
+				}
+			});
+			
+			$('.dataTables_filter input').addClass("form-control input-small input-inline");
+			$('.dataTables_length select').addClass("form-control input-small");
+			
+			$('.dropdown-menu input[type="checkbox"]').change(function(){
+				var iCol = parseInt($(this).attr("data-column"));
+				var bVis = $('.table-article').dataTable().fnSettings().aoColumns[iCol].bVisible;
+				$('.table-article').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+			});	
+			
+			$(".checkbox_ecriture").click(function(){
+				if($(this).prop("checked")){
+					if($(this).parent().parent().parent().parent().find(".checkbox_lecture").prop("checked") === false){
+						$(this).parent().parent().parent().parent().find(".checkbox_lecture").click();
+					}
+					$(this).parent().parent().parent().parent().find(".checkbox_lecture").prop("disabled", true);
+				}else{
+					$(this).parent().parent().parent().parent().find(".checkbox_lecture").prop("disabled", false);
+				}
+			});
+			
+			$(".checkbox_suppression").click(function(){
+				if($(this).prop("checked")){
+					if($(this).parent().parent().parent().parent().find(".checkbox_ecriture").prop("checked") === false){
+						$(this).parent().parent().parent().parent().find(".checkbox_ecriture").click();
+					}
+					$(this).parent().parent().parent().parent().find(".checkbox_ecriture").prop("disabled", true);
+				}else{
+					$(this).parent().parent().parent().parent().find(".checkbox_ecriture").prop("disabled", false);
+				}
+			});
+			
+			$(".disabled").removeClass("disabled");
+			
+			
+		
+		});
+	});
+	</script>
+<!-- END Utilisateurs_adminIndex -->

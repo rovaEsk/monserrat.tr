@@ -1,0 +1,125 @@
+<!-- BEGIN FermetureboutiqueIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[fermeture_boutique]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>											
+							$multilangue[fermeture_boutique]													
+						</li>
+						<!-- BEGIN InstitNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END InstitNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+			<!-- BEGIN FermetureboutiqueSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END FermetureboutiqueSuccess -->
+			
+			<!-- BEGIN FermetureboutiqueErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END FermetureboutiqueErreur -->
+
+
+<!-- BEGIN FermetureboutiqueFormBit -->
+<form action="fermetureboutique.php" method="POST" name="formfermeture">
+	<input type="hidden" name="action" value="editerfermeture">
+	<div class="ta-center mb-20"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button></div>
+	<!-- BEGIN FermetureboutiqueSiteListeBit -->
+		<div class="row" id="siteListe">
+	       	<div class="col-md-12">
+	           	<!-- DEBUT SAMPLE TABLE PORTLET-->	
+	               	<div class="portlet box $site[classcolor]">
+	                   	<div class="portlet-title">
+	                       	<div class="caption" >
+	                               $multilangue[modalite_fermeture] <i>$site[libelle]</i>
+	                           </div>
+	                           <div class="tools">
+	                               <a href="javascript:;" class="collapse"></a>                                 
+	                           </div>
+	                       </div>
+	                       <div class="portlet-body">
+	                           <div class="clearfix"></div>
+	                           <div class="table-responsive">                              
+	                          	<div style = "width : 100%;">
+	                                <table class="table table-striped table-bordered" >                                   
+	                                    <tbody>
+	                                    	<tr class="ta-center">
+	                                    		<td>$multilangue[site_ferme]</td>
+	                                    		
+	                                    		<td class="ta-center">											
+													<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checked1 class="make-switch switch-type" name="active_$site[siteid]" value="1">					
+	                                    		</td>
+	                                    	</tr>
+	                                    	<tr class="ta-center">
+	                                    		<td>$multilangue[autoriser_commandes_fermeture_boutique]</td>
+	                                    		<td class="ta-center">											
+													<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checked2 class="make-switch switch-type" name="commande_$site[siteid]" value="1">															
+	                                    		</td>
+	                                    	</tr>
+	                                    	<tr class="ta-center">
+	                                    		<td>$multilangue[periode_fermeture]</td>
+	                                    		<td>$multilangue[du] &nbsp<input type="text" name="datedeb_$site[siteid]" value="$datedebut" class="form-control datepicker" style="width : 30%; display : inline-block;"> 
+	                                    			<input type="text" name="timedeb_$site[siteid]" value="$heuredeb" class="form-control timepicker-24" style="width : 30%; display : inline-block;"><br/></br>
+	                                    			$multilangue[au_from] &nbsp <input type="text" name="datefin_$site[siteid]" value="$datefin" class="form-control datepicker" style="width : 30%; display : inline-block;">
+	                                    			<input type="text" name="timefin_$site[siteid]" value="$heurefin" class="form-control timepicker-24" style="width : 30%; display : inline-block;"> </td>
+	                                    	</tr>	                                    	
+	                                    	<tr class="ta-center">
+	                                    		<td>Message</td>
+	                                    		<td><textarea name="contenufermeture_$site[siteid]" rows="5" cols="100" id="contenufermeture_$site[siteid]" class="editeur form-control" >$modalitesfermeture[contenu]</textarea></td>
+	                                    	</tr>
+	                                    </tbody>	                                  
+	                                </table>
+	      						</div>	  
+	                    	</div>
+	                	</div>
+	                </div>
+	            <!-- FIN SAMPLE TABLE PORTLET -->
+	         	</div> 
+			</div> 
+	<!-- END FermetureboutiqueSiteListeBit -->       	
+ 		<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>  
+ 	</form>              
+<!-- END FermetureboutiqueFormBit -->       
+            
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+<!-- END FermetureboutiqueIndex -->

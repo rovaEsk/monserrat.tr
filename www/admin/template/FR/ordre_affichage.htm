@@ -1,0 +1,102 @@
+<!-- BEGIN Ordre_affichageIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$multilangue[ordre_affichage_articles]<small></small>
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">						
+							<li>
+								<i class="fa fa-home"></i>
+								<a href="index.php">
+									$multilangue[accueil]
+								</a>
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>							
+								$multilangue[catalogue]							
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>	
+								<a href="categorie.php">						
+									$multilangue[categories]	
+								</a>						
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<!-- BEGIN Ordre_affichageNavigSupp -->
+						    <li>
+						        $libNavigSupp	
+						        <i class="fa fa-angle-right"></i>						    	                       
+						    </li>
+							<!-- END Ordre_affichageNavigSupp -->
+							<li>		
+								$multilangue[ordre_affichage_articles]
+							</li>
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+			<form action="$_SERVER[PHP_SELF]" name="formOrdreAffichage" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+ 				<input type="hidden" name="ordre" id="ordre" value="$ordre">
+ 				<input type="hidden" name="parent" value="$parent[parentid]">
+ 				<input type="hidden" name="catid" value="$catid">
+ 				<input type="hidden" name="action" value="ajout">
+				<div class="col-md-12 ta-center mb-20">
+					<a href="categorie.php?catid=$parent[parentid]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+				</div>
+				<div class="portlet box red">
+	            	<div class="portlet-title">
+	                	<div class="caption" >
+	                    	<i class="fa  fa-list-ol"></i>$multilangue[ordre_affichage]
+	                    </div>
+	                </div>                        
+		            <div class="portlet-body">  
+						<div class="boites">
+							<ul id="boxes">
+								<!-- BEGIN Ordre_affichageListeArticlesBit -->
+									<li class='box2' id='$article[artid]'>
+										<div>$article[libelle]</div>
+										<img src='http://$host/br-a-$article[artid].jpg' style='max-width:140px;max-height:100px;'>
+									</li>
+								<!-- END Ordre_affichageListeArticlesBit -->
+							</ul>
+							<div class="clear"></div>			
+						</div>
+					</div>							
+				</div>
+				<div class="col-md-12 ta-center mb-20">
+					<a href="categorie.php?catid=$parent[parentid]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+				</div>
+				<div class="clear"></div>
+			</form>
+		<!-- DEBUT PAGE CONTENT -->	
+			
+		<!-- FIN PAGE CONTENT-->
+		
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="includes/javascript/dragsort.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	function saveOrder() {							
+		var serialStr = "";
+		$('.box2').each(function(i, elm){
+			serialStr += (i > 0 ? "," : "") + this.id;
+		}); 
+		$('#ordre').val(serialStr);	
+		
+	}
+	
+	$(document).ready(function() {
+		$("#boxes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+	});
+</script>
+<!-- END Ordre_affichageIndex -->

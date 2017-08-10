@@ -1,0 +1,273 @@
+<!-- BEGIN Couleurs_stickersIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[couleurs_stickers]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							$multilangue[couleurs_stickers]
+						</li>
+						<!-- BEGIN Couleurs_stickersNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Couleurs_stickersNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+				<!-- BEGIN Couleurs_stickersTableCouleurs -->
+					<div class="btn-group left mb-20">
+                        <a class="btn default" data-toggle="dropdown">
+                             $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                        	<!-- BEGIN Couleurs_stickersAffichageColonneSiteBit -->
+                             <label><input type="checkbox" $checked data-column="$colonne">$site[libelle]</label>
+                           <!-- END Couleurs_stickersAffichageColonneSiteBit -->
+                       </div>
+	                </div>
+					<a href="couleurs_stickers.php?action=modifier" data-original-title="" class="btn green right mb-20">
+						$multilangue[ajt_couleur] &nbsp;
+						<i class="fa fa-plus"></i>
+					</a>
+					<div class="clear"></div>
+					<form action="couleurs_stickers.php?action=ajout" method="post" id="form_ajout_couleur_groupe" name="form_ajout_couleur_groupe" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table_couleurs table-hover">
+								<thead>
+									<tr>
+										<!-- BEGIN Couleurs_stickersColonneSiteBit -->
+											<th class="ta-center">
+												$multilangue[nom] <br>(<i>$site[libelle]</i>)
+											</th>
+										<!-- END Couleurs_stickersColonneSiteBit -->
+										<th class="ta-center">
+											$multilangue[groupe]
+										</th>
+										<th class="ta-center">
+											$multilangue[code]
+										</th>
+										<th class="ta-center">
+											$multilangue[action]
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Couleurs_stickersCouleurBit -->
+										<tr id="$couleur[couleurid]">
+											<!-- BEGIN Couleurs_stickersNomSiteBit -->
+												<td class="ta-center">
+													<label>$nom_couleur[libelle]</label>
+												</td>
+											<!-- END Couleurs_stickersNomSiteBit -->
+											<td class="ta-center">
+												<label>$couleur[libelle]</label>
+											</td>
+											<td class="ta-center">
+												<label>$couleur[code]</label>
+											</td>
+											<td class="ta-center">
+												<a href="couleurs_stickers.php?action=modifier&couleurid=$couleur[couleurid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+		                               				<i class="fa fa-pencil-square-o fs-18"></i>
+		                                    	</a>
+											
+												<a href="#myModal$couleur[couleurid]" id="btn_suppr$couleur[couleurid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+													<i class="fa fa-trash-o fs-18 font-red"></i>
+												</a>
+												<div aria-hidden="true" aria-labelledby="myModalLabe$couleur[couleurid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$couleur[couleurid]" style="display: none;">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title">Voulez-vous vraiment supprimer la couleur $couleur[libellecouleur] ?</h4>
+															</div>
+															<div class="modal-body">																					
+																Cela supprimera cette couleur.
+															</div>
+															<div class="modal-footer">
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+																<a href="couleurs_stickers.php?action=supprimer&couleurid=$couleur[couleurid]" class="btn blue">Oui, supprimer</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									<!-- END Couleurs_stickersCouleurBit -->
+								</tbody>
+							</table>
+						</div>	
+					</form>
+				<!-- END Couleurs_stickersTableCouleurs -->
+				
+				<!-- BEGIN Couleurs_stickersModification -->
+					<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" id="form_articles_offerts">
+							<input type="hidden" name="action" value="modifier2">
+							<input type="hidden" name="couleurid" value="$couleurid">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+							<div class="portlet box light-grey">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[ajt_couleur]
+									</div>																		
+								</div>
+								<div class="portlet-body form">
+									<div class="form-body">	
+										<!-- BEGIN Couleurs_stickersModificationNomSiteBit -->
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[nom] (<i>$site[libelle]</i>)</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="nom_couleur$site[siteid]" value="$couleur[libelle]">
+												</div>
+											</div>	
+										<!-- END Couleurs_stickersModificationNomSiteBit -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[code_couleur]</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" value="$couleur[code]" name="code">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[groupe]</label>
+											<div class="col-md-8">
+												<select class="form-control select-groupe" id="select-groupe" name="couleurgroupeid">
+	                                          		<!-- BEGIN Couleurs_stickersModificationGroupeCouleurBit -->
+	                                           			<option value="$groupe_couleur[couleurgroupeid]" $selected>$groupe_couleur[libelle]</option>														
+	                                           		<!-- END Couleurs_stickersModificationGroupeCouleurBit -->
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="min-width: 100px; min-height: 100px; max-width: 240px; max-height: 200px;"data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="http://$host/configurations/$host/images/couleurs_stickers/$couleur[couleurid].$couleur[image]" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>										
+									</div>
+								</div>
+							</div>					
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<!-- END Couleurs_stickersModification -->
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+App.init(); // initlayout and core plugins
+$(document).ready(function() {
+	$('.table_couleurs').dataTable( {
+        "order": [[ 0, "desc" ]],
+		"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+		"language": {
+			"search": "$multilangue[recherche]",
+			"paginate": {
+				"first": "$multilangue[premiere_page]",
+				"last": "$multilangue[derniere_page]",
+				"next": "$multilangue[page_suivante]",
+				"previous": "$multilangue[page_precedente]"
+			},
+			"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+			"info": "$multilangue[affichage_resultats_de_a]",
+			"infoEmpty": "$multilangue[aucun_resultat]",
+			"infoFiltered": "$multilangue[sur_max_]",
+			"lengthMenu": "$multilangue[afficher_menu_resultats]",
+			"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+		},
+		"bSort": false,
+		"fnDrawCallback": function() {
+            App.initAjax();
+            $('.table_couleurs > tbody').tableDnD({			
+    			onDragStart: function(table, row) {
+    				ordreDepart = $.tableDnD.serialize();	
+    		    },
+    		    onDrop: function(table, row) {
+    		    	var ordreArrivee = $.tableDnD.serialize();	
+    		    	if (ordreDepart != ordreArrivee){
+    		    		var premier = ordreDepart.split(";");
+    		    		premier = premier[0];
+    		    		var data = 'action=couleurs_stickers_position&';
+    		    		data += 'ordre=' + ordreArrivee + '&';
+    		    		data += 'premier='+premier;
+    		    		$.ajax({
+    						url : 'commun_ajax.php',
+    						type : 'POST',
+    						data : data,
+    						dataType : 'html',
+    						success : function(code_html, statut){
+    						},
+    						error : function(resultat, statut, erreur){
+    							alert(erreur);
+    						}
+    					});
+    		    	}
+    		    }
+    		});
+        }
+    });
+	
+	$('.dataTables_filter input').addClass("form-control input-small input-inline");
+	$('.dataTables_length select').addClass("form-control input-small");
+	
+	$('.dropdown-menu input[type="checkbox"]').change(function(){
+        var iCol = parseInt($(this).attr("data-column"));
+        var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+        $('.table_couleurs').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+    });	
+	
+	$('.dropdown-menu input[type="checkbox"]').each(function(){
+		if($(this).is(':checked')){
+		 var iCol = parseInt($(this).attr("data-column"));
+		 var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+		 $('.table_couleurs').dataTable().fnSetColumnVis(iCol, true);
+		}else{
+		 var iCol = parseInt($(this).attr("data-column"));
+		 var bVis = $('.table_couleurs').dataTable().fnSettings().aoColumns[iCol].bVisible;
+		 $('.table_couleurs').dataTable().fnSetColumnVis(iCol, false);
+		}
+	});
+});
+</script>
+
+<!-- END Couleurs_stickersIndex -->

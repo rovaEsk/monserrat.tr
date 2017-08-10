@@ -1,0 +1,3027 @@
+<!-- BEGIN CommandesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[commandes]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<!-- BEGIN CommandesNavig -->
+						<li>							
+							$multilangue[commandes]							
+						</li>
+						<!-- END CommandesNavig -->
+						<!-- BEGIN CommandesLibNavigSupp -->
+						<li>
+							<a href="commandes.php">							
+								$multilangue[commandes]
+							</a>							
+						</li>
+						<li>
+							<i class="fa fa-angle-right"></i>
+							$libNavigSupp
+						</li>
+						<!-- END CommandesLibNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+				<!-- BEGIN CommandesRetourImpressionMultiple -->
+					$retourImpressionMultiple
+				<!-- END CommandesRetourImpressionMultiple -->
+				<!-- BEGIN CommandesListe -->
+					<!-- BEGIN CommandesGroupeRecherche -->
+						<div class="portlet box red">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[recherches_enregistrees]
+								</div>	
+								<div class="tools">
+			                    	<a href="javascript:;" class="expand"></a>                                
+			                    </div>																	
+							</div>
+							<div class="portlet-body form" style="display:none;">
+								<a id="suppr_groupe" style="cursor: pointer"><i>$multilangue[cliquez_supprimer_groupe]</i></a><br>
+								<!-- BEGIN CommandesGroupeRechercheBoutonBit -->
+									<button type="button" id="$groupe[groupeid]" class="btn blue btn-groupe-recherche" style="margin:5px">$groupe[libelle]</button><a  href="#myModalSupprGroupe$groupe[groupeid]" data-original-title="$multilangue[supprimer]" id="$groupe[groupeid]" data-placement="top" class="fa fa-times fs-18 font-red btn-groupe-suppr" style="cursor:pointer;display:none;" data-toggle="modal" role="button"></a>
+									<div aria-hidden="true" aria-labelledby="myModalLabelSupprGroupe$groupe[groupeid]" role="dialog" tabindex="-1" class="modal fade" id="myModalSupprGroupe$groupe[groupeid]" style="display: none;">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+													<h4 class="modal-title ta-center">$multilangue[confirmer_supprimer_groupe_commande]: $groupe[libelle] ?</h4>
+												</div>
+												<div class="modal-body ta-center">	
+													$multilangue[suppression_groupe_commande]
+												</div>
+												<div class="modal-footer">
+													<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+													<a href="commandes.php?action=supprgroupe&groupeid=$groupe[groupeid]" class="btn blue">$multilangue[supprimer]</a>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								<!-- END CommandesGroupeRechercheBoutonBit -->
+								<div class="clear"></div>
+							</div>
+						</div>
+					<!-- END CommandesGroupeRecherche -->	
+							
+							
+					<!-- BEGIN CommandesErreur -->
+						<div class="alert alert-danger alert-dismissable">
+							<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+							$texteErreur
+						</div>
+					<!-- END CommandesErreur -->
+					<div class="row">
+					<div class="col-md-12">
+						<div class="btn-group left mb-20">
+			                <a class="btn default" data-toggle="dropdown">
+			                     $multilangue[colonnes] <i class="fa fa-angle-down"></i>
+			                </a>
+		                    <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+		                         <label><input type="checkbox" data-column="1">$multilangue[site]</label>
+		                         <label><input type="checkbox" checked data-column="2">N° BC</label>
+		                         <label><input type="checkbox" checked data-column="3">N° F</label>
+		                         <label><input type="checkbox" data-column="4">$multilangue[num_suivi]</label>
+		                         <!-- BEGIN CommandesColonneLengow -->
+		                         <label><input type="checkbox" data-column="5">$multilangue[lengow_order_id]</label>
+		                         <!-- END CommandesColonneLengow -->
+		                         <!-- BEGIN CommandesColonneShopping -->
+		                         <label><input type="checkbox" data-column="6">$multilangue[shoppingflux_order_id]</label>
+		                         <!-- END CommandesColonneShopping -->
+		                         <label><input type="checkbox" checked data-column="7">$multilangue[date]</label>
+		                         <label><input type="checkbox" checked data-column="8">$multilangue[client]</label>
+		                         <label><input type="checkbox" data-column="9">$multilangue[email_client]</label>
+		                         <label><input type="checkbox" data-column="10">$multilangue[ip]</label>
+		                         <label><input type="checkbox" checked data-column="11">$multilangue[montant]</label>
+		                         <label><input type="checkbox" checked data-column="12">$multilangue[reglement]</label>
+		                         <label><input type="checkbox" checked data-column="13">$multilangue[etat_actuel]</label>
+		                         <label><input type="checkbox" checked data-column="14">$multilangue[mode_de_livraison]</label>
+		                         <!-- BEGIN CommandesColonneStatut -->
+		                         <label><input type="checkbox" data-column="15">$multilangue[statut_logistique]</label>
+		                         <!-- END CommandesColonneStatut -->
+		                   </div>
+		                </div>
+		                
+		                <div class="btn-group right mb-20">
+		                	 <a class="btn green" href="commandes_creation.php">
+			                     $multilangue[nouvelle_commande] <i class="fa fa-plus"></i>
+			                </a>
+		                </div>
+		                
+		                </div>
+	               
+	                </div>
+	                <div class="clear"></div>
+	                <form action="commandes.php?action=multiple" method="post" id="form_commandes">
+						<div class="table-responsive">
+							<div class="table-actions-wrapper right">
+								<span id="nb_rows_selected">0</span><span> $multilangue[ligne_s_slectionnee_s]</span>
+								<select class="table-group-action-input form-control input-inline" style="width: 150px !important;" name="select_multiple">
+									<option value=""></option>
+									<option value="chk_bc">$multilangue[impr] BC</option>
+									<option value="chk_fact">$multilangue[impr] F</option>
+									<option value="chk_bl">$multilangue[impr] BL</option>
+									<option value="chk_bp">$multilangue[impr] BP</option>
+									<option value="chk_not">$multilangue[impr] Not</option>
+									<option value="exp">Iexpeditor</option>
+									<option value="supprimer">$multilangue[supprimer]</option>
+								</select>
+								<button class="btn blue table-group-action-submit"><i class="fa fa-check"></i> $multilangue[valider]</button>
+							</div>
+							<!-- BEGIN CommandesModalSupprMultiple -->
+								<div aria-hidden="true" aria-labelledby="myModalSupprMultiple" role="dialog" tabindex="-1" class="modal fade in" id="myModalSupprMultiple" style="display: block;">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button aria-hidden="true" data-dismiss="modal" class="close btn_cache_modal" type="button"></button>
+												<h4 class="modal-title ta-center">$multilangue[confirmer_suppression_commandes]</h4>
+											</div>
+											<div class="modal-body ta-center">
+												<!-- BEGIN CommandesModalSupprInfos -->
+													<div class="ta-center">
+														N° $infos_facture[factureid] - $infos_facture[prenom] $infos_facture[nom] - $infos_facture[montanttotal_ttc] $devise_actuel
+													</div>
+												<!-- END CommandesModalSupprInfos -->
+											</div>
+											<div class="modal-footer">
+												<button aria-hidden="true" data-dismiss="modal" class="btn default btn_cache_modal">Non</button>
+												<a href="commandes.php?action=suppr_multiple&ids_facture=$ids_facture" class="btn blue">$multilangue[supprimer]</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							<!-- END CommandesModalSupprMultiple -->
+							<table class="table table-striped table-bordered table-commandes  ">
+								<thead>
+									<tr role="row" class="heading">
+										<th>
+											<input type="checkbox" id="tout_cocher">
+										</th>
+										<th class="ta-center">
+											$multilangue[site]
+										</th>
+										<th class="ta-center">
+											N° BC
+										</th>
+										<th class="ta-center">
+											N° F
+										</th>
+										<th class="ta-center">
+											$multilangue[num_suivi]
+										</th>
+										<th class="ta-center">
+											$multilangue[lengow_order_id]
+										</th>
+										<th class="ta-center">
+											$multilangue[shoppingflux_order_id]
+										</th>
+										<th class="ta-center">
+											$multilangue[date]
+										</th>
+										<th class="ta-center">
+											$multilangue[client]
+										</th>
+										<th class="ta-center">
+											$multilangue[email_client]
+										</th>
+										<th class="ta-center">
+											$multilangue[ip]
+										</th>
+										<th class="ta-center">
+											$multilangue[montant]
+										</th>
+										<th class="ta-center">
+											$multilangue[reglement]
+										</th>
+										<th class="ta-center">
+											$multilangue[etat_actuel]
+										</th>
+										<th class="ta-center">
+											$multilangue[mode_de_livraison]
+										</th>
+										<!-- BEGIN CommandesColonneStatutLogistique -->
+										<th class="ta-center">
+											$multilangue[statut_logistique]
+										</th>
+										<!-- END CommandesColonneStatutLogistique -->
+										<th class="ta-center">
+											$multilangue[actions]
+										</th>
+										<th class="ta-center">
+											BC
+										</th>
+										<th class="ta-center">
+											F
+										</th>
+										<th class="ta-center">
+											BL
+										</th>
+										<th class="ta-center">
+											BP
+										</th>
+										<!-- BEGIN CommandesColonneNotice -->
+										<th class="ta-center">
+											Not
+										</th>
+										<!-- END CommandesColonneNotice -->
+									</tr>
+									 <tr role="row" class="filter">
+									 	<td></td>
+										<td>
+											<select multiple class="form-control" name="libsite" id="libsite" style="width:auto !important; font-size: 12px !important; padding-left: 5px !important; padding-right: 5px !important; min-width:100% !important;">
+												<option value="-1" selected>$multilangue[tous]</option>
+												<!-- BEGIN CommandesSiteBit -->
+												<option value="$site[siteid]">$site[libelle]</option>
+												<!-- END CommandesSiteBit -->										
+											</select>
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="factureid">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="numerofacture">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="numero_suivi">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="lengow_orderid">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="shoppingflux_orderid">
+										</td>
+										<td>
+											<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date" style="width:135px !important;">
+												<input type="text" id="date_debut" class="form-control date-picker date_debut" name="" value="" placeholder="$multilangue[du]"/>
+												<span class="input-group-btn">
+													<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('date_debut')" style="float:left;"><i class="fa fa-times"></i></button>
+												</span>
+											</div><br>
+											<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date"  style="width:135px !important;">													
+												<input type="text" id="date_fin" class="form-control date-picker date_fin" name="" value="" placeholder="$multilangue[au]"/>
+												<span class="input-group-btn">
+													<button type="button" class="btn default tooltips" data-original-title="$multilangue[aucune]" data-placement="top" onclick="clear_champ('date_fin')"><i class="fa fa-times"></i></button>
+												</span>
+											</div>
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="client">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="email">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="ip">
+										</td>
+										<td>
+											<input type="text" class="form-control form-filter input-sm" id="montant">
+										</td>
+										<td>
+											<select multiple class="form-control" name="moyen" id="moyen" style="width:auto !important; font-size: 12px !important;  padding-right: 5px !important; min-width:100% !important;">
+												<option value="-1" selected>$multilangue[tous]</option>
+												<!-- BEGIN CommandesReglementBit -->
+												<option value="$moyen_paiement[moyenid]">$moyen_paiement[libelle]</option>
+												<!-- END CommandesReglementBit -->										
+											</select>	
+										</td>
+										<td>
+											<select multiple class="form-control" name="etat" id="etat" style="width:auto !important; font-size: 12px !important; padding-right: 5px !important; min-width:100% !important;">
+												<option value="-1" selected>$multilangue[tous]</option>
+												<!-- BEGIN CommandesEtatBit -->
+												<option value="$etat[etatid]">$etat[libelle]</option>
+												<!-- END CommandesEtatBit -->										
+											</select>	
+										</td>
+										<td>
+											<select multiple class="form-control" name="livraison" id="livraison" style="width:auto !important; font-size: 12px !important;  padding-right: 5px !important; min-width:100% !important;">
+												<option value="-1" selected>$multilangue[tous]</option>
+												<!-- BEGIN CommandesLivraisonBit -->
+												<option value="$mode_livraison[modelivraisonid]">$mode_livraison[nom]</option>
+												<!-- END CommandesLivraisonBit -->										
+											</select>	
+										</td>
+										<!-- BEGIN CommandesColonneStatutLogistiqueVide -->
+										<td>
+											<select multiple class="form-control" name="statutlogistique" id="statutlogistique" style="width:auto !important; font-size: 12px !important;  padding-right: 5px !important; min-width:100% !important;">
+												<option value="-1" selected>$multilangue[tous]</option>
+												<!-- BEGIN CommandesStatutBit -->
+												<option value="$statut[statutlogistiqueid]">$statut[libelle]</option>
+												<!-- END CommandesStatutBit -->										
+											</select>	
+										</td>
+										<!-- END CommandesColonneStatutLogistiqueVide -->
+										<td>
+											<div class="margin-bottom-5">
+												<button type="button" class="btn btn-sm yellow filter-submit margin-bottom" id="btn-rechercher"><i class="fa fa-search"></i> $multilangue[rechercher]</button>
+											</div>
+											<!-- BEGIN CommandesBoutonEnregistrer -->
+												<div class="margin-bottom-5">
+													<a href="#myModalAjoutGroupe" id="ajout_groupe" data-placement="top" data-toggle="modal" role="button" class="btn green btn-sm" ><i class="fa fa-save"></i> $multilangue[enregistrer]</a>
+												</div>
+											<!-- END CommandesBoutonEnregistrer -->
+												<div aria-hidden="true" aria-labelledby="myModalAjoutGroupe" role="dialog" tabindex="-1" class="modal fade" id="myModalAjoutGroupe" style="display: none;">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																<h4 class="modal-title ta-center">$multilangue[ajt_groupe_commandes]</h4>
+															</div>
+															<div class="modal-body">	
+																<div class="form-body">
+																	<div class="form-group">
+																		<label class="control-label col-md-2">$multilangue[nom_groupe] : </label>
+																		<div class="col-md-8">																														
+																			<input type="text" class="form-control" id="libelle"> 
+																		</div>	
+																	</div>
+																</div>	
+															</div>
+															<div class="modal-footer">
+																<button type="button" data-dismiss="modal" class="btn default" id="btn-enregistrer">$multilangue[enregistrer]</button>
+																<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											
+											<button type="button" class="btn btn-sm red filter-cancel" id="btn-reset"><i class="fa fa-times"></i> $multilangue[raz2]</button>
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<!-- BEGIN CommandesColonneNoticeVide -->
+										<td></td>
+										<!-- END CommandesColonneNoticeVide -->
+									</tr> 
+								</thead>
+								<tbody>				
+								</tbody>
+							</table>					
+						</div>
+					</form>
+					<form enctype= "multipart/form-data" action="commandes.php?action=importerExpeditor" method="post" name="import">
+						<label class="label-control">$multilangue[importer_fichier_expeditor] : </label>
+						<div data-provides="fileinput" class="fileinput fileinput-new"><input type="hidden">
+							<span class="btn default btn-file">
+								<span class="fileinput-new">
+					 				$multilangue[selectionner]
+								</span>
+								<span class="fileinput-exists">
+					 				$multilangue[modification]
+								</span>
+								<input type="file" name="import">
+							</span>
+							<span class="fileinput-filename">
+							</span>
+			 				&nbsp;
+							<a style="float: none" data-dismiss="fileinput" class="close fileinput-exists" href="#"></a>
+						</div>
+						<button type="submit" class="btn blue">$multilangue[importer]</button>
+					</form>
+				<!-- END CommandesListe -->
+				
+				<!-- BEGIN CommandesModification -->
+					<div class="mb-20" style="float:left;">
+						<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					</div>
+					<input type="hidden" id="factureid" value="$factureid">
+					<!-- BEGIN CommandesModificationImprimeProForma -->
+						<div>
+							<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=13&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[proformaimprime]</i></a>
+						</div>
+					<!-- END CommandesModificationImprimeProForma -->
+					<!-- BEGIN CommandesModificationImpression -->
+						<div>
+							<!-- BEGIN CommandesModificationImpressionFacture -->
+								<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=1&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[imprimer_facture]</i></a>
+							<!-- END CommandesModificationImpressionFacture -->
+							<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=3&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[imprimer_bon_commande]</i></a>
+		  					<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=5&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[imprimer_bon_livraison]</i></a>
+		  					<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=7&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[imprimer_bon_preparation]</i></a>
+							<!-- BEGIN CommandesModificationImprimeFactureCadeau -->
+								<a href="http://$host/force_download.php?dest=facture&factureid=$commande[factureid]&type=4&passe=$commande[passefacture]" data-original-title="" data-placement="top" class="btn tooltips"><i class="fa fa-print fs-18"> $multilangue[imprimer_facture_cadeau]</i></a>
+							<!-- END CommandesModificationImprimeFactureCadeau -->
+							<!-- BEGIN CommandesModificationLengow -->
+								<a href="$url_lengowBis" target="_blank">$multilangue[reexpedier_lengow] </a>
+							<!-- END CommandesModificationLengow -->
+						</div>
+					<!-- END CommandesModificationImpression -->
+					
+					<!-- BEGIN CommandesModificationCodeBarre -->
+						<div class="col-md-8 mb-20 ta-center">
+							$imageCodeBarre
+						</div>
+					<!-- END CommandesModificationCodeBarre -->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[informations_commande]
+							</div>																		
+						</div>
+						<div class="portlet-body form">
+							<div class="form-body">	
+								<div class="ta-center">
+									<span class="col-md-6" style="font-size: 15px; font-weight: bold;">
+										$multilangue[montant_total_original] : $commande[montanttotal_ttc_regle] $devise_actuelle
+									</span>
+									<span class="col-md-6" style="font-size: 15px; font-weight: bold;">
+										$multilangue[montant_total_actuel] :  $commande[montanttotal_ttc] $devise_actuelle
+									</span>
+								</div>
+								<div class="clear"></div>
+								<br>
+								<div class="table-responsive">
+									<table class="table table-bordered  ">
+										<thead>
+											<tr>
+												<th class="ta-center">N°</th>
+												<th class="ta-center">$multilangue[date]</th>
+												<th class="ta-center">$multilangue[ip] / $multilangue[timestamp]</th>
+												<th class="ta-center">$multilangue[referent]</th>
+												<th class="ta-center">$multilangue[moyen_de_reglement]</th>
+												<th class="ta-center">$multilangue[etat_actuel]</th>
+												<th class="ta-center">$multilangue[mode_de_livraison]</th>
+												<!-- BEGIN CommandesModificationColonneExpedition -->
+												<th class="ta-center">$txtexp</th>
+												<!-- END CommandesModificationColonneExpedition -->
+												<!-- BEGIN CommandesModificationColonneAction -->
+												<th class="ta-center">$multilangue[actions]</th>
+												<!-- END CommandesModificationColonneAction -->
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="ta-center">$commande[factureid]<br>$commande[numerofacture]</td>
+												<td class="ta-center">$date</td>
+												<td class="ta-center">
+													$ipCommande<br>
+													$commande[timestamp]<br>
+													<form action="commandes.php?action=$actionip&factureid=$factureid" method="post">
+														<input type="submit" value="$namebtbloquerip" class="btn blue">
+													</form><br>
+													$paysOrigine[libelle]<br>
+													<a href="http://www.localiser-IP.com/?ip=$commande[ip]" target="_blank" class="btn blue">$multilangue[localiser_ip]</a>
+												</td>
+												<td class="ta-center">$referent</td>
+												<td class="ta-center">$moyen_paiement[libelle]</td>
+												<td class="ta-center">
+													<font color="$etat[couleur]">$etat[libelle]</font><br><br>
+													<!-- BEGIN CommandesModificationStatutLogistique -->
+														<label style="float: left">$multilangue[statut_logistique] :</label>
+														<select class="form-control" name="statutlogistique" id="statutlogistique" style="width:auto !important; font-size: 12px !important;  padding-right: 5px !important; min-width:100% !important;">
+															<option value="0" $selectedStatut0 >$multilangue[aucun_statut_defini]</option>
+															<!-- BEGIN CommandesModificationStatutLogistiqueBit -->
+															<option value="$statut[statutlogistiqueid]" $selectedStatut>$statut[libelle]</option>
+															<!-- END CommandesModificationStatutLogistiqueBit -->										
+														</select>	
+													<!-- END CommandesModificationStatutLogistique -->
+												</td>
+												<td class="ta-center">$mode_livraison[nom]</td>
+												<!-- BEGIN CommandesModificationLigneExpedition -->
+												<td class="ta-center">
+													<label>$commande[dateexpedition]</label>
+													<!-- BEGIN CommandesModificationLigneExpeditionColisBit -->
+														<br><label>$multilangue[colis] n°$i_colis : 
+															<!-- BEGIN CommandesModificationLigneExpeditionColisSuivi -->
+																<a href="$colis[adresse_suivi]" target="_blank" title="Suivi colis">$colis[numero_suivi]</a>
+															<!-- END CommandesModificationLigneExpeditionColisSuivi -->
+														</label>
+														<a href="#myModalColis$i_colis" data-placement="top" data-toggle="modal" role="button"><i class=" fa fa-eye"></i></a>
+														<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalColis$i_colis" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[commande] N°$colis[factureid] - $multilangue[colis] N°$i_colis</h4>
+														  					</div>
+															  				<div class="modal-body">
+															  					<div class="left" style="text-align: left;">
+																  					<label><b>$multilangue[date_expedition] </b> : $colis[dateexpedition]</label><br>
+																  					<!-- BEGIN CommandesModificationLigneExpeditionColisReexpedie -->
+																  						<label><b>$multilangue[reexpedition]</b> : $multilangue[oui]</label><br>
+																  					<!-- END CommandesModificationLigneExpeditionColisReexpedie -->
+																  					<label><b>$multilangue[transporteur]</b> : $colis[transporteur]</label><br>
+																  					<label><b>$multilangue[numero_suivi]</b> : $colis[numero_suivi]</label><br>
+																  					<label><b>$multilangue[lien_suivi_colis]</b> : <a href="$colis[adresse_suivi]" target="_blank">$colis[adresse_suivi]</a></label><br>
+																  					<label><b>$multilangue[nb_produits]</b> : $produits[total]</label><br>
+																  				</div>
+															  					<div class="table-responsive">
+																					<table class="table table-bordered table-striped">
+																						<thead>
+																							<tr>
+																								<th class="ta-center">$multilangue[reference]</th>
+																								<th class="ta-center">$multilangue[designation]</th>
+																								<th class="ta-center">$multilangue[qte]</th>
+																							</tr>
+																						</thead>
+																						<tbody>
+																							<!-- BEGIN CommandesModificationLigneExpeditionDetailColisBit -->
+																								<tr>
+																									<td>$lignecolis[artcode]</td>
+																									<td>$lignecolis[libelle] $lignecolis[caracteristiques]</td>
+																									<td>$lignecolis[qtel]</td>
+																								</tr>
+																							<!-- END CommandesModificationLigneExpeditionDetailColisBit -->
+																						</tbody>
+																					</table>
+																				</div>
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[fermer]</button>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+													<!-- END CommandesModificationLigneExpeditionColisBit -->
+												</td>
+												<!-- END CommandesModificationLigneExpedition -->
+												<!-- BEGIN CommandesModificationLigneAction -->
+													<td class="ta-center">
+														<!-- BEGIN CommandesModificationLigneActionEtatExpediee -->
+															<div class="mb-10">
+																<a href="#myModalRembourser" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_rembourser">$multilangue[rembourser_commande]</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalRembourser" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[rembourser_facture] ?</h4>
+														  					</div>
+															  				<div class="modal-body ta-center">
+															  					$multilangue[confirmer_remboursement_facture] N°$factureid ?
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+															  					<a href="commandes.php?action=rembourser&factureid=$factureid" class="btn blue">$multilangue[oui]</a>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+															</div>
+															<div class="mb-10">
+																<a href="#myModalRembourserFP" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_rembourser_frais_port">$multilangue[rembourser_fraisport_facture]</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalRembourserFP" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[rembourser_fraisport_facture] ?</h4>
+														  					</div>
+															  				<div class="modal-body ta-center">
+															  					$multilangue[confirmer_remboursement_fraisport_facture] N°$factureid ? <br>
+															  					$multilangue[montant] : <input type="text" class="form-control" style="width: 100px; display: inline;" value="$commande[montantport]" name="montantFraisPort">$devise_actuelle
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+															  					<a href="commandes.php?action=rembourserFraisPort&factureid=$factureid" class="btn blue">$multilangue[oui]</a>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+															</div>
+															<!-- BEGIN CommandesModificationLigneActionCreerAvoir -->
+																<div class="mb-10">
+																	<a href="avoirs.php?action=creerAvoir&factureid=$factureid" class="btn blue">$multilangue[creer_avoir]</a>
+																</div>
+															<!-- END CommandesModificationLigneActionCreerAvoir -->
+															<div class="mb-10">
+																<a href="commandes.php?action=reexpedier&factureid=$factureid" class="btn blue">$multilangue[reexpedier]</a>
+															</div>
+														<!-- END CommandesModificationLigneActionEtatExpediee -->
+														
+														
+														<!-- BEGIN CommandesModificationLigneActionExpedierImmateriel -->
+															<div class="mb-10">
+																<a href="#myModalExpedierImmateriel" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_expedier_immateriel">$namebtnexpedier</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalExpedierImmateriel" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[expedier_commande] ?</h4>
+														  					</div>
+															  				<div class="modal-body ta-center">
+															  					$multilangue[confirmer_expedition_commande] N°$factureid ?
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+															  					<a href="commandes.php?action=expedierImmat&factureid=$factureid" class="btn blue">$multilangue[oui]</a>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+															  </div>
+														<!-- END CommandesModificationLigneActionExpedierImmateriel -->
+														
+														<!-- BEGIN CommandesModificationLigneActionExpedierMateriel -->
+															<div class="mb-10">
+																<a href="commandes.php?action=expedier&factureid=$factureid" class="btn blue">$namebtnexpedier</a>
+															</div>
+														<!-- END CommandesModificationLigneActionExpedierMateriel -->
+														
+														<!-- BEGIN CommandesModificationLigneActionValiderReglement -->
+															<div class="mb-10">
+																<a href="#myModalValiderReglement" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_valider_reglement">$multilangue[valider_reglement]</a>
+														  		<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalValiderReglement" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[valider_reglement] ?</h4>
+														  					</div>
+															  				<form action="commandes.php?action=valider&factureid=$factureid" method="post">
+																  				<div class="modal-body ta-center">
+																  					$multilangue[confirmer_validation_reglement] N°$factureid ?<br><br>
+																  					<div class="form-group">
+																	  					<label class="control-label col-md-4">$multilangue[moyen_de_reglement] : </label>
+																	  					<div class="col-md-8">
+																		  					<select class="form-control" name="moyenid">
+																		  						<!-- BEGIN CommandesModificationLigneActionValiderReglementListeMoyensBit -->
+																		  							<option value="$moyen[moyenid]"  $selectedMoyen>$moyen[libelle]</option>
+																		  						<!-- END CommandesModificationLigneActionValiderReglementListeMoyensBit -->
+																		  					</select>
+																		  				</div>
+																	  				</div>
+																  				</div>
+																  				<div class="modal-footer">
+																  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																  					<button type="submit" class="btn blue">$multilangue[oui]</button>
+																  				</div>
+																  			</form>
+														  				</div>
+														  			</div>
+														  		</div>
+															
+															</div>
+														<!-- END CommandesModificationLigneActionValiderReglement -->
+														
+														<!-- BEGIN CommandesModificationLigneActionRefuser -->
+															<div class="mb-10">	
+																<a href="#myModalRefuserCommande" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_refuser_commande">$multilangue[refuser_commande]</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalRefuserCommande" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[refuser_commande] ?</h4>
+														  					</div>
+															  				<div class="modal-body ta-center">
+															  					$multilangue[confirmer_refus_commande] N°$factureid ?
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+															  					<a href="commandes.php?action=refuser&factureid=$factureid" class="btn blue">$multilangue[oui]</a>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+															</div>
+														<!-- END CommandesModificationLigneActionRefuser -->
+														
+														<!-- BEGIN CommandesModificationLigneActionImpRefuserFacture -->
+															<div class="mb-10">
+																$multilangue[commande_impossible_refusee]
+															</div>
+														<!-- END CommandesModificationLigneActionImpRefuserFacture -->
+														
+														<!-- BEGIN CommandesModificationLigneActionSupprFacture -->
+															<div class="mb-10">
+																<a href="#myModalSupprCommande"  class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_suppr_commande">$multilangue[suppr_commande]</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalSupprCommande" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[suppr_commande] ?</h4>
+														  					</div>
+															  				<div class="modal-body ta-center">
+															  					$multilangue[confirmer_suppression_commande] N°$factureid ?
+															  				</div>
+															  				<div class="modal-footer">
+															  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+															  					<a href="commandes.php?action=supprimer&factureid=$factureid" class="btn blue">$multilangue[oui]</a>
+															  				</div>
+														  				</div>
+														  			</div>
+														  		</div>
+															</div>
+														<!-- END CommandesModificationLigneActionSupprFacture -->
+														
+														<!-- BEGIN CommandesModificationLigneActionImpSupprFacture -->
+															<div class="mb-10">
+																$multilangue[commande_impossible_annulee]
+															</div>
+														<!-- END CommandesModificationLigneActionImpSupprFacture -->
+													</td>
+												<!-- END CommandesModificationLigneAction -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- BEGIN CommandesModificationModuleCadeau -->
+										<div class="row">
+											<div class="col-md-3">
+												$multilangue[commande_cadeau] : <b>$texteCadeau</b>
+											</div>
+											<!-- BEGIN CommandesModificationCadeauDedicace -->
+												<div class="col-md-9">
+													$multilangue[dedicace] : <b>$commande[dedicace]</b>
+												</div>
+											<!-- END CommandesModificationCadeauDedicace -->
+										</div>
+									<!-- END CommandesModificationModuleCadeau -->
+								</div>
+								
+							</div>
+						</div>
+					</div>	
+					<!-- BEGIN CommandesModificationStocks -->
+						<div class="portlet box light-grey">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[informations_stocks]
+								</div>																		
+							</div>
+							<div class="portlet-body form">
+								<div class="form-body">	
+									<div class="ta-center">
+										<label>$infoDecrementation</label>
+										<label>$infoIncrementation</label>
+									</div>
+									<form action="commandes.php?action=majStocks&factureid=$factureid" method="post">
+										<div class="ta-center">
+											<button type="submit" class="btn blue" name="$boutonActionStocks">$boutonActionStocks</button>
+										</div>
+									</form>
+									
+									<form action="commandes.php?action=majStocksDate&factureid=$factureid" method="post">
+										<div class="ta-center">	
+											<!-- BEGIN CommandesModificationStocksDateIncrementation -->
+												<label>$multilangue[date_reincrementation_prevue] : $inputDateStock</label>
+											<!-- END CommandesModificationStocksDateIncrementation -->
+											<!-- BEGIN CommandesModificationStocksFormIncrementation -->
+												<div data-date-start-date="+0d" data-date-format="dd/mm/yyyy" class="input-group input-medium date">
+													<input type="text" class="form-control date-picker" name="dateincrementation" value="$inputDateStock"/>
+													<span class="input-group-btn">
+														<button type="button" class="btn default date-reset tooltips" data-original-title="$multilangue[aucune]" data-placement="top"><i class="fa fa-times"></i></button>
+													</span>
+												</div>
+												<button type="submit" class="btn blue">$multilangue[enregistrer]</button>
+											<!-- END CommandesModificationStocksFormIncrementation -->
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>	
+					<!-- END CommandesModificationStocks -->
+					<!-- BEGIN CommandesModificationCommentaire -->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[commentaire_commande]
+							</div>																		
+						</div>
+						<div class="portlet-body form">
+							<div class="form-body">	
+								<div class="table-responsive">
+									<table class="table table-bordered  ">
+										<thead>
+											<tr>
+												<th class="ta-center col-md-6">$multilangue[ajout]</th>
+												<th class="ta-center">$multilangue[liste]</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<form action="commandes.php?action=commentaire&factureid=$commande[factureid]" method="post">
+														<textarea rows="6" cols="30" name="commentaire" class="form-control"></textarea><br>
+														<div class="ta-center">
+															<button type="submit" class="btn blue">$multilangue[enregistrer]</button>
+														</div>
+													</form>
+												</td>
+												<td>
+													<!-- BEGIN CommandesModificationCommentaireBit -->
+														<b>$multilangue[date] : $dateCommentaire</b>
+														<a href="#myModalSupprCommentaire$commentaire[commentaireid]" id="btn_suppr_commentaire$commentaire[commentaireid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+												  			<i class="fa fa-trash-o fs-18 font-red"></i>
+												  		</a>
+												  		<div aria-hidden="true" aria-labelledby="myModalLabel$commentaire[commentaireid]" role="dialog" tabindex="-1" class="modal fade" id="myModalSupprCommentaire$commentaire[commentaireid]" style="display: none;">
+												  			<div class="modal-dialog">
+												  				<div class="modal-content">
+												  					<div class="modal-header">
+												  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+												  						<h4 class="modal-title">$multilangue[suppr_commentaire] ?</h4>
+												  					</div>
+													  				<div class="modal-body ta-center">
+													  					$multilangue[suppression_commande_infos]
+													  				</div>
+													  				<div class="modal-footer">
+													  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+													  					<a href="commandes.php?action=supprcommentaire&factureid=$commande[factureid]&commentaireid=$commentaire[commentaireid]" class="btn blue">$multilangue[oui_supprimer]</a>
+													  				</div>
+												  				</div>
+												  			</div>
+												  		</div>
+														==========================================================================================
+														<br>
+															$commentaire[commentaire]
+														<br>
+														==========================================================================================
+														<br>
+														<br>
+													<!-- END CommandesModificationCommentaireBit -->
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<!-- END CommandesModificationCommentaire -->
+					
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[informations_client]
+							</div>																		
+						</div>
+						<div class="portlet-body form">
+							<div class="form-body">	
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th class="ta-center col-md-4">$multilangue[coordonnees_facturation]</th>
+												<th class="ta-center col-md-4">$multilangue[coordonnees_livraison]</th>
+												<th class="ta-center col-md-4"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="vertical-align: top;">
+												<td>
+													<!-- BEGIN CommandesModificationCoordFacturationForm -->
+														<form action="commandes.php?action=coordFact&factureid=$commande[factureid]" method="post">
+															<div class="table-responsive">
+																<table class="table table-bordered table-striped">
+																	<tbody>
+																		<tr>
+																			<td>$multilangue[code_client] :</td>
+																			<td>$commande[userid]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[email] :</td>
+																			<td><input class="form-control" type="text" name="mail_facture" value="$commande[mail]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[raison_sociale] :</td>
+																			<td><input class="form-control" type="text" name="raisonsocialefacture" value="$commande[raison_sociale]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[civilite] :</td>
+																			<td>
+																				<select class="form-control" name="civilitefacture">
+																					<option value="0" $selectedM>$multilangue[monsieur]</option>
+																					<option value="1" $selectedMme>$multilangue[madame]</option>
+																				</select>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[nom] :</td>
+																			<td><input class="form-control" type="text" name="nomfacture" value="$commande[nom]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[prenom] :</td>
+																			<td><input class="form-control" type="text" name="prenomfacture" value="$commande[prenom]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse] :</td>
+																			<td><input class="form-control" type="text" name="adressefacture" value="$commande[adresse]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse2] :</td>
+																			<td><input class="form-control" type="text" name="adresse2facture" value="$commande[adresse2]"></td>
+																		</tr>
+																		<!-- BEGIN CommandesModificationCoordFacturationFormEtage -->
+																			<tr>
+																				<td>$multilangue[etage] :</td>
+																				<td><input type="text" name="etagefacture" value="$commande[etage]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationFormEtage -->
+																		<!-- BEGIN CommandesModificationCoordFacturationFormEscalier -->
+																			<tr>
+																				<td>$multilangue[escalier] :</td>
+																				<td><input type="text" name="escalierfacture" value="$commande[escalier]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationFormEscalier -->
+																			<!-- BEGIN CommandesModificationCoordFacturationFormCodeAcces -->
+																			<tr>
+																				<td>$multilangue[code_acces] :</td>
+																				<td><input type="text" name="codeaccesfacture" value="$commande[codeacces]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationFormCodeAcces -->
+																		<tr>
+																			<td>$multilangue[code_postal] :</td>
+																			<td><input class="form-control" type="text" name="codepostalfacture" value="$commande[codepostal]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[ville] :</td>
+																			<td><input class="form-control" type="text" name="villefacture" value="$commande[ville]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[pays] :</td>
+																			<td><select class="form-control" name="paysidfacture" id="paysidfacture">$liste_pays</select></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone] :</td>
+																			<td><input class="form-control" type="text" name="telephonefacture" value="$commande[telephone]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone2] :</td>
+																			<td><input class="form-control" type="text" name="telephone2facture" value="$commande[telephone2]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[commentaire] :</td>
+																			<td>
+																				<textarea class="form-control" name="commentairefacture">$commande[commentaire]</textarea>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[siret] :</td>
+																			<td>$utilisateur[siret]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[tva_intracommunautaire] :</td>
+																			<td>$utilisateur[tva]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[fonction] :</td>
+																			<td>$utilisateur[fonction]</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="ta-center">
+																	<button type="submit" class="btn blue">$multilangue[enregistrer]</button>
+																</div>
+															</div>
+														</form>
+													<!-- END CommandesModificationCoordFacturationForm -->
+													<!-- BEGIN CommandesModificationCoordFacturation -->
+														<form action="commandes.php?action=coordFactForm&factureid=$commande[factureid]" method="post">
+															<div class="table-responsive">
+																<table class="table table-bordered table-striped">
+																	<tbody>
+																		<tr>
+																			<td>$multilangue[code_client] :</td>
+																			<td>$commande[userid]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[email] :</td>
+																			<td>$commande[mail]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[raison_sociale] :</td>
+																			<td>$commande[raison_sociale]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[civilite] :</td>
+																			<td>$commande[civilite]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[nom] :</td>
+																			<td>$commande[nom]</td>
+																		</tr>
+																		<tr>
+																			<td>$utilisateur[prenom] :</td>
+																			<td>$commande[prenom]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse] :</td>
+																			<td>$commande[adresse]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse2] :</td>
+																			<td>$commande[adresse2]</td>
+																		</tr>
+																		<!-- BEGIN CommandesModificationCoordFacturationEtage -->
+																			<tr>
+																				<td>$multilangue[etage] :</td>
+																				<td>$commande[etage]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationEtage -->
+																		<!-- BEGIN CommandesModificationCoordFacturationEscalier -->
+																			<tr>
+																				<td>$multilangue[escalier] :</td>
+																				<td>$commande[escalier]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationEscalier -->
+																			<!-- BEGIN CommandesModificationCoordFacturationCodeAcces -->
+																			<tr>
+																				<td>$multilangue[code_acces] :</td>
+																				<td>$commande[codeacces]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordFacturationCodeAcces -->
+																		<tr>
+																			<td>$multilangue[code_postal] :</td>
+																			<td>$commande[codepostal]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[ville] :</td>
+																			<td>$commande[ville]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[pays] :</td>
+																			<td>$libelle_pays</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone] :</td>
+																			<td>$commande[telephone]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone2] :</td>
+																			<td>$commande[telephone2]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[commentaire] :</td>
+																			<td>
+																				<textarea class="form-control" name="commentairefacture">$commande[commentaire]</textarea>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[siret] :</td>
+																			<td>$utilisateur[siret]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[tva_intracommunautaire] :</td>
+																			<td>$utilisateur[tva]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[fonction] :</td>
+																			<td>$utilisateur[fonction]</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="ta-center">
+																	<button type="submit" class="btn blue">$multilangue[enregistrer]</button>
+																</div>
+															</div>
+														</form>
+													<!-- END CommandesModificationCoordFacturation -->
+												</td>
+												<td>
+													<!-- BEGIN CommandesModificationCoordLivraisonForm -->
+														<form action="commandes.php?action=coordLivr&factureid=$commande[factureid]" method="post">
+															<div class="table-responsive">
+																<table class="table table-bordered table-striped">
+																	<tbody>
+																		<tr>
+																			<td>$multilangue[raison_sociale] :</td>
+																			<td><input class="form-control" type="text" name="lraisonsocialefacture" value="$commande[lraison_sociale]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[civilite] :</td>
+																			<td>
+																				<select class="form-control" name="lcivilitefacture">
+																					<option value="0" $selectedLM>$multilangue[monsieur]</option>
+																					<option value="1" $selectedLMme>$multilangue[madame]</option>
+																				</select>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[nom] :</td>
+																			<td><input class="form-control" type="text" name="lnomfacture" value="$commande[lnom]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[prenom] :</td>
+																			<td><input class="form-control" type="text" name="lprenomfacture" value="$commande[lprenom]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse] :</td>
+																			<td><input class="form-control" type="text" name="ladressefacture" value="$commande[ladresse]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse2] :</td>
+																			<td><input class="form-control" type="text" name="ladresse2facture" value="$commande[ladresse2]"></td>
+																		</tr>
+																		<!-- BEGIN CommandesModificationCoordLivraisonFormEtage -->
+																			<tr>
+																				<td>$multilangue[etage] :</td>
+																				<td><input type="text" name="letagefacture" value="$commande[letage]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonFormEtage -->
+																		<!-- BEGIN CommandesModificationCoordLivraisonFormEscalier -->
+																			<tr>
+																				<td>$multilangue[escalier] :</td>
+																				<td><input type="text" name="lescalierfacture" value="$commande[lescalier]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonFormEscalier -->
+																			<!-- BEGIN CommandesModificationCoordLivraisonFormCodeAcces -->
+																			<tr>
+																				<td>$multilangue[code_acces] :</td>
+																				<td><input type="text" name="lcodeaccesfacture" value="$commande[lcodeacces]"></td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonFormCodeAcces -->
+																		<tr>
+																			<td>$multilangue[code_postal] :</td>
+																			<td><input class="form-control" type="text" name="lcodepostalfacture" value="$commande[lcodepostal]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[ville] :</td>
+																			<td><input class="form-control" type="text" name="lvillefacture" value="$commande[lville]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[pays] :</td>
+																			<td><select class="form-control" name="lpaysidfacture" id="lpaysidfacture">$liste_pays_l</select></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone] :</td>
+																			<td><input class="form-control" type="text" name="ltelephonefacture" value="$commande[ltelephone]"></td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[commentaire] :</td>
+																			<td>
+																				<textarea class="form-control" name="lcommentairefacture">$commande[lcommentaire]</textarea>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="ta-center">
+																	<button type="submit" class="btn blue">$multilangue[enregistrer]</button>
+																</div>
+															</div>
+														</form>
+													<!-- END CommandesModificationCoordLivraisonForm -->
+													<!-- BEGIN CommandesModificationCoordLivraison -->
+														<form action="commandes.php?action=coordLivrForm&factureid=$commande[factureid]" method="post">
+															<div class="table-responsive">
+																<table class="table table-bordered table-striped">
+																	<tbody>
+																		<tr>
+																			<td>$multilangue[raison_sociale] :</td>
+																			<td>$commande[lraison_sociale]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[civilite] :</td>
+																			<td>$commande[lcivilite]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[nom] :</td>
+																			<td>$commande[lnom]</td>
+																		</tr>
+																		<tr>
+																			<td>$utilisateur[prenom] :</td>
+																			<td>$commande[lprenom]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse] :</td>
+																			<td>$commande[ladresse]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[adresse2] :</td>
+																			<td>$commande[ladresse2]</td>
+																		</tr>
+																		<!-- BEGIN CommandesModificationCoordLivraisonEtage -->
+																			<tr>
+																				<td>$multilangue[etage] :</td>
+																				<td>$commande[letage]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonEtage -->
+																		<!-- BEGIN CommandesModificationCoordLivraisonEscalier -->
+																			<tr>
+																				<td>$multilangue[escalier] :</td>
+																				<td>$commande[lescalier]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonEscalier -->
+																			<!-- BEGIN CommandesModificationCoordLivraisonCodeAcces -->
+																			<tr>
+																				<td>$multilangue[code_acces] :</td>
+																				<td>$commande[lcodeacces]</td>
+																			</tr>
+																		<!-- END CommandesModificationCoordLivraisonCodeAcces -->
+																		<tr>
+																			<td>$multilangue[code_postal] :</td>
+																			<td>$commande[lcodepostal]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[ville] :</td>
+																			<td>$commande[lville]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[pays] :</td>
+																			<td>$libelle_pays_l</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[telephone] :</td>
+																			<td>$commande[ltelephone]</td>
+																		</tr>
+																		<tr>
+																			<td>$multilangue[commentaire] :</td>
+																			<td>$commande[lcommentaire]</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</form>
+													<!-- END CommandesModificationCoordLivraison -->
+												</td>
+												<td>
+													<!-- BEGIN CommandesModificationModuleFidelite -->
+														$texteFidelite
+													<!-- END CommandesModificationModuleFidelite -->
+													<!-- BEGIN CommandesModificationModulePro -->
+														<label>$multilangue[commande_passee_par_pro]</label>
+													<!-- END CommandesModificationModulePro -->
+													<br><br><div class="ta-center">
+														<a href="clients.php?action=editer&user=$commande[userid]" class="btn blue">$multilangue[modif_client]</a><br>
+													</div><br>
+													<div class="ta-center">
+														<a href="#myModalContact" id="btn_contact" data-original-title="$multilangue[contacter]" data-placement="top" data-toggle="modal" role="button" class="btn blue">$multilangue[contacter_ce_client]</a>
+											  		</div><br>
+											  		<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalContact" style="display: none;">
+											  			<div class="modal-dialog">
+											  				<div class="modal-content">
+											  					<div class="modal-header ta-center">
+											  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+											  						<h4 class="modal-title">$multilangue[contacter_ce_client]</h4>
+											  					</div>
+											  					<form action="commandes.php?action=contacter&factureid=$commande[factureid]" method="post" id="form_contacter_client">
+											  					<div id="errordiv_sujet" class="ta-center"></div>
+											  					<div id="errordiv_message" class="ta-center"></div>
+												  					<div class="modal-body ta-center">
+												  						<div class="form-group">
+												  							<label class="control-label col-md-4">$multilangue[sujet] : </label>
+												  							<div class="col-md-8">
+												  								<input type="text" class="form-control" name="sujet"> 
+												  							</div>
+												  						</div><br><br>
+												  						<div class="form-group">
+												  							<label class="control-label col-md-4">$multilangue[message] : </label>
+												  							<div class="col-md-8">
+												  								<textarea name="message" cols="43" rows="6" class="form-control"></textarea>
+												  							</div>
+												  						</div>
+												  					</div>
+												  					<div class="clear"></div>
+													  				<div class="modal-footer">
+													  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+													  					<button type="submit" class="btn blue">$multilangue[envoyer]</button>
+													  				</div>
+												  				</form>
+											  				</div>
+											  			</div>
+											  		</div>
+											  		<label>$multilangue[historique_emails] $multilangue[a] $commande[mail]</label>
+											  		<div class="table-responsive" style="height:auto;overflow:auto;">
+														<table class="table table-bordered table-striped">
+															<tbody>
+																<!-- BEGIN CommandesModificationEmailsEnvoyesBit -->
+																	<tr>
+																		<td>
+																			<div>
+																				<b>$datemail</b>
+																			</div>
+																			<div>
+																				$emailSend[sujet]
+																			</div>
+																			<div>
+																				<a href="#myModalEmail$emailSend[emailenvoyeid]" id="btn_email_$emailSend[emailenvoyeid]" data-original-title="$multilangue[lire_suite]" data-placement="top" data-toggle="modal" role="button" class=""><i>$multilangue[lire_suite]</i></a>
+																		  		<div aria-hidden="true" aria-labelledby="myModalLabel$emailSend[emailenvoyeid]" role="dialog" tabindex="-1" class="modal fade" id="myModalEmail$emailSend[emailenvoyeid]" style="display: none;">
+																		  			<div class="modal-dialog">
+																		  				<div class="modal-content">
+																		  					<div class="modal-header ta-center">
+																		  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																		  						<h4 class="modal-title">$multilangue[email_envoye_a] $commande[mail]</h4>
+																		  					</div>
+																		  					<div class="modal-body">
+																		  						<div>
+																		  							$multilangue[date] : $datemail
+																		  						</div><br>
+																		  						<div>
+																		  							$multilangue[sujet] : $emailSend[sujet]
+																		  						</div><br>
+																		  						<div>
+																		  							$emailSend[contenu]
+																		  						</div>
+																		  					</div>
+																		  					<div class="clear"></div>
+																			  				<div class="modal-footer">
+																			  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[fermer]</button>
+																			  				</div>
+																		  				</div>
+																		  			</div>
+																		  		</div>
+																			</div>
+																		</td>
+																	</tr>
+																<!-- END CommandesModificationEmailsEnvoyesBit -->
+															</tbody>
+														</table>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>	
+					
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[detail_produits_commandes]
+							</div>																		
+						</div>
+						<div class="portlet-body form">
+							<div class="form-body">	
+								<div class="table-responsive" style="height:auto;overflow:auto;">
+									<table class="table table-bordered table-striped" id="table_detail_produits">
+										<thead>
+											<tr>
+												<th></th>
+												<th></th>
+												<th class="ta-center">$multilangue[reference]</th>
+												<th class="ta-center">$multilangue[designation]</th>
+												<th class="ta-center">$multilangue[caracteristiques]</th>
+												<th class="ta-center">$multilangue[qte]</th>
+												<th class="ta-center">$multilangue[prix_achat] $multilangue[ht]</th>
+												<th class="ta-center">$multilangue[prix]</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN CommandesModificationDetailProduitsModifiableBit -->
+												<tr class="ta-center" id="$ligne_facture[lignefactureid]">
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableBtnsVisu -->
+															<a href="$article[url]" target="_blank" class="btn tooltips" ><i class="fa fa-search fs-18 font-blue"></i></a><br/>
+															<a href="produits.php?action=modifier&artid=$ligne_facture[lignefactureid]" target="_blank" class="btn tooltips" ><i class="fa fa-edit fs-18 font-blue"></i></a><br/> 
+                                                            <a href="javascript:void(0);" class="btn tooltips" onclick="getzipfile($ligne_facture[lignefactureid]);"><i class="fa fa-file-archive-o"></i></a>
+                                                        <!-- END CommandesModificationDetailProduitsModifiableBtnsVisu -->
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableImage -->
+															$ligne_facture[image]
+														<!-- END CommandesModificationDetailProduitsModifiableImage -->
+													</td>
+													<td>
+														<label>$reference</label>
+													</td>
+													<td>
+														<label>$designation</label><br>
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableMultiMode -->
+															<label>$multiMode</label>
+														<!-- END CommandesModificationDetailProduitsModifiableMultiMode -->
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableNumeroSerie -->
+															<label class="label-control">$multilangue[numero_serie] :</label><input type="text" name="num_serie" value="$ligne_facture[serialnumber]" class="form-control">
+														<!-- END CommandesModificationDetailProduitsModifiableNumeroSerie -->
+														<!-- BEGIN CommandesModificationDetailProduitsModifiablePersonnalisationBit -->
+															<div style="text-align: left;">
+																<label><b>$multilangue[personnalisation] : </b></label>
+																<label>$champ[libelle] : </label> $champForm<br>
+																<div data-provides="fileinput" class="fileinput fileinput-new" style="$displayInputFile" >
+																	<span class="btn default btn-file">
+																		<span class="fileinput-new">
+																			$multilangue[selectionner]
+																		</span>
+																		<span class="fileinput-exists">
+																			$multilangue[modification]
+																		</span>
+																		<input type="file" name="fichier_import" id="fichier_import">
+																	</span>
+																	<span class="fileinput-filename">
+																	</span>
+																	&nbsp;
+																	<a style="float: none" data-dismiss="fileinput" class="close fileinput-exists" href="#"></a>
+																</div>
+															</div>
+														<!-- END CommandesModificationDetailProduitsModifiablePersonnalisationBit -->
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableCaractBit -->
+															<label>$libcaract :</label>
+															<select class="form-control caract_article" id="caract-$caractid">
+																<!-- BEGIN CommandesModificationDetailProduitsModifiableCaractValeurBit -->
+																	<option value="$caractvalid" $selectedCaract>$caractvallib</option>
+																<!-- END CommandesModificationDetailProduitsModifiableCaractValeurBit -->
+															</select><br>
+														<!-- END CommandesModificationDetailProduitsModifiableCaractBit -->
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsModifiableQte -->
+															<input type="text" class="form-control ta-center qte_article" id="qte_$ligne_facture[lignefactureid]" name="qte" value="$qte" style="width: 50px;">
+														<!-- END CommandesModificationDetailProduitsModifiableQte -->
+														<!-- BEGIN CommandesModificationDetailProduitsModifiablePrixAuMetre -->
+															<input type="text" class="form-control ta-center prixAuMetre_article" name="qte" id="qte_$ligne_facture[lignefactureid]" value="$nbcm" style="width: 50px;"> $multilangue[centimetre_diminutif]
+														<!-- END CommandesModificationDetailProduitsModifiablePrixAuMetre -->
+													</td>
+													<td>
+														<label>$prixachat $devise_actuelle</label>
+													</td>
+													<td nowrap>
+														<input type="text" name="prix" value="$prix" class="form-control ta-center"  style="display: inline; width: 70px;"> $devise_actuelle
+													</td>
+													<td>
+														<a class="btn blue btn_enregistrer_modif_$modif_ligne" >$multilangue[enregistrer_diminutif]</a><br><br>
+														<a href="#myModalSupprimerLigne$ligne_facture[lignefactureid]" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_remboursement_produit">$multilangue[supprimer_diminutif]</a>
+														<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalSupprimerLigne$ligne_facture[lignefactureid]" style="display: none;">
+												  			<div class="modal-dialog">
+												  				<div class="modal-content">
+												  					<div class="modal-header">
+												  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+												  						<h4 class="modal-title">$multilangue[suppr_article]</h4>
+												  					</div>
+													  				<div class="modal-body ta-center">
+													  					$multilangue[suppression_ligne_facture]
+													  				</div>
+													  				<div class="modal-footer">
+													  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+													  					<button class="btn blue" data-dismiss="modal" id="btn_supprimer_ligne" onclick="$supprimerLigne($ligne_facture[lignefactureid])">$multilangue[supprimer]</button>
+													  				</div>
+												  				</div>
+												  			</div>
+												  		</div>
+													</td>
+												</tr>
+											<!-- END CommandesModificationDetailProduitsModifiableBit -->
+											
+											<!-- BEGIN CommandesModificationDetailProduitsNonModifiableBit -->
+												<tr class="ta-center" id="$ligne_facture[lignefactureid]">
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiableBtnsVisu -->
+															<a href="$article[url]" target="_blank" class="btn tooltips" ><i class="fa fa-search fs-18 font-blue"></i></a><br>
+															<a href="produits.php?action=modifier&artid=$ligne_facture[lignefactureid]" target="_blank" class="btn tooltips" ><i class="fa fa-edit fs-18 font-blue"></i></a>
+														<!-- END CommandesModificationDetailProduitsNonModifiableBtnsVisu -->
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiableImage -->
+															$ligne_facture[image]
+														<!-- END CommandesModificationDetailProduitsNonModifiableImage -->
+													</td>
+													<td>
+														<label>$reference</label>
+														
+													</td>
+													<td>
+														<label>$designation</label><br>
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiableNumeroSerie -->
+															<label>$multilangue[numero_serie] : $ligne_facture[serialnumber]</label>
+														<!-- END CommandesModificationDetailProduitsNonModifiableNumeroSerie -->
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiablePersonnalisation -->
+															$personnalisation
+														<!-- END CommandesModificationDetailProduitsNonModifiablePersonnalisation -->
+													</td>
+													<td>
+														$ligne_facture[caracteristiques]
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiableQte -->
+															<label>$qte</label>
+														<!-- END CommandesModificationDetailProduitsNonModifiableQte -->
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiablePrixAuMetre -->
+															<label>$nbcm $multilangue[centimetre_diminutif]</label>
+														<!-- END CommandesModificationDetailProduitsNonModifiablePrixAuMetre -->
+													</td>
+													<td>
+														<label>$prixachat $devise_actuelle</label>
+														
+													</td>
+													<td>
+														<label>$prix $devise_actuelle</label>
+													</td>
+													<td>
+														<!-- BEGIN CommandesModificationDetailProduitsNonModifiableRemboursement -->
+															<a href="#myModalRemboursementProduit" class="btn blue" data-placement="top" data-toggle="modal" role="button" id="btn_remboursement_produit">$multilangue[rembourser]</a>
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModalRemboursementProduit" style="display: none;">
+														  			<div class="modal-dialog">
+														  				<div class="modal-content">
+														  					<div class="modal-header">
+														  						<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														  						<h4 class="modal-title">$multilangue[remboursement_produit]</h4>
+														  					</div>
+														  					<form action="commandes.php?action=rembourserLigne&lignefactureid=$ligne_facture[lignefactureid]" method="post" id="form_rembourser_ligne">
+														  					<input type="hidden" id="qteMax" name="qteMax" value="$qtesRestantes">
+																  				<div id="errordiv_qte"></div>
+																  				<div class="modal-body ta-center">
+																  					<i>$multilangue[remboursement_produit] $designation ($multilangue[commande] N°$factureid)</i>
+																  					<div>
+																  						$multilangue[quantite_restante] : $qtesRestantes
+																  					</div>
+																  					<div>
+																  						<label class="control-label">$multilangue[quantite_a_rembourser] :  </label><input type="text" class="form-control ta-center" style="width: 50px; display: inline;" name="qte" value="1">
+																  					</div>
+																  				</div>
+																  				<div class="modal-footer">
+																  					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+																  					<button class="btn blue">$multilangue[enregistrer]</button>
+																  				</div>
+															  				</form>
+														  				</div>
+														  			</div>
+														  		</div>
+														<!-- END CommandesModificationDetailProduitsNonModifiableRemboursement -->
+													</td>
+												</tr>
+											<!-- END CommandesModificationDetailProduitsNonModifiableBit -->
+											
+											<!-- BEGIN CommandesModificationDetailProduitsArticleOffertBit -->
+												<tr class="ta-center">
+													<td>
+														<a href="$article[url]" target="_blank" class="btn tooltips" ><i class="fa fa-search fs-18 font-blue"></i></a><br>
+														<a href="produits.php?action=modifier&artid=$lignefactureoffert[artid]" target="_blank" class="btn tooltips" ><i class="fa fa-edit fs-18 font-blue"></i></a>
+													</td>
+													<td>$lignefactureoffert[image]</td>
+													<td>$lignefactureoffert[artcode]</td>
+													<td>$lignefactureoffert[libelle]</td>
+													<td>$lignefactureoffert[caracteristiques]</td>
+													<td colspan="4"><b>$multilangue[offert]</b></td>
+												</tr>
+											<!-- END CommandesModificationDetailProduitsArticleOffertBit -->
+											
+											<!-- BEGIN CommandesModificationDetailProduitsAjoutArticle -->
+												<tr class="ta-center">
+													<td colspan="2" class="ta-center">$multilangue[ajt_article] :</td>
+													<td colspan="2">
+														<div class="jstree"></div>
+														<div class="searchArticle">
+															<input id="searchArticle" style="min-width: 300px;" name="searchArticle" class="form-control" value="$multilangue[saisir_libelle_ou_ref]" onclick="if (this.value == '$multilangue[saisir_libelle_ou_ref]') this.value =''" />
+															<div id="choixarticle">
+															</div>
+														</div>
+													</td>
+													<td id="caractNouvelArticle"></td>
+													<td>
+														<input type="text" value="1" style="display: none; width: 50px;" id="qte_nouvel_article" class="form-control ta-center">
+														<input type="text" value="100" style="display: none; width: 50px;" id="prixAuMetre_nouvel_article" class="form-control ta-center">
+													</td>
+													<td></td>
+													<td>
+														<input type="text" value="" style="display: none; width: 70px;" id="prix_nouvel_article" class="form-control ta-center"> <label id="devise" style="display: none;"> $devise_actuelle</label>
+													</td>
+													<td>
+														<a class="btn blue" style="display: none;" id="enregistrer_nouvel_article">$multilangue[ajouter]</a>
+													</td>
+												</tr>
+												<tr class="ta-center">
+													<td colspan="2">$multilangue[ajt_ligne] :</td>
+													<td colspan="2">
+														<label>$multilangue[reference] : </label><input type="text" class="form-control" id="ref_nouveau_champ"><br>
+														<label>$multilangue[designation] : </label><input type="text" class="form-control" id="designation_nouveau_champ">
+													</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td>
+														<input type="text" class="form-control ta-center" name="prix" style="width: 70px;display: inline;" id="prix_nouveau_champ"> $devise_actuelle
+													</td>
+													<td>
+														<a class="btn blue" id="enregistrer_nouveau_champ">$multilangue[ajouter]</a>
+													</td>
+													
+ 												</tr>
+											<!-- END CommandesModificationDetailProduitsAjoutArticle -->
+										</tbody>
+									</table>
+								</div>
+								
+								<div class="table-responsive right">
+									<table class="table table-bordered" id="table_total">
+										<tbody>
+											<tr>
+												<td>$multilangue[frais_port]</td>
+												<td style="text-align: right;"><input type="text" id="total_fp" value="$commande[montantport]" class="form-control" style="width: 80px; display: inline; text-align: right;"> $devise_actuelle</td>
+												<td><a class="btn tooltips" id="btn_frais_port"><i class="fa fa-save"></i></a></td>
+											</tr>
+											<!-- BEGIN CommandesModificationTotauxModuleCadeauNouveauCode -->
+												<tr id="tr_nouveau_code">
+													<td>$multilangue[utilisation_bon_reduction]</td>
+													<td>
+														<input type="text" class="form-control" id="total_code">
+													</td>
+													<td><a class="btn tooltips" id="total_cadeau" onclick="nouveauCodeCadeau()"><i class="fa fa-save"></i></a></td>
+												</tr>
+											<!-- END CommandesModificationTotauxModuleCadeauNouveauCode -->
+											<!-- BEGIN CommandesModificationTotauxModuleCadeauCodeExistant -->
+												<tr id="tr_code_existant">
+													<td>$multilangue[utilisation_bon_reduction] ($infoscadeau[code])</td>
+													<td>- $commande[montantcadeau] $devise_actuelle</td>
+													<td><a class="btn tooltips" id="total_suppr_code" onclick="supprCodeCadeau()"><i class="fa  fa-trash-o "></i></a></td>
+												</tr>
+											<!-- END CommandesModificationTotauxModuleCadeauCodeExistant -->
+											<!-- BEGIN CommandesModificationTotauxModuleBonAchat -->
+												<tr>
+													<td>$multilangue[utilisation_bon_achat]</td>
+													<td>- $commande[montantbonachat] $devise_actuelle</td>
+												</tr>
+											<!-- END CommandesModificationTotauxModuleBonAchat -->
+											<!-- BEGIN CommandesModificationTotauxModuleFidelite -->
+												<tr>
+													<td>$multilangue[remise_fidelite] ($commande[pointsutilises] $multilangue[points_utilises])</td>
+													<td>- $commande[montantreductionfidelite] $devise_actuelle</td>
+												</tr>
+											<!-- END CommandesModificationTotauxModuleFidelite -->
+											<!-- BEGIN CommandesModificationTotauxModuleOffrePromo -->
+												<tr>
+													<td>$multilangue[offres_promotionnelles]</td>
+													<td>- $commande[montantOperations] $devise_actuelle</td>
+												</tr>
+											<!-- END CommandesModificationTotauxModuleOffrePromo -->
+											<!-- BEGIN CommandesModificationTotauxNouvelleRemiseComm -->
+												<tr>
+													<td>$multilangue[remise_commerciale]</td>
+													<td style="text-align: right;"><input type="text" id="remise_commerciale" class="form-control" value="$commande[montantRemiseCommerciale]" style="width: 80px; display: inline;text-align: right;"> $devise_actuelle</td>
+													<td><a class="btn tooltips" id="total_remise_comm"><i class="fa fa-save"></i></a></td>
+												</tr>
+											<!-- END CommandesModificationTotauxNouvelleRemiseComm -->
+											<!-- BEGIN CommandesModificationTotauxRemiseCommExistante -->
+												<tr>
+													<td>$multilangue[remise_commerciale]</td>
+													<td>- $commande[montantRemiseCommerciale] $devise_actuelle</td>
+													<td><a class="btn tooltips"><i class="fa fa-save"></i></a></td>
+												</tr>
+											<!-- END CommandesModificationTotauxRemiseCommExistante -->
+											<!-- BEGIN CommandesModificationTotauxSuppContreRemboursement -->
+												<tr>
+													<td>$multilangue[supplement_contre_remboursement]</td>
+													<td>$commande[prix_contre_remboursement] $devise_actuelle</td>
+												</tr>
+											<!-- END CommandesModificationTotauxSuppContreRemboursement -->
+											<tr class="ta-center">
+												<td>$txt_total</td>
+												<td colspan="2"><label id="total">$totalTTC</label> $devise_actuelle</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>	
+					
+					<!-- BEGIN CommandesModificationListeAvoirs -->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption">
+								$multilangue[liste_avoirs]
+							</div>																		
+						</div>
+						<div class="portlet-body form">
+							<div class="form-body">	
+								<div class="table-responsive" style="height:auto;overflow:auto;">
+									<table class="table table-bordered table-striped ta-center" id="table_detail_produits">
+										<thead>
+											<tr>
+												<td>N° $multilangue[facture_diminutif]</td>
+												<td>N° $multilangue[bon_commande_diminutif]</td>
+												<td>$multilangue[date]</td>
+												<td>$multilangue[client]</td>
+												<td>$multilangue[montant]</td>
+												<td>$multilangue[moyen_de_reglement]</td>
+												<td>$multilangue[actions]</td>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN CommandesModificationListeAvoirsBit -->
+												<tr>
+													<td>$avoir[numerofacture]</td>
+													<td>$avoir[factureid]</td>
+													<td>$avoir[datefacture]</td>
+													<td>$avoir[prenom] $avoir[nom]</td>
+													<td>$avoir[montanttotal_ttc]</td>
+													<td>$avoir[moyenid]</td>
+													<td><a href="commandes.php?action=modifier&factureid=$avoir[factureid]"><i class="fa fa-edit"></i></a></td>
+												</tr>
+											<!-- END CommandesModificationListeAvoirsBit -->
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<!-- END CommandesModificationListeAvoirs -->
+					<div class="mb-20">
+						<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					</div>
+					<div class="clear"></div>
+					
+					
+				<!-- END CommandesModification -->
+				
+				<!-- BEGIN CommandesExpedier -->
+					<!-- BEGIN CommandesExpedierMultiColis -->
+						<form action="commandes.php?action=controlerColis&factureid=$factureid" method="post">
+							<input type="hidden" name="multiColis" value="1">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[valider]</button>															
+							</div>
+						<!-- BEGIN CommandesExpedierNbColis -->
+							<div class="form-group">
+								<label class="control-label col-md-3">$multilangue[nb_colis_commande] :</label>
+								<div class="col-md-2">
+									<select class="form-control" name="nbColis" id="nbColis" style="width: 65px;" id="nbColis">
+										<!-- BEGIN CommandesExpedierNbColisBit -->
+											<option value="$i" $selectedNbColis>$i</option>
+										<!-- END CommandesExpedierNbColisBit -->
+									</select>
+								</div>
+							</div>
+						<!-- END CommandesExpedierNbColis -->
+						
+							<!-- BEGIN CommandesExpedierContenuColisBit -->
+								<div class="portlet box light-grey" $display id="portlet$i">
+									<div class="portlet-title">
+										<div class="caption">
+											$multilangue[colis] N°$i
+										</div>																		
+									</div>
+									<div class="portlet-body form">
+										<div class="form-body col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[transporteur] :</label>
+												<div class="col-md-8">
+													<select name="transporteur[$i]" class="form-control select-transporteur" id="select-transporteur[$i]">
+														<!-- BEGIN CommandesExpedierTransporteursBit -->
+															<option value="$transporteur[modelivraisonid]" $selectedTransp>$transporteur[nom]</option>
+														<!-- END CommandesExpedierTransporteursBit -->
+													</select>
+												</div>
+											</div><br><br>
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[numero_suivi] :</label>
+												<div class="col-md-8">
+													<input type="text" value="$numeroSuiviColis" class="form-control" name="numero_suivi[$i]" id="numero_suivi[$i]">
+												</div>
+											</div><br><br>
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[url_suivi] :</label>
+												<div class="col-md-8">
+													<input type="hidden" name="adresse_suivi[$i]" value="$adresse_suivi" id="hidden_adresse_suivi$i">
+													<input type="text" value="$adresse_suivi" class="form-control" name="" id="adresse_suivi$i" style="font-size: 11px" disabled>
+												</div>
+											</div><br><br>
+										</div>
+										<div class="table-responsive col-md-6"  style="margin-top: 8px">
+											<table class="table-bordered table-striped table">
+												<thead>
+													<tr>
+														<th class="ta-center">$multilangue[reference]</th>
+														<th class="ta-center">$multilangue[designation]</th>
+														<th class="ta-center">$multilangue[qte]</th>
+													<tr>
+												</thead>
+												<tbody>
+													<!-- BEGIN CommandesExpedierArticleBit -->
+													<tr>
+														<td class="ta-center">$lignefacture[artcode]</td>
+														<td class="ta-center">$lignefacture[libelle] $lignefacture[caracteristiques]</td>
+														<td>
+															<select name="qtes[$i][$lignefacture[lignefactureid]]" class="form-control">
+																<!-- BEGIN CommandesExpedierQteBit -->
+																	<option value="$c"  $selectedQte>$c</option>
+																<!-- END CommandesExpedierQteBit -->
+															</select>
+														</td>
+													</tr>
+													<!-- END CommandesExpedierArticleBit -->
+												</tbody>
+											</table>
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+							<!-- END CommandesExpedierContenuColisBit -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[valider]</button>															
+							</div>
+							<div class="clear"></div>
+						</form>
+					<!-- END CommandesExpedierMultiColis -->
+					<!-- BEGIN CommandesExpedierSimpleColis -->
+						<form action="commandes.php?action=expedierImmat&factureid=$factureid" method="post">
+							<input type="hidden" name="multiColis" value="0">
+							<input type="hidden" name="nbColis" value="1">
+							<div class="form-body col-md-6">
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[transporteur] :</label>
+									<div class="col-md-8">
+										<select name="transporteur" class="form-control select-transporteur">
+											<!-- BEGIN CommandesExpedierSimpleColisTransporteursBit -->
+												<option value="$transporteur[modelivraisonid]" $selectedTransp>$transporteur[nom]</option>
+											<!-- END CommandesExpedierSimpleColisTransporteursBit -->
+										</select>
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[numero_suivi] :</label>
+									<div class="col-md-8">
+										<input type="text" value="" class="form-control" name="numero_suivi" id="numero_suivi">
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[url_suivi] :</label>
+									<div class="col-md-8">
+										<input type="hidden" value="$adresse_suivi" id="hidden_adresse_suivi" name="adresse_suivi">
+										<input type="text" value="$adresse_suivi" class="form-control" name="adresse_suivi" id="adresse_suivi" style="font-size: 11px" disabled>
+									</div>
+								</div><br><br>
+							</div>
+							<div class="table-responsive col-md-6"  style="margin-top: 8px">
+								<table class="table-bordered table-striped table">
+									<thead>
+										<tr>
+											<th class="ta-center">$multilangue[reference]</th>
+											<th class="ta-center">$multilangue[designation]</th>
+										<tr>
+									</thead>
+									<tbody>
+										<!-- BEGIN CommandesExpedierSimpleColisArticleBit -->
+										<tr>
+											<td class="ta-center">$lignefacture[artcode]</td>
+											<td class="ta-center">$lignefacture[libelle] $lignefacture[caracteristiques]</td>
+										</tr>
+										<!-- END CommandesExpedierSimpleColisArticleBit -->
+									</tbody>
+								</table>
+							</div>
+							<div class="clear"></div>
+							<div class="col-md-12 ta-center mb-20">
+								<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[valider]</button>															
+							</div>
+						</form>
+					<!-- END CommandesExpedierSimpleColis -->
+				<!-- END CommandesExpedier -->
+				
+				<!-- BEGIN CommandesExpedierErreur -->
+					<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+						$texteErreur
+					</div>
+					
+					<form action="commandes.php?action=expedier&factureid=$factureid" method="post">
+						$listeParamsHidden
+						
+						<button type="submit" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</button>
+					</form>
+				<!-- END CommandesExpedierErreur -->
+				
+				
+				<!-- BEGIN CommandesReexpedier -->
+					<div class="mb-20">
+						<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					</div>
+					<form action="commandes.php?action=doreexpedier&factureid=$factureid" method="post">	
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<!-- BEGIN CommandesReexpedierStocks -->
+								<label class="control-label col-md-7">$multilangue[redecrementer_stocks]</label>
+								<div class="col-md-2">		
+									<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" data-value="redecrementer" name="redecrementer" value="1" checked>
+								</div><br><br>
+								<!-- END CommandesReexpedierStocks -->
+								<label class="control-label col-md-7">$multilangue[prevenir_client_par_mail]</label>
+								<div class="col-md-2">		
+									<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" class="make-switch" data-value="prevenirclient" name="prevenirclient" value="1" checked>
+								</div>
+							</div>
+							<div class="col-md-4"></div>
+						</div><br>
+						<div class="row">
+							<div class="form-body col-md-6">
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[transporteur] :</label>
+									<div class="col-md-8">
+										<select name="transporteur" class="form-control select-transporteur">
+											<!-- BEGIN CommandesReexpedierTransporteursBit -->
+												<option value="$transporteur[modelivraisonid]" $selectedTransp>$transporteur[nom]</option>
+											<!-- END CommandesReexpedierTransporteursBit -->
+										</select>
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[numero_suivi] :</label>
+									<div class="col-md-8">
+										<input type="text" value="" class="form-control" name="numero_suivi">
+									</div>
+								</div><br><br>
+								<div class="form-group">
+									<label class="control-label col-md-4">$multilangue[url_suivi] :</label>
+									<div class="col-md-8">
+										<input type="hidden" value="$adresse_suivi" name="adresse_suivi" id="hidden_adresse_suivi">
+										<input type="text" value="$adresse_suivi" class="form-control" id="adresse_suivi" name="adresse_suivi" style="font-size: 11px" disabled>
+									</div>
+								</div><br><br>
+							</div>
+							<div class="table-responsive col-md-6"  style="margin-top: 8px">
+								<table class="table-bordered table-striped table">
+									<thead>
+										<tr>
+											<th class="ta-center">$multilangue[reference]</th>
+											<th class="ta-center">$multilangue[designation]</th>
+											<th class="ta-center">$multilangue[qte]</th>
+										<tr>
+									</thead>
+									<tbody>
+										<!-- BEGIN CommandesReexpedierArticleBit -->
+										<tr>
+											<td class="ta-center">$lignefacture[artcode]</td>
+											<td class="ta-center">$lignefacture[libelle] $lignefacture[caracteristiques]</td>
+											<td>
+												<select name="qtes[$lignefacture[lignefactureid]]" class="form-control">
+													<!-- BEGIN CommandesReexpedierQteBit -->
+														<option value="$c"  $selectedQte>$c</option>
+													<!-- END CommandesReexpedierQteBit -->
+												</select>
+											</td>
+										</tr>
+										<!-- END CommandesReexpedierArticleBit -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="table-responsive col-md-8">
+								<table class="table table-bordered table-striped">
+									<tbody>
+										<tr>
+											<td>$multilangue[raison_sociale] :</td>
+											<td><input class="form-control" type="text" name="lraisonsociale" value="$facture[lraison_sociale]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[civilite] :</td>
+											<td>
+												<select class="form-control" name="lcivilite">
+													<option value="0" $selectedLM>$multilangue[monsieur]</option>
+													<option value="1" $selectedLMme>$multilangue[madame]</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>$multilangue[nom] :</td>
+											<td><input class="form-control" type="text" name="lnom" value="$facture[lnom]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[prenom] :</td>
+											<td><input class="form-control" type="text" name="lprenom" value="$facture[lprenom]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[adresse] :</td>
+											<td><input class="form-control" type="text" name="ladresse" value="$facture[ladresse]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[adresse2] :</td>
+											<td><input class="form-control" type="text" name="ladresse2" value="$facture[ladresse2]"></td>
+										</tr>
+										<!-- BEGIN CommandesReexpedierCoordLivraisonFormEtage -->
+											<tr>
+												<td>$multilangue[etage] :</td>
+												<td><input type="text" name="letage" value="$facture[letage]"></td>
+											</tr>
+										<!-- END CommandesReexpedierCoordLivraisonFormEtage -->
+										<!-- BEGIN CommandesReexpedierCoordLivraisonFormEscalier -->
+											<tr>
+												<td>$multilangue[escalier] :</td>
+												<td><input type="text" name="lescalier" value="$facture[lescalier]"></td>
+											</tr>
+										<!-- END CommandesReexpedierCoordLivraisonFormEscalier -->
+											<!-- BEGIN CommandesReexpedierCoordLivraisonFormCodeAcces -->
+											<tr>
+												<td>$multilangue[code_acces] :</td>
+												<td><input type="text" name="lcodeacces" value="$facture[lcodeacces]"></td>
+											</tr>
+										<!-- END CommandesReexpedierCoordLivraisonFormCodeAcces -->
+										<tr>
+											<td>$multilangue[code_postal] :</td>
+											<td><input class="form-control" type="text" name="lcodepostal" value="$facture[lcodepostal]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[ville] :</td>
+											<td><input class="form-control" type="text" name="lville" value="$facture[lville]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[pays] :</td>
+											<td><select class="form-control" name="lpaysid" id="lpaysidfacture">$liste_pays_l</select></td>
+										</tr>
+										<tr>
+											<td>$multilangue[telephone] :</td>
+											<td><input class="form-control" type="text" name="ltelephone" value="$facture[ltelephone]"></td>
+										</tr>
+										<tr>
+											<td>$multilangue[commentaire] :</td>
+											<td>
+												<textarea class="form-control" name="lcommentaire">$facture[lcommentaire]</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-2"></div>
+						</div>
+						<div class="clear"></div>
+						<div class="col-md-12 ta-center mb-20">
+							<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+							<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[valider]</button>															
+						</div>
+						<div class="clear"></div>
+					</form>
+					<div class="mb-20">
+						<a href="commandes.php?action=modifier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+					</div>
+				<!-- END CommandesReexpedier -->
+				
+				<!-- BEGIN CommandesReexpedierErreur -->
+					<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+						$multilangue[erreur_reexpedier]
+					</div>
+					<a href="commandes.php?action=reexpedier&factureid=$factureid" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+				<!-- END CommandesReexpedierErreur -->
+				
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	createAutoCompleteur('searchArticle', 'choixarticle', 'articleTab', 'search_result_autocomplete.php?type=article', 'simple');
+
+	function ligneSelect(){
+		$('#nb_rows_selected').text($(".chk:checked").length);	
+	}
+	
+	function supprimerLigne(lignefactureid){
+		var data = "action=supprimerLigne&";
+		data += "lignefactureid="+lignefactureid;
+		
+		$.ajax({
+			url : 'commandes_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+			success : function(code_html, statut){
+				$('#'+lignefactureid).remove();
+				$('#total').html(code_html);
+			},
+			error : function(resultat, statut, erreur){
+				alert(erreur);	
+			}
+		});
+	}
+	
+	function supprimerLigneChamp(lignefactureid){
+		var data = "action=supprimerLignechamp&";
+		data += "lignefactureid="+lignefactureid;
+		
+		$.ajax({
+			url : 'commandes_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+			success : function(code_html, statut){
+				$('#'+lignefactureid).remove();
+				$('#total').html(code_html);
+			},
+			error : function(resultat, statut, erreur){
+				alert(erreur);	
+			}
+		});
+			
+		
+	}
+	
+	function nouveauCodeCadeau(){
+		var data = "action=ajouterBonReduction&";
+		data += "factureid="+$('#factureid').val()+"&";
+		data += "codereduction="+$('#total_code').val()+"&";
+		
+		$.ajax({
+			url : 'commandes_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+			success : function(code_html, statut){
+				var totaux = code_html.split("|");
+				$('#total').html(totaux[0]);
+				$('#tr_nouveau_code').remove();
+				var ligne = "<tr id='tr_code_existant'><td>$multilangue[utilisation_bon_reduction] ("+totaux[1]+")</td><td>- "+totaux[2]+" $devise_actuelle</td><td><a class='btn tooltips' id='total_suppr_code' onclick='supprCodeCadeau()'><i class='fa  fa-trash-o '></i></a></td></tr>";
+				$('#table_total > tbody > tr').eq(0).after(ligne);
+			},
+			error : function(resultat, statut, erreur){
+				alert(erreur);	
+			}
+		});
+		
+	}
+	
+	function supprCodeCadeau(){
+		var data = "action=supprCode&";
+		data += "factureid="+$('#factureid').val()+"&";
+					
+		$.ajax({
+			url : 'commandes_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+			success : function(code_html, statut){
+				$('#total').html(code_html);
+				$('#tr_code_existant').remove();
+				var ligne = "<tr id='tr_nouveau_code'><td>$multilangue[utilisation_bon_reduction]</td><td><input type='text' class='form-control' id='total_code'></td><td><a class='btn tooltips' id='total_cadeau' onclick='nouveauCodeCadeau()'><i class='fa fa-save'></i></a></td></tr>";
+				$('#table_total > tbody > tr').eq(0).after(ligne);
+
+			},
+			error : function(resultat, statut, erreur){
+				alert(erreur);	
+			}
+		});
+	}
+	$(document).ready(function() {
+		$('.table-commandes').dataTable( {
+			"aoColumns": [
+				{"sClass": "ta-center", "bSortable": false, "mData": "checkbox", "iDataSort": 0, "data": "checkbox", "bVisible": true},    
+				{"sClass": "ta-center", "bSortable": true, "mData": "site", "iDataSort": 1, "data": "site", "bVisible": false},           
+	            {"sClass": "ta-center", "bSortable": true, "mData": "factureid", "iDataSort": 2, "data": "factureid", "bVisible": true},
+				{"sClass": "ta-center", "bSortable": true, "mData": "numerofacture", "iDataSort": 3, "data": "numerofacture", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "numero_suivi", "iDataSort": 4, "data": "numero_suivi", "bVisible": false},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "lengow_orderid", "iDataSort": 5, "data": "lengow_orderid", "bVisible": false},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "shoppingflux_orderid", "iDataSort": 6, "data": "shoppingflux_orderid", "bVisible": false},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "date", "iDataSort": 7, "data": "date", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "client", "iDataSort": 8, "data": "client", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "email", "iDataSort": 9, "data": "email", "bVisible": false},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "ip", "iDataSort": 10, "data": "ip", "bVisible": false},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "montant", "iDataSort": 11, "data": "montant", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "moyen", "iDataSort": 12, "data": "moyen", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "etat", "iDataSort": 13, "data": "etat", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": true, "mData": "livraison", "iDataSort": 14, "data": "livraison", "bVisible": true},
+	            $ligneStatut
+	            {"sClass": "ta-center", "bSortable": false, "mData": "actions", "iDataSort": 16, "data": "actions", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": false, "mData": "bc", "iDataSort": 17, "data": "bc", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": false, "mData": "f", "iDataSort": 18, "data": "f", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": false, "mData": "bl", "iDataSort": 19, "data": "bl", "bVisible": true},
+	            {"sClass": "ta-center", "bSortable": false, "mData": "bp", "iDataSort": 20, "data": "bp", "bVisible": true},
+	            $ligneNotice
+   		    ],
+       		"iDisplayStart": 0,
+          	"iDisplayLength": 10,
+          	"fnDrawCallback": function() {
+				App.initAjax();
+         	 },
+         	"bSortCellsTop": true,
+         	"bFilter": false,
+			"processing": true,
+			"serverSide": true,
+			 "ajax": {
+		            "url": "commandes_ajax.php",
+		            "type": "POST",
+		            "data": function ( d ) {
+		            	d.libsite = "";
+		            	d.numerofacture = "";
+		            	d.factureid = "";
+		            	d.numero_suivi = "";
+		            	d.lengow_orderid = "";
+		            	d.shoppingflux_orderid = "";
+		            	d.date_debut = "";
+		            	d.date_fin = "";
+		            	d.client = "";
+	            		d.email = "";
+	            		d.ip = "";
+		            	d.montant = "";
+		            	d.moyen = "";
+		            	d.etat = "";
+		            	d.livraison = "";
+		            	d.statutlogistique = "";
+		            	if($('#libsite').val() != ""){
+		            		d.libsite = $('#libsite').val();	
+		            	}
+		            	if($('#numerofacture').val() != ""){
+		            		d.numerofacture = $('#numerofacture').val();
+		            	}
+		            	if($('#factureid').val() != ""){
+		            		d.factureid = $('#factureid').val();
+		            	}
+		            	if($('#numero_suivi').val() != ""){
+		            		d.numero_suivi = $('#numero_suivi').val();
+		            	}
+		            	if($('#lengow_orderid').val() != ""){
+		            		d.lengow_orderid = $('#lengow_orderid').val();
+		            	}
+		            	if($('#shoppingflux_orderid').val() != ""){
+		            		d.shoppingflux_orderid = $('#shoppingflux_orderid').val();
+		            	}
+		            	if($('#date_debut').val() != ""){
+		            		d.date_debut = $('#date_debut').val();
+		            	}
+		            	if($('#date_fin').val() != ""){
+		            		d.date_fin = $('#date_fin').val();
+		            	}
+		            	if($('#client').val() != ""){
+		            		d.client = $('#client').val();
+		            	}
+		            	if($('#email').val() != ""){
+		            		d.email = $('#email').val();
+		            	}
+		            	if($('#ip').val() != ""){
+		            		d.ip = $('#ip').val();
+		            	}
+		            	if($('#montant').val() != ""){
+		            		d.montant = $('#montant').val();
+		            	}
+		            	if($('#moyen').val() != ""){
+		            		d.moyen = $('#moyen').val();
+		            	}
+		            	if($('#etat').val() != ""){
+		            		d.etat = $('#etat').val();
+		            	}
+		            	if($('#livraison').val() != ""){
+		            		d.livraison = $('#livraison').val();
+		            	}
+		            	if($('#statutlogistique').val() != ""){
+		            		d.statutlogistique = $('#statutlogistique').val();
+		            	}
+		           	}
+		         },       
+			"order": [[ 7, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sLoadingRecords": "$multilangue[chargement]",
+				"sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;$multilangue[chargement] ...</span>',
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+         
+		});
+
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		
+		$('#btn-rechercher').on('click', function(){
+			var table = $('.table-commandes').DataTable();		    
+		    table.ajax.reload();
+		});
+		
+		$('#btn-reset').on('click', function(){
+        	$('#numerofacture').val("");
+        	$('#factureid').val(""); 
+        	$('#numero_suivi').val("");
+        	$('#lengow_orderid').val("");
+        	$('#shoppingflux_orderid').val("");
+        	$('#date_debut').val("");
+        	$('#date_fin').val("");
+        	$('#client').val("");
+        	$('#email').val("");
+        	$('#ip').val("");
+        	$('#montant').val("");
+        	$('#libsite option').prop('selected', false);
+        	$('#moyen option').prop('selected', false);
+        	$('#etat option').prop('selected', false);
+        	$('#livraison option').prop('selected', false);
+        	$('#statutlogistique option').prop('selected', false);
+        	$('#livraison option[value="-1"]').prop('selected', true);
+        	$('#statutlogistique option[value="-1"]').prop('selected', true);
+        	$('#libsite option[value="-1"]').prop('selected', true);
+        	$('#moyen option[value="-1"]').prop('selected', true);
+        	$('#etat option[value="-1"]').prop('selected', true);
+			var table = $('.table-commandes').DataTable();		    
+		    table.ajax.reload();
+		});
+		
+		$('#tout_cocher').click(function(){
+			var checkboxes = $('.table-commandes').find(':checkbox');
+			if($(this).attr('checked')){
+				checkboxes.attr('checked', true);
+				$('.table-commandes .checker span').attr("class","checked");
+			}else{
+				checkboxes.attr('checked', false);
+				$('.table-commandes .checker span').attr("class","");
+			}
+			ligneSelect();
+		});
+		
+		$('.dropdown-menu input[type="checkbox"]').change(function(){
+            var iCol = parseInt($(this).attr("data-column"));
+            var bVis = $('.table-commandes').dataTable().fnSettings().aoColumns[iCol].bVisible;
+            $('.table-commandes').dataTable().fnSetColumnVis(iCol, (bVis ? false : true));
+        });	
+		
+		$('#btn-enregistrer').on('click', function(){
+			var data = 'action=groupe&';
+			data += 'site='+$('#libsite').val()+'&';
+			data += 'libelle='+$('#libelle').val()+'&';
+			data += 'numerofacture='+$('#numerofacture').val()+'&';
+			data += 'factureid='+$('#factureid').val()+'&';
+			data += 'numero_suivi='+$('#numero_suivi').val()+'&';
+			data += 'lengow_orderid='+$('#lengow_orderid').val()+'&';
+			data += 'shoppingflux_orderid='+$('#shoppingflux_orderid').val()+'&';
+			data += 'date_debut='+$('#date_debut').val()+'&';
+			data += 'date_fin='+$('#date_fin').val()+'&';
+			data += 'client='+$('#client').val()+'&';
+			data += 'email='+$('#email').val()+'&';
+			data += 'ip='+$('#ip').val()+'&';
+			data += 'montant='+$('#montant').val()+'&';
+			data += 'moyen='+$('#moyen').val()+'&';
+			data += 'etat='+$('#etat').val()+'&';
+			data += 'livraison='+$('#livraison').val()+'&';
+			data += 'statutlogistique='+$('#statutlogistique').val()+'&';
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#libelle').val("");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('.btn-groupe-recherche').on('click', function(){
+			var data = 'action=recherche&';
+			data += 'groupeid='+$(this).attr("id");
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#libsite option').prop('selected', false);
+		        	$('#moyen option').prop('selected', false);
+		        	$('#etat option').prop('selected', false);
+		        	$('#livraison option').prop('selected', false);
+		        	$('#statutlogistique option').prop('selected', false);
+					var champ_valeur = code_html.split("!");
+					for(var i=0;i<champ_valeur.length;i++){
+						var champ = champ_valeur[i].split("|")[0];
+						var valeur = champ_valeur[i].split("|")[1];
+						if(valeur != ""){
+							if(champ != "moyen" && champ != "site" && champ != "livraison" && champ != "etat"){
+								$('#'+champ).val(valeur);
+							}else{
+								var id_site = valeur.split(',');
+								switch (champ){
+									case "moyen":
+										for(var j=0; j<id_site.length; j++){
+											$('#moyen option[value='+id_site[j]+']').prop('selected', true);
+										}
+										break;
+									case "site":
+										for(var j=0; j<id_site.length; j++){
+											$('#libsite option[value='+id_site[j]+']').prop('selected', true);
+										}
+										break;
+									case "livraison":
+										for(var j=0; j<id_site.length; j++){
+											$('#livraison option[value='+id_site[j]+']').prop('selected', true);
+										}
+										break;
+									case "etat":
+										for(var j=0; j<id_site.length; j++){
+											$('#etat option[value='+id_site[j]+']').prop('selected', true);
+										}
+										break;
+									case "statutlogistique":
+										for(var j=0; j<id_site.length; j++){
+											$('#statutlogistique option[value='+id_site[j]+']').prop('selected', true);
+										}
+										break;
+								}
+								
+							}						
+						}
+						
+					}
+					
+					var table = $('.table-commandes').DataTable();		    
+				    table.ajax.reload();
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('#suppr_groupe').on('click', function(){
+			if($('.btn-groupe-suppr').is(':visible')){
+				$('.btn-groupe-suppr').hide();
+			}else{
+				$('.btn-groupe-suppr').show();
+			}
+			
+		});
+		
+		$('#statutlogistique').on('change', function(){
+			var data = "action=statutlogistique&";
+			data += "factureid=";
+			data += "statut="+$(this).val();
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					window.location.reload();
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('#nbColis').on('change', function(){
+			for(var i=1; i<=$(this).val(); i++){
+				$('#portlet'+i).show();
+			}
+			
+			for(i;i<=$('#nbColis option:last').val();i++){
+				$('#portlet'+i).hide();
+			}
+		});
+
+		$('.date-picker').datepicker({
+            rtl: App.isRTL(),
+            language: 'fr',
+            autoclose: true
+        });
+			
+		
+		$('#btn_suppr_multiple').click();
+		
+		$( "#form_contacter_client" ).validate({
+			ignore: "",
+			rules: {
+				sujet: {
+		            required:true
+		        },
+				message: {
+					required: true
+				}
+				
+			},	
+			messages: {
+		        sujet: "Le sujet du message est obligatoire",
+		        message: "Le corps du message est obligatoire",
+			},
+			errorPlacement: function(error, element){	
+				error.appendTo('#errordiv_'+error.attr("for"));						     
+			}
+		});
+	
+
+		jQuery.validator.addMethod("lessThan", function(value, element){
+			var qteRembourser = $(element).val();
+			var qteMax = $('#qteMax').val();
+			
+			return this.optional(element) || qteRembourser <= qteMax;
+
+		}, "La quantité à rembourser ne peut être supérieure à la quantité restante");
+		
+		$( "#form_rembourser_ligne" ).validate({
+			rules: {
+				qte: {
+		            number:true,
+		            required:true,
+		            lessThan:true
+		        }
+			},			
+			errorPlacement: function(error, element){	
+				error.appendTo('#errordiv_'+error.attr("for"));						     
+			}
+		});
+		
+		
+		// Observer sur les modifications de la div #choixarticle
+		if($('#choixarticle').length){
+			var target = document.querySelector('#choixarticle');
+			var observer = new MutationObserver(function(mutations) {
+			  mutations.forEach(function(mutation) {
+			    if(mutation.addedNodes.length > 0){
+			    	$('#caractNouvelArticle').html("");
+			    	$('#qte_nouvel_article').show();
+			    	$('#prixAuMetre_nouvel_article').show();
+					$('#prix_nouvel_article').css('display', 'inline');
+					$('#enregistrer_nouvel_article').show();
+					$('#devise').show();
+					var data = "action=chercherInfosArticle&";
+					var artid = $('#choixarticle').find('div').attr('id').split('b')[1];
+					data += "artid="+artid+"&";
+					data += "factureid="+$('#factureid').val()+"&";
+					$.ajax({
+						url : 'commandes_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+							var qte = code_html.split("---");
+							if(qte[0] == "metre"){
+								$('#prixAuMetre_nouvel_article').show();
+								$('#qte_nouvel_article').hide();
+							}else{
+								$('#qte_nouvel_article').show();
+								$('#prixAuMetre_nouvel_article').hide();
+							}
+							var infos = qte[1].split("!");
+							var prix = infos[0];
+							
+							if($('#qte_nouvel_article').is(':hidden')){
+								$('#prix_nouvel_article').val(parseFloat(prix)/100*parseFloat($('#prixAuMetre_nouvel_article').val()));
+							}else{
+								$('#prix_nouvel_article').val(parseFloat(prix)*parseFloat($('#qte_nouvel_article').val()));
+							}
+							$('#prix_nouvel_article').val($('#prix_nouvel_article').val().replace(".", ","));
+							
+							for(var i=1;i<infos.length;i++){
+								var carac = infos[i].split("_");
+								var first = true;
+								var options = "";
+								for(var j=0;j<carac.length;j++){
+									var caracid = carac[j].split(":");
+									
+									if(first){
+										var select_id = caracid[1];
+
+										$('#caractNouvelArticle').append("<label>"+caracid[0]+" :</label><select id='caract_nouvel_article-"+select_id+"' name='caract_"+caracid[1]+"' class='form-control caract_nouvel_article'></select><br>");
+										first = false;
+									}else{
+										if(caracid[0].substr(0,1) == "|"){
+											caracid[0] = caracid[0].substr(1);
+											options += "<option value='"+caracid[1]+"' selected>"+caracid[0]+"</option>";
+										}else{
+											options += "<option value='"+caracid[1]+"'>"+caracid[0]+"</option>";
+										}
+										
+									}
+								}
+								$('#caract_nouvel_article-'+select_id).html(options);
+							}
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);	
+						}
+					});
+			    }else{
+			    	$('#qte_nouvel_article').hide();
+			    	$('#prixAuMetre_nouvel_article').hide();
+					$('#prix_nouvel_article').hide();
+					$('#enregistrer_nouvel_article').hide();
+					$('#devise').hide();
+					$('#caractNouvelArticle').html("");
+			    }
+			  });    
+			});
+			var config = { attributes: true, childList: true, characterData: true };
+			observer.observe(target, config);
+		}
+		//Fin de l'observer
+		
+		$('#qte_nouvel_article').keyup(function(){
+			var data = "action=chercherPrix&";
+			var artid = $('#choixarticle').find('div').attr('id').split('b')[1];
+			data += "artid="+artid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "qte="+$(this).val()+"&";
+			$('.caract_nouvel_article').each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#prix_nouvel_article').val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('#prixAuMetre_nouvel_article').keyup(function(){
+			var data = "action=chercherPrix&";
+			var artid = $('#choixarticle').find('div').attr('id').split('b')[1];
+			data += "artid="+artid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "qte=1&";
+			$('.caract_nouvel_article').each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#prix_nouvel_article').val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+
+		
+		$('#caractNouvelArticle').delegate('select.caract_nouvel_article', 'change', function() {
+			var data = "action=chercherPrix&";
+			var artid = $('#choixarticle').find('div').attr('id').split('b')[1];
+			data += "artid="+artid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			if($('#qte_nouvel_article').is(':hidden')){
+				data += "qte=1&";
+			}else{
+				data += "qte="+$('#qte_nouvel_article').val()+"&";
+			}
+			
+			$('.caract_nouvel_article').each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#prix_nouvel_article').val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('.prixAuMetre_article').keyup(function(){
+			var id_champ_qte = $(this).attr('id');
+			var data = "action=chercherPrix&";
+			var lignefactureid = $(this).closest('tr').attr('id');
+			data += "lignefactureid="+lignefactureid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "qte=1&";
+			$('#'+lignefactureid).find("select").each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#'+lignefactureid).find("input[name=prix]").val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		
+		$(document).on('keyup', '.qte_article', function(){
+			var id_champ_qte = $(this).attr('id');
+			var data = "action=chercherPrix&";
+			var lignefactureid = $(this).closest('tr').attr('id');
+			data += "lignefactureid="+lignefactureid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "qte="+$('#'+id_champ_qte).val()+"&";
+			$('#'+lignefactureid).find("select").each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#'+lignefactureid).find("input[name=prix]").val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$(document).on('change', '.caract_article', function(){
+			var data = "action=chercherPrix&";
+			var lignefactureid = $(this).closest('tr').attr('id');
+			var id_champ_qte = $('#'+lignefactureid).find("input[name=qte]").attr('id');
+			data += "lignefactureid="+lignefactureid+"&"; 
+			data += "factureid="+$('#factureid').val()+"&";
+			if(id_champ_qte.split('_')[0] != "qte" ){
+				data += "qte=1&";
+			}else{
+				data += "qte="+$('#'+id_champ_qte).val()+"&";
+			}
+			$('#'+lignefactureid).find("select.caract_article").each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#'+lignefactureid).find("input[name=prix]").val(code_html.replace(".", ","));
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+
+		$('#enregistrer_nouvel_article').on('click', function(){
+			var data = "action=ajoutArticle&";
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "artid="+$('#choixarticle').find('div').attr('id').split('b')[1]+"&";
+			data += "qte="+$('#qte_nouvel_article').val()+"&";
+			data += "prix="+$('#prix_nouvel_article').val()+"&";
+			$('.caract_nouvel_article').each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#table_detail_produits > tbody > tr').eq($('#table_detail_produits > tbody > tr').length - 2).before(code_html);
+					$('#qte_nouvel_article').hide();
+					$('#prix_nouvel_article').hide();
+					$('#enregistrer_nouvel_article').hide();
+					$('#devise').hide();
+					$('#caractNouvelArticle').html("");
+					$('#choixarticle').html("");
+					App.init();
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+
+		$('#enregistrer_nouveau_champ').on('click', function(){
+			if($('#designation_nouveau_champ').val() != "" && $('#ref_nouveau_champ').val() != ""){
+				var data = "action=ajoutChamp&";
+				data += "factureid="+$('#factureid').val()+"&";
+				data += "artcode="+$('#ref_nouveau_champ').val()+"&";
+				data += "lib="+$('#designation_nouveau_champ').val()+"&";
+				data += "mtt="+$('#prix_nouveau_champ').val();
+				$.ajax({
+					url : 'commandes_ajax.php',
+					type : 'POST',
+					data : data,
+					dataType : 'html',
+					success : function(code_html, statut){
+						$('#table_detail_produits > tbody > tr').eq($('#table_detail_produits > tbody > tr').length - 2).before(code_html);
+					},
+					error : function(resultat, statut, erreur){
+						alert(erreur);	
+					}
+				});
+			}
+		});
+		
+		$(document).on("click", ".btn_enregistrer_modif_ligne", function(){
+			var lignefactureid = $(this).closest('tr').attr('id');
+			var data = "action=modifLigne&";
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "lignefactureid="+lignefactureid+"&";
+			data += "numSerie="+$('#'+lignefactureid).find("input[name=num_serie]").val()+'&';
+			data += "qte="+$('#'+lignefactureid).find("input[name=qte]").val()+'&';
+			data += "prix="+$('#'+lignefactureid).find("input[name=prix]").val()+'&';
+			$('#'+lignefactureid).find("select[id*='caract']").each(function(){
+				data += ""+$(this).attr('id')+"="+$(this).val()+"&";
+			});	
+			
+			
+			$('#'+lignefactureid).find('[name^="perso["]').each(function(){
+				var id = $(this).attr("id");
+				var lg = lignefactureid.length + 7 ;
+				var valeur = "";
+				$('[name="'+$(this).attr("id")+'"]').each(function(){
+					if(($(this).is(':checkbox') || $(this).is(':radio')) && $(this).closest('span').attr("class") == "checked"){
+						valeur += $(this).val()+',';
+					}else if(!$(this).is(':checkbox') && !$(this).is(':radio')){
+						valeur += $(this).val()+',';
+					}
+				});
+				
+				valeur = valeur.substring(0, valeur.length-1);
+				if (id.substring(0,lg) == 'perso['+lignefactureid+']') {
+					var persoid = id.substring(lg+1,id.length-1) ;
+					if(($(this).is(':checkbox') || $(this).is(':radio')) && $(this).closest('span').attr("class") == "checked"){
+						data += 'perso'+persoid+'='+valeur+'&';
+					}else if(!$(this).is(':checkbox') && !$(this).is(':radio')){
+						data += 'perso'+persoid+'='+valeur+'&';
+					}
+					
+				}	
+			});
+			
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data, 
+				dataType : 'html',
+				success : function(code_html, statut){
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+
+		$(document).on("click", ".btn_enregistrer_modif_champ", function(){
+			var lignefactureid = $(this).closest('tr').attr('id');
+			var data = "action=modifChamp&";
+			data += "lignefactureid="+lignefactureid+"&";
+			data += "prix="+$('#'+lignefactureid).find("input[name=prix]").val()+'&';
+			
+			$.get("commandes_ajax.php", function(data) {
+			    $('html, body').css("cursor", "progress");
+			});
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+	
+		
+		$('#btn_frais_port').on('click', function(){
+			var data = "action=updateFraisPort&";
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "fraisPort="+$('#total_fp').val()+"&";
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#total').html(code_html);
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('#total_remise_comm').on('click', function(){
+			var data = "action=updateRemiseCommerciale&";
+			data += "factureid="+$('#factureid').val()+"&";
+			data += "remisecommerciale="+$('#remise_commerciale').val()+"&";
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('#total').html(code_html);
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		
+		$('#fichier_import').fileupload({
+			url: "commandes_ajax.php?action=upload",
+			dataType: 'html',
+			autoUpload: false,
+			//formData: {script: true},
+			add: function (e, data) {
+				/*$('#upload').on('click', function () {
+		            data.submit();
+				});*/
+				console.log("alllllloooooooooo");
+			},
+			done: function(e, data){
+				alert(data);
+			}
+		});
+		
+		$(document).ajaxStart(function (){
+			 $('html').css("cursor", "wait");
+		}).ajaxComplete(function () {
+			 $('html').css("cursor", "default");
+		});
+		
+		$(document).on('change', '.select-transporteur', function(){
+			var data = "action=urlTransp&";
+			data += "modelivraisonid="+$(this).val()+"&";
+			var num_colis = $(this).attr('name').split('[')[1];
+
+			if(typeof num_colis != 'undefined'){
+				num_colis = num_colis.substr(0, num_colis.length - 1);	
+			}
+			
+			$.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if(typeof num_colis != 'undefined'){
+						$('#hidden_adresse_suivi'+num_colis).val(code_html);
+						$('#adresse_suivi'+num_colis).val(code_html);
+					}else{
+						$('#hidden_adresse_suivi').val(code_html);
+						$('#adresse_suivi').val(code_html);
+					}
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		
+		$('.btn_cache_modal').on('click', function(){
+			$('#myModalSupprMultiple').hide();
+		});
+		
+		$('.filter .form-control').on("keyup keypress", function(e) {
+			  var code = e.keyCode || e.which; 
+			  if (code  == 13) {   
+			    e.preventDefault();
+			    $('#btn-rechercher').click();
+			    return false;
+			  }
+		});
+        /** get zipfile ligne facture **/
+        function getzipfile(idlignefacture){
+ 	          var dataZip = "action=getzipfile&";
+			dataZip += "factureId="+idlignefacture+"&";
+            $.ajax({
+				url : 'commandes_ajax.php',
+				type : 'POST',
+				data : dataZip,
+				dataType : 'html',
+				success : function(code_html, statut){
+			         console.log("ok");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+        }
+        /** get zipfile ligne facture **/
+	});
+</script>
+
+<!-- END CommandesIndex -->

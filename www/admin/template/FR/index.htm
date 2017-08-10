@@ -1,0 +1,1467 @@
+<!-- BEGIN IndexIndex -->
+$TemplateCommunHeader	
+
+    <script type="text/javascript">
+        var toWidget = new Array();
+    </script>
+	<!-- DEBUT PAGE HEADER-->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+			<h3 class="page-title">
+			$multilangue[tableau_de_bord]
+			</h3>
+			<ul class="page-breadcrumb breadcrumb">
+				<li>
+					<i class="fa fa-home"></i>
+					<a href="index.html">
+						$multilangue[accueil]
+					</a>
+				</li>
+			</ul>
+			<!-- FIN PAGE TITLE & BREADCRUMB-->
+		</div>
+	</div>
+	<!-- FIN PAGE HEADER-->
+	<!-- DEBUT PAGE CONTENT-->
+		<!-- BEGIN IndexAjt -->
+        <!-- @date 2015-10-08: add onchange handler to show right label for nb_resultats field -->
+        <script type="text/javascript">
+        	/**
+            * @date 2015-10-08
+            */
+            var rightLabel = null;
+            $(function(){
+                rightLabel = function (_oElt, _zCheckValue, _zTarget) {
+                    setTimeout(function () {
+                        if ($(_oElt).val() === _zCheckValue) {
+                            $(_zTarget).find('label').hide();
+                            $(_zTarget).find('label:eq(1)').show();
+                            
+                            var zTooltipContent = $(_zTarget).find('label:eq(1)').data('title');
+                            if ($(_zTarget).find('label:eq(1)').attr('data-title')) {
+                            	$(_zTarget).find('label:eq(1)').removeAttr('data-title').data('title',zTooltipContent);
+                            }
+                            $(_zTarget).find('input').attr("title", zTooltipContent).tooltip().removeAttr("title");
+                        } else {
+                            $(_zTarget).find('label').hide();
+                            $(_zTarget).find('label:eq(0)').show();
+                            $(_zTarget).find('input').tooltip('destroy');
+                        }
+                    }, 200);
+                };
+            });
+        </script>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="btn-group mb-20">
+					<label class="control-label">$multilangue[afficher_statistiques] :</label>
+				</div>
+				<div class="btn-group mb-20">
+					<select id="select-site" class="form-control" style="width: 200px;">
+						<option value="0" $selectedSiteTous>$multilangue[tous_les_sites]</option>
+						<!-- BEGIN IndexSelectSiteOptionBit -->
+							<option value="$site[siteid]" $selectedSite>$site[libelle]</option>
+						<!-- END IndexSelectSiteOptionBit -->
+					</select>
+				</div>
+                
+				<div class="btn-group right mb-20">
+					<a id="ouvre_modal" href="#myModalAjtWidget" data-original-title="$multilangue[ajouter_widget]" data-placement="top" class="btn green" style="cursor:pointer;" data-toggle="modal" role="button">$multilangue[ajouter_widget] <i class="fa fa-plus"></i></a>
+					<div aria-hidden="true" aria-labelledby="myModalLabelAjtWidget" role="dialog" tabindex="-1" class="modal fade" id="myModalAjtWidget" >
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+									<h4 class="modal-title ta-center">$multilangue[parametres_nouveau_widget]</h4>
+								</div>
+								<form name="widgetform" action="index.php?action=ajouter" method="post" class="form-horizontal form-bordered">
+									<input type="hidden" value="$date_debut" name="date_debut" id="date_debut"/>
+									<input type="hidden" value="$date_fin" name="date_fin" id="date_fin"/>
+									<input type="hidden" value="$multilangue[aujourdhui]" name="periode" id="periode"/>
+									<input type="hidden" value="$idsite" name="idsite"/>
+									<div class="modal-body form">
+										<div class="form-body">
+											<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[donnee_a_afficher]</label>
+												<div class="col-md-8">
+													<select name="donnee" class="form-control" id="donnee"  onchange="rightLabel('#representation', 'camembert', '#div_nb_resultats');">
+                                                        $htmlOptionDonnees
+													</select>
+												</div>
+											</div>
+                                            
+                                            <div class="form-group" id="div_niv_choix_categorie" style="display:none">
+												<label class="control-label col-md-4">$multilangue[categories_a_afficher]</label>
+                                                
+                                                <div class="col-md-8">
+                                                    <input type="hidden" id="option_category_hidden" name="options[display_type]"/>
+                                                    <div style="margin: 1px auto;">
+                                                        <div class="btn-group btn-group-justified">
+                                                            <div class="btn-group">
+                                                                <button type="button" value="niveau" class="btn_category_option btn btn-default">$multilangue[niveau]</button>
+                                                            </div>
+                                                            <div class="btn-group">
+                                                                <button type="button" value="tree" class="btn_category_option btn btn-default">$multilangue[treeview]</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                
+                                                    <div id="option_category_niveau">
+                                                        <select name="options[niveau]" class="form-control" id="niveau">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="treeviewCategory" style="display:none;"></div>
+												</div>
+											</div>
+                                            
+											<div class="clear"></div>
+											<div class="form-group">
+												<label class="control-label col-md-4" style="padding-top: 10px;">$multilangue[periode]</label>
+												<div class="col-md-8">
+													<div style="width: 200px;" id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="$multilangue[changer_periode]">
+														<i class="fa fa-calendar"></i>
+														<span>
+														</span>
+														<i class="fa fa-angle-down"></i>
+													</div>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_representation">
+												<label class="control-label col-md-4">$multilangue[representation_donnees]</label>
+												<div class="col-md-8">
+													<select class="form-control" name="representation" id="representation" onchange="rightLabel(this, 'camembert', '#div_nb_resultats');">
+														<option value="courbe">$multilangue[courbe]</option>
+														<option value="tableau">$multilangue[tableau]</option>
+														<option value="camembert" id="option_camembert" style="display: none;">$multilangue[diagramme_circulaire]</option>
+														<option value="moyenne">$multilangue[moyenne]</option>
+														<option value="total">$multilangue[total]</option>
+													</select>
+													<input type="hidden" name="valeur_representation" id="valeur_representation" value="courbe">
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_granularite">
+												<label class="control-label col-md-4">$multilangue[granularite]</label>
+												<div class="col-md-8">
+													<select class="form-control cmd_granularite" name="granularite" id="granularite">
+														<option value="jour">$multilangue[jour]</option>
+														<option value="mois">$multilangue[mois]</option>
+														<option value="annee">$multilangue[annee]</option>
+													</select>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_nb_resultats" style="display: none;">
+												<label class="control-label col-md-4">$multilangue[nombre_resultat]</label>
+                                                <label class="control-label col-md-4" style="display: none;" data-title="$multilangue[nombre_max_afficher_tooltip]">$multilangue[nombre_max_afficher]</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="nb_resultats" name="nb_resultats">
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_tri" style="display: none;">
+												<label class="control-label col-md-4">$multilangue[trier_par]</label>
+												<div class="col-md-8">
+													<select name="tri" class="form-control" id="tri">
+														<option value="ca">$multilangue[chiffre_affaires]</option>
+														<option value="nb_ventes">$multilangue[nb_ventes]</option>
+													</select>
+												</div>
+											</div>
+											<div class="clear"></div>
+										 	<div class="form-group">
+												<label class="control-label col-md-4">$multilangue[taille_widget]</label>
+												<div class="col-md-8">
+													<div class="btn-group">
+														<select class="form-control" name="ligne">
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+														</select>
+													</div>
+													<div class="btn-group" style="margin-right: 50px;">
+														<label class="label-control">$multilangue[ligne_s]</label>
+													</div>
+													<div class="btn-group">
+														<select class="form-control" name="colonne">
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+														</select>
+													</div>
+													<div class="btn-group">
+														<label class="label-control">$multilangue[colonne_s]</label>
+													</div>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_donnee2">
+												<label class="control-label col-md-4">$multilangue[deuxieme] $multilangue[donnee_a_afficher] ($multilangue[facultatif])</label>
+												<div class="col-md-8">
+													<select name="donnee2" class="form-control" id="donnee2">
+														<option value="0">$multilangue[aucune]</option>
+														<optgroup label="$multilangue[periode_precedente]">
+															<option value="" id="periode_prec2_option"></option>
+														</optgroup>
+														<optgroup label="$multilangue[meme_periode]">
+															<!-- BEGIN IndexOptionTypeDonnee2Bit -->
+																<option value="$stat[type_statid]">$stat[libelle]</option>
+															<!-- END IndexOptionTypeDonnee2Bit -->
+														</optgroup>
+													</select>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_donnee3" style="display: none;">
+												<label class="control-label col-md-4" >$multilangue[troisieme] $multilangue[donnee_a_afficher] ($multilangue[facultatif])</label>
+												<div class="col-md-8">
+													<select name="donnee3" class="form-control" id="donnee3">
+														<option value="0">$multilangue[aucune]</option>
+														<optgroup label="$multilangue[periode_precedente]">
+															<option value="" id="periode_prec3_option1"></option>
+															<option value="" id="periode_prec3_option2"></option>
+														</optgroup>
+														<optgroup label="$multilangue[meme_periode]">
+															<!-- BEGIN IndexOptionTypeDonnee3Bit -->
+																<option value="$stat[type_statid]">$stat[libelle]</option>
+															<!-- END IndexOptionTypeDonnee3Bit -->
+														</optgroup>
+													</select>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="form-group" id="div_periode_prec" style="display: none;">
+												<label class="control-label col-md-4"></label>
+												<div class="col-md-8">
+													<label><input type="checkbox" name="periode_prec" id="periode_prec">$multilangue[afficher_donnees_periode_precedente]</label>
+												</div>
+											</div>
+											<div class="clear"></div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[annuler]</button>
+										<button type="submit" class="btn green">$multilangue[valider]</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END IndexAjt -->
+		<!-- BEGIN IndexWidget -->
+        <!-- @date 2015-10-08: add onchange handler to show right label for nb_resultats field -->
+		<div class="grid-stack" data-gs-width="12">
+			<!-- BEGIN IndexWidgetBit -->
+                <script type="text/javascript">
+                    toWidget[$widget[widgetid]] = $dataJsonWidget ;
+                </script>
+				<div id="$widget[widgetid]" class="grid-stack-item" data-gs-x="$widget[posX]" data-gs-y="$widget[posY]" data-gs-width="$widget[cols]" data-gs-height="$widget[rows]" data-gs-min-width="3" data-gs-min-height="$boxMinHeight" data-gs-max-width="12" data-gs-max-height="12">
+                	<div class="grid-stack-item-content $zClassNotOverflow $classWidgetBlue">
+                        <!-- BEGIN IndexWidgetBitVisualIconChart -->
+                    	<div class="visual iChart">
+							<i class="fa fa-bar-chart-o"></i>
+						</div>
+                        <!-- END IndexWidgetBitVisualIconChart -->
+                        
+                        <div class="grid-stack-item-title">
+                            <div class="row $classPortlet">
+                                <div class="total_content_lib $classPortletTitle">
+                                    <div class="$classTitreBloc">
+                                        <span class="label label-info arobases-bug-view">$widget[widgetid]</span> 
+                                        <span style="font-weight: bold;text-transform:uppercase;">$titre</span>
+                                    </div>	
+                                    <a id="ouvre_modal-$widget[widgetid]" href="#myModalModifWidget$widget[widgetid]" data-original-title="$multilangue[ajouter_widget]" data-placement="top" class="ouvre_modal_modif" style="cursor:pointer;" data-toggle="modal" role="button"> <i class="fa fa-cog fs-18"></i></a>
+                                    <a href="#myModalSupprWidget$widget[widgetid]" data-original-title="$multilangue[ajouter_widget]" data-placement="top" class="ouvre_modal_suppr" style="cursor:pointer;" data-toggle="modal" role="button"><i class="glyphicon glyphicon-remove fs-13"></i></a>         												
+                                </div> 
+                            </div>
+                        </div>
+				        
+                        <div class="content-widget $zClassContentTableau">
+                        <!-- BEGIN IndexWidgetBitCourbe -->
+                            <div id="placeholder$widget[widgetid]" style="width:100%;height:80%;display:none;" class="placeholder"></div>
+                            
+                            <div id="placeholderxx$widget[widgetid]" style="width:100%;height:90%;" class="placeholder"></div>
+                            
+                            <script type="text/javascript">
+                                
+                                $(document).ready(function(){
+                                        var chart = AmCharts.makeChart("placeholderxx$widget[widgetid]", {
+                                            "type": "$tmChartData[type]",
+                                            "theme": "light",
+                                            "language": "$langueLower",
+                                            "fontFamily": 'Open Sans',            
+                                            "color":    '#888888',
+                                            "pathToImages": Metronic.getGlobalPluginsPath() + "amcharts/images/",
+                                            "dataProvider": $tmChartData[dataProvider],
+                                            "balloon": {
+                                                "cornerRadius": 6
+                                            },
+                                            "valueAxes": $tmChartData[valueAxes],
+                                            "graphs": $tmChartData[graphs],
+                                            //"chartScrollbar": {},
+                                            "chartCursor": {
+                                                "categoryBalloonDateFormat": "$zBalloonDateFormat",
+                                                "cursorAlpha": 0.5,
+                                                "zoomable": false
+                                            },
+                                            "numberFormatter": {
+                                                "decimalSeparator": ",",
+                                                "thousandsSeparator": " "
+                                            },
+                                            "dataDateFormat": "$tmChartData[dataDateFormat]",
+                                            $tmChartData[categoriesData]
+                                        });
+                                                                                
+                                        var legend = new AmCharts.AmLegend();
+                                        chart.addLegend(legend);
+                                        legend.data = $tmChartData[legend];
+                                        legend.position = "top";
+                                        //legend.top = 20 
+                                        //legend.right = 50 ;
+                                });
+                            </script>
+                        <!-- END IndexWidgetBitCourbe -->
+                        
+                        <!-- BEGIN IndexWidgetBitTunelConversion -->
+                            <!-- @date 2015-10-09: Display convertion tunnel widget -->
+                            <script type="text/javascript">
+                                var ComponentsKnobDials = function () {
+
+                                    return {
+                                        //main function to initiate the module
+                                        init: function () {
+
+                                            $(".total_montant .knob").tooltip({
+                                            	placement:'bottom',
+                                                content : function(){
+                                                  return '<i>' + $(this).attr('title') + '</i>' ;  
+                                                } 
+                                            });
+                                            //knob does not support ie8 so skip it
+                                            if (!jQuery().knob) {
+                                                return;
+                                            }
+                                
+                                            // general knob
+                                            $(".total_montant .knob").knob({
+                                                'readOnly': true,
+                                                'thickness': 0.1,
+                                                'width': 100,
+                                                'height': 100,
+                                                'bgColor' : (function(e){
+                                                    return "#EBD000";
+                                                })(),
+                                                'draw': function() {
+                                                    var zPattern = new RegExp(/^[0-9]+(\.[0-9]+)?$/),_thisKnob = this, mValue = this.cv;
+                                                    
+                                                    if ($(_thisKnob.i).parents('.tunel-wrapper').prev().length > 0 && mValue.match(zPattern)) {
+                                                    	$(_thisKnob.i).val(mValue + ' %');
+                                                    }
+                                                    $(this.i).css({
+                                                        fontSize: "12px"
+                                                    });
+                                                }
+                                            });
+                                        }
+                                
+                                    };
+                                
+                                }();
+                                
+                                $(function() {
+                                    ComponentsKnobDials.init();
+                                    $('.total_montant .knob').each(function(){
+                                        var zColor = $(this).attr('data-bg-color');
+                                        $(this).trigger("configure", { 
+                                                bgColor : "#efefef",
+                                                fgColor: zColor 
+                                        }).css("color",zColor);
+                                        
+                                        $(this).parents('.overflow-y-heigt90:first').css({overflow:"visible"});
+                                    });
+                                    
+                                });
+                            </script>
+                        	<div class="total_current_bloc">
+                            	<div class="total_montant">
+                                    <div class="align-center">
+                                        <!-- BEGIN IndexWidgetBitTunelConversionBit -->
+                                        <div class="tunel-wrapper">
+                                            <input type="text" class="knob" data-bg-color="$zDataColor"  title="$zTooltip" value="$mValue" data-max="$iMax">
+                                            <!-- BEGIN IndexWidgetBitTunelConversionBitArrow -->
+                                            <div class="fa-item">
+        										<i class="fa fa-arrow-circle-o-right"></i>
+        									</div>
+                                            <!-- END IndexWidgetBitTunelConversionBitArrow -->
+                                            
+                                            <span class="tunel-titre">$zTitreTunel</span>
+                                        </div>
+                                        <!-- END IndexWidgetBitTunelConversionBit -->
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- END IndexWidgetBitTunelConversion -->
+                        
+                        <!-- BEGIN IndexWidgetBitTableau -->
+                            <table class="table-striped table table-hover table-bordered ta-center" style="width: 100%; height: 80%;">
+                                <thead>
+                                    <tr>
+                                        <!-- BEGIN IndexWidgetBitTableauColonneBit -->
+                                            <th class="ta-center">$colonne</th>
+                                        <!-- END IndexWidgetBitTableauColonneBit -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN IndexWidgetBitTableauLigneBit -->
+                                        <tr>
+                                            $ligne
+                                        </tr>
+                                    <!-- END IndexWidgetBitTableauLigneBit -->
+                                </tbody>
+                            </table>
+                        <!-- END IndexWidgetBitTableau -->
+                        <!-- BEGIN IndexWidgetBitCamembert -->
+							<div class="pichart-container">
+								<div id="placeholder$widget[widgetid]" class="placeholder pichart-wrapper"></div>
+							</div>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    var chart;
+                                    var legend;
+                                    /** @date 2015-10-08: Add initialization for nb_resultats field label. Add test to check if pieChart data is not empty **/
+                                     /** init nb_resultats label **/
+                                    rightLabel('#representation_modif-$widget[widgetid]', 'camembert', '#div_nb_resultats_modif-$widget[widgetid]');
+                                    $dataStat;
+							var chartData = data$widget[widgetid];
+                                    
+                                    if (chartData) {
+                                        AmCharts.ready(function () {
+                                            // PIE CHART
+                                            chart = new AmCharts.AmPieChart();
+                                            chart.dataProvider = chartData;
+                                            chart.titleField = "$titleField";
+                                            chart.valueField = "$valueField";
+                                            chart.outlineColor = "#FFFFFF";
+                                            chart.outlineAlpha = 0.8;
+                                            chart.outlineThickness = 2;
+                                            //chart.balloonText = "[[title]]: [[value]] €"
+                                            chart.labelText = '$labelText';
+                                            
+                                            
+                                            //chart.labelsEnabled = false;
+                                            chart.autoMargins = false;
+                                            chart.marginTop = 0;
+                                            chart.marginBottom = 0;
+                                            chart.marginLeft = 0;
+                                            chart.marginRight = 0;
+                                            chart.pullOutRadius = 0;
+                                            
+                                            chart.numberFormatter =  {
+                                                "decimalSeparator": ",",
+                                                "thousandsSeparator": " "
+                                            };
+                                            /*
+                                            var legend = new AmCharts.AmLegend();
+                                            legend.markerType = "circle";
+                                            legend.position = "right";
+                                            legend.marginRight = 80;
+                                            legend.valueText = '[[title]] : [[value]] €' ;
+                                            legend.autoMargins = true;
+                                            chart.addLegend(legend);
+                                            */
+                                            // WRITE
+                                            chart.write("placeholder$widget[widgetid]");
+                                        });
+                                    }
+                                });
+                            </script>
+                        <!-- END IndexWidgetBitCamembert -->
+                    
+                        <!-- BEGIN IndexWidgetBitTotal -->
+                        	<div class="total_current_bloc">
+                            	<div class="total_montant"><span class="$classComparaison">$total $unite</span></div>
+                            	<div class="total_periode"><em>Total</em> $periode</div>
+                                <div class="total_taux"><span class="$classComparaison">$tauxAccroissement</span></div>
+                            </div>
+                            <!-- BEGIN IndexWidgetBitTotalPrec -->
+                                <div class="total_previous_bloc">
+                                    <div class="total_previous_montant">$total_prec $unite</div>
+                                    <div class="total_previous_text">$multilangue[periode_precedente]</div>
+                                </div>
+                            <!-- END IndexWidgetBitTotalPrec -->
+                        <!-- END IndexWidgetBitTotal -->
+                    
+                        <!-- BEGIN IndexWidgetBitMoyenne -->
+                            <div class="total_current_bloc">
+                            	<div class="total_montant"><span class="$classComparaison">$total $unite</span></div>
+                            	<div class="total_periode"><em>$multilangue[libelle_moyenne_periode] $granularite</em> $periode</div>
+                                <div class="total_taux"><span class="$classComparaison">$tauxAccroissement</span></div>
+                            </div>
+                            <!-- BEGIN IndexWidgetBitMoyennePrec -->
+                                <div class="total_previous_bloc">
+                                    <div class="total_previous_montant">$total_prec $unite</div>
+                                    <!--div class="total_previous_text">$multilangue[moyenne_periode_precedente] ($granularite)</div-->
+                                    <div class="total_previous_text">$multilangue[moyenne_periode_precedente]</div>
+                                </div>
+                            <!-- END IndexWidgetBitMoyennePrec -->
+                        <!-- END IndexWidgetBitMoyenne -->
+                        </div>
+				  	</div>
+				</div>
+				<div aria-hidden="true" aria-labelledby="myModalLabelModifWidget" role="dialog" tabindex="-1" class="modal fade" id="myModalModifWidget$widget[widgetid]" >
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+								<h4 class="modal-title ta-center">$multilangue[parametres_widget]</h4>
+							</div>
+							<form name="widgetform_$widget[widgetid]" action="index.php?action=modifier&widgetid=$widget[widgetid]" method="post" class="form-horizontal form-bordered">
+								<input type="hidden" value="$date_debut_modif" name="date_debut_modif" id="date_debut_modif-$widget[widgetid]" class="date_debut_modif">
+								<input type="hidden" value="$date_fin_modif" name="date_fin_modif" id="date_fin_modif-$widget[widgetid]" class="date_fin_modif">
+								<input type="hidden" value="$valeur_periode_modif" name="periode_modif" id="periode_modif-$widget[widgetid]" class="periode_modif">
+								<input type="hidden" value="$idsite" name="idsite">
+								<div class="modal-body form">
+									<div class="form-body">
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[donnee_a_afficher]</label>
+											<div class="col-md-8">
+												<select name="donnee_modif" class="form-control donnee_modif" id="donnee_modif-$widget[widgetid]"  onchange="rightLabel('#representation_modif-$widget[widgetid]', 'camembert', '#div_nb_resultats_modif-$widget[widgetid]');">
+                                                    $htmlWidgetOptionTypeDonnee1
+												</select>
+											</div>
+										</div>
+										<div class="clear"></div>
+                                        
+                                        <div class="form-group" id="div_niv_choix_categorie_modif-$widget[widgetid]" style="display:none">
+											<label class="control-label col-md-4">$multilangue[categories_a_afficher]</label>
+                                                
+                                            <div class="col-md-8">
+                                                <input type="hidden" id="option_category_hidden_modif-$widget[widgetid]" name="options[display_type]"/>
+                                                <div style="margin: 1px auto;">
+                                                    <div class="btn-group btn-group-justified">
+                                                        <div class="btn-group">
+                                                            <button type="button" value="niveau" data-widget-id="$widget[widgetid]" data-modif-mode="yes" class="btn_category_option btn btn-default">$multilangue[niveau]</button>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button type="button" value="tree" data-widget-id="$widget[widgetid]" data-modif-mode="yes" class="btn_category_option btn btn-default">$multilangue[treeview]</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                            
+                                                <div id="option_category_niveau_modif-$widget[widgetid]">
+                                                    <select name="options[niveau]" class="form-control" id="niveau_modif-$widget[widgetid]">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                                <div id="treeviewCategory_modif-$widget[widgetid]" style="display:none;"></div>
+                                                <script type="text/javascript">
+                                                    $(document).ready(function(){
+                                                    	if ($.fn.ArobasesTreeViewCategory) {
+	                                                        $("#treeviewCategory_modif-$widget[widgetid]").ArobasesTreeViewCategory({
+	                                                            inputName : 'options[categories][]',
+	                                                            values : $toCategoriesSelected
+	                                                        });
+                                                       }
+                                                    });
+                                                </script>
+											</div>
+										</div>
+                                        <div class="clear"></div>
+                                        
+										<div class="form-group">
+											<label class="control-label col-md-4" style="padding-top: 10px;">$multilangue[periode]</label>
+											<div class="col-md-8">
+												<div style="width: 200px;" id="dashboard-report-range-$widget[widgetid]" class="dashboard-date-range tooltips" data-placement="top" data-original-title="$multilangue[changer_periode]">
+													<i class="fa fa-calendar"></i>
+													<span>
+													</span>
+													<i class="fa fa-angle-down"></i>
+												</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_representation_modif" id="div_representation_modif-$widget[widgetid]" $displayTypeRepresentation>
+											<label class="control-label col-md-4">$multilangue[representation_donnees]</label>
+											<div class="col-md-8">
+												<select class="form-control representation_modif" name="representation_modif" id="representation_modif-$widget[widgetid]" $disabledRepresentation onchange="rightLabel(this, 'camembert', '#div_nb_resultats_modif-$widget[widgetid]');">
+													<option value="courbe" $selectedCourbe>$multilangue[courbe]</option>
+													<option value="tableau" $selectedTableau>$multilangue[tableau]</option>
+													<option value="camembert" id="option_camembert_modif-$widget[widgetid]" $displayRepresentation $selectedCamembert>$multilangue[diagramme_circulaire]</option>
+													<option value="moyenne" $selectedMoyenne>$multilangue[moyenne]</option>
+													<option value="total" $selectedTotal>$multilangue[total]</option>
+												</select>
+												<input type="hidden" name="valeur_representation_modif" id="valeur_representation_modif-$widget[widgetid]" class="valeur_representation_modif" value="$valeur_representation_modif">
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_granularite_modif" id="div_granularite_modif-$widget[widgetid]" $displayGranularite>
+											<label class="control-label col-md-4">$multilangue[granularite]</label>
+											<div class="col-md-8">
+												<select class="form-control granularite cmd_granularite" name="granularite_modif" id="granularite_modif">
+													<option value="jour" $selectedJour>$multilangue[jour]</option>
+													<option value="mois" $selectedMois>$multilangue[mois]</option>
+													<option value="annee" $selectedAnnee>$multilangue[annee]</option>
+												</select>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_nb_resultats_modif" id="div_nb_resultats_modif-$widget[widgetid]" $displayNbResultats>
+											<label class="control-label col-md-4">$multilangue[nombre_resultat]</label>
+                                            <label class="control-label col-md-4" style="display: none;" data-title="$multilangue[nombre_max_afficher_tooltip]">$multilangue[nombre_max_afficher]</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control nb_resultats_modif" id="nb_resultats_modif-$widget[widgetid]" name="nb_resultats_modif" value="$widget[nb_resultats]"/>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_tri_modif" id="div_tri_modif-$widget[widgetid]" $displayTri>
+											<label class="control-label col-md-4">$multilangue[trier_par]</label>
+											<div class="col-md-8">
+												<select name="tri_modif" class="form-control tri" id="tri_modif">
+													<option value="ca" $selectedCa>$multilangue[chiffre_affaires]</option>
+													<option value="nb_ventes" $SelectedNbVentes>$multilangue[nb_ventes]</option>
+												</select>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_donnee2" id="div_donnee2_modif-$widget[widgetid]" $displayDonnee2>
+											<label class="control-label col-md-4">$multilangue[deuxieme] $multilangue[donnee_a_afficher] ($multilangue[facultatif])</label>
+											<div class="col-md-8">
+												<select name="donnee2_modif" class="form-control donnee2_modif" id="donnee2_modif-$widget[widgetid]">
+													<option value="0">$multilangue[aucune]</option>
+													<optgroup label="$multilangue[periode_precedente]">
+														<option value="" id="periode_prec2_option_modif-$widget[widgetid]"></option>
+													</optgroup>
+													<optgroup label="$multilangue[meme_periode]">
+                                                        
+														<!-- BEGIN IndexWidgetOptionTypeDonnee2Bit -->
+															<option value="$stat[type_statid]" $selectedDonnee2>$stat[libelle]</option>
+														<!-- END IndexWidgetOptionTypeDonnee2Bit -->
+                                                        
+													</optgroup>
+												</select>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_donnee3_modif" id="div_donnee3_modif-$widget[widgetid]" $displayDonnee3>
+											<label class="control-label col-md-4" >$multilangue[troisieme] $multilangue[donnee_a_afficher] ($multilangue[facultatif])</label>
+											<div class="col-md-8">
+												<select name="donnee3_modif" class="form-control onnee3_modif" id="donnee3_modif-$widget[widgetid]">
+													<option value="0">$multilangue[aucune]</option>
+													<optgroup label="$multilangue[periode_precedente]">
+														<option value="" id="periode_prec3_option1_modif-$widget[widgetid]"></option>
+														<option value="" id="periode_prec3_option2_modif-$widget[widgetid]"></option>
+													</optgroup>
+													<optgroup label="$multilangue[meme_periode]">
+														<!-- BEGIN IndexWidgetOptionTypeDonnee3Bit -->
+															<option value="$stat[type_statid]" $selectedDonnee3>$stat[libelle]</option>
+														<!-- END IndexWidgetOptionTypeDonnee3Bit -->
+													</optgroup>
+												</select>
+											</div>
+										</div>
+										<div class="clear"></div>
+										<div class="form-group div_periode_prec_modif" id="div_periode_prec_modif-$widget[widgetid]" $displayPeriodePrec>
+											<label class="control-label col-md-4"></label>
+											<div class="col-md-8">
+												<label><input type="checkbox" $checkedPeriodePrec name="periode_prec_modif" id="periode_prec_modif-$widget[widgetid]" class="periode_prec_modif" >$multilangue[afficher_donnees_periode_precedente]</label>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[annuler]</button>
+									<button type="submit" class="btn green">$multilangue[valider]</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div aria-hidden="true" aria-labelledby="myModalLabelSupprWidget" role="dialog" tabindex="-1" class="modal fade" id="myModalSupprWidget$widget[widgetid]" >
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+								<h4 class="modal-title ta-center">$multilangue[suppr_widget]</h4>
+							</div>
+							<div class="modal-body form">
+								<div class="ta-center" style="margin-top: 15px;">
+									<label>$multilangue[suppression_widget] :</label><br>
+									<label> $titre $periode </label>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[annuler]</button>
+								<a href="index.php?action=supprimer&widgetid=$widget[widgetid]&idsite=$idsite" class="btn green">$multilangue[supprimer]</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- END IndexWidgetBit -->
+			</div>
+		<!-- END IndexWidget -->
+	<!-- FIN PAGE CONTENT-->
+    
+<style type="text/css">
+    .arobases-bug-view{display:none;}
+    .arobases-treeview-category-ppl ul{list-style:none;}
+</style>
+$TemplateCommunFooter
+<!-- END IndexIndex -->
+
+<!-- BEGIN IncludeJs -->
+<script src="includes/javascript/lodash.js"></script>
+<script src="includes/javascript/gridstack/src/gridstack.js"></script>
+<script src="assets/plugins/flot/jquery.flot.time.min.js" type="text/javascript"></script>
+<script src="assets/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+<script src="assets/scripts/custom/index.js" type="text/javascript"></script>
+<script type="text/javascript" id="index-script">
+    function inArray(seach,arr){
+        bFound = false ;
+        if( typeof(arr) == "undefined" ){
+            return false ;
+        }
+        for(i=0;i<arr.length;i++){
+            if( seach == arr[i] ){
+                bFound = true ;
+            }
+        }
+        return bFound ;
+    }
+    function _callBackDisplayDaterangePickerSelectedHtml( objectDateRange ){
+		objectDateRange = $(objectDateRange);
+        var oDateRangePicker = objectDateRange.data('daterangepicker'),ranges;
+        zHtmlToShow = oDateRangePicker.container.find("li.active").html();
+        objectDateRange.find('span:first').html(zHtmlToShow);
+    } 
+    
+	function initDashboardDaterange () {
+		var _dashboardReportRange=$('#dashboard-report-range').first(), _parent=_dashboardReportRange.parents('form[name^=widgetform]').first(),_nbResultat=_parent.find('[name^=nb_resultat]');
+		_dashboardReportRange.daterangepicker({
+	    	format: 'DD/MM/YYYY',
+	    	startDate: moment(),
+	        endDate: moment(),
+	        minDate: '01/01/2014',
+	        maxDate: '31/12/2050',  
+	        showDropdowns: false,
+	        showWeekNumbers: true,
+	        timePicker: false,
+	        timePickerIncrement: 1,
+	        timePicker12Hour: true,
+	        ranges: {
+	        	"$multilangue[aujourdhui]": [moment(), moment()],
+	            "$multilangue[hier]": [moment().subtract('days', 1), moment().subtract('days', 1)],
+	            "$multilangue[sept_derniers_jours]": [moment().subtract('days', 6), moment()],
+	            "$multilangue[trente_derniers_jours]": [moment().subtract('days', 29), moment()],
+	            "$multilangue[ce_mois]": [moment().startOf('month'), moment().endOf('month')],
+	            "$multilangue[mois_dernier]": [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')],
+	            "$multilangue[cette_annee]": [moment().startOf('year'), moment().endOf('year')],
+	        	"$multilangue[l_annee_derniere]": [moment().subtract('year', 1).startOf('year'), moment().subtract('year', 1).endOf('year')],
+	        	"$multilangue[depuis_debut]": ['01/01/2014', moment()]
+	        },
+	        opens: (App.isRTL() ? 'right' : 'left'),
+	        buttonClasses: ['btn'],
+	        applyClass: 'blue',
+	        cancelClass: 'default',
+	        separator: " $multilangue[a] ",
+	        locale: {
+	        	applyLabel: "$multilangue[valider]",
+	        	cancelLabel: "$multilangue[annuler]",
+	        	fromLabel: "$multilangue[de]",
+	        	toLabel: "$multilangue[a]",
+                customRangeLabel: "$multilangue[periode_precise]",
+                daysOfWeek: ["$multilangue[dimanche_diminutif]", "$multilangue[lundi_diminutif]", "$multilangue[mardi_diminutif]", "$multilangue[mercredi_diminutif]", "$multilangue[jeudi_diminutif]", "$multilangue[vendredi_diminutif]", "$multilangue[samedi_diminutif]"],
+                monthNames: ["$multilangue[janvier]", "$multilangue[fevrier]", "$multilangue[mars]", "$multilangue[avril]", "$multilangue[mai]", "$multilangue[juin]", "$multilangue[juillet]", "$multilangue[aout]", "$multilangue[septembre]", "$multilangue[octobre]", "$multilangue[novembre]", "$multilangue[decembre]"],
+                firstDay: 1
+	        }
+	    },
+	    function (start, end) {
+            _callBackDisplayDaterangePickerSelectedHtml( _dashboardReportRange );
+	        $('#date_debut').val(start.format('YYYY-M-D'));
+	        $('#date_fin').val(end.format('YYYY-M-D'));
+			/** @date 2016-02-15: listen change on date range selection **/
+			//_parent.find('[name^=periode]').val((_dashboardReportRange.data("daterangepicker").container.find('li.active').text()));
+	    });
+		
+        _callBackDisplayDaterangePickerSelectedHtml( _dashboardReportRange );
+	    $('#dashboard-report-range').show();
+	    
+	    /** @XXX @date 2016-02-15: Init result number default value **/
+		(!_nbResultat.val()&&_nbResultat.val((_nbResultat.data('default-value')?_nbResultat.data('default-value'):'')))||_nbResultat.data('default-value', _nbResultat.val());
+	}
+	
+	
+	function initDashboardDaterangeWidget (date_debut, date_fin, id) {
+		var dashboardReportRange = $('#dashboard-report-range-'+id);
+	    dashboardReportRange.daterangepicker({
+	    	format: 'DD/MM/YYYY',
+	    	startDate: date_debut,
+	        endDate: date_fin,
+	        minDate: '01/01/2014',
+	        maxDate: '31/12/2050', 
+	        showDropdowns: false,
+	        showWeekNumbers: true,
+	        timePicker: false,
+	        timePickerIncrement: 1,
+	        timePicker12Hour: true,
+	        ranges: {
+	        	"$multilangue[aujourdhui]": [moment(), moment()],
+	            "$multilangue[hier]": [moment().subtract('days', 1), moment().subtract('days', 1)],
+	            "$multilangue[sept_derniers_jours]": [moment().subtract('days', 6), moment()],
+	            "$multilangue[trente_derniers_jours]": [moment().subtract('days', 29), moment()],
+	            "$multilangue[ce_mois]": [moment().startOf('month'), moment().endOf('month')],
+	            "$multilangue[mois_dernier]": [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')],
+	            "$multilangue[cette_annee]": [moment().startOf('year'), moment().endOf('year')],
+	        	"$multilangue[l_annee_derniere]": [moment().subtract('year', 1).startOf('year'), moment().subtract('year', 1).endOf('year')],
+	        	"$multilangue[depuis_debut]": ['01/01/2014', moment()]
+	        },
+	        opens: (App.isRTL() ? 'right' : 'left'),
+	        buttonClasses: ['btn'],
+	        applyClass: 'blue',
+	        cancelClass: 'default',
+	        separator: " $multilangue[a] ",
+	        locale: {
+	        	applyLabel: "$multilangue[valider]",
+	        	cancelLabel: "$multilangue[annuler]",
+	        	fromLabel: "$multilangue[de]",
+	        	toLabel: "$multilangue[a]",
+                customRangeLabel: "$multilangue[periode_precise]",
+                daysOfWeek: ["$multilangue[dimanche_diminutif]", "$multilangue[lundi_diminutif]", "$multilangue[mardi_diminutif]", "$multilangue[mercredi_diminutif]", "$multilangue[jeudi_diminutif]", "$multilangue[vendredi_diminutif]", "$multilangue[samedi_diminutif]"],
+                monthNames: ["$multilangue[janvier]", "$multilangue[fevrier]", "$multilangue[mars]", "$multilangue[avril]", "$multilangue[mai]", "$multilangue[juin]", "$multilangue[juillet]", "$multilangue[aout]", "$multilangue[septembre]", "$multilangue[octobre]", "$multilangue[novembre]", "$multilangue[decembre]"],
+                firstDay: 1
+	        }
+    	},
+	    function (start, end) {
+            _callBackDisplayDaterangePickerSelectedHtml( dashboardReportRange );
+	        $('#date_debut_modif-'+id).val(start.format('YYYY-M-D'));
+	        $('#date_fin_modif-'+id).val(end.format('YYYY-M-D'));
+			/** @date 2016-02-15: listen change on date range selection **/
+			//dashboardReportRange.parents('form[name^=widgetform]').first().find('[name^=periode]').val((dashboardReportRange.data("daterangepicker").container.find('li.active').text()));
+	    });
+	 
+	 	_callBackDisplayDaterangePickerSelectedHtml( dashboardReportRange );
+        
+        
+        selectGranularite = $("#div_granularite_modif-" + id).find("[name=granularite_modif]");
+        _cbChangeGranularite( selectGranularite , id );
+        
+        if( !selectGranularite.hasClass("evtchangeattach") ){
+            selectGranularite.on("change",function(){
+                _cbChangeGranularite( $(this) , id );
+            });
+            selectGranularite.addClass("evtchangeattach");
+        }
+        
+        var bIsTopCategory = false ;
+        var iNiveauCategory = null ;
+        for(i = 0 ; i < toWidget[id].widget_stat.length ; i++){
+            if( toWidget[id].widget_stat[i]['type_statid'] == 17 || toWidget[id].widget_stat[i]['type_statid'] == 12 ){
+                bIsTopCategory = true
+                
+                if( toWidget[id]['widget']['options']){
+                    if( typeof(toWidget[id]['widget']['options']['display_type']) != "undefined" ){
+                        switch( toWidget[id]['widget']['options']['display_type'] ){
+                            case "niveau":
+                                if(typeof(toWidget[id]['widget']['options']['niveau']) != "undefined" && toWidget[id]['widget']['options']['niveau'] != null ){
+                                    iNiveauCategory = toWidget[id]['widget']['options']['niveau'];  
+                                }
+                                $("#div_niv_choix_categorie_modif-" + id).find(".btn_category_option[value=niveau]").trigger("click");
+                            break;
+                            case "tree":
+                                $("#div_niv_choix_categorie_modif-" + id).find(".btn_category_option[value=tree]").trigger("click");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        if( bIsTopCategory ){
+            $("#div_niv_choix_categorie_modif-" + id).show();
+            $("#niveau_modif-"+id ).val(iNiveauCategory);
+        }
+        else{
+            $("#div_niv_choix_categorie_modif-" + id).hide();
+        }
+        $("#donnee_modif-" + id).trigger("change");
+	    $('#dashboard-report-range'+id).show();
+	}
+	
+    
+    function _cbChangeGranularite( oDom , id ){
+        var granularitePeriode = {
+            "jour" : [
+                "$multilangue[sept_derniers_jours]",
+                "$multilangue[trente_derniers_jours]",
+                "$multilangue[ce_mois]",
+                "$multilangue[mois_dernier]",
+                "$multilangue[cette_annee]",
+                "$multilangue[l_annee_derniere]",
+                "$multilangue[depuis_debut]",
+                "$multilangue[periode_precise]"
+            ],
+            "mois" : [
+                "$multilangue[ce_mois]",
+                "$multilangue[mois_dernier]",
+                "$multilangue[cette_annee]",
+                "$multilangue[l_annee_derniere]",
+                "$multilangue[depuis_debut]",
+                "$multilangue[periode_precise]"
+            ],
+            "annee":[
+                "$multilangue[cette_annee]",
+                "$multilangue[l_annee_derniere]",
+                "$multilangue[depuis_debut]",
+                "$multilangue[periode_precise]"
+            ]
+        };
+        
+        representationSuffix = "";
+        if( typeof(id) == "undefined" ){
+            id = ""; 
+        }
+        else{
+            id = "-" + id ;
+            representationSuffix = "_modif" + id ;
+        }
+        
+        var oDateRangePicker = $("#dashboard-report-range-" + id ).data('daterangepicker');
+        oDateRangePicker&&(listPeriode = oDateRangePicker.container.find("li"),listPeriode.removeClass("hidden-2"));
+        
+        if( $("#representation" + representationSuffix).val() == "moyenne" ){
+            listPeriode.each(function(index,e){
+                if( !inArray($(e).html(),granularitePeriode[oDom.val()] ) ){
+                    $(e).addClass("hidden-2");
+                }
+            });
+            liList = oDateRangePicker.container.find("li:not('.hidden-2')");
+            
+            bFoundActiveClass = false ;
+            liList.each(function(i,e){
+                if( $(e).hasClass("active") ){
+                    bFoundActiveClass = true ;
+                }
+            });
+            if( !bFoundActiveClass ){
+                oDateRangePicker.container.find("li:not('.hidden-2'):first").trigger("click");
+            }
+        }
+    }
+    
+    
+	$(document).ready(function() {
+	   App.init(); // initlayout and core plugins
+	   Index.init();
+	   Index.initCharts();
+	   
+	   $('#ouvre_modal').on('click', function(){
+		   initDashboardDaterange();
+	   });
+	   
+	   $('.ouvre_modal_modif').on('click', function(){
+			var id = $(this).attr("id").split("-")[1];
+			var date_debut = $('#date_debut_modif-'+id).val();
+			var date_fin =$('#date_fin_modif-'+id).val();
+			initDashboardDaterangeWidget(date_debut, date_fin, id);
+			
+			/** @XXX @date 2016-02-15: Initialize selected value **/
+			var widgetForm=$('form[name=widgetform_'+id+']'),widgetDaterange=widgetForm.find("#dashboard-report-range-" + id );
+			widgetDaterange&&(widgetDaterangePicker=widgetDaterange.data('daterangepicker'));
+			if (widgetDaterangePicker){
+				ranges=widgetDaterangePicker.container.find('li');
+				var refText=widgetForm.first().find('[name^=periode]').val();
+				ranges.each(function(){
+					if($(this).text() === refText){
+						widgetDaterangePicker.container.find('li.active').removeClass('active');
+						$(this).addClass('active');
+						widgetDaterange.find('span:first').text(refText);
+						return false;
+					}
+				});
+			}
+	   });
+		
+		/** @date 2016-02-12: handle widget form submit **/
+		$('form[name^=widgetform] button[type=submit]').on('click', function(e){
+			e.preventDefault();
+			var widgetDaterangePicker,_this=$(this),parentName=_this.parents('form').first().attr('name').split('_'),id=(parentName.length===2?'_'+parentName[1]:''),_parent=_this.parents("form[name=widgetform"+id+"]");
+			_parent.find("[name=valeur_representation_modif]").first().val(_parent.find('[name=representation_modif]').first().val());
+			widgetDaterangePicker=_parent.find('[id^=dashboard-report-range]').data('daterangepicker');
+			widgetDaterangePicker&&_parent.find('[name^=periode]').val(widgetDaterangePicker.container.find("li.active").text());
+			_parent.submit();
+		});
+		
+	   // Affichage des paramètres d'un nouveau widget
+	   $(document).on('change', '#donnee', function(){
+			$('#div_representation').show();
+			$('#div_granularite').show();
+			$('#div_nb_resultats').show();
+			$('#div_tri').show();
+			$('#div_donnee2').show();
+			$('#div_donnee3').show();
+			$('#div_periode_prec').show();
+			$('#option_camembert').show();
+			$('#representation').val($("#representation option:first").val());
+			$('#representation').prop("disabled", false);
+			$('#valeur_representation').val('courbe');
+			
+			$("#donnee2").val($("#donnee2 option:first").val());
+			$("#donnee3").val($("#donnee3 option:first").val());
+			
+			if($(this).val() >= 16 && $(this).val() <= 20){
+				$('#representation').val('tableau');
+				$('#representation').prop('disabled', 'disabled');
+				$('#valeur_representation').val('tableau');
+				$('#div_donnee3').hide();
+				$('#div_donnee2').hide();
+				$('#div_granularite').hide();
+				$('#div_periode_prec').hide();
+			}else if($(this).val() == '5'){
+				$('#representation').val('camembert');
+				$('#representation').prop('disabled', 'disabled');
+				$('#valeur_representation').val('camembert');
+				$('#div_donnee3').hide();
+				$('#div_donnee2').hide();
+				$('#div_granularite').hide();
+				$('#div_periode_prec').hide();
+				$('#div_tri').hide();
+				$('#div_nb_resultats').hide();
+			}else if($(this).val() == '11' || $(this).val() == '12' || $(this).val() == '13'){
+				$('#representation').val('camembert');
+				$('#representation').prop('disabled', 'disabled');
+				$('#valeur_representation').val('camembert');
+				$('#div_donnee3').hide();
+				$('#div_donnee2').hide();
+				$('#div_granularite').hide();
+				$('#div_periode_prec').hide();
+				$('#div_tri').hide();
+			}else if($(this).val() == '15'){
+				$('#div_representation').hide();
+				$('#div_granularite').hide();
+				$('#div_nb_resultats').hide();
+				$('#div_tri').hide();
+				$('#div_donnee2').hide();
+				$('#div_donnee3').hide();
+				$('#div_periode_prec').hide();
+			}else{
+				$('#div_donnee2').show();
+				$('#option_camembert').hide();
+				$('#div_nb_resultats').hide();
+				$('#div_tri').hide();
+				$('#div_donnee3').hide();
+				$('#div_periode_prec').hide();
+			}
+			
+            if( $(this).val() == "17" ){
+                $("#div_niv_choix_categorie").show();
+            }
+            else{
+                $("#div_niv_choix_categorie").hide();
+            }
+            
+			$('#donnee2 option').show();
+			$('#donnee2 option[value="'+$(this).val()+'"]').hide();
+			$('#periode_prec2_option').val($(this).val());
+			$('#periode_prec2_option').html($('#donnee option:selected').html());
+			
+			$('#donnee3 option').show();
+			$('#donnee3 option[value="'+$('#donnee').val()+'"]').hide();
+			$('#periode_prec3_option1').val($('#donnee').val());
+			$('#periode_prec3_option1').html($('#donnee option:selected').html());
+			$('#periode_prec3_option2').val("");
+			$('#periode_prec3_option2').html("");
+			$('#periode_prec3_option2').hide();
+			
+		});
+        
+        $(document).on("change","#granularite",function(){
+            _cbChangeGranularite($(this));
+        });
+        
+
+        
+		$(document).on('change', '#representation', function(){
+			$('#div_granularite').show();
+			$('#div_donnee2').show();
+			$('#div_donnee3').show();
+			$('#div_periode_prec').show();
+			
+			$("#donnee2").val($("#donnee2 option:first").val());
+			$("#donnee3").val($("#donnee3 option:first").val());
+			
+			if($('#periode_prec').is(':checked')){
+				$('#periode_prec').click();
+			}
+			
+            _cbChangeGranularite( $("#granularite") );
+            
+			$('#valeur_representation').val($(this).val());
+			
+			switch ($(this).val()){
+			case 'courbe':
+				$('#div_donnee3').hide();
+				$('#div_periode_prec').hide();
+				break;
+			case 'tableau':
+				$('#div_periode_prec').hide();
+				break;
+			case 'moyenne':
+				$('#div_donnee2').hide();
+				$('#div_donnee3').hide();
+				break;
+			case 'total':
+				$('#div_granularite').hide();
+				$('#div_donnee2').hide();
+				$('#div_donnee3').hide();
+				break;
+			}
+		});
+		
+		$(document).on('change', '#donnee2', function(){
+			$('#donnee3 option').show();
+			if($('#donnee2').val() != $('#donnee').val()){
+				if($(this).val() != "0"){
+					$('#donnee3 option[value="'+$(this).val()+'"]').hide();
+					$('#donnee3 option[value="'+$('#donnee').val()+'"]').hide();
+					$('#periode_prec3_option1').show();
+					$('#periode_prec3_option2').show();
+					$('#periode_prec3_option2').val($(this).val());
+					$('#periode_prec3_option2').html($('#donnee2 option:selected').html());
+				}else{
+					$('#donnee3').val('0');
+					$('#periode_prec3_option2').hide();
+				}
+			}else{
+					$('#donnee3 option[value="'+$(this).val()+'"]').hide();
+					$('#periode_prec3_option1').show();
+					$('#donnee3 option[value="'+$('#periode_prec3_option2').val()+'"]').show();
+					$('#periode_prec3_option2').hide();
+			}
+		});
+		// Fin changement interface nouveau widget
+		
+		// Option même période nouveau widget
+		$('#donnee2 option[value="'+$('#donnee').val()+'"]').hide();
+		$('#donnee3 option[value="'+$('#donnee').val()+'"]').hide();
+		$('#periode_prec2_option').val($('#donnee').val());
+		$('#periode_prec2_option').html($('#donnee option:selected').html());
+		$('#periode_prec3_option1').val($('#donnee').val());
+		$('#periode_prec3_option1').html($('#donnee option:selected').html());
+		$('#periode_prec3_option2').hide();
+		
+		/** @date 2016-02-12: update by @js **/
+		// Affichage des paramètres d'un widget existant
+		$(document).on('change', '.donnee_modif', function(){
+			var id = $(this).attr('id').split('-')[1],representation_modif = $('#representation_modif-'+id).prop("disabled", false),valeur_representation_modif=$('#valeur_representation_modif-'+id),
+			selected_representation=representation_modif.find('option[value='+valeur_representation_modif.val()+']').first();
+			(selected_representation&&representation_modif.val(selected_representation.val()))||representation_modif.val(representation_modif.find('option').first().val());
+			
+			/*
+			$('#representation_modif-'+id).val($('#representation_modif-'+id+' option:first').val());
+			$('#representation_modif-'+id).prop("disabled", false);
+			$('#valeur_representation_modif-'+id).val('courbe');
+			*/
+			
+			$('#div_representation_modif-'+id).show();
+			$('#div_granularite_modif-'+id).show();
+			$('#div_nb_resultats_modif-'+id).show();
+			$('#div_tri_modif-'+id).show();
+			$('#div_donnee2_modif-'+id).show();
+			$('#div_donnee3_modif-'+id).show();
+			$('#div_periode_prec_modif-'+id).show();
+			$('#option_camembert_modif-'+id).show();
+			$('#donnee2_modif-'+id).val($('#donnee2_modif-'+id+' option:first').val());
+			$('#donnee3_modif-'+id).val($('#donnee3_modif-'+id+' option:first').val());
+			
+			if($(this).val() >= 16 && $(this).val() <= 20){
+				representation_modif.val("tableau"),representation_modif.prop('disabled', 'disabled');
+				//valeur_representation_modif.val('tableau');
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_granularite_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+			}else if($(this).val() == '5'){
+				representation_modif.val("camembert"),representation_modif.prop('disabled', 'disabled');
+				//valeur_representation_modif.val('camembert');
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_granularite_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+				$('#div_tri_modif-'+id).hide();
+				$('#div_nb_resultats_modif-'+id).hide();
+			}else if($(this).val() == '11' || $(this).val() == '12' || $(this).val() == '13'){
+				representation_modif.val("camembert"),representation_modif.prop('disabled', 'disabled');
+				//valeur_representation_modif.val('camembert');
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_granularite_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+				$('#div_tri_modif-'+id).hide();
+			}else if($(this).val() == '15'){
+				$('#div_representation_modif-'+id).hide();
+				$('#div_granularite_modif-'+id).hide();
+				$('#div_nb_resultats_modif-'+id).hide();
+				$('#div_tri_modif-'+id).hide();
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+			}else{
+				$('#div_donnee2_modif-'+id).show();
+				$('#option_camembert_modif-'+id).hide();
+				$('#div_nb_resultats_modif-'+id).hide();
+				$('#div_tri_modif-'+id).hide();
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+				
+				/** Force trigger change event on representation field **/
+				representation_modif.trigger('change');
+			}
+			
+			$('#donnee2_modif-'+id+' option').show();
+			$('#donnee2_modif-'+id+' option[value="'+$(this).val()+'"]').hide();
+			$('#periode_prec2_option_modif-'+id).val($(this).val());
+			$('#periode_prec2_option_modif-'+id).html($('#donnee_modif-'+id+' option:selected').html());
+			
+			$('#donnee3_modif-'+id+' option').show();
+			$('#donnee3_modif-'+id+' option[value="'+$('#donnee_modif-'+id).val()+'"]').hide();
+			$('#periode_prec3_option1_modif-'+id).val($('#donnee_modif-'+id).val());
+			$('#periode_prec3_option1_modif-'+id).html($('#donnee_modif-'+id+' option:selected').html());
+			$('#periode_prec3_option2_modif-'+id).val("");
+			$('#periode_prec3_option2_modif-'+id).html("");
+			$('#periode_prec3_option2_modif-'+id).hide();
+		});
+		
+		/** On graphic type change **/
+		$(document).on('change', '.representation_modif', function(){
+			var id = $(this).attr('id').split('-')[1];
+			$('#div_granularite_modif-'+id).show();
+			$('#div_donnee2_modif-'+id).show();
+			$('#div_donnee3_modif-'+id).show();
+			$('#div_periode_prec_modif-'+id).show();
+			
+			$('#donnee2_modif-'+id).val($('#donnee2_modif-'+id+' option:first').val());
+			$('#donnee3_modif-'+id).val($('#donnee3_modif-'+id+' option:first').val());
+			
+			if($('#periode_prec_modif-'+id).is(':checked')){
+				$('#periode_prec_modif-'+id).click();
+			}
+            _cbChangeGranularite( $("div_granularite_modif-" + id + " [name=granularite_modif]") , id);
+
+			//$('#valeur_representation_modif-'+id).val($(this).val());
+			
+			switch ($(this).val()){
+			case 'courbe':
+				$('#div_donnee3_modif-'+id).hide();
+				$('#div_periode_prec_modif-'+id).hide();
+				break;
+			case 'tableau':
+				$('#div_periode_prec_modif-'+id).hide();
+				break;
+			case 'moyenne':
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_donnee3_modif-'+id).hide();
+				break;
+			case 'total':
+				$('#div_granularite_modif-'+id).hide();
+				$('#div_donnee2_modif-'+id).hide();
+				$('#div_donnee3_modif-'+id).hide();
+				break;
+			}
+		});
+		
+		$(document).on('change', '.donnee2_modif', function(){
+			var id = $(this).attr('id').split('-')[1];
+			$('#donnee3_modif-'+id+' option').show();
+			if($('#donnee2_modif-'+id).val() != $('#donnee_modif-'+id).val()){
+				$('#donnee3_modif-'+id+' option[value="'+$(this).val()+'"]').hide();
+				$('#donnee3_modif-'+id+' option[value="'+$('#donnee_modif-'+id).val()+'"]').hide();
+				$('#periode_prec3_option1_modif-'+id).show();
+				$('#periode_prec3_option2_modif-'+id).show();
+				$('#periode_prec3_option2_modif-'+id).val($(this).val());
+				$('#periode_prec3_option2_modif-'+id).html($('#donnee2_modif-'+id+' option:selected').html());
+			}else{
+				$('#donnee3_modif-'+id+' option[value="'+$(this).val()+'"]').hide();
+				$('#periode_prec3_option1_modif-'+id).show();
+				$('#donnee3_modif-'+id+' option[value="'+$('#periode_prec3_option2_modif-'+id).val()+'"]').show();
+				$('#periode_prec3_option2_modif-'+id).hide();
+			}
+		});
+		
+		// Option même période widget existant
+		$('.grid-stack-item').each(function(){
+			var id = $(this).attr("id");
+			$('#donnee2_modif-'+id+' option[value="'+$('#donnee_modif-'+id).val()+'"]').hide();
+			$('#donnee3_modif-'+id+' option[value="'+$('#donnee_modif-'+id).val()+'"]').hide();
+			$('#periode_prec2_option_modif-'+id).val($('#donnee_modif-'+id).val());
+			$('#periode_prec2_option_modif-'+id).html($('#donnee_modif-'+id+' option:selected').html());
+			$('#periode_prec3_option1_modif-'+id).val($('#donnee_modif-'+id).val());
+			$('#periode_prec3_option1_modif-'+id).html($('#donnee_modif-'+id+' option:selected').html());
+			$('#periode_prec3_option2_modif-'+id).hide();
+		});
+		
+		// Fin changement interface widget existant
+		
+		$('.grid-stack').gridstack({
+		  width: 12,
+		  draggable: {handle: '.row', scroll: true, appendTo: 'body'}
+		});
+
+		$('.grid-stack').on('change', function (e, items) {
+            if( typeof(items) == "undefined" ){
+		      return ;
+		    }
+			var tabWidget = new Array();
+			for(var i=0;i<items.length;i++){
+				var tabInfos = {"id" : items[i].el[0].id, "posX" : items[i].x, "posY" : items[i].y, "cols" : items[i].width, "rows" : items[i].height};
+				tabWidget[i] = tabInfos;
+			}
+            
+            var jsonstring = JSON.stringify(tabWidget);
+            $.ajax({
+				url : 'index_ajax.php?action=widget',
+				type : 'POST',
+				data : {data : jsonstring},
+				dataType : 'html',
+				success : function(code_html, statut){
+						
+				},
+				error : function(resultat, statut, erreur){ 
+					alert(erreur);	
+				}
+			});
+		});
+		
+		
+		function showTooltip(x, y, contents) {
+            $('<div id="tooltip">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y+15,
+                    left: x,
+                    border: '1px solid #333',
+                    padding: '4px',
+                    color: '#fff',
+                    'border-radius': '3px',
+                    'background-color': '#333',
+                    opacity: 0.80
+                }).appendTo("body").fadeIn(200);
+        }
+		/*
+		var data = [ { label: "Foo", data: [ [0, 1], [2, -14], [4, 5] ] },{ label: "Bar", data: [ [0, 1], [3, 11], [5, -7] ] }];
+		var options = {
+			    series: {
+			        lines: { show: true },
+			        points: { show: true }
+			    },
+			    legend: {
+			        show: true
+			    },
+			    grid: {
+					hoverable: true,
+					clickable: true,
+					borderWidth: 1
+				},
+			    xaxis: { 
+			    	ticks: [[0,'01/01/2015'],[1,'01/02/2015'],[2, '01/03/2015'], [10, '01/04/2015<br>01/05/2015']]
+			    }
+			};
+		$.plot($("#placeholder1"), data, options);*/
+		
+		
+		var previousPoint = null;
+		 $(".placeholder").each(function(){
+			$(this).bind("plothover", function (event, pos, item) {
+                $("#x").text(pos.x.toFixed(2));
+                $("#y").text(pos.y.toFixed(2));
+		
+                if (item) {
+                    if (previousPoint != item.dataIndex) {
+                        previousPoint = item.dataIndex;
+
+                        $("#tooltip").remove();
+                        var x = item.datapoint[0],
+                            y = item.datapoint[1];
+                        showTooltip(item.pageX, item.pageY, y);
+                    }
+                } else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            });	 
+		 });
+		 $('#select-site').on('change', function () {
+			 if($(this).val()>0){
+				 var location = "index.php?idsite="+$(this).val();
+			 }else{
+				 var location = "index.php";
+			 }
+			window.location = location;
+		});
+		
+      	$('[data-toggle="tooltip"]').tooltip();
+
+        //treeview categorie
+        if ($.fn.ArobasesTreeViewCategory) {
+        	$("#treeviewCategory").ArobasesTreeViewCategory({
+	            inputName : 'options[categories][]'
+	        });
+        }
+        
+        $(".btn_category_option").on('click',function(){
+            var oDomNiveau = $("#option_category_niveau");
+            var oDomTreeview = $("#treeviewCategory");
+            var oDomCategoryHiddenDisplay = $("#option_category_hidden") ;
+            
+            if( $(this).attr("data-modif-mode") == "yes" && $(this).attr("data-widget-id") != "" ){
+                widgeID = $(this).attr("data-widget-id");
+                
+                oDomNiveau = $("#option_category_niveau_modif-" + widgeID );
+                oDomTreeview = $("#treeviewCategory_modif-" + widgeID );
+                oDomCategoryHiddenDisplay = $("#option_category_hidden_modif-" + widgeID );
+            }
+            
+            if( $(this).val() == "tree" ){
+                oDomNiveau.hide();
+                oDomTreeview.show();
+            }
+            else{
+                oDomNiveau.show();
+                oDomTreeview.hide();
+            }
+            
+           $(this).parents(".btn-group-justified:first").find(".btn_category_option").removeClass("btn-info");
+           $(this).addClass("btn-info");
+            
+            oDomCategoryHiddenDisplay.val( $(this).val() );
+        });
+        
+        $(".btn_category_option[value=niveau]").trigger('click');
+		
+		$(".div_periode_prec_modif").find("input").each(function(){
+			if($(this).prop('checked')){
+				$(this).parent().addClass('checked');
+			}
+		});
+    });
+</script>
+<!-- END IncludeJs -->

@@ -1,0 +1,54 @@
+<!-- BEGIN Parametrage_messagerie_outlookIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[parametrage_messagerie_outlook]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[utilisationavancee]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametrage_messagerie_outlook]
+						</li>
+						<!-- BEGIN Parametrage_messagerie_outlookNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Parametrage_messagerie_outlookNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Parametrage_messagerie_outlookListe -->
+				<iframe src="http://www.arobases.fr/doc_mail/index.php?host=$host"></iframe>
+			<!-- END Parametrage_messagerie_outlookListe -->
+		<!-- FIN PAGE CONTENT -->			
+	<!-- FIN CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+
+	$(document).ready(function() {
+		$('iframe').css('width', '100%').css('height', '1000px').css('margin', '0').css('padding', '0').css('border', 'none').css('overflow', 'hidden');
+	});
+</script>
+
+<!-- END Parametrage_messagerie_outlookIndex -->

@@ -1,0 +1,560 @@
+<!-- BEGIN Encarts_persoIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					Encarts administrables<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[contenus]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="encarts_perso.php">						
+								$multilangue[encarts_administrables]
+							</a>					
+						</li>
+						<!-- BEGIN Encarts_persoNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Encarts_persoNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+			<!-- BEGIN Encarts_persoSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Encarts_persoSuccess -->
+			
+			<!-- BEGIN Encarts_persoErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Encarts_persoErreur -->
+
+<!-- BEGIN Encarts_persoText -->
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box purple" style="">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-bars"></i>$multilangue[liste_textes_personnalisables]
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="table-scrollable">
+					<table class="table table-striped table-bordered table-hover">
+					<thead>
+					<tr>
+						<th>
+							$multilangue[legende]
+						</th>
+						<th>
+							$multilangue[actions]
+						</th>
+						
+					</tr>
+					</thead>
+					<tbody>
+					<!-- BEGIN Encarts_persoTextBit -->
+					<tr>
+						<td>
+							$legendeTexte[legende]
+						</td>
+						<td style="text-align : center;">
+							<a href="encarts_perso.php?action=editer&idTexte=$afficheListeTxtPerso[textepersonnelid]" data-original-title="Modifier" data-placement="top" class="btn tooltips" >
+	                        <i class="fa fa-pencil-square-o fs-18"></i></a>
+						</td>
+					</tr>
+					<!-- END Encarts_persoTextBit -->
+					</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END Encarts_persoText -->
+
+
+<!-- BEGIN Encarts_persoModifText -->
+
+
+<form name="modifTexte" action="encarts_perso.php" method="POST">
+	<input type="hidden" name="action" value="doediter">					
+	<input type="hidden" name="idTexte" value="$idTexte">
+
+
+	<div class="boutons_liste">
+		<a href="encarts_perso.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>$multilangue[retour]</a>
+		<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+	</div>
+
+<!-- BEGIN Encarts_persoModifTextBit -->
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box $site[classcolor]" style="">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-bars"></i>$titreTexte[legende] <i>$site[libelle]</i>
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="table-scrollable">
+					<!-- <table class="table table-striped table-bordered table-hover">
+						<thead>						
+							<tr>
+								<th>
+									$multilangue[legende]<br/><br/>
+									$multilangue[contenu] $multilangue[en] $multilangue[francais]
+								</th>						
+								<td>
+									<textarea name="newText[$site[siteid]]" class="$class_wysiwyg" rows="5" cols="100">$contenuTexte[contenu]</textarea>
+								</td>
+							</tr>						
+						</thead>
+					</table> -->
+					<div class="form-group">
+						<label class="control-label col-md-2"><br/>$multilangue[contenu] $multilangue[en] $langueEditPage[libelle]</label>
+						<div class="col-md-10">															
+							<textarea name="newText[$site[siteid]]" class="$class_wysiwyg form-control" rows="5" cols="100">$contenuTexte[contenu]</textarea>															
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END Encarts_persoModifTextBit -->
+
+	<div class="boutons_liste">
+		<a href="encarts_perso.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>$multilangue[retour]</a>
+		<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+	</div>
+
+</form>
+<!-- END Encarts_persoModifText -->
+
+
+<!-- BEGIN Encarts_persoAuto_promo -->
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT Portlet PORTLET-->
+		<div class="portlet box blue-steel">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-gift"></i> $multilangue[encarts_administrables]
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>					
+				</div>
+			</div>
+			<div class="portlet-body">	
+								<br/>		
+				<div class="row">
+					<div class="col-md-12 ">
+						<!--DEBUT Portlet PORTLET-->
+						<div class="portlet box blue-hoki">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-arrows-h"></i> $multilangue[encarts_administrables_dimensions]
+								</div>
+							</div>
+							<div class="portlet-body">
+								<form id="formAutoPromo" name="autopromo" action="encarts_perso.php" method="POST">
+									<input type="hidden" class="form-control" name="action" value="enregistrer">
+									<table style="width:100%;">
+										<tr>
+											<td style="padding:3px; margin:3px; "><label for="largeur" class="" style="text-align : right;">$multilangue[largeur] : </label></td>
+											<td style="padding:3px; margin:3px;"><input style="text-align:right;" type="text" class="form-control" name="largeur" value="$params[autopromo_largeur]" id="largeur"/></td>
+											<td style="padding:3px; margin:3px;">px</td>																		
+										
+											<td style="padding:3px; margin:3px;"><label for="hauteur" class="" style="text-align : right;">$multilangue[hauteur] : </label></td>
+											<td style="padding:3px; margin:3px;"><input style="text-align:right;" type="text" class="form-control" name="hauteur" value="$params[autopromo_hauteur]" id="hauteur"/></td>
+											<td style="padding:3px; margin:3px;">px</td>
+										</tr>
+										<tr>
+											<td colspan="6" class="ta-center">
+												<button style="margin-top:5px;" type="submit" class="btn green"><i style="margin-right :10px" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+											</td>
+										</tr>
+									</table>
+								</form>								
+							</div>
+						</div>
+					<!-- FIN Portlet PORTLET-->
+					</div>
+					
+					
+					 <!-- <div class="col-md-6 " style="margin-left : 3%;">
+					
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">
+							<div class="tab-content">
+								<div class="tab-pane active">
+									<div class="portlet-body">				
+										<div class="table-responsive">
+											<b>Notes : </b>				
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>					
+					
+					</div> -->
+					
+					
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- DEBUT SAMPLE TABLE PORTLET-->
+						<div class="portlet box blue-hoki" style="">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-bars"></i> $multilangue[encarts_administrables_liste]
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse">
+									</a>
+									
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="table-scrollable">
+									<a name="listeautopromos"></a>
+									<table class="table table-striped table-bordered table-hover">
+									<thead>
+									<tr>
+										<th>
+											$multilangue[site_concerne]
+										</th>
+										<th>
+											$multilangue[nom]
+										</th>
+										<th style="text-align : center;">
+											$multilangue[visible]
+										</th>
+										<th style="text-align : center;">
+											$multilangue[actions]
+										</th>
+										
+									</tr>
+									</thead>
+									<tbody>
+									<!-- BEGIN Encarts_persoFichiersBit -->
+									<tr>
+										<td>
+											$siteConcerne[libelle]
+										</td>
+										<td >
+											<a href="http://$host/configurations/$host/images/autopromo/$afficheAutoPromo[autopromoid].$afficheAutoPromo[fichier]" target="_blank">
+												$afficheAutoPromo[libelle]
+											</a>
+										</td>
+										<td>
+											<div class ="boutons_liste">
+												<div class="btn default btn-sm $color2_aff tooltips" data-value="$afficheAutoPromo[autopromoid]">
+													<i class="fa $ico_aff"></i>
+												</div>
+											</div>
+										</td>
+										<td style="text-align : center; padding : ">
+											<a href="http://$host/configurations/$host/images/autopromo/$afficheAutoPromo[autopromoid].$afficheAutoPromo[fichier]" target="_blank" data-original-title="Voir l'image" data-placement="top" class="btn tooltips">
+					                        <i style="margin-right : 10%;" class="fa fa-search fs-18" ></i></a>
+										
+											<a href="encarts_perso.php?action=editFile&autopromoid=$afficheAutoPromo[autopromoid]#listeautopromos" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+					                        <i style="margin-right : 10%;" class="fa fa-pencil-square-o fs-18" ></i></a>
+					                        
+					                        <a href="encarts_perso.php?action=supprimer2&autopromoid=$afficheAutoPromo[autopromoid]#listeautopromos" data-original-title="Supprimer" data-placement="top" class="btn tooltips">
+					                        <i style="color : red;" class="fa fa-trash-o fs-18" ></i></a>
+										</td>
+									</tr>
+									<!-- END Encarts_persoFichiersBit -->
+									</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- FIN SAMPLE TABLE PORTLET-->
+					</div>
+				</div>
+				<div class="boutons_liste">
+					<a class="btn green" href ="encarts_perso.php?action=ajoutFichier"><i style="margin-right:8px;" class="fa fa-plus "></i>$multilangue[encarts_administrables_ajout]</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END Encarts_persoAuto_promo -->
+$message
+
+<!-- BEGIN Encarts_persoAddfile -->
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<form name="addfile" action="encarts_perso.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+			<input type ="hidden" name="action" value="ajout">
+			<input type="hidden" name="catids" value="">
+			<div class="portlet box yellow-casablanca" style="">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-bars fs-18"></i>$multilangue[ajt_fichier]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="table-scrollable">
+						<div class="form-group">
+							<label class="control-label col-md-2">$multilangue[fichier]</label>
+							<div class="col-md-10">																														
+								<!--  <input type="file" name="fichier" size="50"><p class="help-block">$multilangue[uniquement] .jpg, .jpeg, .gif,</p>-->
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 300px; height: 160px;"></div>
+									<div>
+										<span class="btn default btn-file">
+											<span class="fileinput-new">
+												$multilangue[selectionner] </span>
+											<span class="fileinput-exists">
+												$multilangue[modifier] </span>
+											<input type="file" name="fichier">
+										</span>
+										<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+											$multilangue[supprimer] </a>	
+									</div>
+								</div>
+								<p class="help-block">$multilangue[uniquement] .jpg, .jpeg, .gif</p>
+								
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-label col-md-2">$multilangue[url]</label>
+							<div class="col-md-10">																														
+								<input type="text" class="form-control info" name="formURL" data-trigger="focus" data-placement="top" data-content="$multilangue[texte_info_saisie_urls]">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-label col-md-2">$multilangue[categorie]</label>
+							<div class="col-md-10">																														
+								<div class="jstreecateg"></div>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-label col-md-2">$multilangue[libelle]</label>
+							<div class="col-md-10">																														
+								<input type="text" name="libelleFichier" class="form-control">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-label col-md-2">$multilangue[site]</label>
+							<div class="col-md-10">																														
+								<select name="siteid" class="form-control">
+									<!-- BEGIN Encarts_persoSelectBit -->
+										<option value="$site[siteid]">$site[libelle]</option>
+									<!-- END Encarts_persoSelectBit -->
+								</select>
+							</div>
+						</div>				
+						
+					</div>
+				</div>				
+			</div>
+			<div class="boutons_liste">
+        		<a style=" margin-left : 1%; display : inline-block;" href="/admin/encarts_perso.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+        		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	   		</div>
+        </form>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<br/><br/><br/><br/>
+<!-- END Encarts_persoAddfile -->
+
+<!-- BEGIN Encarts_persoEditfile -->
+
+<div class="row" >
+	<div class="col-md-12" >
+		<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+			<!-- DEBUT SAMPLE TABLE PORTLET-->
+			<form name="editfile" action="encarts_perso.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+				<input type ="hidden" name="action" value="doeditfile">
+				<input type ="hidden" name="autopromoid" value="$autopromoid">
+				<input type="hidden" name="catids" value="">
+				<div class="portlet box yellow-casablanca" style="">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-bars fs-18"></i>$multilangue[fichier_editer]
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">
+							<div class="form-group">
+								<label class="control-label col-md-2">$multilangue[image_actuelle_encart]</label>
+								<div class="col-md-10">
+									<div class="fileinput fileinput-new" data-provides="fileinput">
+										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 300px; height: 160px;">
+											<img id="imgEdit" src="$pathpic" >
+										</div>
+										<div>
+											<span class="btn default btn-file">
+												<span class="fileinput-new">
+													$multilangue[selectionner] </span>
+												<span class="fileinput-exists">
+													$multilangue[modifier] </span>
+												<input type="file" name="fichier">
+											</span>
+											<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+												$multilangue[supprimer] </a>	
+										</div>
+									</div>
+									<p class="help-block">$multilangue[uniquement] .jpg, .jpeg, .gif</p>
+								</div>								
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-md-2">$multilangue[url]</label>
+								<div class="col-md-10">																														
+									<input type="text" class="form-control info" name="formURL" value="$infos[url]" data-trigger="focus" data-placement="top" data-content="$multilangue[texte_info_saisie_urls]">									
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-md-2">$multilangue[categorie]</label>
+								<div class="col-md-10">																														
+									<div class="jstreecateg"></div>
+								</div>
+							</div>		
+							<div class="form-group">
+								<label class="control-label col-md-2">$multilangue[libelle]</label>
+								<div class="col-md-10">																														
+									<input type="text" name="libelleFichier" class="form-control" value="$infos[libelle]" >
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-md-2">$multilangue[site]</label>
+								<div class="col-md-10">																														
+									<select name="siteid" class="form-control">
+										<!-- BEGIN Encarts_persoSelectBit -->
+											<option value="$site[siteid]">$site[libelle]</option>
+										<!-- END Encarts_persoSelectBit -->
+									</select>
+								</div>
+							</div>								
+						</div>
+					</div>				
+				</div>			
+				<div class="boutons_liste">
+	        		<a style=" margin-left : 1%; display : inline-block;" href="/admin/encarts_perso.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+	        		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+		   		</div>
+	        </form>
+			<!-- FIN SAMPLE TABLE PORTLET -->
+		</div>
+	</div>
+</div>
+
+<br/><br/><br/><br/>
+<!-- END Encarts_persoEditfile -->
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+	
+		$('.jstreecateg').on('changed.jstree', function (e, data) {
+			var i, j, r = [];
+			for(i = 0, j = data.selected.length; i < j; i++) {
+				r.push(data.instance.get_node(data.selected[i]).id);
+			}           
+			$('input[name="catids"]').val(r.join(','));  
+		}).jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'core' : {
+				'data': {
+					'url': 'codes_reduction_ajax.php?action=jstreecateg'
+				}
+			}
+		});
+		$('.jstreecateg').bind('ready.jstree', function (e, data) {
+			$(this).jstree("open_all");
+			var categorie = "$tabCategorie";
+			if(categorie != ""){
+				categorie = categorie.split(',');
+				for(var i=0;i<categorie.length-1;i++){
+					$(this).jstree("select_node", '#'+categorie[i]);
+				}
+			}
+			$(this).jstree("close_all"); 
+		});
+
+		
+		$('.info').popover({html: true, container: "body"});
+		$('.btn-sm').live('click', function() {
+			var autopromoid = $(this).data("value");
+			var color = ($(this).hasClass("green") ? "green" : "red");
+			var data = 'action=encarts_perso_activer&';
+			data += 'autopromoid=' + autopromoid + '&';
+			data += 'color=' + color + '&';
+			$.ajax({
+				url : 'commun_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('div[data-value="' + code_html.split('_')[0] + '"]');
+					div.removeClass("green red").addClass(code_html.split('_')[1]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[2]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[1] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					App.initAjax();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+	});
+</script>
+
+<!-- END Encarts_persoIndex -->

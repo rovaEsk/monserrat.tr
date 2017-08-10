@@ -1,0 +1,431 @@
+<!-- BEGIN MarquesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[gestion_marques]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="marques.php">							
+								$multilangue[marques]
+							</a>						
+						</li>
+						<!-- BEGIN MarquesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END MarquesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN MarquesSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END MarquesSuccess -->
+			
+			<!-- BEGIN MarquesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END MarquesErreur -->
+			
+			<!-- BEGIN MarquesListe -->				
+				<div class="row">
+					<div class="col-md-12">							
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">	
+								<a href="marques.php?action=modifier" data-original-title="$multilangue[ajt_marque]" class="btn green right">
+									$multilangue[ajt_marque] &nbsp; 
+									<i class="fa fa-plus "></i>
+								</a>
+								<br><br><br>											
+								<div class="tab-pane active" id="tab_0">								
+									
+										<div class="portlet-body form">
+											<div class="table-responsive">
+												<table id="tabmarques" class="table table-striped table-bordered table-marques table-hover">
+													<thead>
+														<tr>
+															<th>
+																$multilangue[marque]
+															</th>
+															<th class="ta-center">
+																$multilangue[rel_follow]
+															</th>
+															<th class="ta-center">
+																$multilangue[visible_article]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN MarquesListeBit -->
+															<tr id="$marque[marqueid]">
+																<td width="45%" class="highlight">																
+																	<a class="lh-30" href="marques.php?action=modifier&marqueid=$marque[marqueid]&siteidmarque=$marque[siteid]">
+																		 $marque[libelle]
+																	</a>
+																</td>
+																<td width="10%" class="ta-center">
+																	<a href="marques.php?action=ref&pastille=$color_follow&marque=$marque[marqueid]" data-original-title="$tooltip_reference" data-placement="top" class="btn default btn-sm $color2_follow tooltips">
+																		<i class="fa $ico_follow"></i>
+																	</a>
+																</td>
+																<td width="25%" class="ta-center">
+																	<a href="marques.php?action=visible_article&pastille=$color_aff&marque=$marque[marqueid]" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+																		<i class="fa $ico_aff"></i>
+																	</a>
+																</td>
+																<td width="20%" class="ta-center">
+																	<a href="marques.php?action=modifier&marqueid=$marque[marqueid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-edit fs-18 font-blue"></i>
+																	</a>
+																	<a href="marques.php?action=ordreArticles&marqueid=$marque[marqueid]" data-original-title="$multilangue[liste_articles]" data-placement="top" class="btn tooltips">
+																		<i class="fa fa-bars fs-18 font-purple"></i>
+																	</a>
+																	<a href="#myModal$marque[marqueid]" id="btn_suppr$marque[marqueid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+																		<i class="fa fa-trash-o fs-18 font-red"></i>
+																	</a>
+																	<div aria-hidden="true" aria-labelledby="myModalLabe$marque[marqueid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$marque[marqueid]" style="display: none;">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																					<h4 class="modal-title">$multilangue[suppression_marque] : "$marque[libelle]" ?</h4>
+																				</div>
+																				<div class="modal-body">																					
+																					$multilangue[suppression_marque_infos]
+																				</div>
+																				<div class="modal-footer">
+																					<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																					<a href="marques.php?action=supprimer2&marqueid=$marque[marqueid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														<!-- END MarquesListeBit -->												
+													</tbody>
+												</table>												
+											</div>																			
+										</div>									
+									<form style="float:right;" action="marques.php" id="formuOrdre" name="formuOrdre" method="post">
+										<input type="hidden" name="action" value="positions">
+										<input type="hidden" name="ordre" id="ordrepositions" value="">
+										<input style="display:none;" type="submit" class="btn yellow" value="$multilangue[enregistrer_positions]">
+									</form>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END MarquesListe -->
+					
+			
+			<!-- BEGIN MarquesModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<form action="$_SERVER[PHP_SELF]" name="formModifMarque" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+										<input type="hidden" name="action" value="modifier2">
+										<input type="hidden" name="marqueid" value="$mq[marqueid]">
+										<input type="hidden" name="siteidmarque" value="$siteidmarque">
+										
+										<div class="col-md-12 ta-center mb-20">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+									<div class="portlet box $classcolor_site_principal">
+										<div class="portlet-title">
+											<div class="caption">
+												$multilangue[donnees] <i>$sitePrinc[libelle]</i>
+											</div>	
+											<div class="tools">
+				                                <a class="collapse" href="javascript:;">
+				                                </a>					                                
+				                            </div>																			
+										</div>
+										<div class="portlet-body form">
+											<!-- DEBUT FORM-->
+												<div class="form-body">
+													<!-- BEGIN MarquesModificationImage -->	
+													<div class="form-group">
+														<label class="control-label col-md-1">$multilangue[image]</label>
+														<div class="col-md-11">																											
+															$image															
+														</div>
+													</div>
+													<!-- END MarquesModificationImage -->	
+													<!-- BEGIN MarquesModificationDefautBit -->												
+													<div class="form-group">
+														<label class="control-label col-md-1">$multilangue[libelle]</label>
+														<div class="col-md-11">																														
+															<input type="text" class="form-control" name="libelle1" value="$mq[libelle]"/>
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-1">$multilangue[description]</label>
+														<div class="col-md-11">
+															<textarea rows="8" name="description1" class="form-control editeur">$mq[description]</textarea>															
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-1">
+															META title <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a>
+														</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="pagetitle1" class="form-control">$mq[pagetitle]</textarea>														
+														</div>
+													</div>												
+													<div class="form-group">
+														<label class="control-label col-md-1">
+															META description <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a>
+														</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="metadescription1" class="form-control">$mq[metadescription]</textarea>														
+														</div>
+													</div>																									
+													<div class="form-group">
+														<label class="control-label col-md-1">
+															META keywords <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a>
+														</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="metakeywords1" class="form-control">$mq[metakeywords]</textarea>														
+														</div>
+													</div>		
+													<!-- END MarquesModificationDefautBit -->																					
+												</div>												
+											<!-- FIN FORM-->
+										</div>
+									</div>
+										
+										<!-- BEGIN MarquesModificationSiteBit -->
+										<div class="portlet box $site[classcolor]" style="size : auto;">
+					                        <div class="portlet-title">
+					                            <div class="caption">
+					                                $multilangue[donnees] <i>$site[libelle]</i>
+					                            </div>
+					                            <div class="tools">
+					                                <a class="expand" href="javascript:;">
+					                                </a>					                                
+					                            </div>
+					                        </div>
+					                        <div class="portlet-body form" style="display:none;">															
+												<div class="form-body">													
+													<div class="form-group">
+														<label class="control-label col-md-1">$multilangue[libelle]</label>
+														<div class="col-md-11">																														
+															<input type="text" class="form-control" name="libelle$site[siteid]" value="$mqsite[libelle]"/>
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-1">$multilangue[description]</label>
+														<div class="col-md-11">
+															<textarea rows="8" name="description$site[siteid]" class="form-control editeur">$mqsite[description]</textarea>															
+														</div>
+													</div>													
+													<div class="form-group">
+														<label class="control-label col-md-1">META title</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="pagetitle$site[siteid]" class="form-control">$mqsite[pagetitle]</textarea>														
+														</div>
+													</div>												
+													<div class="form-group">
+														<label class="control-label col-md-1">META description</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="metadescription$site[siteid]" class="form-control">$mqsite[metadescription]</textarea>														
+														</div>
+													</div>																									
+													<div class="form-group">
+														<label class="control-label col-md-1">META keywords</label>
+														<div class="col-md-11">
+															<textarea rows="4" name="metakeywords$site[siteid]" class="form-control">$mqsite[metakeywords]</textarea>														
+														</div>
+													</div>																						
+												</div>													
+					                        </div>
+					                    </div>
+					                    <!-- END MarquesModificationSiteBit -->
+										
+										<div class="col-md-12 ta-center">
+											<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+											<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+										</div>
+										</form>
+									</div>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END MarquesModification -->	
+			
+			
+			<!-- BEGIN MarquesOrderArticles -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">							
+								<div class="tab-pane active" id="tab_0">
+									<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>										
+									<br><br>																		
+										<div class="portlet-body form">
+											<div class="table-responsive">
+                                            	<input type="hidden" id="marqueid" value="$marqueid">
+												<table id="tabarticles" class="table table-striped table-bordered table-marques table-hover">
+													<thead>
+														<tr>
+															<th class="ta-center">
+																$multilangue[image]
+															</th>
+															<th class="ta-center">
+																$multilangue[libelle]
+															</th>
+															<th class="ta-center">
+																$multilangue[prix]
+															</th>
+															<th class="ta-center">
+																$multilangue[prix_achat]
+															</th>
+															<th class="ta-center">
+																$multilangue[actions]
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!-- BEGIN MarquesOrderArticlesBit -->
+															<tr id="$article[artid]">
+																<td width="10%" class="highlight" style="vertical-align:middle">																
+																	$art_image																	
+																</td>
+																<td width="40%" style="vertical-align:middle">
+																	$article[libelle]
+																</td>
+																<td width="10%" class="ta-center" style="vertical-align:middle">
+																	$article[prix] $symboleMonetaire
+																</td>
+																<td width="10%" class="ta-center" style="vertical-align:middle">
+																	$article[prixachat] $symboleMonetaire
+																</td>
+																<td width="30%" class="ta-center" style="vertical-align:middle">
+																	<a href="produits.php?action=modifier&artid=$article[artid]" target="_blank" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips fs-24">
+																		<i class="fa fa-edit fs-24 font-grey-gallery"></i>
+																	</a>
+																	<a href="$urlarticle" target="_blank" data-original-title="$multilangue[voir]" data-placement="top" class="btn tooltips fs-24">
+																		<i class="fa fa-search fs-24 font-blue-steel"></i>
+																	</a>
+																	<a href="$urlarticleV2" target="_blank" data-original-title="$multilangue[voir] V2" data-placement="top" class="btn tooltips fs-24">
+																		<i class="fa fa-search fs-24 font-blue-steel"><font class="font-red fs-16 bold">2</font></i>
+																	</a>																																		
+																</td>
+															</tr>
+														<!-- END MarquesOrderArticlesBit -->												
+													</tbody>
+												</table>												
+											</div>																			
+										</div>																		
+																	
+									<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			<!-- END MarquesOrderArticles -->
+					
+			
+			<!-- FIN PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function(){
+		var ordreDepart;
+		$('#tabmarques > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row){
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=marques_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});	
+		
+		$('#tabarticles > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row){
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=marques_positionsarticle&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+					data += 'marqueid=' + $("#marqueid").val() + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});	
+
+	});
+</script>
+
+
+
+
+<!-- END MarquesIndex -->

@@ -1,0 +1,218 @@
+<!-- BEGIN Minimumachat_francoportIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+			<h3 class="page-title">
+			$multilangue[minimums_achat] $multilangue[et] $multilangue[franco_port]<small></small>
+			</h3>
+			<ul class="page-breadcrumb breadcrumb">						
+				<li>
+					<i class="fa fa-home"></i>
+					<a href="index.php">
+						$multilangue[accueil]
+					</a>
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>							
+					$multilangue[parametres]						
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a href="minimumachat_francoport.php">						
+						$multilangue[minimums_achat]	
+					</a>					
+				</li>
+				<!-- BEGIN Minimumachat_francoportNavigSupp -->
+				    <li>
+				    	<i class="fa fa-angle-right"></i>						    	                       
+				        $libNavigSupp						        
+				    </li>
+				<!-- END Minimumachat_francoportNavigSupp -->
+			</ul>
+			<!-- FIN PAGE TITLE & BREADCRUMB-->
+		</div>
+	</div>
+<!-- FIN PAGE HEADER-->
+
+<!-- DEBUT PAGE CONTENT-->
+
+<!-- BEGIN Minimumachat_francoportSuccess -->
+	<div class="alert alert-success alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteSuccess
+	</div>
+<!-- END Minimumachat_francoportSuccess -->
+
+<!-- BEGIN Minimumachat_francoportErreur -->
+	<div class="alert alert-danger alert-dismissable">
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteErreur
+	</div>
+<!-- END Minimumachat_francoportErreur -->
+			
+<!-- BEGIN Minimumachat_francoportFormBit -->
+	<form action="minimumachat_francoport.php" method="POST" name="formminachatfrancos">
+		<input type="hidden" name="action" value="modifier">
+		<div class="ta-center mb-20">
+			<button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button>		
+		</div>
+		
+		<!-- BEGIN Minimumachat_francoportSiteBit1 -->																														
+			<div class="col-md-12">
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<div class="portlet box $infosSite[classcolor]" style="" id="francoport">
+					<div class="portlet-title">	
+						<div class="caption" style="width:90%;">					
+							$multilangue[donnees] <i>$infosSite[libelle]</i>
+						</div>			
+						<div class="tools">
+							<a href="javascript:;" class="collapse">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						
+						<div class="table-scrollable">
+							<table id="" class="table table-striped table-bordered table-hover">
+								<thead>
+								<tr>										
+									<th class="ta-center" colspan="2">
+										$multilangue[pays]
+									</th>
+									<th class="ta-center">
+										$multilangue[minimum_achat]
+									</th>	
+									<th class="ta-center">
+										$multilangue[frais_port_offerts] <i class="fa fa-question-circle fs-20 font-blue info pointer" data-content="Si vous saisissez 0, les frais de port seront toujours offerts<br>Pour annuler le franco de port, laisser le champ vide." data-placement="bottom" data-trigger="click"></i>
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+									<!-- BEGIN Minimumachat_francoportSitePaysBit1 -->
+									<tr id="$infosPage[institutionnelid]">
+										<td class="ta-center va-middle">
+											<img src='assets/img/flags/$libelleTagPays.png'>
+										</td>						
+										<td class="ta-center va-middle">
+											$infosPays[libelle]
+										</td>
+										<td class="ta-center">
+											<input type ="text" name="minimum[$infosPays[paysid]]" id="minimum_$infosPays[paysid]" value="$infosPays[minimumachat]" class="form-control" style="text-align:right; display:inline; width:70px;"> $devise_actuel
+										</td>
+										<td class="ta-center">											
+											<table class="ta-center" style="width:30%; text-align:center; border:0; padding:0; margin:auto;">
+												<tr>
+													<td>A partir de &nbsp&nbsp</td>
+													<td><input type ="text" name="gratuit[$infosPays[paysid]]" value="$montantgratuit" class="form-control" style="text-align : right; min-width:50px; margin : auto; display : inline;"></td>
+													<td>&nbsp&nbsp $devise_actuel d'achat.</td>
+												</tr>
+											</table>									
+										</td>						
+									</tr>
+									<!-- END Minimumachat_francoportSitePaysBit1 -->
+								</tbody>
+							</table>
+						</div>
+					$test		
+					</div>
+				</div>
+				<!-- FIN SAMPLE TABLE PORTLET-->
+			</div>
+		<!-- END Minimumachat_francoportSiteBit1 -->
+		
+		<!-- BEGIN Minimumachat_francoportMLBit -->			
+			<!-- BEGIN Minimumachat_francoportMLSiteBit -->																														
+				<div class="col-md-12">
+					<!-- DEBUT SAMPLE TABLE PORTLET-->
+					<div class="portlet box $infosSite[classcolor]" style="">
+						<div class="portlet-title">	
+							<div class="caption" style="width:90%;">					
+								$multilangue[donnees] <i>$infosSite[libelle]</i>
+							</div>			
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-scrollable">
+								<table id="" class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>										
+											<th class="ta-center" colspan="2">
+												$multilangue[pays]
+											</th>
+											<th class="ta-center">
+												$multilangue[minimum_achat]
+											</th>							
+											<th class="ta-center">
+												$multilangue[mode_de_livraison]
+											</th>
+											<th class="ta-center">
+												$multilangue[frais_port_offerts] <i class="fa fa-question-circle fs-20 font-blue info pointer" data-content="Si vous saisissez 0, les frais de port seront toujours offerts<br>Pour annuler le franco de port, laisser le champ vide." data-placement="bottom" data-trigger="click"></i>
+											</th>									
+										</tr>
+									</thead>
+									<tbody>
+										<!-- BEGIN Minimumachat_francoportMLSitePaysBit -->
+										<tr id="$infosPage[institutionnelid]">
+											<td class="ta-center va-middle">
+												<img src='assets/img/flags/$libelleTagPays.png'>
+											</td>						
+											<td class="ta-center va-middle">
+												$infosPays[libelle]
+											</td>
+											<td class="ta-center">
+												<input type ="text" name="minimum[$infosPays[paysid]]" id="minimum_$infosPays[paysid]" value="$infosPays[minimumachat]" class="form-control" style="text-align:right; display:inline; width:70px;"> $devise_actuel
+											</td>
+											<td>
+												<table>
+													<!-- BEGIN Minimumachat_francoportMLSitePaysLibelleLivraisonBit -->
+													<tr>
+														<td height="40">
+															<label class="" for="gratuit_$infosModelivraison[modelivraisonid]_$infosPays[paysid]">$infosModelivraison[nom]</label>
+														</td>
+													</tr>
+													<!-- END Minimumachat_francoportMLSitePaysLibelleLivraisonBit -->
+												</table>
+											</td>
+											<td class="ta-center">
+												<table style="margin:auto;">
+													<!-- BEGIN Minimumachat_francoportMLSitePaysLivraisonBit -->
+													<tr>	
+														<td height="40" class="ta-center">à partir de <input type ="text" name="gratuit[$infosPays[paysid]][$infosModelivraison[modelivraisonid]]" id="gratuit_$infosModelivraison[modelivraisonid]_$infosPays[paysid]" value="$montantgratuitmodelivraison[montantgratuit]" class="form-control" style="text-align : right; width:70px; margin : auto; display : inline;"> $devise_actuel d'achat</td>		
+													</tr>
+													<!-- END Minimumachat_francoportMLSitePaysLivraisonBit -->
+												</table>
+											</td>								
+																	
+											
+										
+										<!-- END Minimumachat_francoportMLSitePaysBit -->
+									</tbody>
+								</table>
+							</div>						
+						</div>
+					</div>
+					<!-- FIN SAMPLE TABLE PORTLET-->
+				</div>
+				<br/>
+			<!-- END Minimumachat_francoportMLSiteBit -->		
+		<!-- END Minimumachat_francoportMLBit -->
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+</form>
+<!-- END Minimumachat_francoportFormBit -->
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	$(document).ready(function() {	
+		$('.info').popover({html: true, container: "body"});
+	});
+	
+</script>
+<!-- END Minimumachat_francoportIndex -->

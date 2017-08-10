@@ -1,0 +1,416 @@
+<!-- BEGIN Ip_bloqueesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[ip_bloquees]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[utilisationavancee]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[ip_bloquees]
+						</li>
+						<!-- BEGIN Ip_bloqueesNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Ip_bloqueesNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<!-- BEGIN Ip_bloqueesSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Ip_bloqueesSuccess -->
+			
+			<!-- BEGIN Ip_bloqueesErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Ip_bloqueesErreur -->
+			
+			<!-- BEGIN Ip_bloqueesSuccessFixe -->
+				<div class="alert alert-success">
+					$texteSuccess
+				</div>
+			<!-- END Ip_bloqueesSuccessFixe -->
+			
+			<!-- BEGIN Ip_bloqueesErreurFixe -->
+				<div class="alert alert-danger">
+					$texteErreur
+				</div>
+			<!-- END Ip_bloqueesErreurFixe -->
+			
+			<!-- BEGIN Ip_bloqueesListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable tabbable-custom boxless tabbable-reversed">						
+							<div class="tab-content">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-ip table-hover">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[ip_debut]
+												</th>
+												<th class="ta-center">
+													$multilangue[ip_fin]
+												</th>
+												<th class="ta-center">
+													$multilangue[pays]
+												</th>
+												<th class="ta-center">
+													$multilangue[action]
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- BEGIN Ip_bloqueesListeBit -->
+											<tr id="$ip[ipid]">
+												<td class="ta-center">
+													$ipdeb
+												</td>
+												<td class="ta-center">
+													$ipfin
+												</td>
+												<td class="ta-center">
+													$pays[libelle]
+												</td>
+												<td class="ta-center">
+													<a href="ip_bloquees.php?action=supprimer&ipid=$ip[ipid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+														<i class="fa fa-trash-o fs-18 font-red"></i>
+													</a>
+												</td>
+											</tr>
+											<!-- END Ip_bloqueesListeBit -->												
+										</tbody>
+									</table>												
+								</div>	
+								<div class="col-md-12 ta-center">
+									<form action="$_SERVER[PHP_SELF]" name="formModifIp" method="post" enctype="multipart/form-data" class="form-inline">
+										<input type="hidden" name="action" value="modifier">
+										<div class="form-group">
+											<label>$multilangue[bloquer_ip]&nbsp;</label>
+											<input type="text" class="form-control input-inline ta-center ip" name="iponly">
+										</div>
+										<div class="form-group">
+											<label>$multilangue[ou] $multilangue[de]&nbsp;</label>
+											<input type="text" class="form-control input-inline ta-center ip" name="ipdeb">
+										</div>
+										<div class="form-group">
+											<label>$multilangue[a]&nbsp;</label>
+											<input type="text" class="form-control input-inline ta-center ip" name="ipfin">
+										</div>
+										<button type="submit" class="btn green"><i class="fa fa-plus"></i> $multilangue[ajouter]</button>
+									</form>
+								</div>																
+							</div>
+						</div>							
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet box light-grey">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[blocage_ip_pays]
+								</div>
+								<div class="tools">
+									<a class="collapse" href="javascript:;">
+									</a>
+								</div>																		
+							</div>
+							<div class="portlet-body">
+								<div class="col-md-12 ta-center mb-20">
+									<div class="text-info mb-20">$multilangue[choisissez_pays_bloquer]</div>
+									<div class="btn blue afrique">$multilangue[afrique]</div>
+									<div class="btn blue europe">$multilangue[europe]</div>
+									<div class="btn blue francophone">$multilangue[francophone]</div>
+									<div class="btn blue anglophone">$multilangue[anglophone]</div>
+									<div class="btn blue france">DOM/TOM</div>
+									<div class="btn blue tous">$multilangue[tous]</div>
+									<div class="btn blue aucun">$multilangue[aucun]</div>
+								</div>
+								<!-- BEGIN Ip_bloqueesListePaysBit -->																										
+								<div class="col-md-4 $text">
+	          						<label>
+	          							<input type="checkbox" name="pays[$pays[paysid]]" value="$pays[paysid]" data-value="$pays[afrique]_$pays[europe]_$pays[francophone]_$pays[anglophone]_$pays[domtom]" $checked>
+	          							<img src="$img">&nbsp;$pays[libelle]
+	          						</label> 
+	                             </div>
+								<!-- END Ip_bloqueesListePaysBit -->
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- END Ip_bloqueesListe -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	$(document).ready(function() {
+		$('.table-ip').dataTable( {
+	        "order": [[ 0, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}
+	    });
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		$('.ip').ipAddress();
+		$('.blue').click(function () {
+			var cases_cochees = "";
+			switch($(this).attr("class").split(' ')[2]) {				
+				case "afrique":
+					$('input[type="checkbox"]').each(function () {
+						if ($(this).data("value").split('_')[0] == "1" && !$(this).prop("checked")){
+							$(this).prop("checked",true);
+							$(this).closest("span").addClass("checked");
+							$(this).closest("div").parent().parent().addClass("text-danger");
+						}else if($(this).prop("checked")){							
+							/*$(this).prop("checked",false);
+							$(this).closest("span").removeClass("checked");		
+							$(this).closest("div").parent().parent().removeClass("text-danger");*/					
+						}
+						if ($(this).data("value").split('_')[0] == "1"){
+							cases_cochees += $(this).val()+"||";
+						}
+							
+					});
+					var data = 'action=pays&';
+		    		data += 'action2=select&';
+		    		data += 'cases_cochees='+cases_cochees+'&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					break;
+				case "europe":
+					$('input[type="checkbox"]').each(function () {
+						if ($(this).data("value").split('_')[1] == "1" && !$(this).prop("checked")){
+							$(this).prop("checked",true);
+							$(this).closest("span").addClass("checked");
+							$(this).closest("div").parent().parent().addClass("text-danger");
+						}else if($(this).prop("checked")){							
+							/*$(this).prop("checked",false);
+							$(this).closest("span").removeClass("checked");		
+							$(this).closest("div").parent().parent().removeClass("text-danger");*/					
+						}		
+						if ($(this).data("value").split('_')[1] == "1"){
+							cases_cochees += $(this).val()+"||";
+						}	
+					});
+					var data = 'action=pays&';
+		    		data += 'action2=select&';
+		    		data += 'cases_cochees='+cases_cochees+'&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					break;
+				case "francophone":
+					$('input[type="checkbox"]').each(function () {
+						if ($(this).data("value").split('_')[2] == "1" && !$(this).prop("checked")){
+							$(this).prop("checked",true);
+							$(this).closest("span").addClass("checked");
+							$(this).closest("div").parent().parent().addClass("text-danger");
+						}else if($(this).prop("checked")){							
+							/*$(this).prop("checked",false);
+							$(this).closest("span").removeClass("checked");		
+							$(this).closest("div").parent().parent().removeClass("text-danger");*/					
+						}
+						if ($(this).data("value").split('_')[2] == "1"){
+							cases_cochees += $(this).val()+"||";	
+						}
+					});
+					var data = 'action=pays&';
+		    		data += 'action2=select&';
+		    		data += 'cases_cochees='+cases_cochees+'&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					break;
+				case "anglophone":
+					$('input[type="checkbox"]').each(function () {
+						if ($(this).data("value").split('_')[3] == "1" && !$(this).prop("checked")){
+							$(this).prop("checked",true);
+							$(this).closest("span").addClass("checked");
+							$(this).closest("div").parent().parent().addClass("text-danger");
+						}else if($(this).prop("checked")){							
+							/*$(this).prop("checked",false);
+							$(this).closest("span").removeClass("checked");		
+							$(this).closest("div").parent().parent().removeClass("text-danger");	*/				
+						}	
+						if ($(this).data("value").split('_')[3] == "1"){								
+							cases_cochees += $(this).val()+"||";					
+						}	
+					});
+					var data = 'action=pays&';
+		    		data += 'action2=select&';
+		    		data += 'cases_cochees='+cases_cochees+'&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					break;
+				case "france":
+					$('input[type="checkbox"]').each(function () {
+						if ($(this).data("value").split('_')[4] == "1" && !$(this).prop("checked")){
+							$(this).prop("checked",true);
+							$(this).closest("span").addClass("checked");
+							$(this).closest("div").parent().parent().addClass("text-danger");
+						}else if($(this).prop("checked")){							
+						/*	$(this).prop("checked",false);
+							$(this).closest("span").removeClass("checked");		
+							$(this).closest("div").parent().parent().removeClass("text-danger");*/					
+						}
+						if ($(this).data("value").split('_')[4] == "1"){
+							cases_cochees += $(this).val()+"||";							
+						}
+					});
+					var data = 'action=pays&';
+		    		data += 'action2=select&';
+		    		data += 'cases_cochees='+cases_cochees+'&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					
+					
+					break;
+				case "tous":
+					$('input[type="checkbox"]').prop("checked", true);
+					$('input[type="checkbox"]').closest("span").addClass("checked");
+					$('input[type="checkbox"]').closest("div").parent().parent().addClass("text-danger");
+					var data = 'action=pays&';
+		    		data += 'action2=tous&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    		break;
+				case "aucun":
+					$('input[type="checkbox"]').prop("checked", false);
+					$('input[type="checkbox"]').closest("span").removeClass("checked");
+					$('input[type="checkbox"]').closest("div").parent().parent().removeClass("text-danger");
+					var data = 'action=pays&';
+		    		data += 'action2=aucun&';
+		    		$.ajax({
+						url : 'ip_bloquees_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+					break;
+			}
+		});
+		$('input[type="checkbox"]').click(function () {
+			var data = 'action=pays&';
+    		data += 'paysid=' + $(this).val() + '&';
+    		$.ajax({
+				url : 'ip_bloquees_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					if ($('input[type="checkbox"][value="' + code_html + '"]').prop("checked"))
+						$('input[type="checkbox"][value="' + code_html + '"]').closest("div").parent().parent().addClass("text-danger");
+					else
+						$('input[type="checkbox"][value="' + code_html + '"]').closest("div").parent().parent().removeClass("text-danger");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);
+				}
+			});
+		});
+	});
+</script>
+<!-- END Ip_bloqueesIndex -->

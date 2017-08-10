@@ -1,0 +1,927 @@
+<!-- BEGIN Recherche_globaleIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[recherce_globale]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>						
+						<li>
+							<a href="instit.php">						
+							$multilangue[recherce_globale]	
+							</a>					
+						</li>
+						<!-- BEGIN Recherche_globaleNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Recherche_globaleNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+	
+	<!-- BEGIN Recherche_globaleErreur -->
+		<div class="alert alert-danger alert-dismissable" >
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur
+		</div>
+	<!-- END Recherche_globaleErreur -->
+	<!-- BEGIN Recherche_globaleArticle -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box red-sunglo">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-cube"></i>$multilangue[articles]  :  $nb_answer_articles $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;" >
+					<div class="">
+						<table class="table table-hover" id="tabrecherchearticles">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>
+							<th>
+								$multilangue[legende]
+							</th>
+							<th>
+								 $multilangue[titre2]
+							</th>
+							<th>
+								 artcode
+							</th>
+							<th>
+								 $multilangue[reference_fabricant]
+							</th>
+							<th>
+								 Type
+							</th>
+							<th>
+								 Site
+							</th>
+							<th>
+								$multilangue[actions]
+							</th>
+							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleArticleBit -->
+						<tr>
+							<td>
+								 $req_art[artid]
+							</td>
+							<td>
+								$libelle
+							</td>
+							<td>
+								$legende
+							</td>
+							<td>
+								$titre2
+							</td>
+							<td>
+								$artcode
+							</td>
+							<td>
+								 $reference_fabricant
+							</td>
+							<td>
+								 $typearticle
+							</td>	
+							<td>
+								 $siteid[libelle]
+							</td>	
+							<td class="">
+								<a href="produits.php?action=modifier&artid=$req_art[artid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+								<i class="fa fa-copy fs-18 font-blue"></i></a>
+							</td>						
+						</tr>
+						<!-- END Recherche_globaleArticleBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleArticle -->
+	
+	<!-- BEGIN Recherche_globaleCategorie -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box green-meadow">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-cubes"></i>$multilangue[categories] :  $nb_answer_categories $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;" >
+					<div class="">
+						<table class="table table-hover" id="tabrecherchecategories">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>							
+							<th>
+								 Site
+							</th>
+							<th class="ta-center">
+								$multilangue[actions]
+							</th>
+							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleCategorieBit -->
+						<tr>
+							<td>
+								 $req_cat[catid]
+							</td>
+							<td>
+								$libelle
+							</td>					
+								
+							<td>
+								 $siteid[libelle]
+							</td>
+							<td class="ta-center">
+								<a href="categorie.php?action=modifier&catid=$req_cat[catid]" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+								<i class="fa fa-edit fs-18 font-blue"></i>
+								</a>
+							</td>							
+						</tr>
+						<!-- END Recherche_globaleCategorieBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleCategorie -->
+	
+	<!-- BEGIN Recherche_globaleInstit -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box grey-cascade">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-file-text"></i>$multilangue[pages_instit] :  $nb_answer_instits $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;">
+					<div class="">
+						<table class="table table-hover" id="tabrecherchepagesinstits">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>							
+							<th>
+								 Site
+							</th>
+							<th class='ta-center'>
+								$multilangue[actions]
+							</th>
+							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleInstitBit -->
+						<tr>
+							<td>
+								 $req_instit[institutionnelid]
+							</td>
+							<td>
+								$libelle
+							</td>											
+							<td>
+								 $siteid[libelle]
+							</td>	
+							<td class="ta-center">
+								<a href="$urlPage" target="_blank" data-original-title="Afficher" data-placement="top" class="btn tooltips">
+									<i style="color : black;" class="fa fa-search fs-18"></i>
+								</a>
+								<a href="instit.php?action=editpage&institutionnelid=$req_instit[institutionnelid]&siteid2=$siteid" data-original-title="Modifier" data-placement="top" class="btn tooltips">
+									<i class="fa fa-pencil-square-o fs-18"></i>
+								</a>	
+							</td>						
+						</tr>
+						<!-- END Recherche_globaleInstitBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleInstit -->
+	
+	<!-- BEGIN Recherche_globaleMarque -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box blue-hoki">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-tags"></i>$multilangue[marques] :  $nb_answer_marques $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;" >
+					<div class="">
+						<table class="table table-hover" id="tabrecherchemarques">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>
+							<th class="ta-center">
+								$multilangue[description]
+							</th>					
+							<th>
+								 Site
+							</th>
+							<th class="ta-center">
+								$multilangue[actions]
+							</th>
+							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleMarqueBit -->
+						<tr>
+							<td>
+								 $req_marque[marqueid]
+							</td>
+							<td>
+								$libelle
+							</td>
+							<td>
+								$req_marque[description]
+							</td>							
+							<td>
+								 $siteid[libelle]
+							</td>	
+							<td class="ta-center">
+								<a href="marques.php?action=modifier&marqueid=$req_marque[marqueid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+									<i class="fa fa-edit fs-18 font-blue"></i>
+								</a>
+								<a href="marques.php?action=ordreArticles&marqueid=$req_marque[marqueid]" data-original-title="$multilangue[liste_articles]" data-placement="top" class="btn tooltips">
+									<i class="fa fa-bars fs-18 font-purple"></i>
+								</a>
+							</td>						
+						</tr>
+						<!-- END Recherche_globaleMarqueBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleMarque -->
+	
+	<!-- BEGIN Recherche_globaleFournisseur -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box red-sunglo">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-truck"></i>$multilangue[fournisseurs] :  $nb_answer_fournisseurs $multilangue[resultat_s]
+					</div> 
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;">
+					
+						<table class="table table-hover" id="tabrecherchefournisseurs">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>
+							<th>
+								$multilangue[nom]
+							</th>					
+							<th>
+								$multilangue[prenom]
+							</th>
+							<th>
+								$multilangue[email]
+							</th>
+							<th>
+								$multilangue[adresse]
+							</th>
+							<th>
+								$multilangue[code_postal]
+							</th>
+							<th>
+								$multilangue[ville]
+							</th>
+							<th class="ta-center"	>
+								$multilangue[actions]
+							</th>
+							
+							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleFournisseurBit -->
+						<tr>
+							<td>
+								 $req_fournisseur[fournisseurid]
+							</td>
+							<td>
+								$libelle
+							</td>
+							<td>
+								 $nom
+							</td>	
+							<td>
+								 $prenom
+							</td>	
+							<td>
+								 $mail
+							</td>	
+							<td>
+								$adresse
+							</td>							
+							<td>
+								 $codepostal
+							</td>
+							<td>
+								 $ville
+							</td>	
+							<td class="ta-center">
+								<a href="fournisseurs.php?action=modifier&fournisseurid=$req_fournisseur[fournisseurid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+									<i class="fa fa-edit fs-18 font-blue"></i>
+								</a>
+								<a href="inventaire.php?fournisseurid=$req_fournisseur[fournisseurid]" data-original-title="$multilangue[recap_stocks]" data-placement="top" class="btn tooltips">
+									<i class="fa fa-bars fs-18 font-green"></i>
+								</a>
+							</td>							
+													
+						</tr>
+						<!-- END Recherche_globaleFournisseurBit -->						
+						</tbody>
+						</table>
+					
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleFournisseur -->
+	
+	<!-- BEGIN Recherche_globaleCaracteristique -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box yellow-casablanca">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-cogs"></i>$multilangue[caracteristiques] :  $nb_answer_caracteristiques $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;" >
+					<div class="">
+						<table class="table table-hover" id="tabrecherchecaracteristiques">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[libelle]
+							</th>
+							<th>
+								$multilangue[site]
+							</th>	
+							<th class="ta-center">
+								multilangue[actions]
+							</th>					
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleCaracteristiqueBit -->
+						<tr>
+							<td>
+								 $req_caracteristique[caractid]
+							</td>
+							<td>
+								 $libelle
+							</td>
+							<td>
+								 $siteid[libelle]
+							</td>	
+							<td class="ta-center">
+								<a href="caracteristiques.php?action=modifier&caractid=$req_caracteristique[caractid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+									<i class="fa fa-edit fs-18 font-blue"></i>
+								</a>
+							</td>					
+						</tr>
+						<!-- END Recherche_globaleCaracteristiqueBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleCaracteristique -->
+	
+	<!-- BEGIN Recherche_globaleClient -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box grey-cascade">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>$multilangue[clients] :  $nb_answer_clients $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body form" style="display:none;">
+						<table id="tabrechercheclients" class="table table-hover">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[email]
+							</th>
+							<th>
+								$multilangue[nom]
+							</th>	
+							<th>
+								$multilangue[prenom]
+							</th>	
+							<th>
+								$multilangue[adresse]
+							</th>			
+							<th>
+								$multilangue[code_postal]
+							</th>	
+							<th>
+								$multilangue[ville]
+							</th>	
+							<th>
+								$multilangue[raison_sociale]
+							</th>
+							<th>
+								$multilangue[actions]
+							</th>					
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleClientBit -->
+						<tr>
+							<td>
+								 $req_client[userid]
+							</td>
+							<td>
+								 $mail
+							</td>
+							<td>
+								 $name
+							</td>	
+							<td>
+								 $prenom
+							</td>	
+							<td>
+								 $adresse
+							</td>		
+							<td>
+								 $codepostal
+							</td>
+							<td>
+								 $ville
+							</td>					
+							<td>
+								 $raisonsociale
+							</td>	
+							<td class="ta-center">
+	                            <a href="$lien_connexion" target="_blank" data-original-title="$multilangue[connexion_compte]" data-placement="top" class="tooltips"><i class="fa fa-key" style="color : #D1B110;"></i></a> 
+	                                 &nbsp; &nbsp; <a href="clients.php?action=editer&user=$req_client[userid]" data-original-title="$multilangue[modifier]" data-placement="top" class="tooltips"><i class="fa fa-pencil-square-o"></i></a>
+	                            </td>	
+						</tr>
+						<!-- END Recherche_globaleClientBit -->						
+						</tbody>
+						</table>
+				</div>
+			</div>			
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleClient -->
+	
+	<!-- BEGIN Recherche_globaleAdminUtilisateur -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box blue-hoki">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>$multilangue[utilisateurs_admin] :  $nb_answer_adminUsers $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;">
+					<div class="">
+						<table class="table table-hover" id="tabrechercheuseradmin">
+						<thead>
+						<tr>
+							<th>
+								 $multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[nom]
+							</th>							
+						</tr>
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleAdminUtilisateurBit -->
+						<tr>
+							<td>
+								 $req_adminUser[userid]
+							</td>
+							
+							<td>
+								 $username
+							</td>								
+						</tr>
+						<!-- END Recherche_globaleAdminUtilisateurBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleAdminUtilisateur -->
+	
+	<!-- BEGIN Recherche_globaleCode_reduction -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box yellow-casablanca">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-ticket"></i>$multilangue[codes_reduction] :  $nb_answer_codesReduction $multilangue[resultat_s]
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" style="display:none;" >
+					<div class="">
+						<table class="table table-hover" id="tabrecherchecodesreduction">
+						<thead>
+						<tr>
+							<th>
+								$multilangue[identifiant]
+							</th>
+							<th>
+								$multilangue[valeur]
+							</th>	
+							<th>
+								$multilangue[code]
+							</th>									
+							<th>
+								$multilangue[nom]
+							</th>	
+							<th>
+								$multilangue[prenom]
+							</th>	
+							<th class='ta-center'>
+								$multilangue[actions]
+							</th>					
+						</tr>
+						
+						</thead>
+						<tbody>
+						<!-- BEGIN Recherche_globaleCode_reductionBit -->
+						<tr>
+							<td>
+								 $req_codeReduction[cadeauid]
+							</td>
+							
+							<td>
+								 $valeurcadeau
+							</td>
+							<td>
+								 $code
+							</td>
+							<td>
+								 $nom
+							</td>
+							<td>
+								 $prenom
+							</td>	
+							<td class="ta-center"> 
+								<a href="codes_reduction.php?action=voirutilisations&cadeauid=$req_codeReduction[cadeauid]" data-original-title="Voir" data-placement="top" class="btn tooltips">
+								<i class="fa fa-align-left fs-18 font-blue"></i>
+								</a>
+							</td>					
+						</tr>
+						<!-- END Recherche_globaleCode_reductionBit -->						
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>	
+	</div>
+	<!-- END Recherche_globaleCode_reduction -->
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+</script>
+<script type="text/javascript">
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+
+		$('#tabrechercheclients').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchearticles').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchecategories').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchefournisseurs').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchecodesreduction').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrechercheuseradmin').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchemarques').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchecaracteristiques').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		$('#tabrecherchepagesinstits').dataTable( {
+	        "order": [[ 1, "desc" ]],
+			"aLengthMenu": [[10, 20, 40, 60, -1], [10, 20, 40, 60, "$multilangue[tous_les]"]],
+			"language": {
+				"search": "$multilangue[recherche] : ",
+				"paginate": {
+					"first": "$multilangue[premiere_page]",
+					"last": "$multilangue[derniere_page]",
+					"next": "$multilangue[page_suivante]",
+					"previous": "$multilangue[page_precedente]"
+				},
+				"emptyTable": "$multilangue[aucune_donnee_dispo_table]",
+				"info": "$multilangue[affichage_resultats_de_a]",
+				"infoEmpty": "$multilangue[aucun_resultat]",
+				"infoFiltered": "$multilangue[sur_max_]",
+				"lengthMenu": "$multilangue[afficher_menu_resultats]",
+				"sZeroRecords": "$multilangue[aucun_resultat_trouve]"
+			}	        
+	    });
+		
+		
+		
+		$('.dataTables_filter input').addClass("form-control input-small input-inline");
+		$('.dataTables_length select').addClass("form-control input-small");
+		$('.dataTables_length').css('margin', '10px');
+		$('.dataTables_filter').css('margin', '10px');
+		$('.dataTables_info').css('margin', '10px');
+		$('.dataTables_paginate').css('margin', '10px');
+	
+    });	
+</script>
+
+
+
+<!-- END Recherche_globaleIndex -->

@@ -1,0 +1,196 @@
+<!-- BEGIN Gestion_ongletsIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							$multilangue[onglets]<small></small>
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">						
+							<li>
+								<i class="fa fa-home"></i>
+								<a href="index.php">
+									$multilangue[accueil]
+								</a>
+								<i class="fa fa-angle-right"></i>
+							</li>
+							<li>							
+								$multilangue[catalogue]	
+								<i class="fa fa-angle-right"></i>						    	                       
+							</li>
+						    <li>
+						        $multilangue[selection_onglets]					        
+						    </li>
+						</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+		<!-- FIN PAGE HEADER-->
+		
+		<!-- DEBUT PAGE CONTENT -->	
+			<div class="alert alert-info alert-dismissable ta-center">
+						$multilangue[infos_onglets] $nb_onglets
+			</div>
+			<div class="alert alert-danger alert-dismissable" style="display:none">
+				<button aria-hidden="true" onclick="$('.alert-danger').hide();" class="close" type="button"></button>
+				$multilangue[erreur_nb_onglets] $nb_onglets 
+			</div>
+			<input type="hidden" name="catidOnglet">
+			<input type="hidden" name="ordre" value="" id="ordre">
+			<a href="articles_menu.php" data-original-title="articles_menu" class="btn green right mb-20">
+				$multilangue[articles_menu] &nbsp;
+				<i class="fa fa-edit"></i>
+			</a>
+			<form action="$_SERVER[PHP_SELF]" method="post" id="form_site_onglet" name="form_site_onglet" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+				<div class="form-group" style="border:none;">
+					<label class="control-label col-md-5">$multilangue[afficher_onglets_site]</label>
+					<div class="col-md-3" style="border:none;">		
+						<select class="form-control select-site" name="siteSelect">
+				       		<!-- BEGIN Gestion_ongletsListeSiteBit -->
+				        		<option value="$site[siteid]" $selected_site>$site[libelle]</option>														
+				        	<!-- END Gestion_ongletsListeSiteBit -->
+						</select>
+						<input type="hidden" class="siteid" value="$idsite" name="idsite">
+					</div>
+				</div>
+			</form>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div class="portlet box red">
+			            	<div class="portlet-title">
+			                	<div class="caption" >
+			                    	<i class="fa  fa-check-square-o"></i>$multilangue[selection_onglets]
+			                    </div>
+			                </div>                        
+				            <div class="portlet-body">  
+								<div class="jstreecateg" id="jstreecateg"></div>
+								<div class="clear"></div>
+							</div>							
+						</div>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			
+			<div class="portlet box red">
+				<div class="portlet-title">
+                	<div class="caption" >
+                    	<i class="fa fa-list-ol "></i>$multilangue[ordre_affichage]
+                    </div>
+                </div>
+                <div class="portlet-body">       
+					<div class="boites">
+						<ul id="boxes"></ul>
+						<div class="clear"></div>			
+					</div>
+				</div>
+			</div>
+	<!-- FIN PAGE CONTENT-->
+<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="includes/javascript/dragsort.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	
+	function saveOrder() {							
+		var serialStr = "";
+		$('.box2').each(function(i, elm){serialStr += (i > 0 ? "|" : "") + this.id;}); 
+		$('#ordre').val(serialStr);	
+		var data = "action=org&";
+		data += "ordre="+$('#ordre').val()+"&";
+		data += "idsite="+$('.siteid').val();
+		$.ajax({
+			url : 'gestion_onglets_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+				success : function(code_html, statut){
+					var elm = code_html.split('|');
+					for(var i=0;i<elm.length-1;i++){
+						var li = elm[i].split('_');
+						$('#'+li[0]).attr("data-value", li[1]);
+					}
+			},
+			error : function(resultat, statut, erreur){ 
+				alert(erreur);	
+			}
+		});
+	};
+	
+	$(document).ready(function() {
+		$('#jstreecateg').jstree({
+			'plugins' : ['checkbox', 'wholerow'],
+			'checkbox': {"three_state" : false},
+			'core' : {
+				'check_callback' : true,
+				'data': {
+					'url': 'gestion_onglets_ajax.php?action=jstreecateg&idsite='+$('.siteid').val()
+	         	}
+	         },
+		});
+		
+		$('#jstreecateg').bind("ready.jstree", function (event, data) {
+			var checkedNodes = $(this).jstree("get_checked");
+			$('#boxes').html("");
+	       	var i, id = [], texte = [];
+	       	for(i = 0; i < checkedNodes.length; i++) {
+	       		id[$('#'+checkedNodes[i]).attr("data-value")] = checkedNodes[i];
+				texte[$('#'+checkedNodes[i]).attr("data-value")] = $('#'+checkedNodes[i]).text();
+	       	}
+	       	for(i=1;i<id.length && i<texte.length;i++){
+				$('#boxes').html($('#boxes').html()+"<li class='box2' id='onglet"+id[i]+"'><div>"+texte[i]+"</div><img src='http://$host/catb-a-"+id[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+				$("#boxes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+			}
+        });
+		
+		$("#jstreecateg").bind("deselect_node.jstree", function(evt, data){
+            $('#onglet'+data.node.id).remove();
+            var checkedNodes = $(this).jstree("get_checked");
+            for(i=0; i < checkedNodes.length; i++) {
+            	if($('#'+checkedNodes[i]).attr("data-value") > $('#'+data.node.id).attr("data-value")){
+            		$('#'+checkedNodes[i]).attr("data-value",$('#'+checkedNodes[i]).attr("data-value")-1);
+            		$('#'+checkedNodes[i]).data("value",$('#'+checkedNodes[i]).attr("data-value")-1);            		
+            	}
+            }
+            $('#'+data.node.id).attr("data-value", 0);
+            saveOrder();
+        });
+		
+				
+		$("#jstreecateg").bind("select_node.jstree", function(evt, data){
+			var checkedNodes = $(this).jstree("get_checked");
+			if(checkedNodes.length <= $nb_onglets){
+				$('#boxes').html("");
+				$('#'+data.node.id).attr("data-value",  checkedNodes.length);
+				$('#'+data.node.id).data("value",  checkedNodes.length);
+		       	var i, id = [], texte = [];
+		       	for(i = 0; i < checkedNodes.length; i++) {
+		       		id[$('#'+checkedNodes[i]).attr("data-value")] = checkedNodes[i];
+					texte[$('#'+checkedNodes[i]).attr("data-value")] = $('#'+checkedNodes[i]).text();
+		       	}
+		       	for(i=1;i<id.length && i<texte.length;i++){
+					$('#boxes').html($('#boxes').html()+"<li class='box2' id='onglet"+id[i]+"'><div>"+texte[i]+"</div><img src='http://$host/catb-a-"+id[i]+".jpg' style='max-width:140px;max-height:100px;'></li>");
+					$("#boxes").dragsort({ dragSelector: "li", dragBetween: true, dragEnd:saveOrder, placeHolderTemplate: "" });
+				}
+		       	saveOrder();
+			}else{
+				$('#jstreecateg').jstree().deselect_node(data.node, true);
+				$('.alert-danger').show();
+			}
+       });
+      	
+			
+		$('.select-site').on('change', function () {
+			window.location="gestion_onglets.php?idsite="+$(this).val();
+			
+		});
+	});
+</script>
+<!-- END Gestion_ongletsIndex -->

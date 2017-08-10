@@ -1,0 +1,174 @@
+<!-- BEGIN Relance_anniversaireIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[relance_anniv]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[marketing]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="instit.php">						
+								$multilangue[relance_anniv]	
+							</a>					
+						</li>
+						<!-- BEGIN Relance_anniversaireNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Relance_anniversaireNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+			<!-- BEGIN Relance_anniversaireSuccess -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END Relance_anniversaireSuccess -->
+			
+			<!-- BEGIN Relance_anniversaireErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Relance_anniversaireErreur -->
+
+			
+			
+			
+<!-- BEGIN Relance_anniversaireFormrelancesiteBit -->	
+<form name="editparams" action="relance_anniversaire.php" method="POST" class="form-horizontal form-bordered form-row-stripped">
+	<input type ="hidden" name="action" value="doeditparam">
+	<input type ="hidden" name="" value="">	
+	<div class="boutons_liste">
+   		<a style=" margin-left : 1%; display : inline-block;" href="/admin2/encarts_perso.php" class="btn grey-silver"><i style="margin-right : 6%" class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+   		<Button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+	</div>		
+	<div class="row" >
+		<div class="col-md-12" >		
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+			<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<div class="portlet box yellow-casablanca" style="">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-bars fs-18"></i>$multilangue[parametres]
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">							
+							<div class="form-group">
+								<label for="" class="control-label col-md-4"> $multilangue[envoi_code_reduction]</label>
+								<div class="col-md-8">																														
+									<input type="checkbox" name="reduction" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkedv1 class="make-switch switch-type" value="1">									
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-md-4" for="montant">$multilangue[montant]</label>
+								<div class="col-md-3 checkbox-list">																																							
+									<input type="text" name="montant" value="$montantcadeau[valeur]"  class="form-control input-inline" style="width:50%; text-align:right; float:left;" id="montant">
+									<label class="checkbox-inline" style="padding-left:5px; margin-top:-5px;">
+										<input type="checkbox" name="remise" data-off-label="&nbsp; € &nbsp" data-on-label="&nbsp; % &nbsp " $checkedv2 class="make-switch switch-type" value="1">
+									</label>
+								</div>								
+							</div>	
+							<!--  <div class="form-group">
+								<label class="control-label col-md-4">Remise</label>
+								<div class="col-md-8 ta-center">																														
+									<input type="checkbox" name="remise" data-off-label="&nbsp;en €" data-on-label="&nbsp;en %" $checkedv2 class="make-switch switch-type" value="1">
+								</div>
+							</div>	-->
+							<div class="form-group">
+								<label class="control-label col-md-4" for="validite">$multilangue[validite]</label>
+								<div class="col-md-3" >																														
+									<input type="text" name="valide" value="$validitecadeau[valeur]"  class="form-control"  id="validite" style="width : 50%; display : inline-block; text-align : right;"> <div style="display : inline-block; margin-left : 2%;">$multilangue[jour](s)</div>
+								</div>
+							</div>								
+						</div>
+					</div>				
+				</div>			
+					   
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<div class="col-md-12">	
+			<!-- BEGIN Relance_anniversaireEditrelancesiteBit -->
+			<div class="tabbable tabbable-custom boxless tabbable-reversed">	
+				<!-- DEBUT SAMPLE TABLE PORTLET-->
+				<div class="portlet box $site[classcolor]" style="">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift fs-18"></i>$multilangue[relance_anniv] <i>&nbsp&nbsp$site[libelle]</i>
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">															
+							<div class="form-group">
+								<label class="control-label col-md-2" for="sujet_$site[siteid]">$multilangue[sujet]</label>
+								<div class="col-md-10">																														
+									<input type="text" name="sujet_$site[siteid]" value="$infosmailsite[sujet]"  class="form-control"  id="sujet_$site[siteid]">
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-md-2" for="contenu_$site[siteid]">$multilangue[contenu]</label>
+								<div class="col-md-10">																														
+									<textarea name ="contenu_$site[siteid]" class="editeur" id="contenu_$site[siteid]">$infosmailsite[contenu]</textarea>
+								</div>
+							</div>																
+						</div>
+					</div>			
+				</div>	        
+				<!-- FIN SAMPLE TABLE PORTLET -->
+			</div>
+			<!-- END Relance_anniversaireEditrelancesiteBit -->				
+		</div>
+	</div>
+	<div class="boutons_liste">
+		<a href="encarts_perso.php" type="button" class="btn grey-silver" class="boutons_liste"><i style="padding-right : 10%;" class="fa fa-arrow-left"></i>$multilangue[retour]</a>
+		<button style="display : inline-block;" type="submit" class="btn green"><i style="margin-right : 6%" class="fa fa-check"></i>$multilangue[enregistrer]</button>
+	</div>		
+</form>
+<!-- END Relance_anniversaireFormrelancesiteBit -->
+			
+			
+			
+			
+			
+			
+			
+			<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+<!-- END Relance_anniversaireIndex -->

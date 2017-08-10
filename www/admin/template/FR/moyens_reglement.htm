@@ -1,0 +1,614 @@
+<!-- BEGIN Moyens_reglementIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+			<h3 class="page-title">
+			$multilangue[moyen_de_reglement]<small></small>
+			</h3>
+			<ul class="page-breadcrumb breadcrumb">						
+				<li>
+					<i class="fa fa-home"></i>
+					<a href="index.php">
+						$multilangue[accueil]
+					</a>
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>							
+					$multilangue[parametres]						
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a href="moyens_reglement.php">						
+						$multilangue[moyen_de_reglement]	
+					</a>					
+				</li>
+				<!-- BEGIN Moyens_reglementNavigSupp -->
+				    <li>
+				    	<i class="fa fa-angle-right"></i>						    	                       
+				        $libNavigSupp						        
+				    </li>
+				<!-- END Moyens_reglementNavigSupp -->
+			</ul>
+			<!-- FIN PAGE TITLE & BREADCRUMB-->
+		</div>
+	</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+
+			<!-- BEGIN Moyens_reglementSuccess3 -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess3
+				</div>
+			<!-- END Moyens_reglementSuccess3 -->
+			
+			<!-- BEGIN Moyens_reglementErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END Moyens_reglementErreur -->
+
+
+			<!-- BEGIN Moyens_reglementSuccessMR1 -->
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccessMR1
+				</div>
+			<!-- END Moyens_reglementSuccessMR1 -->
+
+
+
+
+<!-- BEGIN Moyens_reglementListe -->
+<form action="moyens_reglement.php" method="POST" name="formMR">
+	<input type="hidden" name="action" value="editermoyenreglement">
+	<input type="hidden" name="siteid" value="$site[siteid]">
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+	<!-- BEGIN Moyens_reglementListePays -->																													
+		<div class="col-md-12">
+			<!-- DEBUT SAMPLE TABLE PORTLET-->
+			<div class="portlet box blue-chambray" style="">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%;">					
+						Moyens de règlement acceptés sur ma boutique 
+					</div>			
+					<div class="tools">
+						<a href="javascript:;" class="collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<span><span style="color : red;">*</span>$multilangue[infos_moyens_reglement_stocks]</span>
+					<div class="table-scrollable">
+						<table id="tabmoyens" class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>		
+								<th>
+									Modifier
+								</th>								
+								<th class="" >
+									$multilangue[moyen_de_reglement]
+								</th>
+								<th class="ta-center">
+									$multilangue[actifV1]
+								</th>
+								<th class="ta-center">
+									$multilangue[actifV2]
+								</th>
+								<th class="ta-center">
+									$multilangue[par_defaut]
+								</th>
+								<th class="ta-center">
+									$multilangue[decrementation_stocks]
+								</th>
+								<th class="ta-center">
+									$multilangue[envoi_mail]
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN Moyens_reglementListePaysBit -->
+								<tr id="$moyen_reglement[moyenid]">
+									<!-- BEGIN Moyens_reglementEditActiveBit -->
+										<td class="ta-center">
+											<span><a href="moyens_reglement.php?action=editMP&moyenid=$moyen_reglement[moyenid]" data-original-title="Editer" data-placement="top" class="btn tooltips"><i class="fa fa-pencil-square-o fs-18"></i></a></span>
+										</td>
+									<!-- END Moyens_reglementEditActiveBit -->	
+									<!-- BEGIN Moyens_reglementEditInactiveBit -->
+										<td>
+											
+										</td>										
+									<!-- END Moyens_reglementEditInactiveBit -->		
+									<td class=" va-middle">
+										$moyen_reglement[libelle]
+									</td>						
+									<td class="ta-center va-middle">
+										<a href="moyens_reglement.php?action=active&pastille=$color_aff&moyenid=$moyen_reglement[moyenid]" data-original-title="$tooltip_visible" data-placement="top" class="btn default btn-sm $color2_aff tooltips">
+											<i class="fa $ico_aff"></i>
+										</a>
+									</td>								
+									<td class="ta-center">											
+										<a href="moyens_reglement.php?action=active2&pastille2=$color_aff2&moyenid2=$moyen_reglement[moyenid]" data-original-title="$tooltip_visible2" data-placement="top" class="btn default btn-sm $color2_aff2 tooltips">
+											<i class="fa $ico_aff2"></i>
+										</a>					
+									</td>	
+									<!-- BEGIN Moyens_reglementActiveBit -->	
+									<td class="ta-center">																				
+										<label class="form-group"><input type="radio" name="defaut" value="$infosMoyenpaiement[moyenid]" class="form-control" $ischecked></label>								
+									</td>		
+									<td class="">								
+										<label class="form-group"><input type="radio" name="decrementation_$infosMoyenpaiement[moyenid]" value="0" class="form-control" $checkeddecrementation0> $multilangue[au_passage_commande]</label><br/>	
+										<label class="form-group"><input type="radio" name="decrementation_$infosMoyenpaiement[moyenid]" value="1" class="form-control" $checkeddecrementation1> $multilangue[a_validation_reglement]</label><br/>	
+										<label class="form-group"><input type="radio" name="decrementation_$infosMoyenpaiement[moyenid]" value="2" class="form-control" $checkeddecrementation2> $multilangue[a_expedition_reglement]</label><br/>							
+										<!-- BEGIN Moyens_reglementDelai -->
+										<label style="display : inline-block; font-size : small;" class="form-group"><span style="color : red;">*</span>$multilangue[delai_reincrementation] <input type="text" placeholder="jours" name="reincrementation_$infosMoyenpaiement[moyenid]" value="$infosMoyenpaiement[incrementerDelai]" id="$infosMoyenpaiement[moyenid]" class="form-control" style="width : 32%; display : inline-block;"></label><br/>
+										<button type="submit" class="btn green" style="width : 30%; float : right;"><i class="fa fa-check"></i></button>										
+										<!-- END Moyens_reglementDelai -->
+									</td>	
+									<td class="">										
+										<label class="form-group"><input type="checkbox" name="passage_$infosMoyenpaiement[moyenid]" value="1" $checkedbox1> $multilangue[au_passage_commande]</label><br/>
+										<label class="form-group"><input type="checkbox" name="validation_$infosMoyenpaiement[moyenid]" value="1" $checkedbox2> $multilangue[a_validation_reglement]</label><br/>	
+										<label class="form-group"><input type="checkbox" name="avertir_$infosMoyenpaiement[moyenid]" value="1" $checkedbox3> $multilangue[avertir_administrateur_passage]</label><br/>							
+									</td>	
+									<!-- END Moyens_reglementActiveBit -->
+									<!-- BEGIN Moyens_reglementInactiveBit -->
+									<td></td>
+									<td></td>
+									<td></td>
+									<!-- END Moyens_reglementInactiveBit -->				
+								</tr>
+								<!-- END Moyens_reglementListePaysBit -->
+							</tbody>						
+						</table>
+					</div>						
+				</div>
+			</div>
+			<!-- FIN SAMPLE TABLE PORTLET-->
+		</div>
+		<br/>
+	<!-- END Moyens_reglementListePays -->
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+	</form>
+	<br/><br/><br/>
+	
+	<!-- BEGIN Moyens_reglementSuccess -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess
+		</div>
+	<!-- END Moyens_reglementSuccess -->
+	
+	<form name="formcontre_remboursement" action="moyens_reglement.php#ancreform" method="POST" >
+	<div id="ancreform"></div>
+		<input type="hidden" name="action" value="edit_contreremboursement">
+		<div class="row" >
+			<div class="col-md-12 ">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%; font-size : 17px; font-family : sans-serif;">					
+						<h3>$multilangue[paiement_par_cr] </h3>
+					</div>	
+				</div>		
+				<div class="tabbable tabbable-custom boxless tabbable-reversed">
+					<div class="tab-content">
+						<div class="tab-pane active">
+							<div class="portlet-body">				
+								<div class="table-responsive">
+									<table id="" class="table table-striped table-hover table-bordered">
+										<tbody>
+											<tr >
+												<td>$multilangue[infos_moyens_reglement_cr]
+												</td>
+											</tr>
+											<tr class="ta-center">
+												<td>
+													<label for="cr" class="form-group" style="display : inline-block;">$multilangue[prix_contre_remboursement] :&nbsp&nbsp </label><input type="text" name ="contre_remboursement" value="$contreRemboursement[valeur]" id="cr" class="form-control" style="display : inline-block; width : 15%;">
+													&nbsp&nbsp<button style="display : inline-block;" type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form><br/><br/><br/>
+	
+	<!-- BEGIN Moyens_reglementSuccess1 -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess1
+		</div>
+	<!-- END Moyens_reglementSuccess1 -->
+	
+	<!-- BEGIN Moyens_reglementErreur1 -->
+		<div class="alert alert-danger alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur
+		</div>
+	<!-- END Moyens_reglementErreur1 -->
+	
+	<form name="formpaiement_virement" action="moyens_reglement.php#ancreform1" method="POST">
+	<div id="ancreform1"></div>
+		<input type="hidden" name="action" value="paiement_virement">
+		<div class="row" >
+			<div class="col-md-12 ">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%; font-size : 17px; font-family : sans-serif;">					
+						<h3>$multilangue[paiement_par_virement]</h3>
+					</div>	
+				</div>		
+				<div class="tabbable tabbable-custom boxless tabbable-reversed">
+					<div class="tab-content">
+						<div class="tab-pane active">
+							<div class="portlet-body">				
+								<div class="table-responsive">
+									<table id="" class="table table-striped table-hover table-bordered">
+										<tbody>
+											<tr>
+												<td  colspan="2">
+													$multilangue[infos_moyens_reglement_virement]
+												</td>
+											</tr>
+											<tr class="ta-center">
+												<td>
+													<b>RIB</b>
+												</td>
+												<td>
+													
+													<div style="display : inline-block;">
+														<label for="banque" class="form-group">$multilangue[banque]</label><input type="text" name="ribbanque" value ="$banque[valeur]" id="banque" class="form-control" maxlength="5" size="5">
+													</div>
+													<div style="display : inline-block;">
+														<label for="guichet" class="form-group">$multilangue[guichet]</label><input type="text" name="ribguichet" value ="$guichet[valeur]" id="guichet" class="form-control" maxlength="5" size="5">
+													</div>
+													<div style="display : inline-block;">
+														<label for="compte" class="form-group">$multilangue[compte]</label><input type="text" name="ribcompte" value ="$compte[valeur]" id="compte" class="form-control" maxlength="11" size="11">
+													</div>
+													<div style="display : inline-block;">
+														<label for="cle" class="form-group">$multilangue[cle]</label><input type="text" name="ribcle" value ="$cle[valeur]" id="cle" class="form-control" maxlength="2" size="2">
+													</div>
+												</td>
+											</tr>
+											<tr class="ta-center">
+												<td><b>IBAN <br/>BIC</b></td>
+												<td>
+													<div style="display : inline-block;"><input type="text" name="iban" value="$iban[valeur]" id="iban" class="form-control" maxlength="27" size="27"></div>
+													<div style="display : inline-block;"><input type="text" name="bic" value="$bic[valeur]" id="bic" class="form-control" maxlength="15" size="15"></div>
+													<button style="display : inline-block;" type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form><br/><br/><br/>
+	
+	<!-- BEGIN Moyens_reglementSuccess2 -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess2
+		</div>
+	<!-- END Moyens_reglementSuccess2 -->
+	
+	<!-- BEGIN Moyens_reglementErreur2 -->
+		<div class="alert alert-danger alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur2
+		</div>
+	<!-- END Moyens_reglementErreur2 -->
+	
+	<form name="formpaypal" action="moyens_reglement.php#ancreform2" method="POST">
+	<div id="ancreform2"></div>
+		<input type="hidden" name="action" value="edit_paypal">
+		<div class="row" >
+			<div class="col-md-12 ">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%; font-size : 17px; font-family : sans-serif;">					
+						<h3>$multilangue[paiement_par_paypal]</h3>
+					</div>	
+				</div>		
+				<div class="tabbable tabbable-custom boxless tabbable-reversed">
+					<div class="tab-content">
+						<div class="tab-pane active">
+							<div class="portlet-body">				
+								<div class="table-responsive">
+									<table id="" class="table table-striped table-hover table-bordered">
+										<tbody>
+											<tr >
+												<td>$multilangue[infos_moyens_reglement_paypal]
+												</td>
+											</tr>
+											<tr class="ta-center">
+												<td>
+													<label for="paypalid" class="form-group" style="display : inline-block;">$multilangue[adresse_email_paypal] : &nbsp&nbsp </label><input type="text" name ="paypal" value="$adressepaypal[valeur]" id="paypalid" class="form-control" style="display : inline-block; width : 50%;">
+													&nbsp&nbsp<button style="display : inline-block;" type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/>
+													<br/>$multilangue[url_npi_paypal] : http://$host/VAD/$host/autoresponse6.php <br/><br/>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+<!-- END Moyens_reglementListe -->
+
+
+	<!-- BEGIN Moyens_reglementSuccessLogo -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccessLogo
+		</div>
+	<!-- END Moyens_reglementSuccessLogo -->
+
+
+<!-- BEGIN Moyens_reglementEditMP -->
+	<div style="width : 100%;"><a class="btn grey-silver " href="moyens_reglement.php" style=" margin-left : 1%; display : inline-block; float : right;"><i class="fa fa-arrow-left" style="margin-right : 6%"></i> Retour</a></div><br/><br/><br/>
+	<div class="">
+		<form name="formeditMP" action="moyens_reglement.php" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="action" value="doedit_logo">
+			<input type="hidden" name="moyenid" value="$infosMP[moyenid]">
+			<div class="row" >
+				<div class="col-md-12 ">
+				<div class="portlet-title ta-center">
+					<div class="caption ta-center" style="font-size : 17px;">
+						$multilangue[logo_moyen_reglement]
+					</div>
+				</div>
+					<div class="tabbable tabbable-custom boxless tabbable-reversed">
+						<div class="tab-content">
+							<div class="tab-pane active">								
+								<div class="portlet-body">				
+									<div class="table-responsive">
+										<div class="divcenterspec">
+											<table id="" class="table table-striped table-bordered">
+												<tbody>
+													<tr  class="">
+														<td>
+															<div class="ta-center">
+																<div class="fileinput fileinput-new" data-provides="fileinput">
+																	<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 150px; height: 80px;">
+																		<img src="http://$host/configurations/$host/images/moyen_paiement/br/$fichier?date=$datejs">
+																	</div>
+																	<div>
+																		<span class="btn default btn-file">
+																			<span class="fileinput-new">
+																				$multilangue[selectionner] </span>
+																			<span class="fileinput-exists">
+																				$multilangue[modifier] </span>
+																			<input type="file" name="moyen_logo">
+																		</span>
+																		<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+																			$multilangue[supprimer] </a>	
+																	</div>
+																</div>											
+															</div>
+														</td>
+													</tr>																
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>							
+							</div>
+							<div id="afteredit"style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div><br/><br/><br/><br/>
+<!-- END Moyens_reglementEditMP -->
+
+
+
+	<!-- BEGIN Moyens_reglementSuccessMP -->
+		<div class="alert alert-success alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccessMP
+		</div>
+	<!-- END Moyens_reglementSuccessMP -->
+
+
+<!-- BEGIN Moyens_reglementEditForm -->
+
+<form name="formMP" action="moyens_reglement.php#afteredit" method="POST" id="">
+	<input type="hidden" name="action" value="doedit_MP">
+	<input type="hidden" name="moyenid" value="$moyenid">
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right" id=""><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+<!-- BEGIN Moyens_reglementEditDescription -->
+	<div class="row" >
+		<div class="col-md-12 ">
+			<div class="portlet box $site[classcolor] " style="" id="">
+				<div class="portlet-title">	
+					<div class="caption" style="width:90%; font-size : 17px; font-family : sans-serif;">					
+						$infosMoyenpaiement[libelle] <i>$site[libelle]</i>
+					</div>	
+					<div class="tools">
+						<a href="javascript:;" class="$collapse">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body" $style>		
+					<div class="tab-content">
+						<div class="tab-pane active">			
+							<div class="table-responsive">
+								<table id="" class="table table-striped table-hover table-bordered">
+									<tbody>
+									<tr>
+										<td>
+											<label for="libelleMP_$site[siteid]" class="form-group">$multilangue[libelle]</label> 
+										</td>
+										<td>
+											<input type="text" name="libelleMP_$site[siteid]" id="libelleMP_$site[siteid]" value="$infosMoyenpaiement[libelle]" class="form-control">
+										</td>
+									</tr>
+										<tr >
+											<td>
+												Description
+											</td>
+											<td>
+												<textarea name="description_$site[siteid]" id="" class="form-control editeur">$infosMoyenpaiement[description]</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Texte affiché sur la 4ème page de commande (confirmation de commande) :<br><br>
+												
+												La variable [numfacture] sera remplacée par le Numéro de facture.<br>
+												ex : EDEAL8<br><br>
+												
+												La variable [totalttc] sera remplacée par le Total TTC.<br>
+												ex : 500 €<br><br>
+												
+												La variable [totalht] sera remplacée par le Total HT.<br>
+												ex : 425,45 €<br><br>
+												
+												La variable [infosboutique] sera remplacée par vos informations de la page : Paramètre => Coordonnées.<br>
+												Raison sociale<br>
+												Adresse<br>
+												Code postal Ville<br><br>
+												
+												La variable [boutique] sera remplacée par le nom de votre boutique.<br>
+												ex : Fashion Streetwear<br><br>
+												
+												La variable [infosclientsmall] sera remplacée par les informations clients ci-dessous.<br>
+												ex : Monsieur Roger PIVOT<br><br>
+												
+												La variable [rib] sera remplacée par votre RIB.<br>
+												ex : 00000 | 00000 | 000000000 | 00<br><br>
+												
+												Depuis l'étranger IBAN :<br>
+												FR000000000000000000000<br>
+												BIC : AG00000000<br>
+																								
+											</td>
+											<td>
+												<textarea name="contenu_$site[siteid]" id="" class="form-control editeur">$infosMoyenpaiement[contenu]</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												$multilangue[actifV1]
+											</td>
+											<td class="ta-center va-middle">
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkedv1 class="make-switch switch-type" name="activev1_$site[siteid]" value="1">
+											</td>			
+										</tr>	
+										<tr>
+											<td>
+												$multilangue[actifV2]
+											</td>
+											<td class="ta-center">											
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkedv2 class="make-switch switch-type" name="activev2_$site[siteid]" value="1">					
+											</td>	
+										</tr>
+										<tr>
+											<td>
+												Moyen de paiement par défaut
+											</td>
+											<td class="ta-center">											
+												<input type="checkbox" data-off-label="&nbsp;$multilangue[non]&nbsp;" data-on-label="&nbsp;$multilangue[oui]&nbsp;" $checkeddefaut class="make-switch switch-type" name="defaut_$site[siteid]" value="1">					
+											</td>	
+										</tr>	
+										<tr class="">
+											<td>
+												<label for="minimumachat_$site[siteid]" class="form-group" style="display : inline-block; width : 100%;">Minimum d'achat : &nbsp</label>
+											</td>
+											<td>
+												<input type="text" name="minimumachat_$site[siteid]"  value="$infosMoyenpaiement[montantMinimum]" id="minimumachat_$site[siteid]" class="form-control" style="display : inline-block; width : 100%;">
+											</td>
+										</tr>
+										<tr>
+											<td class="">
+												<label for="maximumachat_$site[siteid]" class="form-group" style="display : inline-block; width : 100%;">Maximum d'achat : &nbsp</label>
+											</td>
+											<td>
+												<input type="text" name="maximumachat_$site[siteid]" value="$infosMoyenpaiement[montantMaximum]" id="maximumachat_$site[siteid]" class="form-control" style="display : inline-block; width : 100%;">
+											</td>
+										</tr>																					
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- END Moyens_reglementEditDescription -->
+	<div style="width : 100%; text-align : center;"><button type="submit" class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp&nbsp$multilangue[enregistrer]</button><br/><br/></div>
+</form>
+<!-- END Moyens_reglementEditForm -->
+
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {								    
+		var ordreDepart;
+		$('#tabmoyens > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row){
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=moyens_reglement_positions&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});			
+	});
+
+
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+	
+	
+</script>
+
+
+<!-- END Moyens_reglementIndex -->

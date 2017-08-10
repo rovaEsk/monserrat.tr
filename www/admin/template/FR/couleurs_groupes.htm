@@ -1,0 +1,121 @@
+<!-- BEGIN Couleurs_groupesIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[couleurs_groupes]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							$multilangue[couleurs_groupes]
+						</li>
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+				<div class="alert alert-success alert-dismissable" style="display:none">					
+					<button aria-hidden="true" onclick="$('.alert-success').hide();" class="close" type="button" ></button>
+					$multilangue[modifications_enregistrees]
+				</div>
+				<form action="couleurs_groupes.php?action=ajout" method="post" id="form_ajout_couleur_groupe" name="form_ajout_couleur_groupe" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped form_remises_gros">
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered mb-0">
+							<thead>
+								<tr>
+									<th class="ta-center">
+										$multilangue[nom]
+									</th>
+									<th class="ta-center">
+										$multilangue[action]
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN Couleurs_groupesGroupeBit -->
+								<tr>
+									<td class="ta-center">
+										<input type="text" id="$couleur_groupe[couleurgroupeid]" value="$couleur_groupe[libelle]" class="form-control nom_groupe"> 
+									</td>
+									<td class="ta-center">
+										<a href="#myModal$couleur_groupe[couleurgroupeid]" id="btn_suppr$couleur_groupe[couleurgroupeid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+											<i class="fa fa-trash-o fs-18 font-red"></i>
+										</a>
+										<div aria-hidden="true" aria-labelledby="myModalLabe$couleur_groupe[couleurgroupeid]" role="dialog" tabindex="-1" class="modal fade" id="myModal$couleur_groupe[couleurgroupeid]" style="display: none;">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+														<h4 class="modal-title">Voulez-vous vraiment supprimer le groupe $couleur_groupe[libelle] ?</h4>
+													</div>
+													<div class="modal-body">																					
+														Cela supprimera ce groupe.
+													</div>
+													<div class="modal-footer">
+														<button aria-hidden="true" data-dismiss="modal" class="btn default">Non</button>
+														<a href="couleurs_groupes.php?action=supprimer&groupeid=$couleur_groupe[couleurgroupeid]" class="btn blue">Oui, supprimer</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<!-- END Couleurs_groupesGroupeBit -->
+								<tr>
+									<td class="ta-center">
+										<input type="text" value="" name="ajout_nom" class="form-control input-large right" placeholder="Nom du groupe" required>
+									</td>
+									<td class="ta-center">
+										<button type="submit" class="btn blue">
+											$multilangue[ajouter]&nbsp;&nbsp;<i class="fa fa-plus"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+				</form>
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript">
+App.init(); // initlayout and core plugins
+$(document).ready(function() {
+	$('.nom_groupe').on('blur', function(){
+		var data = "action=modif&";
+		data += "nom_groupe="+$(this).val()+"&";
+		data += "groupeid="+$(this).attr("id");
+		$.ajax({
+			url : 'couleurs_groupes_ajax.php',
+			type : 'POST',
+			data : data,
+			dataType : 'html',
+			success : function(code_html, statut){
+				$('.alert-success').show();
+			},
+			error : function(resultat, statut, erreur){
+				alert(erreur);
+			}
+		});
+	});
+	
+});
+</script>
+
+<!-- END Couleurs_groupesIndex -->

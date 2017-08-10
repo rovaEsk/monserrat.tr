@@ -1,0 +1,294 @@
+<!-- BEGIN TraductionIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[traduction]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="traduction.php">						
+								$multilangue[traduction]	
+							</a>						
+						</li>
+						<!-- BEGIN TraductionNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END TraductionNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+	<!-- BEGIN TraductionSuccess -->
+		<div class="alert alert-success alert-dismissable">					
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteSuccess
+			$texteSuccess1
+		</div>
+	<!-- END TraductionSuccess -->
+	
+	<!-- BEGIN TraductionErreur -->
+		<div class="alert alert-danger alert-dismissable">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+			$texteErreur
+		</div>
+	<!-- END TraductionErreur -->
+	
+	
+<!-- BEGIN TraductionListeSite -->
+	<a href="traduction.php?action=ajoutVariable" data-original-title="$multilangue[ajouter_variable]" class="btn green right mb-20">
+		$multilangue[ajouter_variable] &nbsp;
+		<i class="fa fa-plus"></i>
+	</a>
+	<div class="clear"></div>	
+	<div class="row" id="siteListe" style="size : auto;">
+       	<div class="col-md-12">
+           	<!-- DEBUT SAMPLE TABLE PORTLET-->							 
+
+               	<div class="portlet box purple" style="size : auto;">
+               		
+                   	<div class="portlet-title">
+                       	<div class="caption" >
+                               <i class="fa fa-bars"></i>$multilangue[liste_sites]
+                           </div>                           
+                       </div>
+                       <div class="portlet-body form">
+                           <div class="clearfix"></div>
+                           <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover mb-0" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                $multilangue[identifiant_site]
+                                            </th>
+                                            <th>
+                                                 $multilangue[site_libelle]
+                                            </th>
+                                            <th>
+                                                 $multilangue[langue]
+                                            </th>                                           
+                                            <th>
+                                                 $multilangue[traduire]
+                                            </th>
+                                        </tr>	                                        
+                                    </thead>
+                                    <tbody>
+                                    	<!-- BEGIN TraductionListeSiteBit -->
+                                    	<tr>
+                                    		<td>$listeSite[siteid]</td><td>$listeSite[libelle]</td>
+                                    		<td>$langueSite[libelle]</td><td style="text-align:center;"><a  
+                                    		href="traduction.php?action=traduire&idSite=$listeSite[siteid]" data-original-title="$multilangue[traduction]" data-placement="top" class="btn tooltips">
+                                    		<i class="fa fa-quote-left fs-18"></i></a></td>
+                                    	</tr>
+                                    	<!-- END TraductionListeSiteBit -->
+                                    </tbody>	                                  
+                                </table>      							  
+                          </div>
+                    </div>
+                </div>
+          </div> 
+      </div> 
+      	
+                  
+           <!-- FIN SAMPLE TABLE PORTLET-->
+<!-- END TraductionListeSite -->
+	
+	
+	
+
+	<!-- BEGIN TraductionListe -->
+	<!-- DEBUT EXAMPLE TABLE PORTLET-->
+		<form name="traductionSite" action="traduction.php" method="POST">
+			<input type="hidden" name="action" value="translate">			
+			<input type="hidden" name="idSite" value="$idSite">
+			
+			<div class="portlet box red-intense">
+			
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-globe"></i>$multilangue[tableau_traduction] $infosite[libelle]
+					</div>
+					
+				</div>
+				<div class="portlet-body">
+					<div class="boutons_liste">
+						<a style=" margin-left : 1%; display : inline-block;" href="/admin/traduction.php" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>			
+						<Button style= " display : inline-block;" type="submit" class="btn green"><i class="fa fa-check"></i>$multilangue[enregistrer]</Button>
+					</div>
+					<table class="table table-striped table-bordered table-hover" id="sample_6">
+					<thead>
+					<tr>						
+						<th style="width:50%;">
+							$multilangue[contenu]
+						</th>
+						<th style="width:50%;">
+							$multilangue[traduction]
+						</th>					
+					</tr>
+					</thead>
+					<tbody>
+					<!-- BEGIN TraductionListeBit -->
+					<tr>						
+						<td>
+							 <textarea rows="1" cols="40" class="form-control">$listeTraduction[text]</textarea>
+						</td>
+						<td>
+							 <textarea rows="1" cols="40" class="form-control" name="traductionTxt[$listeTraduction[multilangueid]]">$inputTraduction[text]</textarea>
+						</td>					
+					</tr>
+					<!-- END TraductionListeBit -->
+					</tbody>
+					</table>
+				</div>
+			</div>
+		</form>
+	<!-- FIN EXAMPLE TABLE PORTLET-->
+	<!-- END TraductionListe -->
+	
+	<div class="row">
+	<!-- BEGIN TraductionExport -->
+	<div class="col-md-6">
+		<div class="portlet box purple">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-upload"></i>$multilangue[export]
+				</div>
+				<div class="tools">
+					<a class="collapse" href="javascript:;"></a>					                                
+				</div>
+			</div>
+			<div class="portlet-body">
+				<form action="traduction.php?action=export" method="post" name="export">
+					<div class="form-body">
+						<div class="form-group">
+							<div class="col-md-1">
+								<input type="hidden" name="site1" value="1">
+								<input type="checkbox" checked disabled>
+							</div>
+							<label class="control-label col-md-11">$site_principal[libelle]</label>							
+						</div>
+						<!-- BEGIN TraductionExportSiteBit -->
+						<div class="form-group">
+							<div class="col-md-1">
+								<input type="checkbox" name="site$listeSite[siteid]" $value>
+							</div>
+							<label class="control-label col-md-11">$listeSite[libelle]</label>
+						</div>
+							<!-- END TraductionExportSiteBit -->
+						<div class="ta-center mt-10">
+								<button type="submit" class="btn green"><i class="fa fa-upload"></i> $multilangue[exporter]</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- END TraductionExport -->
+	
+	<!-- BEGIN TraductionImport -->
+	<div class="col-md-6">
+		<div class="portlet box purple">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-download"></i>$multilangue[import]
+				</div>
+				<div class="tools">
+					<a class="collapse" href="javascript:;"></a>					                                
+				</div>
+			</div>
+			<div class="portlet-body" >
+				<div class="alert alert-info ta-center">
+					$multilangue[infos_import_traduction]
+				</div>
+				<form enctype= "multipart/form-data" action="traduction.php?action=import" method="post" name="import">
+					<div class="form-body">
+						<div class="form-group">
+							<b>$multilangue[mettre_a_jour] $multilangue[le] $site_principal[libelle] :</b>
+							<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" name="maj" value="1">
+						</div>
+						<div class="form-group">
+							<div data-provides="fileinput" class="fileinput fileinput-new"><input type="hidden">
+								<span class="btn default btn-file">
+									<span class="fileinput-new">
+						 				$multilangue[selectionner]
+									</span>
+									<span class="fileinput-exists">
+						 				$multilangue[modification]
+									</span>
+									<input type="file" name="fichier_import">
+								</span>
+								<span class="fileinput-filename">
+								</span>
+				 				&nbsp;
+								<a style="float: none" data-dismiss="fileinput" class="close fileinput-exists" href="#"></a>
+							</div>
+						</div>
+						<div class="ta-center mt-10">
+							<button type="submit" class="btn green"><i class="fa fa-download"></i> $multilangue[importer]</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- END TraductionImport -->
+	</div>
+<div class="clear"></div>
+
+<!-- BEGIN TraductionAjoutVariable -->
+	$message_erreur
+	<form action="traduction.php?action=ajouter" method="post">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered  table-hover">
+				<tbody class="ta-right">
+					<tr>
+						<td><label class="control-label">$multilangue[expression]</label></td>
+						<td><input type="text" name="expression" class="form-control" value=""></td>
+					</tr>
+					<!-- BEGIN TraductionAjoutVariableLibelleSiteBit -->
+						<tr>
+							<td><label class="control-label">$multilangue[libelle] $site[libelle]</label></td>
+							<td><textarea name="libelle$site[siteid]" class="form-control">$valeur_saisie</textarea></td>
+						</tr>
+					<!-- END TraductionAjoutVariableLibelleSiteBit -->
+				</tbody>
+			</table>												
+		</div>	
+		<div class="col-md-12 ta-center mb-20">
+			<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+			<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+		</div>
+		<div class="clear"></div>
+	</form>			
+<!-- END TraductionAjoutVariable -->
+
+
+<!-- FIN PAGE CONTENT-->
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+
+	<script type="text/javascript">
+		App.init();
+		jQuery(document).ready(function() {       
+
+		});
+	</script>
+	<!-- FIN JAVASCRIPTS -->
+<!-- END TraductionIndex -->

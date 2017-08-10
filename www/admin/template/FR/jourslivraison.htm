@@ -1,0 +1,225 @@
+<!-- BEGIN JourslivraisonIndex -->
+$TemplateCommunHeader
+<!-- DEBUT PAGE HEADER -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[jours_de_livraison]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[parametres]						
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>												
+							$multilangue[jours_de_livraison]			
+						</li>
+						<!-- BEGIN InstitNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END InstitNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- FIN PAGE HEADER-->
+<!-- DEBUT PAGE CONTENT-->
+
+<!-- BEGIN JourslivraisonSuccess -->
+	<div class="alert alert-success alert-dismissable">					
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteSuccess					
+	</div>
+<!-- END JourslivraisonSuccess -->
+
+<!-- BEGIN JourslivraisonErreur -->
+	<div class="alert alert-danger alert-dismissable">					
+		<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+		$texteErreur					
+	</div>
+<!-- END JourslivraisonErreur -->
+
+<div class="row" >
+	<div class="col-md-6">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box blue-hoki" style="">
+			<div class="portlet-title">	
+				<div class="caption" style="width:90%;">$multilangue[jours_de_livraison]						
+				</div>		
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<form action="jourslivraison.php" method="POST" name="joursouverture">
+					<input type="hidden" name="action" value="modifierjourslivraison">
+					<div class="table-scrollable">
+						<table id="tabpages$afficheMenu[menu]" class="table table-striped table-hover">
+							<tbody>
+								<tr class="ta-center">	
+									<td>
+										<label for="lundi">Lundi</label>
+									</td>										
+									<td class="ta-center">								
+										<input type="checkbox" name="jourslivraisons[1]" $checkedouvert1 id="lundi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="mardi">Mardi</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[2]" $checkedouvert2 id="mardi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="mercredi">Mercredi</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[3]" $checkedouvert3 id="mercredi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="jeudi">Jeudi</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[4]" $checkedouvert4 id="jeudi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="vendredi">Vendredi</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[5]" $checkedouvert5 id="vendredi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="samedi">Samedi</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[6]" $checkedouvert6 id="samedi">
+									</td>
+								</tr>
+								<tr class="ta-center">	
+									<td>
+										<label for="dimanche">Dimanche</label>
+									</td>					
+									<td class="ta-center">
+										<input type="checkbox" name="jourslivraisons[0]" $checkedouvert0 id="dimanche">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<button class="btn green btn-align-right"><i class="fa fa-check"></i>&nbsp$multilangue[enregistrer]</button>
+				</form>
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+	
+<!-- BEGIN JourslivraisonFerie -->
+	<div class="col-md-6">
+		<!-- DEBUT SAMPLE TABLE PORTLET-->
+		<div class="portlet box blue-hoki" style="">
+			<div class="portlet-title">	
+
+				<div class="caption" style="width:90%;">$multilangue[jours_feries]						
+				</div>		
+				<div class="tools">
+					<a href="javascript:;" class="collapse">
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="table-scrollable">
+					<form name="ajoutjourferie" action="jourslivraison.php" method="POST">
+						<input type = "hidden" name = "action" value = "editjoursferies">
+						<table id="" class="table table-striped table-hover">
+							<tbody>
+							<!-- BEGIN JourslivraisonFerieBit -->
+								<tr class="ta-center">
+									<td class="">								
+										<a id="jourferie_$jourferie[jourferieid]" href="jourslivraison.php?action=supprimer&jourferieid=$jourferie[jourferieid]"><i class="fa fa-trash-o fs-18" style="color : red;"></i></a>								
+									</td>
+									<td colspan="2">
+										<label for="jourferie_$jourferie[jourferieid]">$jourferie[jour] $mois</label>
+									</td>										
+								</tr>							
+							<!-- END JourslivraisonFerieBit -->		
+									<tr class="ta-center">
+										<td>
+											<select class="form-control" name="selectjour">
+											<!-- BEGIN JourslivraisonSelectJourBit -->
+												<option value="$jour">$jour</option>
+											<!-- END JourslivraisonSelectJourBit -->
+											</select>
+										</td>
+										<td>
+											<select class="form-control" name="selectmois">
+												<option value="1">Janvier</option>
+												<option value="2">Février</option>
+												<option value="3">Mars</option>
+												<option value="4">Avril</option>
+												<option value="5">Mai</option>
+												<option value="6">Juin</option>
+												<option value="7">Juillet</option>
+												<option value="8">Août</option>
+												<option value="9">Septembre</option>
+												<option value="10">Octobre</option>
+												<option value="11">Novembre</option>
+												<option value="12">Décembre</option>
+											</select>
+										</td>
+										<td>
+											<button type="submit" class="btn green"><i class="fa fa-plus"></i> $multilangue[ajouter]</button>
+										</td>
+									</tr>	
+							</tbody>
+						</table>
+					</form>	
+				</div>				
+			</div>
+		</div>
+		<!-- FIN SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END JourslivraisonFerie -->
+
+
+
+
+<!-- FIN PAGE CONTENT -->
+$TemplateCommunFooter
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+</script>
+<script type="text/javascript">
+	jQuery(function(){
+      jQuery(".onclickTitre").click(function () {
+         $(".onclickTitre").hide();	
+         $(".btn-align-left").hide();
+         $(".onclickForm").show();
+         $("#submitOnclick").show();
+      });
+    });	
+</script>
+
+
+<!-- END JourslivraisonIndex -->

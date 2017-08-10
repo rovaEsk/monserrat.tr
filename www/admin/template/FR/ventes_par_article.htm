@@ -1,0 +1,254 @@
+<!-- BEGIN Ventes_par_articleIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+			<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						$multilangue[ventes_articles]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[services]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>	
+							<a href="suivi_activite.php">						
+							$multilangue[ventes_articles]
+							</a>
+						</li>
+						<!-- BEGIN Ventes_par_articleNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END Ventes_par_articleNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT -->
+			
+			<form action="#" method="POST" name="affichageVPA">
+				<div class="treeViewTypesArticles">
+					<div data-date-format="dd/mm/yyyy" class="input-group date datepicker margin-bottom-5 dateChoice">
+						<input type="text" placeholder="De" name="datedebutform" value="$datedebut" class="form-control input-sm">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+						</span>
+					</div>
+					<div data-date-format="dd/mm/yyyy" class="input-group date datepicker dateChoice">
+						<input type="text" placeholder="A" name="datefinform" value="$datefin" class="form-control input-sm">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-sm default"><i class="fa fa-calendar"></i></button>
+						</span>				
+					</div>
+				</div>																										 
+				
+				<div class="form-group">
+					<input type="hidden" name="categories">
+					<div class="treeViewTypesArticles">				
+						<input type="checkbox" name="vente" value="1" id="checkvente" class="form-control" $checked1><label for="checkvente" >$multilangue[inclure_articles_jamais_vendus]</label><br/>						
+						<input type="checkbox" name="searchAll" value="1" id="searchAll" class="form-control" $checked2><label for="searchAll" >$multilangue[chercher_dans_toutes_les_categories]</label>
+					</div>
+					<div class="jstree treeViewTypesArticles">					
+						<ul>
+							<!-- BEGIN Ventes_par_articleModificationNiveau0 -->
+						    <li value="$niveau0[catid]" onclick="Javascript:decocheSearchAll();" class="jstree-checked" data-value="$niveau0[catid]" data-jstree='{$checked}' >
+						    	$niveau0[libelle]
+						    	<ul>
+						    		<!-- BEGIN Ventes_par_articleModificationNiveau1 -->
+									<li value="$niveau1[catid]" data-value="$niveau1[catid]" data-jstree='{$checked}'>
+										$niveau1[libelle]
+										<ul>
+											<!-- BEGIN Ventes_par_articleModificationNiveau2 -->
+											<li value="$niveau2[catid]" data-value="$niveau2[catid]" data-jstree='{$checked}'>
+												$niveau2[libelle]aide
+												<ul>
+													<!-- BEGIN Ventes_par_articleModificationNiveau3 -->
+													<li value="$niveau3[catid]" data-value="$niveau3[catid]" data-jstree='{$checked}'>
+														$niveau3[libelle]
+														<ul>
+														<!-- BEGIN Ventes_par_articleModificationNiveau4 -->
+															<li value="$niveau4[catid]" data-value="$niveau3[catid]" data-jstree='{$checked}'>$niveau4[libelle]													
+															</li>																									
+														<!-- END Ventes_par_articleModificationNiveau4 -->																								
+														</ul>											
+													</li>
+													<!-- END Ventes_par_articleModificationNiveau3 -->																							
+												</ul>									
+											</li>
+											<!-- END Ventes_par_articleModificationNiveau2 -->																					
+										</ul>							
+									</li>
+									<!-- END Ventes_par_articleModificationNiveau1 -->
+								</ul>							
+							</li>
+							<!-- END Ventes_par_articleModificationNiveau0 -->
+					  </ul>
+					</div>
+				</div>
+				<div class="col-md-12 ta-center mb-20" style="margin-top : 20px;">
+					<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[afficher]</button>															
+				</div>
+			</form>
+			
+			<div class="lien_csv">
+				<a href="force_download.php?file=./export/journal_ventes_articles.csv" data-original-title="Exporter" class="btn green right" style="margin-bottom : 5px;">
+					$multilangue[exporter] &nbsp;
+					<i class="fa fa-table"></i>
+				</a>
+			</div>
+			<div id="tableauListe" class="row">
+				<div class="col-md-12">
+					<div class="portlet box grey-cascade">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bars"></i> $multilangue[journal_des_ventes] 
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body form" style="overflow-x: auto; overflow-y: hidden; ">
+							<table class="table-striped table-bordered table-hover" style="width : 100%;">
+								<thead >
+									<tr>		
+										<th class="ta-center thtabVPA">$multilangue[designation]</th>						
+										<!-- BEGIN Ventes_par_articleEnteteBit -->
+											<th class="ta-center thtabVPA">
+												<span style="display : block;">$tabmois[$i]</span> <span style="display : block;">$anneeint</span>
+											</th>																		
+										<!-- END Ventes_par_articleEnteteBit -->
+										<th class="ta-center thtabVPA">$multilangue[total]</th>
+									</tr>
+								</thead>
+								<tbody>
+								<!-- BEGIN Ventes_par_articleAfficherBit -->
+									<tr>
+										<td style="padding:0 5px;">$facture[artcode] $arts_nonvendu[artcode]</td>
+										<!-- BEGIN Ventes_par_articleAfficherColonnesBit -->
+										<td class="ta-center">
+											$affichage_ligne
+										</td>
+										<!-- END Ventes_par_articleAfficherColonnesBit -->										
+										<td class="ta-center">Qte : $facture[qte]<br>CA : $facture[ca] &euro;</td>																				
+									</tr>
+								<!-- END Ventes_par_articleAfficherBit -->
+								</tbody>
+							</table>					
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class = "col-md-12" style="margin-right : 1%; padding-right : 0;">
+				<div class="col-md-6" style="float : right; margin-bottom : 20px; margin-right : 0;">
+					<div id="tableauListe2" class="row">
+						
+							<div class="portlet box grey-cascade">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="fa fa-bars"></i> $multilangue[totaux]
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse">
+										</a>
+									</div>
+								</div>
+								<div class="portlet-body form">									
+									<table class="table-striped table-bordered table-hover" style="width : 100%;">
+										<thead >
+											<tr>		
+												<th class="ta-center">$multilangue[total] $multilangue[ht]</th>														
+												<th class="ta-center" >$multilangue[total_tva]</th>
+												<th class="ta-center">$multilangue[total_ttc]</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="ta-center" style="padding:5px; font-weight:bold;">$afficheTotalFactureHT &euro;</td>
+												<td class="ta-center" style="padding:5px; font-weight:bold;">$afficheTotalFactureTVA &euro;</td>
+												<td class="ta-center" style="padding:5px; font-weight:bold;">$afficheTotalFactureTTC &euro;</td>
+											</tr>
+											<tr>
+												<td class="ta-center" colspan="3">
+													<span style="color : red;">*</span>$multilangue[ces_montants_pas_compte_reductions_commerciales]
+												</td>
+											</tr>
+										</tbody>
+									</table>					
+								</div>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+			
+			<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+	$(document).ready(function() {			
+		$('.jstree').jstree({"plugins": [["checkbox"]]});
+		
+		$('.jstree').jstree("open_all");
+		$('.jstree').find('li[data-jstree*="checked"]').each(function () {
+			$(this).find('a').click();
+		});
+		$('.jstree').jstree("close_all");
+		
+		if($('#searchAll').prop("checked") == true){
+			// On coche tout
+			$('.jstree').jstree(true).check_all();			
+		}else{
+			// On décoche tout			
+			$('.jstree').jstree(true).uncheck_all();
+		}
+	
+		$('#searchAll').click(function(){		
+			if($('#searchAll').prop("checked") == true){
+				// On coche tout
+				$('.jstree').jstree(true).check_all();			
+			}else{
+				// On décoche tout			
+				$('.jstree').jstree(true).uncheck_all();
+			}
+		});
+
+		$('form').submit(function () {
+			var categories;
+			categories = "";
+			$('.jstree').jstree("open_all");
+			$('.jstree').find("a").each(function (){
+				if ($(this).hasClass("jstree-clicked")){//if ($(this).find("a .jstree-clicked").hasClass("jstree-clicked"))
+					categories += String($(this).parent("li").data('value')) + ',';
+				}				
+			});
+			$('.jstree').jstree("close_all");
+			//alert(categories);
+			categories = categories.substring(0, categories.length-1);		
+			$('input[name="categories"]').val(categories);
+		});	
+		
+	});
+	function decocheSearchAll(){		
+		$('#searchAll').prop("checked",false);
+		$('#searchAll').parent("span").removeClass("checked");
+	}
+</script>
+<!-- END Ventes_par_articleIndex -->

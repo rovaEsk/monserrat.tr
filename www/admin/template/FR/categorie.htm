@@ -1,0 +1,1259 @@
+<!-- BEGIN CategorieIndex -->
+$TemplateCommunHeader
+	<!-- DEBUT CONTENT -->
+		<!-- DEBUT PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DEBUT PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					$multilangue[categories]<small></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">						
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.php">
+								$multilangue[accueil]
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>							
+							$multilangue[catalogue]							
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="categorie.php">							
+								$multilangue[categories]
+							</a>						
+						</li>
+						<!-- BEGIN CategorieNavigSupp -->
+						    <li>
+						    	<i class="fa fa-angle-right"></i>						    	                       
+						        $libNavigSupp						        
+						    </li>
+						<!-- END CategorieNavigSupp -->
+					</ul>
+					<!-- FIN PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- FIN PAGE HEADER-->
+			<!-- DEBUT PAGE CONTENT-->
+			
+			<!-- BEGIN CategorieSuccess -->
+				<div class="alert alert-success alert-dismissable">					
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteSuccess
+				</div>
+			<!-- END CategorieSuccess -->
+			
+			<!-- BEGIN CategorieErreur -->
+				<div class="alert alert-danger alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+					$texteErreur
+				</div>
+			<!-- END CategorieErreur -->
+			
+			<!-- BEGIN CategorieInfo -->
+				<div class="alert alert-info alert-dismissable">
+					$texteInfo
+				</div>
+			<!-- END CategorieInfo -->
+			
+			<!-- BEGIN CategorieListe -->				
+				<div class="row">
+					<div class="col-md-12">
+						<div aria-hidden="true" aria-labelledby="jstree" role="dialog" tabindex="-1" class="modal fade" id="jstree" style="display: none;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+										<h4 class="modal-title">Déplacer une catégorie par glisser-déposer</h4>
+									</div>
+									<div class="modal-body">
+										<button class="btn blue right opentreeview">Tout ouvrir</button>
+										<div class="col-md-12">
+											<div class="col-md-4"></div>
+											<div class="jstree col-md-4"></div>
+											<div class="col-md-4"></div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div aria-hidden="true" role="dialog" class="modal fade deplacer" style="display: none">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+										<h4 class="modal-title">$multilangue[deplacement]</h4>
+									</div>
+									<div class="modal-body">																
+										$multilangue[deplacement_infos]
+									</div>
+									<div class="modal-footer">
+										<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+										<a class="btn blue">$multilangue[oui]</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div aria-hidden="true" role="dialog" class="modal fade copier" style="display: none">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+										<h4 class="modal-title">$multilangue[copier_rayon] : <span class="categorie"></span></h4>
+									</div>
+									<div class="modal-body">
+										<input type="hidden" name="catid" value="$categorie[catid]">
+										<input type="hidden" name="copcatid" value="$categorie[catid]">
+										<div class="col-md-12 ta-center bold mb-20">$multilangue[selectionnez_emplacement_rayon]</div>
+										<div class="col-md-4"></div>														
+										<div class="jstree-copier col-md-4"></div>
+										<div class="col-md-4"></div>
+										<div class="clear"></div>
+									</div>
+									<div class="modal-footer">
+										<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[retour]</button>
+										<a class="btn blue">$multilangue[copier]</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="categorie.php?catid=$categorie[parentid]" class="btn grey-silver mb-20"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+						
+						<a href="categorie.php?action=modifier&parentid=$catid" data-original-title="$multilangue[ajt_rayon]" class="btn red right mb-20">
+							$multilangue[ajt_rayon] &nbsp;
+							<i class="fa fa-plus"></i>
+						</a>
+						
+						<a href="#jstree" data-original-title="Déplacer un catégorie par glisser-déposer" data-toggle="modal" role="button" class="btn grey-gallery right mb-20" style="margin-right: 10px">
+							Déplacer une catégorie par glisser-déposer &nbsp;
+							<i class="fa fa-arrows"></i>
+						</a>
+												
+						<!-- BEGIN CategorieRemiseGros -->
+							<a href="remises_gros.php?catid=$catid" data-original-title="$multilangue[ajt_remise_gros]" style="margin-right: 10px;"class="btn green right mb-20">
+								$multilangue[ajt_remise_gros] &nbsp;
+								<i class="fa fa-sort-amount-desc"></i>
+							</a>
+						<!-- END CategorieRemiseGros -->
+						
+						<!-- BEGIN CategorieOrdreAffichage -->
+						<a href="ordre_affichage.php?catid=$catid" data-original-title="$multilangue[ordre_affichage_articles]" style="margin-right: 10px;"class="btn blue right mb-20">
+								$multilangue[ordre_affichage_articles] &nbsp;
+								<i class="fa fa-list-ol"></i>
+						</a>
+						<!-- END CategorieOrdreAffichage -->
+						<!-- BEGIN CategorieListePleine -->
+						<div class="portlet box light-grey">
+							<div class="portlet-title">
+								<div class="caption">
+									$multilangue[sous_rayon]
+								</div>
+								<div class="tools">
+                               		<a href="javascript:;" class="collapse">
+                               		</a>
+                           		</div>															
+							</div>
+							<div class="portlet-body">
+								<input type="hidden" name="catid" value="$catid">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-categorie table-hover">
+										<thead>
+											<tr>
+												<th class="ta-center">
+													$multilangue[categories]
+												</th>
+												<th class="ta-center">
+													$multilangue[article_s] $multilangue[actif_s] V1
+												</th>
+												<th class="ta-center">
+													$multilangue[article_s] $multilangue[actif_s] V2
+												</th>
+												<th class="ta-center">
+													$multilangue[visible] V1
+												</th>
+												<th class="ta-center">
+													$multilangue[visible] V2
+												</th>
+												<th class="ta-center">
+													$multilangue[actions]
+												</th>
+											</tr>
+										</thead>
+										<tbody>			
+										</tbody>
+										<tfoot>
+											<tr>
+												<th class="ta-center">
+													$multilangue[articles_actifs_total] : 
+												</th>
+												<th class="ta-center">$categorie[articles_actifsV1] sur $categorie[nb_articles]</th>
+												<th class="ta-center">$categorie[articles_actifsV2] sur $categorie[nb_articles]</th>
+												<th class="ta-center"></th>
+												<th class="ta-center"></th>
+												<th class="ta-center"></th>
+										</tfoot>
+									</table>					
+								</div>
+							</div>
+						</div>
+						<!-- END CategorieListePleine -->
+						<!-- BEGIN CategorieListeVide -->
+						<div class="clear"></div>
+						<div class="alert alert-info ta-center">
+								$texteInfo
+						</div>
+						<!-- END CategorieListeVide -->
+						<!-- BEGIN CategorieListeArticle -->
+						<form action="$_SERVER[PHP_SELF]" name="formActionsMultiples" method="post" class="form-horizontal">
+							<div class="portlet box light-grey">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[liste_articles]
+									</div>
+									<div class="tools">
+	                               		<a href="javascript:;" class="collapse">
+	                               		</a>
+	                           		</div>															
+								</div>
+								<div class="portlet-body form">
+									<a href="produits.php?action=modifier" data-original-title="$multilangue[ajt_rayon]" class="btn green right" style="margin: 20px">
+										$multilangue[ajt_article] &nbsp;
+										<i class="fa fa-plus "></i>
+									</a>
+									<div class="table-responsive">
+										<table class="table table-striped table-bordered table-article table-hover">
+											<thead>
+												<tr>
+													<th class="ta-center col-md-2">
+														<select name="action" class="form-control ta-center select-multiple">
+															<option selected>$multilangue[traitement_lot]</option>
+															<option value="copierarticle">$multilangue[copier]</option>
+															<option value="deplacerarticle">$multilangue[deplacer]</option>
+															<option value="supprimerarticlemultiple">$multilangue[supprimer]</option>
+														</select>
+														<input type="checkbox" class="form-control select-all">
+													</th>
+													<th class="ta-center">
+														$multilangue[article_s]
+													</th>
+													<th class="ta-center">
+														$multilangue[reference]
+													</th>
+													<th class="ta-center">
+														$multilangue[actions]
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- BEGIN CategorieListeArticleBit -->
+												<tr id="$article[artid]">
+													<td class="ta-center">
+														<!-- BEGIN CategorieListeArticleBitCheckbox -->
+														<input type="checkbox" class="form-control" name="artid[]" value="$article[artid]">
+														<!-- END CategorieListeArticleBitCheckbox -->
+													</td>
+													<td class="ta-center">
+														$article[libelle]
+													</td>
+													<td class="ta-center">
+														$article[artcode]
+													</td>
+													<td class="ta-center">
+														<a href="produits.php?action=modifier&artid=$article[artid]" data-original-title="$multilangue[modifier]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-edit fs-18 font-blue"></i>
+														</a>
+														<!-- BEGIN CategorieListeArticleBitSimple -->
+														<a href="categorie.php?action=copierarticle&artid=$article[artid]" data-original-title="$multilangue[copier]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-copy fs-18 font-blue"></i>
+														</a>
+														<a href="categorie.php?action=deplacerarticle&artid=$article[artid]" data-original-title="$multilangue[deplacer]" data-placement="top" class="btn tooltips">
+															<i class="fa fa-arrows-h fs-18 font-blue"></i>
+														</a>
+														<a href="#myModalArticle$article[artid]" data-original-title="$multilangue[supprimer]" data-placement="top" data-toggle="modal" role="button" class="btn tooltips">
+															<i class="fa fa-trash-o fs-18 font-red"></i>
+														</a>
+														<div aria-hidden="true" aria-labelledby="myModalArticleLabe$article[artid]" role="dialog" tabindex="-1" class="modal fade" id="myModalArticle$article[artid]" style="display: none;">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+																		<h4 class="modal-title">$multilangue[suppression_article] : "$article[libelle] : $article[artcode]" ?</h4>
+																	</div>
+																	<div class="modal-body">																					
+																		$multilangue[suppression_article_infos]
+																	</div>
+																	<div class="modal-footer">
+																		<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+																		<a href="categorie.php?action=supprimerarticle&artid=$article[artid]&catid=$article[catid]" class="btn blue">$multilangue[oui_supprimer]</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- END CategorieListeArticleBitSimple -->
+														<!-- BEGIN CategorieListeArticleBitMultiple -->
+														$multilangue[affichage_multiple]
+														<!-- END CategorieListeArticleBitMultiple -->
+													</td>
+												</tr>
+												<!-- END CategorieListeArticleBit -->					
+											</tbody>
+										</table>
+									</div>
+								</div>											
+							</div>
+							<div aria-hidden="true" role="dialog" class="modal fade supprimermultiple" style="display: none">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+											<h4 class="modal-title">$multilangue[suppresson_articles_selectionnes]</h4>
+										</div>
+										<div class="modal-body">																
+											$multilangue[suppression_articles_selectionnes_infos]
+										</div>
+										<div class="modal-footer">
+											<button aria-hidden="true" data-dismiss="modal" class="btn default">$multilangue[non]</button>
+											<a class="btn blue bluemultiple">$multilangue[oui_supprimer]</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<!-- END CategorieListeArticle -->
+						<!-- BEGIN CategorieListeArticleVide -->
+						<a href="produits.php?action=modifier" data-original-title="$multilangue[ajt_rayon]" class="btn green right mb-20">
+							$multilangue[ajt_article] &nbsp;
+							<i class="fa fa-plus "></i>
+						</a>
+						<div class="clear"></div>
+						<div class="alert alert-info ta-center">
+							$multilangue[aucun_article]
+						</div>
+						<!-- END CategorieListeArticleVide -->
+					</div>
+				</div>
+			<!-- END CategorieListe -->
+			
+			<!-- BEGIN CategorieModification -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formModifCategorie" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="modifier2">
+							<input type="hidden" name="catid" value="$categorie[catid]">
+							<input type="hidden" name="parentid" value="$parentid">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+							<div class="portlet box $classcolor_site_principal">
+								<div class="portlet-title">
+									<div class="caption">
+										$multilangue[donnees] <i>$siteprincipal[libelle]</i>
+									</div>	
+									<div class="tools">
+		                                <a class="collapse" href="javascript:;">
+		                                </a>					                                
+		                            </div>																			
+								</div>
+								<div class="portlet-body form">
+									<div class="form-body">											
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[libelle]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control" name="libelle" value="$categorie[libelle]">
+											</div>
+										</div>
+										<!-- BEGIN CategorieModificationCouleur -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color" value="$color">
+											</div>
+										</div>
+										<!-- END CategorieModificationCouleur -->
+										<!-- BEGIN CategorieModificationCouleurBack -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur_fond]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color_back" value="$color_back">
+											</div>
+										</div>
+										<!-- END CategorieModificationCouleurBack -->
+										<!-- BEGIN CategorieModificationCouleurSurvol -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur_survol]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color_survol" value="$color_survol">
+											</div>
+										</div>
+										<!-- END CategorieModificationCouleurSurvol -->
+										<!-- BEGIN CategorieModificationNumColonne -->
+										<div class="form-group">
+											<label class="control-label col-md-4">N° colonne menu déroulant</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control" name="num_colonne" value="$categorie[num_colonne]">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">Rayon cliquable</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedCliquable name="rayon_cliquable" value="1">
+											</div>
+										</div>
+										<!-- END CategorieModificationNumColonne -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[description]</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control editeur" name="description">$categorie[description]</textarea>
+											</div>
+										</div>
+										<!-- BEGIN CategorieModificationImage -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationImage -->
+										<!-- BEGIN CategorieModificationImage2 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[seconde_image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img2" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image2">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationImage2 -->
+										<!-- BEGIN CategorieModificationImage3 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[troisieme_image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$img3" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image3">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationImage3 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">Est une collection</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedCollection name="collection" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[visible] V1</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedV1 name="visible_treeviewV1" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[visible] V2</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedV2 name="visible_treeviewV2" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold bold">80</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_title">$categorie[ref_title]</textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_description">$categorie[ref_description]</textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_keywords">$categorie[ref_keywords]</textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- BEGIN CategorieModificationSiteBit -->
+							<div class="portlet box $site[classcolor]">
+		                        <div class="portlet-title">
+		                            <div class="caption">
+		                                $multilangue[donnees] <i>$site[libelle]</i>
+		                            </div>
+		                            <div class="tools">
+		                                <a class="expand" href="javascript:;">
+		                                </a>					                                
+		                            </div>
+		                        </div>
+		                        <div class="portlet-body form" style="display:none;">															
+									<div class="form-body">
+									<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[libelle]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control" name="libelle$site[siteid]" value="$categoriesite[libelle]">
+											</div>
+										</div>
+										<!-- BEGIN CategorieModificationSiteBitCouleur -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color$site[siteid]" value="$color">
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitCouleur -->
+										<!-- BEGIN CategorieModificationSiteBitCouleurBack -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur_fond]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color_back$site[siteid]" value="$color_back">
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitCouleurBack -->
+										<!-- BEGIN CategorieModificationSiteBitCouleurSurvol -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[couleur_survol]</label>
+											<div class="col-md-8">																														
+												<input type="text" class="form-control colorpicker" name="color_survol$site[siteid]" value="$color_survol">
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitCouleurSurvol -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[description]</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control editeur" name="description$site[siteid]">$categoriesite[description]</textarea>
+											</div>
+										</div>
+										<!-- BEGIN CategorieModificationSiteBitImage -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$imgsite" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image_$site[siteid]">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitImage -->
+										<!-- BEGIN CategorieModificationSiteBitImage2 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[seconde_image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$imgsite2" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image2_$site[siteid]">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitImage2 -->
+										<!-- BEGIN CategorieModificationSiteBitImage3 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[troisieme_image]</label>
+											<div class="col-md-8">
+												<div data-provides="fileinput" class="fileinput fileinput-new">
+													<div style="width: 200px; height: 150px;" data-trigger="fileinput" class="fileinput-preview thumbnail"><img src="$imgsite3" alt=""></div>
+													<div>
+														<span class="btn default btn-file">
+															<span class="fileinput-new">$multilangue[selectionner]</span>
+															<span class="fileinput-exists">$multilangue[modification]</span>
+															<input type="file" name="image3_$site[siteid]">
+														</span>
+														<a data-dismiss="fileinput" class="btn default fileinput-exists" href="#">$multilangue[supprimer]</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- END CategorieModificationSiteBitImage3 -->
+										<div class="form-group">
+											<label class="control-label col-md-4">Est une collection</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedsiteCollection name="collection$site[siteid]" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[visible] V1</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedsiteV1 name="visible_treeviewV1$site[siteid]" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">$multilangue[visible] V2</label>
+											<div class="col-md-8">
+												<input type="checkbox" data-off-label="$multilangue[non]" data-on-label="$multilangue[oui]" class="make-switch" $checkedsiteV2 name="visible_treeviewV2$site[siteid]" value="1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; TITLE &gt; <a href="#modalExplicationMetaTitle" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold bold">80</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_title$site[siteid]">$categoriesite[ref_title]</textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; META name=&quot;description&quot; &gt; <a href="#modalExplicationMetaDescription" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold">250</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_description$site[siteid]">$categoriesite[ref_description]</textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												$multilangue[balise] &lt; META name=&quot;keywords&quot; &gt; <a href="#modalExplicationMetaKeywords" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[les_variables] : <a href="#modalExplicationVariables" data-toggle="modal"><i class="fa fa-question-circle fs-24"></i></a><br>
+												$multilangue[longueur_conseillee] : <span class="text-info bold">1000</span> $multilangue[caracteres].<br>
+												$multilangue[longueur_actuelle] : <span class="bold"></span> $multilangue[caracteres].<br><br>
+											</label>
+											<div class="col-md-8">																														
+												<textarea class="form-control autosize" name="ref_keywords$site[siteid]">$categoriesite[ref_keywords]</textarea>
+											</div>
+										</div>																						
+									</div>													
+		                        </div>
+		                    </div>
+		                    <!-- END CategorieModificationSiteBit -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[enregistrer]</button>															
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END CategorieModification -->
+			
+			<!-- BEGIN CategorieCopier -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formCopierCategorie" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="copier2">
+							<input type="hidden" name="catid" value="$categorie[catid]">
+							<input type="hidden" name="copcatid" value="$categorie[catid]">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[copier]</button>															
+							</div>
+							<!-- BEGIN CategorieCopierJstree -->
+							<div class="col-md-12 ta-center bold mb-20">$multilangue[selectionnez_emplacement_rayon]</div>
+							<div class="col-md-12 mb-20">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<div class="jstree-copier" style="display: none">
+										<ul>
+											<li class="jstree-open" value="0">
+												$titleFR
+												<ul>
+													<!-- BEGIN CategorieCopierJstreeNiveau0 -->
+												    <li value="$niveau0[catid]">
+												    	$niveau0[libelle]
+												    	<ul>
+												    		<!-- BEGIN CategorieCopierJstreeNiveau1 -->
+															<li value="$niveau1[catid]">
+																$niveau1[libelle]
+																<ul>
+																	<!-- BEGIN CategorieCopierJstreeNiveau2 -->
+																	<li value="$niveau2[catid]">
+																		$niveau2[libelle]
+																		<ul>
+																			<!-- BEGIN CategorieCopierJstreeNiveau3 -->
+																			<li value="$niveau3[catid]">
+																				$niveau3[libelle]
+																				<ul>
+																				<!-- BEGIN CategorieCopierJstreeNiveau4 -->
+																					<li value="$niveau4[catid]">$niveau4[libelle]</li>																									
+																				<!-- END CategorieCopierJstreeNiveau4 -->																								
+																				</ul>
+																			</li>
+																			<!-- END CategorieCopierJstreeNiveau3 -->																							
+																		</ul>
+																	</li>
+																	<!-- END CategorieCopierJstreeNiveau2 -->																					
+																</ul>
+															</li>
+															<!-- END CategorieCopierJstreeNiveau1 -->
+														</ul>
+													</li>
+													<!-- END CategorieCopierJstreeNiveau0 -->
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+							<!-- END CategorieCopierJstree -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[copier]</button>															
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END CategorieCopier -->
+			
+			<!-- BEGIN CategorieDeplacer -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formDeplacerCategorie" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="deplacer2">
+							<input type="hidden" name="catid" value="$categorie[catid]">
+							<input type="hidden" name="parentid" value="$categorie[catid]">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[deplacer]</button>															
+							</div>
+							<!-- BEGIN CategorieDeplacerJstree -->
+							<div class="col-md-12 ta-center bold mb-20">$multilangue[selectionnez_emplacement_rayon]</div>
+							<div class="col-md-12 mb-20">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<div class="jstree-deplacer" style="display: none">
+										<ul>
+											<li class="jstree-open" value="0">
+												$titleFR
+												<ul>
+													<!-- BEGIN CategorieDeplacerJstreeNiveau0 -->
+												    <li value="$niveau0[catid]">
+												    	$niveau0[libelle]
+												    	<ul>
+												    		<!-- BEGIN CategorieDeplacerJstreeNiveau1 -->
+															<li value="$niveau1[catid]">
+																$niveau1[libelle]
+																<ul>
+																	<!-- BEGIN CategorieDeplacerJstreeNiveau2 -->
+																	<li value="$niveau2[catid]">
+																		$niveau2[libelle]
+																		<ul>
+																			<!-- BEGIN CategorieDeplacerJstreeNiveau3 -->
+																			<li value="$niveau3[catid]">
+																				$niveau3[libelle]
+																				<ul>
+																				<!-- BEGIN CategorieDeplacerJstreeNiveau4 -->
+																					<li value="$niveau4[catid]">$niveau4[libelle]</li>																									
+																				<!-- END CategorieDeplacerJstreeNiveau4 -->																								
+																				</ul>
+																			</li>
+																			<!-- END CategorieDeplacerJstreeNiveau3 -->																							
+																		</ul>
+																	</li>
+																	<!-- END CategorieDeplacerJstreeNiveau2 -->																					
+																</ul>
+															</li>
+															<!-- END CategorieDeplacerJstreeNiveau1 -->
+														</ul>
+													</li>
+													<!-- END CategorieDeplacerJstreeNiveau0 -->
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+							<!-- END CategorieDeplacerJstree -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[deplacer]</button>															
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END CategorieDeplacer -->
+			
+			<!-- BEGIN CategorieCopierArticle -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formCopierArticle" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="copierarticle2">
+							<!-- BEGIN CategorieCopierArticleArtid -->
+							<input type="hidden" name="artid[]" value="$artid">
+							<!-- END CategorieCopierArticleArtid -->
+							<input type="hidden" name="copcatid" value="$article[catid]">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[copier]</button>															
+							</div>
+							<!-- BEGIN CategorieCopierArticleJstree -->
+							<div class="col-md-12 ta-center bold mb-20">$multilangue[selectionnez_emplacement_article]</div>
+							<div class="col-md-12 mb-20">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<div class="jstree-copierarticle" style="display: none">
+										<ul>
+											<li class="jstree-open" value="0">
+												$titleFR
+												<ul>
+													<!-- BEGIN CategorieCopierArticleJstreeNiveau0 -->
+												    <li value="$niveau0[catid]">
+												    	$niveau0[libelle]
+												    	<ul>
+												    		<!-- BEGIN CategorieCopierArticleJstreeNiveau1 -->
+															<li value="$niveau1[catid]">
+																$niveau1[libelle]
+																<ul>
+																	<!-- BEGIN CategorieCopierArticleJstreeNiveau2 -->
+																	<li value="$niveau2[catid]">
+																		$niveau2[libelle]
+																		<ul>
+																			<!-- BEGIN CategorieCopierArticleJstreeNiveau3 -->
+																			<li value="$niveau3[catid]">
+																				$niveau3[libelle]
+																				<ul>
+																				<!-- BEGIN CategorieCopierArticleJstreeNiveau4 -->
+																					<li value="$niveau4[catid]">$niveau4[libelle]</li>																									
+																				<!-- END CategorieCopierArticleJstreeNiveau4 -->																								
+																				</ul>
+																			</li>
+																			<!-- END CategorieCopierArticleJstreeNiveau3 -->																							
+																		</ul>
+																	</li>
+																	<!-- END CategorieCopierArticleJstreeNiveau2 -->																					
+																</ul>
+															</li>
+															<!-- END CategorieCopierArticleJstreeNiveau1 -->
+														</ul>
+													</li>
+													<!-- END CategorieCopierArticleJstreeNiveau0 -->
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+							<!-- END CategorieCopierArticleJstree -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[copier]</button>															
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END CategorieCopierArticle -->
+			
+			<!-- BEGIN CategorieDeplacerArticle -->				
+				<div class="row">
+					<div class="col-md-12">
+						<form action="$_SERVER[PHP_SELF]" name="formDeplacerArticle" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered form-row-stripped">
+							<input type="hidden" name="action" value="deplacerarticle2">
+							<!-- BEGIN CategorieDeplacerArticleArtid -->
+							<input type="hidden" name="artid[]" value="$artid">
+							<!-- END CategorieDeplacerArticleArtid -->
+							<input type="hidden" name="catid" value="$article[catid]">
+							<input type="hidden" name="anciencatid" value="$article[catid]">
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[deplacer]</button>															
+							</div>
+							<!-- BEGIN CategorieDeplacerArticleJstree -->
+							<div class="col-md-12 ta-center bold mb-20">$multilangue[selectionnez_emplacement_article]</div>
+							<div class="col-md-12 mb-20">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<div class="jstree-deplacerarticle" style="display: none">
+										<ul>
+											<li class="jstree-open" value="0">
+												$titleFR
+												<ul>
+													<!-- BEGIN CategorieDeplacerArticleJstreeNiveau0 -->
+												    <li value="$niveau0[catid]">
+												    	$niveau0[libelle]
+												    	<ul>
+												    		<!-- BEGIN CategorieDeplacerArticleJstreeNiveau1 -->
+															<li value="$niveau1[catid]">
+																$niveau1[libelle]
+																<ul>
+																	<!-- BEGIN CategorieDeplacerArticleJstreeNiveau2 -->
+																	<li value="$niveau2[catid]">
+																		$niveau2[libelle]
+																		<ul>
+																			<!-- BEGIN CategorieDeplacerArticleJstreeNiveau3 -->
+																			<li value="$niveau3[catid]">
+																				$niveau3[libelle]
+																				<ul>
+																				<!-- BEGIN CategorieDeplacerArticleJstreeNiveau4 -->
+																					<li value="$niveau4[catid]">$niveau4[libelle]</li>																									
+																				<!-- END CategorieDeplacerArticleJstreeNiveau4 -->																								
+																				</ul>
+																			</li>
+																			<!-- END CategorieDeplacerArticleJstreeNiveau3 -->																							
+																		</ul>
+																	</li>
+																	<!-- END CategorieDeplacerArticleJstreeNiveau2 -->																					
+																</ul>
+															</li>
+															<!-- END CategorieDeplacerArticleJstreeNiveau1 -->
+														</ul>
+													</li>
+													<!-- END CategorieDeplacerArticleJstreeNiveau0 -->
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+							<!-- END CategorieDeplacerArticleJstree -->
+							<div class="col-md-12 ta-center mb-20">
+								<a href="$_SERVER[PHP_SELF]" class="btn grey-silver"><i class="fa fa-arrow-left"></i> $multilangue[retour]</a>
+								<button type="submit" class="btn green"><i class="fa fa-check"></i> $multilangue[deplacer]</button>															
+							</div>
+						</form>
+					</div>
+				</div>	
+			<!-- END CategorieDeplacerArticle -->
+		<!-- FIN PAGE CONTENT-->
+	<!-- FIN CONTENT -->	
+$TemplateCommunFooter
+
+<script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.autosize.min.js"></script>
+
+<script type="text/javascript">
+	App.init(); // initlayout and core plugins
+
+	$(document).ready(function() {
+		$('.jstree').jstree({
+			'plugins' : ['dnd', 'wholerow'],
+			'core' : {
+				'data': {
+					'url': 'categorie_ajax.php?action=jstree&version=1'
+	         	},
+	         	'check_callback' : true,
+	         	'multiple' : false
+			}
+		});
+		$('.jstree-copier').jstree({
+			'plugins' : ['wholerow'],
+			'core' : {
+				'data': {
+					'url': 'categorie_ajax.php?action=jstree&version=2'
+	         	},
+	         	'multiple' : false
+			}
+		});
+		$('.jstree').on("move_node.jstree", function (e, data) {
+			$('.deplacer').modal();
+			$('.deplacer .blue').click(function () {
+				var ajaxdata = 'action=deplacer&';
+				ajaxdata += 'catid=' + data.node.id.replace('1_', '') + '&';
+				ajaxdata += 'parentid=' + data.parent.replace('1_', '') + '&';
+	    		$.ajax({
+					url : 'categorie_ajax.php',
+					type : 'POST',
+					data : ajaxdata,
+					dataType : 'html',
+					success : function(code_html, statut){
+						$('.table-categorie').dataTable().fnDraw();
+						$('.modal').modal("hide");
+					},
+					error : function(resultat, statut, erreur){
+						alert(erreur);
+					}
+				});
+			});
+		});
+		$('.modal').on("hidden.bs.modal", function () {
+			$('.jstree').jstree("refresh");
+		});
+		$('.jstree-copier').on("select_node.jstree", function(e, data) {
+			$('input[name="copcatid"]').val(data.node.id.replace('2_', ''));
+		});
+		$('.jstree-deplacer').jstree({"plugins": ["wholerow"], "core" : { "multiple": false }}).show();
+		$('.jstree-deplacer').on("select_node.jstree", function(e, data) {
+			$('input[name="parentid"]').val(data.node.li_attr.value);
+		});
+		$('.jstree-copierarticle').jstree({"plugins": ["wholerow"], "core" : { "multiple": false }}).show();
+		$('.jstree-copierarticle').on("select_node.jstree", function(e, data) {
+			$('input[name="copcatid"]').val(data.node.li_attr.value);
+		});
+		$('.jstree-deplacerarticle').jstree({"plugins": ["wholerow"], "core" : { "multiple": false }}).show();
+		$('.jstree-deplacerarticle').on("select_node.jstree", function(e, data) {
+			$('input[name="catid"]').val(data.node.li_attr.value);
+		});
+		$('.btn').click(function () { $(this).blur(); });
+		$('.opentreeview').click(function () {
+			if ($(this).html() == "Tout ouvrir"){
+				$('.jstree').jstree("open_all");
+				$(this).html("Tout réduire");
+			}else{
+				$('.jstree').jstree("close_all");
+				$(this).html("Tout ouvrir");
+			}
+		});
+		$('.btn-copier').live('click', function () {
+			$('.copier input').val($(this).data("value"));
+			$('.copier .categorie').html($(this).closest("tr").find("td:eq(0)").find("a").html());
+			$('.copier').modal();
+		});
+		$('.copier .blue').click(function () {
+			$('.modal').modal("hide");
+			var ajaxdata = 'action=copier&';
+			ajaxdata += 'catid=' + $('.copier input[name="catid"]').val() + '&';
+			ajaxdata += 'copcatid=' + $('.copier input[name="copcatid"]').val() + '&';
+    		$.ajax({
+				url : 'categorie_ajax.php',
+				type : 'POST',
+				data : ajaxdata,
+				dataType : 'html',
+				success : function(code_html, statut){
+					$('.table-categorie').dataTable().fnDraw();
+					$('.modal').modal("hide");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);
+				}
+			});
+		});
+		$('.table-categorie').dataTable( {
+			"aoColumns": [
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "libelle", "iDataSort": 0, "data": "libelle"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "actifsV1", "iDataSort": 1, "data": "actifsV1"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "actifsV2", "iDataSort": 2, "data": "actifsV2"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "visibleV1", "iDataSort": 3, "data": "visibleV1"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "visibleV2", "iDataSort": 4, "data": "visibleV2"},
+	                      {"sClass": "ta-center", "bSortable": false, "mData": "action", "iDataSort": 5, "data": "action"}
+	        ],
+            "fnDrawCallback": function() {
+                App.initAjax();
+                $('.table-categorie > tbody').tableDnD({			
+        			onDragStart: function(table, row) {
+        				ordreDepart = $.tableDnD.serialize();		    	
+        		    },
+        		    onDrop: function(table, row) {
+        		    	var ordreArrivee = $.tableDnD.serialize();	
+        		    	if (ordreDepart != ordreArrivee){
+        		    		var data = 'action=categorie_positions&';
+        		    		data += 'ordre=' + ordreArrivee + '&';
+        		    		$.ajax({
+        						url : 'commun_ajax.php',
+        						type : 'POST',
+        						data : data,
+        						dataType : 'html',
+        						success : function(code_html, statut){
+        						},
+        						error : function(resultat, statut, erreur){
+        							alert(erreur);
+        						}
+        					});
+        		    	}
+        		    }
+        		});
+            },
+			"processing": true,
+	        "serverSide": true,
+	        "ajax": "categorie_ajax.php?catid=" + $('input[name="catid"]').val(),
+	        "bPaginate": false,
+	        "bFilter": false,
+	        "bInfo": false,
+	        "bSort": false, 
+			"language": {
+				"search": "Recherche : ",
+				"paginate": {
+					"first": "Première page",
+					"last": "Dernière page",
+					"next": "Page suivante",
+					"previous": "Page précédente"
+				},
+				"emptyTable": "Aucune donnée disponible dans la table",
+				"info": "Affichage des résultats de _START_ à _END_ sur _TOTAL_ résultats",
+				"infoEmpty": "Aucun résultat",
+				"infoFiltered": "sur _MAX_",
+				"lengthMenu": "Afficher _MENU_ résultats",
+				"sLoadingRecords": "Chargement ...",
+	            "sProcessing": '<img src="assets/img/loading-spinner-grey.gif"/><span>&nbsp;&nbsp;Chargement ...</span>',
+				"sZeroRecords": "Aucun résultat trouvé"
+			},
+			/*"footerCallback": function (row, data, start, end, display) {
+	            var api = this.api(), data;
+	            var intValActifs = function ( i ) {
+	                return typeof i === 'string' ?
+	                   	i.split(' ')[0].replace(/[\€% ]/g, '')*1 :
+	                    typeof i === 'number' ?
+	                        i : parseFloat(i);
+	            };
+	            var intValArticles = function ( i ) {
+	                return typeof i === 'string' ?
+	                   	i.split(' ')[2].replace(/[\€% ]/g, '')*1 :
+	                    typeof i === 'number' ?
+	                        i : parseFloat(i);
+	            };
+	            data = api.column( 1 ).data();
+	            totalActifs = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intValActifs(a) + intValActifs(b);
+	                } ) :
+	                0;
+	           	totalArticles = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intValArticles(a) + intValArticles(b);
+	                } ) :
+	                0;
+	            $( api.column(1).footer() ).html(
+	            	totalActifs + ' sur ' + totalArticles
+	            );
+	            data = api.column( 2 ).data();
+	            totalActifs = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intValActifs(a) + intValActifs(b);
+	                } ) :
+	                0;
+	           	totalArticles = data.length ?
+	                data.reduce( function (a, b) {
+	                        return intValArticles(a) + intValArticles(b);
+	                } ) :
+	                0;
+	            $( api.column(2).footer() ).html(
+	            	totalActifs + ' sur ' + totalArticles
+	            );
+			}*/
+	    });
+		$('.table-article > tbody').tableDnD({			
+			onDragStart: function(table, row) {
+				ordreDepart = $.tableDnD.serialize();		    	
+		    },
+		    onDrop: function(table, row) {
+		    	var ordreArrivee = $.tableDnD.serialize();	
+		    	if (ordreDepart != ordreArrivee){
+		    		var data = 'action=categorie_positionsarticles&';
+		    		data += 'catid=' + $('input[name="catid"]').val() + '&';
+		    		data += 'ordre=' + ordreArrivee + '&';
+		    		$.ajax({
+						url : 'commun_ajax.php',
+						type : 'POST',
+						data : data,
+						dataType : 'html',
+						success : function(code_html, statut){
+						},
+						error : function(resultat, statut, erreur){
+							alert(erreur);
+						}
+					});
+		    	}
+		    }
+		});
+		$('.select-multiple').change(function () {
+			if ($('.select-multiple').val() == "supprimerarticlemultiple"){
+				$('.supprimermultiple').modal();
+				$('.supprimermultiple').on("hide.bs.modal", function () {
+					$('.select-multiple option:eq(0)').prop('selected', true);
+				});
+				$('.bluemultiple').click(function () {
+					$('form[name="formActionsMultiples"]').submit();
+				});
+			}else{
+				$('form[name="formActionsMultiples"]').submit();
+			}
+		});
+		$('.select-all').click(function () {
+			if ($(this).is(":checked")){
+				$('form[name="formActionsMultiples"] input[type="checkbox"]').prop("checked", true);
+				$('form[name="formActionsMultiples"] input[type="checkbox"]').closest("span").addClass("checked");
+			}else{
+				$('form[name="formActionsMultiples"] input[type="checkbox"]').prop("checked", false);
+				$('form[name="formActionsMultiples"] input[type="checkbox"]').closest("span").removeClass("checked");
+			}
+		});
+		$('.btn-sm').live('click', function() {
+			var data = 'action=categorie_visible&';
+			data += 'catid=' + $(this).data("value") + '&';
+			data += 'color=' + ($(this).hasClass("green") ? "green" : "red") + '&';
+			data += 'version=' + $(this).data("version") + '&';
+			$.ajax({
+				url : 'commun_ajax.php',
+				type : 'POST',
+				data : data,
+				dataType : 'html',
+				success : function(code_html, statut){
+					var div = $('[data-value="' + code_html.split('_')[0] + '"][data-version="' + code_html.split('_')[3] + '"]');
+					div.removeClass("green red").addClass(code_html.split('_')[1]);					
+					$.extend({}, div.attr('data-original-title', code_html.split('_')[2]));
+					div.find("i").removeClass().addClass("fa").addClass((code_html.split('_')[1] == "green" ? "fa-check-square-o" : "fa-square-o"));
+					$('.tooltip').hide();
+					App.initAjax();
+					div.trigger("mouseover");
+				},
+				error : function(resultat, statut, erreur){
+					alert(erreur);	
+				}
+			});
+		});
+		$('.colorpicker').colorpicker({ format: 'hex' });
+		$('textarea').keyup(function () {
+			$(this).parent().parent().find('label').find('span:eq(1)').html($(this).val().length);
+			if ($(this).val().length > parseInt($(this).parent().parent().find('label').find('span:eq(0)').html()))
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-success').addClass('text-danger');
+			else
+				$(this).parent().parent().find('label').find('span:eq(1)').removeClass('text-danger').addClass('text-success');
+	    });
+		$('textarea').trigger("keyup");
+		$('.autosize').css('resize', 'vertical').autosize();
+	});
+</script>
+
+<!-- END CategorieIndex -->
