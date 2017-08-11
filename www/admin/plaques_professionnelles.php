@@ -70,14 +70,14 @@ if (!isset($action) or $action == ""){
                                 $selectedOption ="selected";
 								$categorieregleprixnom = $categorieregleprix;
                             }
-                            //eval(charge_template($langue,$referencepage,"moduleCategoriePrixListBit"));            
+                            //eval(charge_template($langue,$referencepage,"moduleCategoriePrixListBit"));
                         }
 						$categoriePrixMatiere = $categorieregleprixnom;
-						eval(charge_template($langue,$referencepage,"moduleCategoriePrixListBit"));            
+						eval(charge_template($langue,$referencepage,"moduleCategoriePrixListBit"));
                     }
                 	/** get all categorie regle produit  **/
                     /** get all categorie dimension produit  **/
-                    $categorieDimensionProduits = $DB_site->query("SELECT * FROM categorie_dimension_module"); 
+                    $categorieDimensionProduits = $DB_site->query("SELECT * FROM categorie_dimension_module");
                     if ($DB_site->num_rows($categorieDimensionProduits) > 0){
                         $TemplatePlaques_professionnellesModuleCategorieDimensionListBit = "";
                         $dimensionLongHaut = "Aucun";
@@ -95,10 +95,31 @@ if (!isset($action) or $action == ""){
 						eval(charge_template($langue,$referencepage,"moduleCategorieDimensionListBit"));
                     }
                 	/** get all categorie dimension produit  **/
-                    $categorieMatiere = $DB_site->query_first("SELECT nom FROM matieres WHERE id = '$categoriRegelePrixId'"); 
-                    $categorieDimension = $DB_site->query_first("SELECT dimension_prix FROM categorie_dimension_module WHERE categoriedimensionid = '$categoriDimensionId'"); 
+                    $categorieMatiere = $DB_site->query_first("SELECT nom FROM matieres WHERE id = '$categoriRegelePrixId'");
+                    $categorieDimension = $DB_site->query_first("SELECT dimension_prix FROM categorie_dimension_module WHERE categoriedimensionid = '$categoriDimensionId'");
                     $nomCategorieMatiere = $categorieMatiere[nom];
                     $nomCategorieDimension = $categorieDimension[dimension_prix];
+
+                    /** get all categorie dimension produit  **/
+                    $categorieDimensionProduits = $DB_site->query("SELECT * FROM categorie_dimension_module");
+                    if ($DB_site->num_rows($categorieDimensionProduits) > 0){
+                        while ($categorieDimensionProduit = $DB_site->fetch_array($categorieDimensionProduits)){
+                            $categorieDimensionProduitId = $categorieDimensionProduit[categoriedimensionid];
+                            $categorieDimensionPrix = $categorieDimensionProduit[dimension_prix];
+                            eval(charge_template($langue,$referencepage,"moduleCategorieDimensionBit"));
+                        }
+                    }
+                    /** get all categorie dimension produit  **/
+                    /** get all categorie regle produit  **/
+                    $categorieRegleProduits = $DB_site->query("SELECT * FROM matieres");
+                    if ($DB_site->num_rows($categorieRegleProduits) > 0){
+                        while ($categorieRegleProduit = $DB_site->fetch_array($categorieRegleProduits)){
+                            $categorieRegleProduitId = $categorieRegleProduit[id];
+                            $categorieregleprix = $categorieRegleProduit[nom];
+                            eval(charge_template($langue,$referencepage,"moduleCategoriePrixBit"));
+                        }
+                    }
+                    /** get all categorie regle produit  **/
                     eval(charge_template($langue,$referencepage,"modulePrixBit"));            
                 }
             }

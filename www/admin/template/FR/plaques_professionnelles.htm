@@ -100,9 +100,9 @@
                                                 <option value="$categorieDimensionProduitId" $selectedOption>$categorieDimensionprix</option>
                                                 <!-- END Plaques_professionnellesModuleCategorieDimensionListBit --> 
                                             </select>
-											$dimensionLongHaut
+											$nomCategorieDimension
                                         </label>
-										<div class="col-md-8 form-inline">
+										<div class="col-md-6 form-inline">
                                             <input type="hidden" name="prixmodule$idPlaqueProID" value="$idPlaqueProID"/> 
                                             <input type="text" class="form-control input-inline input prixmodulettc prixmodulettc_$idPlaqueProID" name="prixmodulettc_$idPlaqueProID" placeholder="0.00" id="prixmodulettc_$idPlaqueProID" data-site="$site[siteid]" value="$prixmoduleTTC" style="width:15%"/>
 											$sitesDevise $multilangue[ttc] $multilangue[soit] 
@@ -114,9 +114,58 @@
                                                 <option value="$categorieRegleProduitId" $selectedOption>$categorieregleprix</option>
                                                 <!-- END Plaques_professionnellesModuleCategoriePrixListBit --> 
                                             </select>
-											$categorieregleprixnom
+											$nomCategorieMatiere
+										</div>
+										<div class="col-md-2" style="display:none">
+											<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-$idPlaqueProID">Edit</button>
+											<!-- Modal -->
+											<div id="myModal-$idPlaqueProID" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+
+													<!-- Modal content-->
+													<div class="modal-content" >
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Modifier</h4>
+														</div>
+														<div class="modal-body">
+															<div class="form-group add_price_rule">
+																<div class="col-md-9 form-inline">
+																		<input type="hidden" id="id_tarif_plaque_$idPlaqueProID" name="id_tarif_plaque_$idPlaqueProID" value="$idPlaqueProID"/>
+																		<input type="text" class="form-control input-inline input prixmodulettc" name="new_prixmodulettc_$idPlaqueProID" placeholder="0.00" id="prixmodulettc_$idPlaqueProID" data-site="$site[siteid]" value="$prixmoduleTTC"/>
+																		$sitesDevise $multilangue[ttc] $multilangue[soit]
+																		<input type="text" class="form-control input-inline input prixmodulehtc" name="new_prixmodulehtc_$idPlaqueProID" placeholder="0.00" id="prixmodulehtc_$idPlaqueProID" data-site="$site[siteid]" value="$prixmoduleHTC"/>
+																		$sitesDevise $multilangue[ht]
+																		<br/><br/>
+																		<label>Dimension : </label>
+																		<select class="form-control input-inline" id="categorie_dimension_prix_$idPlaqueProID" style="width:46%">
+																			<option value="0">Aucun</option>
+																			<!-- BEGIN Plaques_professionnellesModuleCategorieDimensionBit -->
+																			<option value="$categorieDimensionProduitId">$categorieDimensionPrix</option>
+																			<!-- END Plaques_professionnellesModuleCategorieDimensionBit -->
+																		</select>
+																		<br/><br/>
+																		<label>Matière : </label>
+																		<select class="form-control input-inline" id="categorie_regle_prix_$idPlaqueProID" style="width:50%">
+																			<option value="0">Aucun</option>
+																			<!-- BEGIN Plaques_professionnellesModuleCategoriePrixBit -->
+																			<option value="$categorieRegleProduitId">$categorieregleprix</option>
+																			<!-- END Plaques_professionnellesModuleCategoriePrixBit -->
+																		</select><br/><br/>
+																		<button class="btn green" id="submit_form_edit_price" onclick="editReglePrix($idPlaqueProID);" type="submit">Envoyer</button>
+																</div>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														</div>
+													</div>
+
+												</div>
+											</div>
 										</div>
 									</div>
+
                                     <!-- END Plaques_professionnellesModulePrixBit -->
                                     <script type="text/javascript">
                                         /** ----- add regle_prix ------ **/
@@ -147,6 +196,33 @@
                                 					});
                                         }
                                         /** ----- add regle_prix ------ **/
+										/** ----- edit regle_prix ------ **/
+										function editReglePrix(_idTarifPlaques){
+											var url = "plaques_professionnelles_ajax.php";
+											var action = "edit_regle_prix";
+											var id_tarif_plaque = $( "#id_tarif_plaque_"+_idTarifPlaques ).val();
+											var prix_module_htc = $( "#prixmodulehtc_"+_idTarifPlaques ).val();
+											var categorie_dimension_prix = $("#categorie_dimension_prix_"+_idTarifPlaques).val();
+											var categorie_regle_prix = $("#categorie_regle_prix_"+_idTarifPlaques).val();
+											var data = 'action='+action+'&';
+											data += 'id_tarif_plaque='+id_tarif_plaque+'&';
+											data += 'prix_module_htc='+prix_module_htc+'&';
+											data += 'categorie_dimension_prix='+categorie_dimension_prix+'&';
+											data += 'categorie_regle_prix='+categorie_regle_prix+'&';
+											data += 'id_module=7&';
+											$.ajax({
+												url : url,
+												type : 'POST',
+												data : data,
+												dataType : 'html',
+												success : function(code_html, statut){
+												},
+												error : function(resultat, statut, erreur){
+													alert(erreur);
+												}
+											});
+										}
+										/** ----- edit regle_prix ------ **/
                                     </script>
                                     <div class="form-group add_price_rule" style="display:none">
                                         <label class="control-label col-md-3">Ajouter une regle de prix</label>
@@ -174,7 +250,7 @@
 								</div>												
 						  </div>
 					</div>		
-				<div class="col-md-12 ta-center">
+				<div class="col-md-12 ta-center" style="display:none">
 					<button type="submit" class="btn green"><i class="fa fa-check"></i> Enregistrer</button>															
 				</div>	
 				</form>
